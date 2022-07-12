@@ -6,12 +6,17 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/12 03:31:45 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/12 03:59:35 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(void)
+#include "inc/so_long.h"
+
+int	main(int ac, char *av[])
 {
-    /* code */
-    return (0);
+	t_game	*game;
+
+	if (ac != 2)
+        return ;
+	return (0);
 }

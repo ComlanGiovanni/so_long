@@ -24,7 +24,9 @@ des sprites et quelques éléments basiques de gameplay
 * Theme song
 * song when take item
 * song when die
-*
+* r or restart
+* iddle animation
+* moving ennemie (maybe tracing)
 *
 *
 
@@ -68,3 +70,8 @@ This project is licensed under the play the game License - see the LICENSE.md fi
 Inspiration, code snippets, etc.
 * [name](https)
 * [Book](https://www.amazon.fr/So-Long-Thanks-All-Fish/dp/1529034558)
+* [42 vid](https://elearning.intra.42.fr/notions/minilibx/subnotions)
+* [MinilibxGit](https://github.com/42Paris/minilibx-linux)
+* [MinilibxDoc](https://harm-smits.github.io/42docs/libs/minilibx/introduction.html)
+* [MinilibxTester](https://github.com/augustobecker/so_long_tester)
+* [MLX42](https://github.com/codam-coding-college/MLX42)

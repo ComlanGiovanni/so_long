@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/12 16:30:16 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/12 20:21:15 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,24 @@
 
 void	ft_init_game(t_game *game, char *map_name)
 {
+	int width;
+	int height;
+
+	width = game->width;
+	height = game->height;
+
 	game->mlx = mlx_init();
+	game->sprite = ft_init_sprites(game->mlx);
 	ft_read_map(game, map_name);
-	ft_check_map_form(game);
-	game->win = mlx_new_window();
+	ft_check_map(game);
+	game->win = mlx_new_window(game->mlx, width * 64, height * 64, GAME_TITLE);
 	ft_put_sprites_by_line(game);
     //"so_long" title name define
 }
 
-int	ft_exit_game()
+int	ft_exit_game(t_game *game)
 {
-	mlx_destroy_window();
+	mlx_destroy_window(game->mlx, game->win);
 	//free mlx
 	exit(EXIT_SUCCESS);
 }

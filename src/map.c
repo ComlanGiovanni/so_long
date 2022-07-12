@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/12 14:01:18 by gcomlan          ###   ########.fr       */
+/*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
+/*   Updated: 2022/07/12 14:04:13 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
-
-void	ft_init_game()
+void	ft_read_map()
 {
-	ft_read_map();
-	ft_check_map();
-    //"so_long" title name define
+	int		fd;
+	char	*line;
+
+	fd = open(filename, O_RDONLY);
+    if (fd <= 0)
+		//"File open fail.\n"
+    line = get_next_line(fd);
+	close(fd);
 }
 
-int	ft_exit_game()
+void	ft_check_map()
 {
-	exit(EXIT_SUCCESS);
+    //"Map must be rectangular.\n"
+	//wall
+	//params
 }

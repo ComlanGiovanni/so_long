@@ -1,5 +1,5 @@
 # so_long
-Ce projet est un jeu 2D simple conçu pour vous faire utiliser des textures, des sprites et quelques éléments basiques de gameplay.
+Et merci pour le poisson !
 
 ## Description
 
@@ -17,6 +17,16 @@ des sprites et quelques éléments basiques de gameplay
 
 * git clone git@github.com:ComlanGiovanni/so_long.git
 * make re && make bonus
+
+## IDEA
+
+* Konami code
+* Theme song
+* song when take item
+* song when die
+*
+*
+*
 
 ### Executing program
 
@@ -57,3 +67,4 @@ This project is licensed under the play the game License - see the LICENSE.md fi
 
 Inspiration, code snippets, etc.
 * [name](https)
+* [Book](https://www.amazon.fr/So-Long-Thanks-All-Fish/dp/1529034558)

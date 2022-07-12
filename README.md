@@ -1,5 +1,10 @@
-# so_long
-And thanks for all the fish
+
+<h1 align="center">  so_long - @42 </h1>
+
+<p align="center"> And thanks for all the fish. </p>
+
+<p align="center"><img height="280em" src="So_long_preview.png"></p>
+
 
 ## Description
 
@@ -74,3 +79,4 @@ Inspiration, code snippets, etc.
 * [MinilibxDoc](https://harm-smits.github.io/42docs/libs/minilibx/introduction.html)
 * [MinilibxTester](https://github.com/augustobecker/so_long_tester)
 * [MLX42](https://github.com/codam-coding-college/MLX42)
+* [xpm convertor](https://convertio.co/fr/png-xpm/)

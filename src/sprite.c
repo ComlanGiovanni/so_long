@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/12 22:07:24 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 00:45:58 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,3 @@ void	ft_put_all_sprites_to_line(t_game *game, int width, int height)
 	else
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.ground, width * 64, height * 64);
 }
-

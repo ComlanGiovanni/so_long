@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/12 21:51:03 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 00:34:34 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ typedef struct s_game
     int		  width;
 	int		  height;
 	int		  step;
+	int		  coin;
+	int		  exit;
+	int		  player;
 }		t_game;
 
 typedef struct s_sprites {

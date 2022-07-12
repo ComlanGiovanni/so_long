@@ -1,12 +1,14 @@
 
 <h1 align="center">  so_long - @42 </h1>
 
-<p align="center"> And thanks for all the fish. </p>
+<p align="center" style="font-size:26px; font-style:italic;font-weight:bold"> And thanks for all the fish. </p>
 
 <p align="center"><img height="280em" src="So_long_preview.png"></p>
 
-
-## Description
+##
+<center>
+<h1> Description </h1>
+</center>
 
 This project is a small 2D game with minilibx. You'll learn about textures, sprites and tiles.
 

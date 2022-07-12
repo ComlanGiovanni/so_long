@@ -6,12 +6,11 @@
 <p align="center"><img height="280em" src="So_long_preview.png"></p>
 
 
-
 <h1 align="center"> Description </h1>
 
 This project is a small 2D game with minilibx. You'll learn about textures, sprites and tiles.
 
-## Getting Started
+<h1 align="center"> Getting Started </h1>
 
 ### Dependencies
 
@@ -23,7 +22,7 @@ This project is a small 2D game with minilibx. You'll learn about textures, spri
 * git clone git@github.com:ComlanGiovanni/so_long.git
 * make re && make bonus
 
-## IDEA
+<h1 align="center"> Idea </h1>
 
 * Konami code
 * Theme song
@@ -35,30 +34,31 @@ This project is a small 2D game with minilibx. You'll learn about textures, spri
 *
 *
 
-### Executing program
+<h1 align="center"> Executing program </h1>
 
 * How to run the program
 ```
 ./
 ```
 
-## Help
+<h1 align="center"> Help </h1>
 
 Any advise for common problems or issues.
 ```
 Read the code and the comment
 ```
 
-### Improve and bug
+<h1 align="center"> Improve and bug </h1>
 
 * 
-## Authors
+
+<h1 align="center"> Authors </h1>
 
 Contributors names and contact info
 
 . [@ComlanGiovanni](https://github.com/ComlanGiovanni)
 
-## Version History
+<h1 align="center"> Version History </h1>
 
 * 0.2
     * Various bug fixes and optimizations and bonus
@@ -66,11 +66,11 @@ Contributors names and contact info
 * 0.1
     * Initial Release 1
 
-## License
+<h1 align="center"> License </h1>
 
 This project is licensed under the play the game License - see the LICENSE.md file for details
 
-## Acknowledgments
+<h1 align="center"> Acknowledgments </h1>
 
 Inspiration, code snippets, etc.
 * [Intro](https://www.youtube.com/watch?v=N_dUmDBfp6k)

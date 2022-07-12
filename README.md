@@ -1,10 +1,9 @@
 # so_long
-Et merci pour le poisson !
+And thanks for all the fish
 
 ## Description
 
-Ce projet est un jeu 2D simple conçu pour vous faire utiliser des textures,
-des sprites et quelques éléments basiques de gameplay
+This project is a small 2D game with minilibx. You'll learn about textures, sprites and tiles.
 
 ## Getting Started
 
@@ -68,7 +67,7 @@ This project is licensed under the play the game License - see the LICENSE.md fi
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
-* [name](https)
+* [Intro](https://www.youtube.com/watch?v=N_dUmDBfp6k)
 * [Book](https://www.amazon.fr/So-Long-Thanks-All-Fish/dp/1529034558)
 * [42 vid](https://elearning.intra.42.fr/notions/minilibx/subnotions)
 * [MinilibxGit](https://github.com/42Paris/minilibx-linux)

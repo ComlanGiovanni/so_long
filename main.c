@@ -6,21 +6,33 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/12 14:04:19 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/12 15:59:09 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/so_long.h"
 
-int	main(int ac, char *av[])
+int	main(int argc, char *argv[])
 {
 	int	idx;
 
 	idx = 0;
 
 	t_game	*game;
-
-	if (ac != 2)
+	/*
+	./so_long [pass to map][map name].ber
+	*/
+	if (argc != 2)
         return ;
-	return (EXIT_SUCCESS);
+	else
+	{
+		game = malloc(sizeof(t_game));
+		ft_init_game(game, argv[1]);
+		return (EXIT_SUCCESS);
+	}
 }
+
+/*
+mlx loop to call all the time
+mlx string put for bonus
+*/

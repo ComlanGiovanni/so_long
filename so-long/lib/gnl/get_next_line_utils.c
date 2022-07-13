@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 14:55:42 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/06/03 10:35:23 by gcomlan          ###   ########.fr       */
+/*   Created: 2022/07/22 14:55:45 by gcomlan           #+#    #+#             */
+/*   Updated: 2022/07/13 15:24:43 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
+
+/*
+	CETTE FONCTION PREPARE LE CAFER
+*/
 
 size_t	str_len(char *str)
 {
@@ -23,6 +27,11 @@ size_t	str_len(char *str)
 		size++;
 	return (size);
 }
+
+/*
+cette fonction chercher dans la stash le retour a la ligne
+	if (new_line == '\0')
+*/
 
 char	*str_chr(char *stash, int new_line)
 {
@@ -41,6 +50,21 @@ char	*str_chr(char *stash, int new_line)
 	}
 	return (NULL);
 }
+
+/*
+Cette fonction
+
+Si la stash est vide on malloc a 1 e on metune fin de char
+	adding a lot of line 
+	if (stash)
+	{
+		while (stash[idx_stash] != '\0')
+		{
+			str[idx_stash] = stash[idx_stash];
+			idx_stash++;
+		}
+	}
+*/
 
 char	*str_join(char *stash, char *buff)
 {
@@ -70,6 +94,10 @@ char	*str_join(char *stash, char *buff)
 	return (str);
 }
 
+/*
+Calcul la taille de la ligne
+*/
+
 size_t	line_len(char *line)
 {
 	size_t	len;
@@ -79,6 +107,10 @@ size_t	line_len(char *line)
 		len++;
 	return (len);
 }
+
+/*
+Modifie line en copiant la stash formater en ligne
+*/
 
 void	stash_cpy(char *line, char *stash)
 {

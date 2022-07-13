@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 18:07:30 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/06/24 02:55:21 by gcomlan          ###   ########.fr       */
+/*   Created: 2022/05/10 08:32:22 by gcomlan           #+#    #+#             */
+/*   Updated: 2022/07/13 15:54:29 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_H
+# define LIBFT_H
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	size;
+# include <stddef.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+# include <fcntl.h>
+# include <stdio.h>
 
-	size = 0;
-	if (!s)
-		return (0);
-	while (s[size++] != '\0')
-		;
-	return (size - 1);
-}
+int     ft_strlen(const char *s);
+
+#endif

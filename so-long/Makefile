@@ -6,7 +6,7 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/13 14:05:47 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/13 16:10:34 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,19 @@ GCC = gcc -Wall -Wextra -Werror -g
 
 NAME		=	so_long
 
-LIB_PATH	=	./lib
+LIB_PATH	=	./lib/small_lib
 
 LIB_NAME	=	lib_so_long.a
+
+MLX_PATH	=	./minilibx
+
+MLX_NAME	=	libmlx.a
 
 BONUS_PATH	=	./bonus
 
 BONUS_NAME	=	so_long_bonus
+
+FRAME_WORK	=	-framework OpenGL -framework AppKit
 
 RM			= rm -f
 
@@ -79,7 +85,7 @@ NEW_LINE	=	echo "\n"
 # ------------------------------ Rules ---------------------------------
 
 #	@make --no-print-directory -C ft_printf
-#	@make --no-print-directory -C mlx
+#	@make --no-print-directory -C mlx lib_so_long.a
 
 all : $(NAME)
 
@@ -87,14 +93,15 @@ $(NAME):
 	make -C $(LIB_PATH)
 	cp $(LIB_PATH)/$(LIB_NAME) .
 	@$(SO_LONG_COMP)
-	$(GCC) $(SRC) -L. $(LIB_NAME) -o $(NAME)
+	make --no-print-directory -C $(MLX_PATH)
+	$(GCC) -o $(NAME) $(SRC) -L. $(LIB_NAME) -L. $(MLX_PATH)/$(MLX_NAME) $(FRAME_WORK)
 	@echo "$$HEADER"
 	@$(SO_LONG_READY)
 
 bonus: $(OBJS_BONUS)
 	make -C $(LIB_PATH)
 	cp $(LIB_PATH)/$(LIB_NAME) $(BONUS_PATH)
-	$(GCC) $(SRCS_BONUS) -L. ./bonus/$(LIB_NAME) -o $(BONUS_NAME)
+	$(GCC) $(SRCS_BONUS) -L. $(BONUS_PATH)/$(LIB_NAME) -o $(BONUS_NAME)
 	@$(BONUS_READY)
 
 clean :

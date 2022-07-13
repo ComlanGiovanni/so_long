@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 14:55:50 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/06/03 16:26:46 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 15:17:42 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+# define BUFFER_SIZE (24)
 
 char	*get_next_line(int fd);
 char	*get_stash(int fd, char *stash);

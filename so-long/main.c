@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 14:06:20 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 15:06:16 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ ft_itoa
 ft_strcmp
 ft_putchar_fd
 ft_putstr
+
+h for help menum ??
 
 ENV check ??
 	if (ft_check_env(env))

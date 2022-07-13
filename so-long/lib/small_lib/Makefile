@@ -6,7 +6,7 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 08:46:58 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/12 21:05:56 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/13 15:51:38 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,20 +14,16 @@ NAME = lib_so_long.a
 
 CC = gcc -Wall -Wextra -Werror
 
-SRC =  	ft_atoi.c \
-		ft_atol.c \
-		ft_free_tab.c \
-		ft_isdigit.c \
-		ft_split.c \
-		ft_strjoin.c \
-		ft_strdup.c \
-		ft_strlcpy.c \
-		ft_strlen.c \
-		ft_putchar.c \
-		ft_strcmp.c \
-		ft_isspace.c \
-		ft_putnbr.c \
-		ft_strchr.c
+#normal not fd after
+SRC = 	ft_strlen.c \
+		../gnl/get_next_line.c \
+		../gnl/get_next_line_utils.c \
+		../ft_printf/ft_printf.c \
+		../ft_printf/ft_printf_hexa.c \
+		../ft_printf/ft_printf_ptr.c \
+		../ft_printf/ft_printf_unsign.c \
+		../ft_printf/ft_printf_nbr.c \
+		../ft_printf/ft_printf_str.c
 
 BLACK			=	\033[0;30m
 RED				=	\033[0;31m

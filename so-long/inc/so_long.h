@@ -6,22 +6,25 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 14:08:47 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 15:55:18 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-//mac deine __apple_ and __linux 
+//mac deine __apple_ and __linux
+//# if defined (__APPLE__)
+//#  define PTR_NULL "0x0"
+//# elif __linux__
+//#  define PTR_NULL "(nil)"
+//# endif
 //for copatibility
 
-#include <stdlib.h> 
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
-
-#include "../minilibx/mlx.h"
+# include "../minilibx/mlx.h"
+# include "../lib/small_lib/libft.h"
+# include "../lib/gnl/get_next_line.h"
+# include "../lib/ft_printf/ft_printf.h"
 
 # define ERROR_MSG	        "Error\n"
 # define GAME_TITLE	        "./so_long"

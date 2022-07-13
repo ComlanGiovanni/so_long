@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 17:17:43 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 17:47:51 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 //# endif
 //for copatibility
 
-# include "../minilibx/mlx.h"
+# include "../mlx/mlx.h"
 # include "../lib/small_lib/libft.h"
 # include "../lib/gnl/get_next_line.h"
 # include "../lib/ft_printf/ft_printf.h"

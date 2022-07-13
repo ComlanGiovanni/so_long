@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 03:15:10 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 18:16:45 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ void	ft_init_game(t_game *game, char *map_name)
 	int width;
 	int height;
 
-	width = game->width;
-	height = game->height;
-
 	game->mlx = mlx_init();
 	game->sprite = ft_init_sprites(game->mlx);
+	width = game->width;
+	height = game->height;
 	ft_read_map(game, map_name);
 	ft_check_map(game);
 	game->win = mlx_new_window(game->mlx, width * 64, height * 64, GAME_TITLE);

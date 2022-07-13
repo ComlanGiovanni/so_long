@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 14:13:02 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 18:23:45 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_read_map(t_game *game, char *filename)
 		if (line)
 			game->map = ft_custom_strjoin(game->map, line);
 	}
-	free(line);
+	//free(line);
 	close(fd);
 }
 

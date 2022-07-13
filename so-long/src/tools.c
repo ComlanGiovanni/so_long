@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 22:27:34 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 13:55:16 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 18:23:05 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,9 @@ int	ft_custom_strlcpy(char *dst, char *src, int dst_size)
 
 char	*ft_custom_strjoin(char *s1, char *s2)
 {
-	int	s1_len;
-	int	s2_len;
+	int		s1_len;
+	int		s2_len;
 	char	*dst;
-
 
     if (s1 == NULL && s2 == NULL)
 		return (NULL);
@@ -79,6 +78,6 @@ char	*ft_custom_strjoin(char *s1, char *s2)
 	ft_custom_strlcpy(dst, s1, s1_len + 1);
 	ft_custom_strlcpy((dst + s1_len), s2, s2_len + 1);
     free(s1);
-	//free(s2);
+	free(s2);
 	return (dst);
 }

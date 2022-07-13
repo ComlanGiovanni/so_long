@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 22:27:34 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 18:23:05 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 18:32:02 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@
 
 char	*ft_custom_strdup(char *s1)
 {
-    int		idx;
 	char	*dest;
+	int		size;
+	int		idx;
 
+	dest = NULL;
+	size = ft_strlen(s1);
 	idx = 0;
-	dest = (char *)malloc(ft_strlen((char *)s1) * sizeof(char) + 1);
-	if (dest)
-	{
-		while (s1[idx] != '\n')
-		{
-			dest[idx] = s1[idx];
-			idx++;
-		}
-		dest[idx] = '\0';
-		return (dest);
-	}
-	else
+	dest = (char *)malloc(size * sizeof(char) + 1);
+	if (!(dest))
 		return (NULL);
+	while (s1[idx] && s1[idx] != '\n')
+	{
+		dest[idx] = s1[idx];
+		idx++;
+	}
+	dest[idx] = '\0';
+	return (dest);
 }
 
 //ft_strlcpy_line_without_newline
@@ -64,6 +64,7 @@ char	*ft_custom_strjoin(char *s1, char *s2)
 	int		s2_len;
 	char	*dst;
 
+	dst = NULL;
     if (s1 == NULL && s2 == NULL)
 		return (NULL);
     else if (s1 == NULL)

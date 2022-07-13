@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 17:47:51 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 18:27:16 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	ft_move_right(t_game *game);
 
 //../src/map.c
 
-void	ft_read_map(t_game *game, char *filename);
+void	ft_read_map(t_game *game, char *map_name);
 void	ft_check_map(t_game *game);
 void	ft_check_sealed(t_game *game);
 void	ft_check_rectangular(t_game *game);

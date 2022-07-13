@@ -6,19 +6,19 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 18:23:45 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 18:27:09 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	ft_read_map(t_game *game, char *filename)
+void	ft_read_map(t_game *game, char *map_name)
 {
 	int		fd;
 	int		width;
 	char	*line;
 
-	fd = open(filename, O_RDONLY);
+	fd = open(map_name, O_RDONLY);
     if (fd <= 0)
 	{
 		perror(ERROR_MSG);

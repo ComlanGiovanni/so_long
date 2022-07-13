@@ -6,7 +6,7 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/13 18:14:33 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/13 18:48:41 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,7 @@ $(NAME):
 	@$(SO_LONG_COMP)
 	make --no-print-directory -C $(MLX_PATH)
 	cp $(MLX_PATH)/$(MLX_NAME) .
-	$(GCC) -o $(NAME) -L. $(MLX_NAME) -lXext -lX11 $(LIB_NAME) $(SRC) $(FRAME_WORK)
+	$(GCC) -o $(NAME) -L. $(MLX_NAME) -lXext -lX11 -L. $(LIB_NAME) $(SRC) $(FRAME_WORK)
 	@echo "$$HEADER"
 	@$(SO_LONG_READY)
 

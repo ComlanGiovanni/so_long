@@ -76,3 +76,4 @@ Inspiration, code snippets, etc.
 * [MinilibxTester](https://github.com/augustobecker/so_long_tester)
 * [MLX42](https://github.com/codam-coding-college/MLX42)
 * [xpm convertor](https://convertio.co/fr/png-xpm/)
+* [background remove](https://www.remove.bg/)

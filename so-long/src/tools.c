@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 22:27:34 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 02:25:45 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 13:55:16 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ char	*ft_custom_strdup(char *s1)
 
 //ft_strlcpy_line_without_newline
 
-int	ft_custom_strlcpy(char *dst, char *src, int dstsize)
+int	ft_custom_strlcpy(char *dst, char *src, int dst_size)
 {
 	int	idx;
 	int	len;
 
 	len = ft_strlen(src);
 	idx = 0;
-	if (dstsize != 0)
+	if (dst_size != 0)
 	{
-		while (src[idx] != '\n' && idx < dstsize - 1)
+		while (src[idx] != '\n' && idx < dst_size - 1)
 		{
 			dst[idx] = src[idx];
 			idx++;

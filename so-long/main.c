@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 02:57:00 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 14:06:20 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char *argv[])
 		return (EXIT_SUCCESS);
 	}
 }
-
+ /*
 int	ft_check_env(char **env)
 {
 	int	idx;
@@ -52,6 +52,7 @@ int	ft_check_env(char **env)
 	//DISPLAY unreachable.
 	return (EXIT_FAILURE);
 }
+*/
 
 /*
 mlx loop to call all the time

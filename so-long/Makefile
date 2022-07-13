@@ -6,7 +6,7 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/13 02:07:42 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/13 14:05:47 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,23 @@ GCC = gcc -Wall -Wextra -Werror -g
 
 NAME		=	so_long
 
+LIB_PATH	=	./lib
+
 LIB_NAME	=	lib_so_long.a
 
-CHECKER_NAME	= so_long
+BONUS_PATH	=	./bonus
+
+BONUS_NAME	=	so_long_bonus
 
 RM			= rm -f
 
 #Files
 SRC		=	main.c \
-			./src/src.c
+			./src/input.c \
+			./src/map.c \
+			./src/so_long.c \
+			./src/sprite.c \
+			./src/tools.c
 
 SRCS_BONUS	=   ./bonus/main.c \
 				./bonus/truc.c
@@ -56,11 +64,11 @@ NO_COLOR		=	\033[0m
 
 COMP_START	=	echo "\n🚧 $(PURPLE)Make: $(NO_COLOR)Starting the compilation...\n"
 
-SO_LONG_COMP	=	echo "\n🚧 $(YELLOW)so_long: $(NO_COLOR)Starting the compilation...\n"
+SO_LONG_COMP	=	echo "\n🚧 $(YELLOW) $(NAME): $(NO_COLOR)Starting the compilation...\n"
 
-SO_LONG_READY	=	echo "\n🧮 $(RED)so_long $(NO_COLOR)ready!\n"
+SO_LONG_READY	=	echo "\n🧮 $(RED) $(NAME) $(NO_COLOR)ready!\n"
 
-BONUS_READY	=	echo "\n🎯 Bonus: $(CYAN)checker $(NO_COLOR)ready!\n"
+BONUS_READY	=	echo "\n🎯 Bonus: $(CYAN) $(BONUS_NAME) $(NO_COLOR)ready!\n"
 
 CLEANED		=	echo "\n💧 $(GREEN)Clean: $(NO_COLOR)Removed all the \".o\" files 🗑\\n"
 
@@ -76,33 +84,33 @@ NEW_LINE	=	echo "\n"
 all : $(NAME)
 
 $(NAME):
-	make -C ./libs/lib
-	cp ./libs/lib/$(LIB_NAME) .
+	make -C $(LIB_PATH)
+	cp $(LIB_PATH)/$(LIB_NAME) .
 	@$(SO_LONG_COMP)
 	$(GCC) $(SRC) -L. $(LIB_NAME) -o $(NAME)
 	@echo "$$HEADER"
 	@$(SO_LONG_READY)
 
 bonus: $(OBJS_BONUS)
-	make -C ./libs/lib
-	cp ./lib/libpushswap.a ./bonus
-	$(GCC) $(SRCS_BONUS) -L. ./bonus/$(LIB_NAME) -o $(CHECKER_NAME)
+	make -C $(LIB_PATH)
+	cp $(LIB_PATH)/$(LIB_NAME) $(BONUS_PATH)
+	$(GCC) $(SRCS_BONUS) -L. ./bonus/$(LIB_NAME) -o $(BONUS_NAME)
 	@$(BONUS_READY)
 
 clean :
 	$(RM) *.o
 	$(RM) *~
 	$(RM) *#
-	$(RM) ./bonus/*.o
-	make -C ./libs/lib clean
+	$(RM) $(BONUS_PATH)/*.o
+	make -C $(LIB_PATH) clean
 	@$(CLEANED)
 
 fclean : clean
-	rm -f $(NAME)
-	make -C ./libs/lib fclean
-	rm -f $(LIB_NAME)
-	rm -f ./bonus/$(LIB_NAME)
-	rm -f $(CHECKER_NAME)
+	$(RM) $(NAME)
+	make -C $(LIB_PATH) fclean
+	$(RM) $(LIB_NAME)
+	$(RM) $(BONUS_PATH)/$(LIB_NAME)
+	$(RM) $(BONUS_NAME)
 	@$(FCLEANED)
 
 re : fclean all

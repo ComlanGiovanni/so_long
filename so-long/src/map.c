@@ -6,13 +6,13 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 03:20:20 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 14:13:02 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	ft_read_map(char *filename, t_game *game)
+void	ft_read_map(t_game *game, char *filename)
 {
 	int		fd;
 	int		width;
@@ -30,14 +30,14 @@ void	ft_read_map(char *filename, t_game *game)
 	game->height = 0;
 	game->step = 0;
 	game->width = width;
-	game->map = ft_strdup_custom(line);
+	game->map = ft_custom_strdup(line);
 	free(line);
 	while (line)
 	{
 		game->height++;
 		line = get_next_line(fd);
 		if (line)
-			game->map = ft_strjoin_custom(game->map, line);
+			game->map = ft_custom_strjoin(game->map, line);
 	}
 	free(line);
 	close(fd);

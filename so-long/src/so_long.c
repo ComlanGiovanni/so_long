@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/12 20:21:15 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 03:15:10 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	ft_init_game(t_game *game, char *map_name)
 	ft_check_map(game);
 	game->win = mlx_new_window(game->mlx, width * 64, height * 64, GAME_TITLE);
 	ft_put_sprites_by_line(game);
-    //"so_long" title name define
 }
 
 int	ft_exit_game(t_game *game)
@@ -36,9 +35,10 @@ int	ft_exit_game(t_game *game)
 	exit(EXIT_SUCCESS);
 }
 
-int		ft_win_game()
+int		ft_win_game(t_game *game)
 {
-	
+	ft_printf("You win like a chad !%s %d%s\n", "steps : ", game->step, ". Thanks for playing !");
+	exit(0);
 }
 
 /**
@@ -61,8 +61,10 @@ int		ft_win_game()
  */
 void	ft_print_error(char *error_msg)
 {
-	write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
+	//write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
 	write(STDERR_FILENO, error_msg, ft_strlen(error_msg));
 	exit(EXIT_FAILURE);
 	// add perror ?
 }
+
+//random idea : save the file name in struc to display it in error msg

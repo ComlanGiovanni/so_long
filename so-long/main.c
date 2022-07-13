@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/12 21:00:19 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 02:57:00 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 int	main(int argc, char *argv[])
 {
 	t_game	*game;
-	/*
-	./so_long [pass to map][map name].ber
-	*/
+
 	if (argc != 2)
-        ft_print_error();
-	else if (argc > 2)
-		ft_print_error(usage);
+	{
+		perror(ERROR_MSG);
+        ft_print_error(USAGE_MSG);
+	}
 	else
 	{
+		//secure malloc
 		game = malloc(sizeof(t_game));
 		ft_init_game(game, argv[1]);
 		mlx_hook(game->win, KEY_PRESS, 0, &ft_input_manager, game);
@@ -31,6 +31,26 @@ int	main(int argc, char *argv[])
 		mlx_loop(game->mlx);
 		return (EXIT_SUCCESS);
 	}
+}
+
+int	ft_check_env(char **env)
+{
+	int	idx;
+
+	if (!*env)
+	{
+		//env unreachable.
+		return (EXIT_FAILURE);
+	}
+	idx = 0;
+	while (env[idx])
+	{
+		if (!ft_strncmp("DISPLAY", env[idx], ft_strlen(env[idx])))
+			return (EXIT_SUCCESS);
+		idx++;
+	}
+	//DISPLAY unreachable.
+	return (EXIT_FAILURE);
 }
 
 /*
@@ -48,4 +68,8 @@ ft_itoa
 ft_strcmp
 ft_putchar_fd
 ft_putstr
+
+ENV check ??
+	if (ft_check_env(env))
+		return (0);
 */

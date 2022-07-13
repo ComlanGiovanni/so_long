@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 00:34:34 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 03:31:10 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,26 @@
 #include <stdlib.h> 
 #include <unistd.h>
 #include <fcntl.h>
-#include "../libs/minilibx-linux/mlx.h"
+#include <stdio.h>
+
+#include "../minilibx/mlx.h"
 
 # define ERROR_MSG	        "Error\n"
 # define GAME_TITLE	        "./so_long"
+# define USAGE_MSG	        "./so_long [pass to map][map name].ber\n"
+# define WALL_ERROR	        "[Map_name].ber should be surrounded by walls : 1 see [maps]/classic.ber\n"
+# define FORM_ERROR	        "[Map_name].ber should be in rectangular form !\n"
+# define COIN_ERROR			"[Map_name].ber should have at least one collectible -> C\n"
+# define PLAYER_ERROR		"[Map_name].ber should have one starting point -> P\n"
+# define EXIT_ERROR			"[Map_name].ber should have at east one exit -> E\n"
 # define KEY_PRESS			2
 # define KEY_RELEASE		3
 # define KEY_EXIT		    17
 # define WALL_CHAR          '1'
-# define COLLECTIBLE_CHAR   'C'
-# define EXIT_CHAR          'E'
 # define PLAYER_CHAR        'P'
+# define COIN_CHAR   		'C'
+# define EXIT_CHAR          'E'
+# define VOID_CHAR          '0'
 # define ESC		         53
 # define W			         13
 # define A			         0
@@ -46,6 +55,7 @@ typedef struct s_game
 	int		  height;
 	int		  step;
 	int		  coin;
+	int		  storage;
 	int		  exit;
 	int		  player;
 }		t_game;
@@ -68,13 +78,31 @@ void	ft_move_left();
 void	ft_move_down();
 void	ft_move_right();
 
-void	ft_init_game();
-int     ft_exit_game();
+//../src/map.c
+
+void	ft_read_map(char *filename, t_game *game);
+void	ft_check_map(t_game *game);
+void	ft_check_sealed(t_game *game);
+void	ft_check_rectangular(t_game *game);
+void	ft_check_playability(t_game *game);
+
+//../src/so_long.c
+
+void	ft_init_game(t_game *game, char *map_name);
+int		ft_exit_game(t_game *game);
 int		ft_win_game();
 void	ft_print_error(char *error_msg);
 
-t_sprites     ft_init_sprites(void *mlx);
-void	ft_put_sprites_by_line(t_game *game);
-void	ft_put_all_sprites_to_line(t_game *g, int width, int height);
+//../src/sprite.c
+
+t_sprites	ft_init_sprites(void *mlx);
+void		ft_put_sprites_by_line(t_game *game);
+void		ft_put_all_sprites_to_line(t_game *game, int width, int height);
+
+//../src/tools.c
+
+char	*ft_custom_strdup(char *s1);
+int	ft_custom_strlcpy(char *dst, char *src, int dstsize);
+char	*ft_custom_strjoin(char *s1, char *s2);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 00:45:58 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 02:23:30 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 t_sprites	ft_init_sprites(void *mlx)
 {
 	t_sprites	sprite;
-	int		width;
-	int		height;
+	int			width;
+	int			height;
 
 	sprite.player = mlx_xpm_file_to_image(mlx, "./img/xpm/player.xpm", &width, &height);
 	sprite.ground = mlx_xpm_file_to_image(mlx, "./img/xpm/ground.xpm", &width, &height);
@@ -46,7 +46,6 @@ void	ft_put_sprites_by_line(t_game *game)
 
 void	ft_put_all_sprites_to_line(t_game *game, int width, int height)
 {
-    //add fleche
 	if (game->map[height * game->width + width] == WALL_CHAR)
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.wall, width * 64, height * 64);
 	else if (game->map[height * game->width + width] == COLLECTIBLE_CHAR)

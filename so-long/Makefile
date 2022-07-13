@@ -6,7 +6,7 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/12 19:21:07 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/13 02:07:42 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,9 @@ FCLEANED	=	echo "\n🧼 $(GREEN)Fclean: $(NO_COLOR)Removed the executables 🗑\
 NEW_LINE	=	echo "\n"
 
 # ------------------------------ Rules ---------------------------------
+
+#	@make --no-print-directory -C ft_printf
+#	@make --no-print-directory -C mlx
 
 all : $(NAME)
 

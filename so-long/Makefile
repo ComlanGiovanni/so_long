@@ -6,7 +6,7 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/13 16:10:34 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/13 17:29:26 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,8 @@ NEW_LINE	=	echo "\n"
 
 #	@make --no-print-directory -C ft_printf
 #	@make --no-print-directory -C mlx lib_so_long.a
-
+# $(GCC) -o $(NAME) $(SRC) -L. $(LIB_NAME) -L. $(MLX_PATH)/$(MLX_NAME) $(FRAME_WORK)
+	
 all : $(NAME)
 
 $(NAME):
@@ -94,7 +95,8 @@ $(NAME):
 	cp $(LIB_PATH)/$(LIB_NAME) .
 	@$(SO_LONG_COMP)
 	make --no-print-directory -C $(MLX_PATH)
-	$(GCC) -o $(NAME) $(SRC) -L. $(LIB_NAME) -L. $(MLX_PATH)/$(MLX_NAME) $(FRAME_WORK)
+	cp $(MLX_PATH)/$(MLX_NAME) .
+	$(GCC) -o $(NAME) -L. $(MLX_NAME) -L. $(LIB_NAME) $(SRC) $(FRAME_WORK)
 	@echo "$$HEADER"
 	@$(SO_LONG_READY)
 

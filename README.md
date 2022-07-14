@@ -26,8 +26,11 @@
 * r or restart
 * iddle animation
 * moving ennemie (maybe tracing)
-*
-*
+* try to nake a difference btw normal iddel instant and delay iddle
+* baba is not you
+* there is not baba is you
+* game very not inspired
+* timer
 
 <h1 align="center"> Executing program </h1>
 
@@ -77,3 +80,8 @@ Inspiration, code snippets, etc.
 * [MLX42](https://github.com/codam-coding-college/MLX42)
 * [xpm convertor](https://convertio.co/fr/png-xpm/)
 * [background remove](https://www.remove.bg/)
+* [tuto](https://achedeuzot.me/2014/12/20/installer-la-minilibx/)
+* [Assets](https://itch.io/game-assets/free/tag-sprites)
+* [fun](https://www.youtube.com/watch?v=OCh2l0J1uJk)
+* [baba is you](https://babaiswiki.fandom.com/wiki/Category:Nouns)
+* [vert](https://www.vertopal.com/)

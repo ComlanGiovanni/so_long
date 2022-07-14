@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 18:27:16 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/14 23:07:29 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define COIN_ERROR			"[Map_name].ber should have at least one collectible -> C\n"
 # define PLAYER_ERROR		"[Map_name].ber should have one starting point -> P\n"
 # define EXIT_ERROR			"[Map_name].ber should have at east one exit -> E\n"
+# define FAIL_OPEN_ERROR	"[Map_name].ber fail to open\n"
 # define KEY_PRESS			2
 # define KEY_RELEASE		3
 # define KEY_EXIT		    17
@@ -42,11 +43,21 @@
 # define COIN_CHAR   		'C'
 # define EXIT_CHAR          'E'
 # define VOID_CHAR          '0'
-# define ESC		         53
-# define W			         13
-# define A			         0
-# define S			         1
-# define D			         2
+
+enum {
+	ON_KEYDOWN = 2,
+	ON_KEYUP = 3,
+	ON_MOUSEDOWN = 4,
+	ON_MOUSEUP = 5,
+	ON_MOUSEMOVE = 6,
+	ON_EXPOSE = 12,
+	ON_DESTROY = 17,
+	ESC_KEY = 65307,
+	W_KEY = 119,
+	A_KEY = 97,
+	S_KEY = 115,
+	D_KEY = 100
+};
 
 typedef struct s_sprites {
 	void	*player;
@@ -54,6 +65,7 @@ typedef struct s_sprites {
 	void	*wall;
 	void	*coin;
 	void	*exit;
+	void	*house;
 }		t_sprites;
 
 typedef struct s_game
@@ -75,7 +87,7 @@ typedef struct s_game
 
 //../src/input.c
 
-int     ft_input_manager(t_game *game, int key);
+int     ft_input_manager(int key, t_game *game);
 void	ft_move_up(t_game *game);
 void	ft_move_down(t_game *game);
 void	ft_move_left(t_game *game);

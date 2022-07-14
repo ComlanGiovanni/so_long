@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 18:27:09 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/14 19:55:58 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ void	ft_read_map(t_game *game, char *map_name)
 	fd = open(map_name, O_RDONLY);
     if (fd <= 0)
 	{
-		perror(ERROR_MSG);
-        //ft_print_error(USAGE_MSG);
-		//ft_print_error("fail open");//perror
+		//perror(ERROR_MSG);
+        ft_print_error(FAIL_OPEN_ERROR);//perror
 	}
     line = get_next_line(fd);
 	width = ft_strlen(line) - 1;
@@ -41,12 +40,14 @@ void	ft_read_map(t_game *game, char *map_name)
 	}
 	//free(line);
 	close(fd);
+	ft_printf("%s\n", game->map);
 }
 
 void	ft_check_map(t_game *game)
 {
 	/*
-
+	let check if all the char are valid
+	because look like nope
 	int map_len;
 	map_len = ft_strlen(game->map);
 	// and send it too all fct
@@ -76,7 +77,7 @@ void	ft_check_sealed(t_game *game)
 		{
 			if (game->map[idx] != '1')
 			{
-				perror(ERROR_MSG);
+				//perror(ERROR_MSG);
        			ft_print_error(WALL_ERROR);
 			}
 		}
@@ -84,7 +85,7 @@ void	ft_check_sealed(t_game *game)
 		{
 			if (game->map[idx] != '1')
 			{
-				perror(ERROR_MSG);
+				//perror(ERROR_MSG);
        			ft_print_error(WALL_ERROR);
 			}
 		}
@@ -92,7 +93,7 @@ void	ft_check_sealed(t_game *game)
 		{
 			if (game->map[idx] != '1')
 			{
-				perror(ERROR_MSG);
+				//perror(ERROR_MSG);
        			ft_print_error(WALL_ERROR);
 			}
 		}
@@ -107,7 +108,7 @@ void	ft_check_rectangular(t_game *game)
 	len_full_map = ft_strlen(game->map);
 	if (game->height * game->width != len_full_map)
 	{
-		perror(ERROR_MSG);
+		//perror(ERROR_MSG);
 		ft_print_error(FORM_ERROR);
 	}
 }
@@ -118,10 +119,10 @@ void	ft_check_playability(t_game *game)
 	int map_len;
 	
 	idx = 0;
-	//lol that fuck up funny
+	//lol that fuck up funny idx is 0 so
+	game->player = idx;
 	game->coin = idx;
 	game->exit = idx;
-	game->coin = idx;
 
 	map_len = ft_strlen(game->map);
 	while (idx++ < map_len)
@@ -135,17 +136,17 @@ void	ft_check_playability(t_game *game)
 	}
 	if (game->coin == 0)
 	{
-		perror(ERROR_MSG);
+		//perror(ERROR_MSG);
        	ft_print_error(COIN_ERROR);
 	}
 	if (game->player != 1)
 	{
-		perror(ERROR_MSG);
+		//perror(ERROR_MSG);
        	ft_print_error(PLAYER_ERROR);
 	}
 	if (game->exit == 0)
 	{
-		perror(ERROR_MSG);
+		//perror(ERROR_MSG);
        	ft_print_error(EXIT_ERROR);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 08:32:22 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 15:54:29 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/13 21:40:34 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-int     ft_strlen(const char *s);
+int     ft_strlen(char *s);
 
 #endif

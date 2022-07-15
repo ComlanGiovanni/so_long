@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/14 23:07:29 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/15 02:32:07 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,17 @@
 # define PLAYER_ERROR		"[Map_name].ber should have one starting point -> P\n"
 # define EXIT_ERROR			"[Map_name].ber should have at east one exit -> E\n"
 # define FAIL_OPEN_ERROR	"[Map_name].ber fail to open\n"
+# define MLX_INIT_ERROR		"mlx_init() fail\n"
+# define MLX_WINDOW_ERROR	"mlx_new_window() fail\n"
+# define PLAYER_U_XPM_ERROR	"player_up.xpm fail to load\n"
+# define PLAYER_D_XPM_ERROR	"player_down.xpm fail to load\n"
+# define PLAYER_L_XPM_ERROR "player_left.xpm fail to load\n"
+# define PLAYER_R_XPM_ERROR	"player_right.xpm fail to load\n"
+# define GROUND_XPM_ERROR	"ground.xpm fail to load\n"
+# define WALL_XPM_ERROR		"wall.xpm fail to load\n"
+# define KEY_XPM_ERROR		"key.xpm fail to load\n"
+# define EXIT_1_XPM_ERROR	"exit_1.xpm fail to load\n"
+# define EXIT_2_XPM_ERROR	"exit_2.xpm fail to load\n"
 # define KEY_PRESS			2
 # define KEY_RELEASE		3
 # define KEY_EXIT		    17
@@ -52,7 +63,15 @@ enum {
 	ON_MOUSEMOVE = 6,
 	ON_EXPOSE = 12,
 	ON_DESTROY = 17,
+	UP_ARROW_KEY = 65362,
+	DOWN_ARROW_KEY = 65364,
+	LEFT_ARROW_KEY = 65361,
+	RIGHT_ARROW_KEY = 65363,
 	ESC_KEY = 65307,
+	UP_PAV_NUM_KEY = 65464,
+	DOWN_PAV_NUM_KEY = 65458,
+	LEFT_PAV_NUM_KEY = 65460,
+	RIGHT_PAV_NUM_KEY = 65462,
 	W_KEY = 119,
 	A_KEY = 97,
 	S_KEY = 115,
@@ -61,27 +80,34 @@ enum {
 
 typedef struct s_sprites {
 	void	*player;
+	void	*player_down;
+	void	*player_up;
+	void	*player_left;
+	void	*player_right;
 	void	*ground;
 	void	*wall;
 	void	*coin;
-	void	*exit;
-	void	*house;
+	void	*exit_1;
+	void	*exit_2;
 }		t_sprites;
 
+// i think making a struc for the player is a good idea
 typedef struct s_game
 {
-    t_sprites sprite;
-	void	  *mlx;
-	void   	  *win;
-    char      *map;
-    int		  width;
-	int		  height;
-	int		  step;
-	int		  coin;
-	int		  storage;
-	int		  exit;
-	int		  player;
+    t_sprites 			  sprite;
+	long long int		  step;
+	void	 		   	  *mlx;
+	void   				  *win;
+    char     			  *map;
+    long long int		  width;
+	long long int		  height;
+	long long int		  coin;
+	long long int		  storage;
+	long long int	   	  exit;
+	long long int	      player;
+	char	  			  direction;
 }		t_game;
+
 
 //int		main(int ac, char *av[]);
 

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/14 22:03:08 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/15 02:14:48 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void	ft_move_up(t_game *game)
 		game->map[idx] = VOID_CHAR;
 		game->map[idx - game->width] = PLAYER_CHAR;
 		game->step++;
-		ft_printf("%d\n", game->step);
+		game->direction = 'u';
+		//ft_printf("%d\n", game->step);
 		//for bonus use mlx string pu with a special font ?
 		ft_put_sprites_by_line(game);
 	}
@@ -75,7 +76,8 @@ void	ft_move_down(t_game *game)
 		game->map[idx] = VOID_CHAR;
 		game->map[idx + game->width] = PLAYER_CHAR;
 		game->step++;
-		ft_printf("%d\n", game->step);
+		game->direction = 'd';
+		//ft_printf("%d\n", game->step);
 		//for bonus use mlx string pu with a special font ?
 		ft_put_sprites_by_line(game);
 	}
@@ -102,7 +104,8 @@ void	ft_move_left(t_game *game)
 		game->map[idx] = VOID_CHAR;
 		game->map[idx - 1] = PLAYER_CHAR;
 		game->step++;
-		ft_printf("step : %d\n", game->step);
+		game->direction = 'l';
+		//ft_printf("step : %d\n", game->step);
 		ft_put_sprites_by_line(game);
 	}
 }
@@ -128,7 +131,8 @@ void	ft_move_right(t_game *game)
 		game->map[idx] = VOID_CHAR;
 		game->map[idx + 1] = PLAYER_CHAR;
 		game->step++;
-		ft_printf("%d\n", game->step);
+		game->direction = 'r';
+		//ft_printf("%d\n", game->step);
 		ft_put_sprites_by_line(game);
 	}
 }

@@ -1,12 +1,12 @@
 /* XPM */
-static char *player[] = {
+static char *player_right[] = {
 /* columns rows colors chars-per-pixel */
 "64 64 7 1 ",
 "  c None",
 ". c gray3",
 "X c #5A5A5A",
-"o c #919191",
-"O c #ADADAD",
+"o c gray57",
+"O c gray68",
 "+ c #E4E4E4",
 "@ c white",
 /* pixels */

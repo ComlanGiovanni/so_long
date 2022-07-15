@@ -31,6 +31,7 @@
 * there is not baba is you
 * game very not inspired
 * timer
+* 
 
 <h1 align="center"> Executing program </h1>
 
@@ -85,3 +86,4 @@ Inspiration, code snippets, etc.
 * [fun](https://www.youtube.com/watch?v=OCh2l0J1uJk)
 * [baba is you](https://babaiswiki.fandom.com/wiki/Category:Nouns)
 * [vert](https://www.vertopal.com/)
+* [diff](https://www.diffchecker.com/)

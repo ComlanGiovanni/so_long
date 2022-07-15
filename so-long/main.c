@@ -6,13 +6,13 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/14 23:15:37 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/15 02:32:33 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/so_long.h"
 
-int     ft_input_manager(int key_code, t_game *game)
+int     ft_input_manager(int key, t_game *game)
 {
 	//add fleche and s d a d minisccule and else if
 	/*
@@ -21,22 +21,25 @@ x: 65364 d
 x: 65361 l
 x: 65363 r
 	*/
-	if (key_code == ESC_KEY )
+	if (key == ESC_KEY)
 		ft_exit_game(game);
-	if (key_code == W_KEY)
+	if (key == W_KEY || key == UP_ARROW_KEY || key == UP_PAV_NUM_KEY)
 		ft_move_up(game);
-    if (key_code == S_KEY)
+    if (key == S_KEY || key == DOWN_ARROW_KEY || key == DOWN_PAV_NUM_KEY)
 		ft_move_down(game);
-	if (key_code == A_KEY)
+	if (key == A_KEY || key == LEFT_ARROW_KEY || key == LEFT_PAV_NUM_KEY)
 		ft_move_left(game);
-	if (key_code == D_KEY)
+	if (key == D_KEY || key == RIGHT_ARROW_KEY || key == RIGHT_PAV_NUM_KEY)
 		ft_move_right(game);
 
     //else
         /*iddle animation*/
-	ft_printf("Key code : %d \n", key_code);
+	ft_printf("---------------------\n");
+	ft_printf("Key code : %d \n", key);
 	ft_printf("Storage : %d \n", game->storage);
-	ft_printf("Storage : %d \n", game->coin);
+	ft_printf("Map coin : %d \n", game->coin);
+	ft_printf("Step : %d\n", game->step);
+	ft_printf("---------------------\n");
 	return (EXIT_SUCCESS);
 }
 
@@ -45,10 +48,7 @@ int	main(int argc, char *argv[])
 	t_game	*game;
 
 	if (argc != 2)
-	{
-		//perror(ERROR_MSG);
         ft_print_error(USAGE_MSG);
-	}
 	else
 	{
 		//secure malloc and define x event
@@ -56,7 +56,7 @@ int	main(int argc, char *argv[])
 		ft_init_game(game, argv[1]);
 		mlx_key_hook(game->win, &ft_input_manager, game);
 		//mlx_hook(game->win, 2, 0, &ft_input_manager, game);
-		//mlx_hook(game->win, 17, 0, &ft_exit_game, game);
+		mlx_hook(game->win, 17, 0, &ft_exit_game, game);//for exit button
 		mlx_loop(game->mlx);
 	}
 	return(EXIT_SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/14 19:55:58 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/15 02:57:53 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ void	ft_check_playability(t_game *game)
 	game->player = idx;
 	game->coin = idx;
 	game->exit = idx;
+	game->storage = idx;
 
 	map_len = ft_strlen(game->map);
 	while (idx++ < map_len)

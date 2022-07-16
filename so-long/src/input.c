@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/16 16:27:06 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/16 20:36:37 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	ft_move_up(t_game *game)
 
 	idx = 0;
 	map_len = ft_strlen(game->map);
+
+	game->sprite.player_up = game->sprite.player_up_frame_move;
 	/*
 	at this point we should creat a game->map_len
 	just after checking the validity of the map
@@ -62,6 +64,7 @@ void	ft_move_down(t_game *game)
 
 	idx = 0;
 	map_len = ft_strlen(game->map);
+	game->sprite.player_down = game->sprite.player_down_frame_move;
 	while (idx++ < map_len)
 	{
 		if (game->map[idx] == PLAYER_CHAR)
@@ -90,6 +93,7 @@ void	ft_move_left(t_game *game)
 
 	idx = 0;
 	map_len = ft_strlen(game->map);
+	game->sprite.player_left = game->sprite.player_left_frame_move;
 	while (idx++ < map_len)
 	{
 		if (game->map[idx] == PLAYER_CHAR)
@@ -117,6 +121,7 @@ void	ft_move_right(t_game *game)
 
 	idx = 0;
 	map_len = ft_strlen(game->map);
+	game->sprite.player_right = game->sprite.player_right_frame_move;
 	while (idx++ < map_len)
 	{
 		if (game->map[idx] == PLAYER_CHAR)

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/16 16:26:32 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/16 19:33:54 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int     ft_input_manager(int key_code, t_game *game)
 	ft_printf("---------------------\n");
 	return (EXIT_SUCCESS);
 }
-/*
+
 void	ft_render(t_game *game)
 {
 	mlx_clear_window(game->mlx, game->win);
@@ -61,8 +61,8 @@ void	ft_render(t_game *game)
 	ft_put_sprites_by_line(game);
 	//mlx_destroy_image(game->mlx, game->sprite.wall);
 }
-*/
-/*
+
+
 void	ft_wall_animation(t_sprites *sprite)
 {
 
@@ -80,8 +80,8 @@ void	ft_wall_animation(t_sprites *sprite)
 	}
 	frame += 1;
 }
-*/
-/*
+
+
 void	ft_player_animation(t_sprites *sprite)
 {
     static int	frame;
@@ -104,17 +104,17 @@ void	ft_player_animation(t_sprites *sprite)
 	}
 	frame += 1;
 }
-*/
-/*
+
+
 int	ft_update(t_game *game)
 {
     //printf("ici\n");
-	//ft_wall_animation(&game->sprite);
+	ft_wall_animation(&game->sprite);
 	ft_player_animation(&game->sprite);
 	ft_render(game);
 	return (1);
 }
-*/
+
 int	main(int argc, char *argv[])
 {
 	t_game	*game;
@@ -129,12 +129,16 @@ int	main(int argc, char *argv[])
 		//mlx_key_hook(game->win, &ft_input_manager, game);
 		mlx_hook(game->win, 2, 0, &ft_input_manager, game);
 		mlx_hook(game->win, 17, 0, &ft_exit_game, game);//for exit button
-		//mlx_loop_hook(game->mlx, &ft_update, game);
+		mlx_loop_hook(game->mlx, &ft_update, game);
 		mlx_loop(game->mlx);
 	}
 	return(EXIT_SUCCESS);
 }
  /*
+
+ animate door if there is all coin in storage
+ 
+ so make a variable in stuct 0 or 1 to see if we can activate animation
 
  convert coin.xpm -scale 64x64 coin.xpm
 ImageMagick,

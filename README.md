@@ -80,6 +80,7 @@ Inspiration, code snippets, etc.
 * [MinilibxTester](https://github.com/augustobecker/so_long_tester)
 * [MLX42](https://github.com/codam-coding-college/MLX42)
 * [xpm convertor](https://convertio.co/fr/png-xpm/)
+* [xpm convertor 2](https://anyconv.com/fr/convertisseur-de-png-en-xpm/)
 * [background remove](https://www.remove.bg/)
 * [tuto](https://achedeuzot.me/2014/12/20/installer-la-minilibx/)
 * [Assets](https://itch.io/game-assets/free/tag-sprites)
@@ -87,3 +88,4 @@ Inspiration, code snippets, etc.
 * [baba is you](https://babaiswiki.fandom.com/wiki/Category:Nouns)
 * [vert](https://www.vertopal.com/)
 * [diff](https://www.diffchecker.com/)
+* [Aspite](https://www.aseprite.org/)

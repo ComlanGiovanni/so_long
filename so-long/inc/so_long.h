@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/16 15:09:02 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/16 19:06:39 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,23 +100,28 @@ typedef enum e_bool
 
 typedef struct s_sprites {
 	void	*player;
-	void	*player_down;
 	void	*player_up;
-	void	*player_left;
-	void	*player_right;
-	void	*player_down_frame_0;
-	void	*player_down_frame_1;
 	void	*player_up_frame_0;
 	void	*player_up_frame_1;
+	void	*player_up_frame_move;
+	void	*player_down;
+	void	*player_down_frame_0;
+	void	*player_down_frame_1;
+	void	*player_down_frame_move;
+	void	*player_left;
 	void	*player_left_frame_0;
 	void	*player_left_frame_1;
+	void	*player_left_frame_move;
+	void	*player_right;
 	void	*player_right_frame_0;
 	void	*player_right_frame_1;
+	void	*player_right_frame_move;
 	void	*ground;
 	void	*wall;
 	void	*wall_0;
 	void	*wall_1;
 	int		player_frames;
+	int		wall_frames;
 	void	*coin;
 	void	*exit_1;
 	void	*exit_2;

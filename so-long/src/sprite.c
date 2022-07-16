@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/15 01:53:36 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/16 16:16:21 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,49 @@ t_sprites	ft_init_sprites(void *mlx)
 	int			width;
 	int			height;
 
+	//sprite.player_frames = 3;
+
+	// fct for missing file for better read
+	if ((sprite.player_up = mlx_xpm_file_to_image(mlx, "player_up.xpm", &width, &height)) == NULL)
+		ft_print_error(PLAYER_U_XPM_ERROR);
+	if ((sprite.player_down = mlx_xpm_file_to_image(mlx, "player_down.xpm", &width, &height)) == NULL)
+		ft_print_error(PLAYER_D_XPM_ERROR);
     if ((sprite.player_left = mlx_xpm_file_to_image(mlx, "player_left.xpm", &width, &height)) == NULL)
 		ft_print_error(PLAYER_L_XPM_ERROR);
 	if ((sprite.player_right = mlx_xpm_file_to_image(mlx, "player_right.xpm", &width, &height)) == NULL)
 		ft_print_error(PLAYER_R_XPM_ERROR);
-	if ((sprite.player_down = mlx_xpm_file_to_image(mlx, "player_down.xpm", &width, &height)) == NULL)
-		ft_print_error(PLAYER_D_XPM_ERROR);
-	if ((sprite.player_up = mlx_xpm_file_to_image(mlx, "player_up.xpm", &width, &height)) == NULL)
-		ft_print_error(PLAYER_U_XPM_ERROR);
 	if ((sprite.ground = mlx_xpm_file_to_image(mlx, "ground.xpm", &width, &height)) == NULL)
 		ft_print_error(GROUND_XPM_ERROR);
-	if ((sprite.wall = mlx_xpm_file_to_image(mlx, "wall.xpm", &width, &height)) == NULL)
+	if ((sprite.wall = mlx_xpm_file_to_image(mlx, "wall_frame.xpm", &width, &height)) == NULL)
 		ft_print_error(WALL_XPM_ERROR);
+	if ((sprite.wall_0 = mlx_xpm_file_to_image(mlx, "wall_frame_0.xpm", &width, &height)) == NULL)
+		ft_print_error(WALL_0_XPM_ERROR);
+	if ((sprite.wall_1 = mlx_xpm_file_to_image(mlx, "wall_frame_1.xpm", &width, &height)) == NULL)
+		ft_print_error(WALL_1_XPM_ERROR);
 	if ((sprite.coin = mlx_xpm_file_to_image(mlx, "key.xpm", &width, &height)) == NULL)
 		ft_print_error(KEY_XPM_ERROR);
 	if ((sprite.exit_1 = mlx_xpm_file_to_image(mlx, "exit_1.xpm", &width, &height)) == NULL)
 		ft_print_error(EXIT_1_XPM_ERROR);
 	if ((sprite.exit_2 = mlx_xpm_file_to_image(mlx, "exit_2.xpm", &width, &height)) == NULL)
 		ft_print_error(EXIT_2_XPM_ERROR);
+	/*
+	if ((sprite.player_up_frame_0 = mlx_xpm_file_to_image(mlx, "player_up_frame_0.xpm", &width, &height)) == NULL)
+		ft_print_error("player_up_frame_0.xpm");
+	if ((sprite.player_up_frame_1 = mlx_xpm_file_to_image(mlx, "player_up_frame_1.xpm", &width, &height)) == NULL)
+		ft_print_error("player_up_frame_1.xpm");
+	if ((sprite.player_down_frame_0 = mlx_xpm_file_to_image(mlx, "player_down_frame_0.xpm", &width, &height)) == NULL)
+		ft_print_error("player_down_frame_0.xpm");
+	if ((sprite.player_down_frame_1 = mlx_xpm_file_to_image(mlx, "player_down_frame_1.xpm", &width, &height)) == NULL)
+		ft_print_error("player_down_frame_1.xpm");
+	if ((sprite.player_left_frame_0 = mlx_xpm_file_to_image(mlx, "player_left_frame_0.xpm", &width, &height)) == NULL)
+		ft_print_error("player_left_frame_0.xpm");
+	if ((sprite.player_left_frame_1 = mlx_xpm_file_to_image(mlx, "player_left_frame_1.xpm", &width, &height)) == NULL)
+		ft_print_error("player_left_frame_1.xpm");
+	if ((sprite.player_right_frame_0 = mlx_xpm_file_to_image(mlx, "player_right_frame_0.xpm", &width, &height)) == NULL)
+		ft_print_error("player_right_frame_0.xpm");
+	if ((sprite.player_right_frame_1 = mlx_xpm_file_to_image(mlx, "player_right_frame_1.xpm", &width, &height)) == NULL)
+		ft_print_error("player_right_frame_1.xpm");
+		*/
 /*
 	sprite.player = mlx_xpm_file_to_image(mlx, "player.xpm", &width, &height);
 	sprite.ground = mlx_xpm_file_to_image(mlx, "ground.xpm", &width, &height);

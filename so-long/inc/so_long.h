@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/15 02:32:07 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/16 15:09:02 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@
 # define PLAYER_R_XPM_ERROR	"player_right.xpm fail to load\n"
 # define GROUND_XPM_ERROR	"ground.xpm fail to load\n"
 # define WALL_XPM_ERROR		"wall.xpm fail to load\n"
+# define WALL_0_XPM_ERROR	"wall_1.xpm fail to load\n"
+# define WALL_1_XPM_ERROR	"wall_2.xpm fail to load\n"
 # define KEY_XPM_ERROR		"key.xpm fail to load\n"
 # define EXIT_1_XPM_ERROR	"exit_1.xpm fail to load\n"
 # define EXIT_2_XPM_ERROR	"exit_2.xpm fail to load\n"
@@ -78,14 +80,43 @@ enum {
 	D_KEY = 100
 };
 
+/*
+typedef enum e_tiletype
+{
+# define WALL_CHAR          '1'
+# define PLAYER_CHAR        'P'
+# define COIN_CHAR   		'C'
+# define EXIT_CHAR          'E'
+# define VOID_CHAR          '0'
+}	t_tiletype;
+
+typedef enum e_bool
+{
+	TRUE = 1,
+	FALSE = 0
+}	t_bool;
+
+*/
+
 typedef struct s_sprites {
 	void	*player;
 	void	*player_down;
 	void	*player_up;
 	void	*player_left;
 	void	*player_right;
+	void	*player_down_frame_0;
+	void	*player_down_frame_1;
+	void	*player_up_frame_0;
+	void	*player_up_frame_1;
+	void	*player_left_frame_0;
+	void	*player_left_frame_1;
+	void	*player_right_frame_0;
+	void	*player_right_frame_1;
 	void	*ground;
 	void	*wall;
+	void	*wall_0;
+	void	*wall_1;
+	int		player_frames;
 	void	*coin;
 	void	*exit_1;
 	void	*exit_2;

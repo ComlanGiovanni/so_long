@@ -6,7 +6,7 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 08:46:58 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/13 15:51:38 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/17 17:32:53 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CC = gcc -Wall -Wextra -Werror
 
 #normal not fd after
 SRC = 	ft_strlen.c \
+		ft_strncmp.c \
 		../gnl/get_next_line.c \
 		../gnl/get_next_line_utils.c \
 		../ft_printf/ft_printf.c \

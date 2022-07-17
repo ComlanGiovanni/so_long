@@ -6,16 +6,21 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 22:27:34 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/13 22:33:29 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/17 18:46:57 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-//ft_strdup_without_newline
-
-//dest = (char *)malloc(sizeof(char) * size + 1);
-
+/**
+ * @brief 
+ * 
+ * It's just a strdup but until \n
+ * dest =	malloc(size + 1);
+ * 
+ * @param s1 
+ * @return char* 
+ */
 char	*ft_custom_strdup(char *s1)
 {
 	char	*dest;
@@ -25,7 +30,7 @@ char	*ft_custom_strdup(char *s1)
 	dest = NULL;
 	size = ft_strlen(s1);
 	idx = 0;
-	dest =	malloc(size + 1);
+	dest =	(char *)malloc(sizeof(char) * size + 1);
 	if (!(dest))
 		return (NULL);
 	while (s1[idx] && s1[idx] != '\n')
@@ -37,8 +42,16 @@ char	*ft_custom_strdup(char *s1)
 	return (dest);
 }
 
-//ft_strlcpy_line_without_newline
-
+/**
+ * @brief
+ * 
+ * It's just ft_strlcpy but the end file is \n
+ * 
+ * @param dst 
+ * @param src 
+ * @param dst_size 
+ * @return int 
+ */
 int	ft_custom_strlcpy(char *dst, char *src, int dst_size)
 {
 	int	idx;
@@ -59,9 +72,16 @@ int	ft_custom_strlcpy(char *dst, char *src, int dst_size)
 	return (len);
 }
 
-//ft_strjoin_line_without_newline
-//dst = (char *)malloc((s1_len + s2_len + 1) * sizeof(char));
-
+/**
+ * @brief 
+ * 
+ * its just a strjoing but by the \n
+ * dst = malloc((s1_len + s2_len));
+ * 
+ * @param s1 
+ * @param s2 
+ * @return char* 
+ */
 char	*ft_custom_strjoin(char *s1, char *s2)
 {
 	int		s1_len;
@@ -77,7 +97,7 @@ char	*ft_custom_strjoin(char *s1, char *s2)
 		return (ft_custom_strdup(s1));
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	dst = malloc((s1_len + s2_len));
+	dst = (char *)malloc((s1_len + s2_len + 1) * sizeof(char));
 	if (!(dst))
 		return (NULL);
 	ft_custom_strlcpy(dst, s1, s1_len + 1);
@@ -85,4 +105,41 @@ char	*ft_custom_strjoin(char *s1, char *s2)
     free(s1);
 	free(s2);
 	return (dst);
+}
+
+void	ft_check_env(char **env)
+{
+	int	idx;
+
+	if (!*env)
+        ft_print_error(NO_ENV_ERROR);
+	idx = 0;
+	while (env[idx])
+	{
+		if (ft_strncmp("DISPLAY", env[idx], ft_strlen("DISPLAY")) == 0)
+            return ;
+        else
+			idx++;
+	}
+	ft_print_error(NO_DISP_ERROR);
+}
+
+int	ft_check_extension(char *map_name, char *extension)
+{
+	int	len_map_name;
+	int	len_extension;
+
+	len_map_name = ft_strlen(map_name);
+	len_extension = ft_strlen(extension);
+	if (len_map_name <= len_extension)
+		return (EXIT_SUCCESS);
+	map_name += len_map_name - len_extension;
+	while (*map_name)
+	{
+		if (*map_name != *extension)
+			return (EXIT_SUCCESS);
+		map_name++;
+		extension++;
+	}
+	return (EXIT_FAILURE);
 }

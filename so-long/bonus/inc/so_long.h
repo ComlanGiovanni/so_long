@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/16 19:06:39 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/17 23:33:31 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,20 @@
 # include "../lib/gnl/get_next_line.h"
 # include "../lib/ft_printf/ft_printf.h"
 
+# define BER_EXTENSION	    ".ber"
 # define ERROR_MSG	        "Error\n"
 # define GAME_TITLE	        "./so_long"
 # define USAGE_MSG	        "./so_long [pass to map][map name].ber\n"
+# define NO_ENV_ERROR       "No variable environment available\n"
+# define NO_DISP_ERROR      "DISPLAY not found in env\n"
+# define MALLOC_GAME_ERROR	"Malloc t_game fail to\n"
+# define BAD_CHAR_MAP_ERROR	"Map Should only contain those char : '1' 'P' 'C' 'E' '0'\n"
 # define WALL_ERROR	        "[Map_name].ber should be surrounded by walls : 1 see [maps]/classic.ber\n"
 # define FORM_ERROR	        "[Map_name].ber should be in rectangular form !\n"
 # define COIN_ERROR			"[Map_name].ber should have at least one collectible -> C\n"
 # define PLAYER_ERROR		"[Map_name].ber should have one starting point -> P\n"
 # define EXIT_ERROR			"[Map_name].ber should have at east one exit -> E\n"
+# define EXTENSION_ERROR	"Map extension should be a .ber\n"
 # define FAIL_OPEN_ERROR	"[Map_name].ber fail to open\n"
 # define MLX_INIT_ERROR		"mlx_init() fail\n"
 # define MLX_WINDOW_ERROR	"mlx_new_window() fail\n"
@@ -48,15 +54,9 @@
 # define KEY_XPM_ERROR		"key.xpm fail to load\n"
 # define EXIT_1_XPM_ERROR	"exit_1.xpm fail to load\n"
 # define EXIT_2_XPM_ERROR	"exit_2.xpm fail to load\n"
-# define KEY_PRESS			2
-# define KEY_RELEASE		3
-# define KEY_EXIT		    17
-# define WALL_CHAR          '1'
-# define PLAYER_CHAR        'P'
-# define COIN_CHAR   		'C'
-# define EXIT_CHAR          'E'
-# define VOID_CHAR          '0'
+# define WIN_MSG			"Thanks for playing, you win with steps : "
 
+/*
 enum {
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
@@ -79,16 +79,31 @@ enum {
 	S_KEY = 115,
 	D_KEY = 100
 };
+*/
 
-/*
-typedef enum e_tiletype
+typedef enum e_key_code {
+	CLOSE_ICON = 17,
+	ESC_KEY = 53,
+	KEY_PRESS = 2,
+	KEY_RELEASE = 3,
+	UP_ARROW_KEY = 126,
+	DOWN_ARROW_KEY = 125,
+	LEFT_ARROW_KEY = 123,
+	RIGHT_ARROW_KEY = 124,
+	W_KEY = 13,
+	A_KEY = 0,
+	S_KEY = 1,
+	D_KEY = 2
+}	t_key_code;
+
+typedef enum e_map_char
 {
-# define WALL_CHAR          '1'
-# define PLAYER_CHAR        'P'
-# define COIN_CHAR   		'C'
-# define EXIT_CHAR          'E'
-# define VOID_CHAR          '0'
-}	t_tiletype;
+	WALL_CHAR = '1',
+	PLAYER_CHAR = 'P',
+	COIN_CHAR ='C',
+	EXIT_CHAR = 'E',
+	VOID_CHAR = '0'
+}	t_map_char;
 
 typedef enum e_bool
 {
@@ -96,7 +111,6 @@ typedef enum e_bool
 	FALSE = 0
 }	t_bool;
 
-*/
 
 typedef struct s_sprites {
 	void	*player;
@@ -169,6 +183,7 @@ void	ft_init_game(t_game *game, char *map_name);
 int		ft_exit_game(t_game *game);
 int		ft_win_game(t_game *game);
 void	ft_print_error(char *error_msg);
+void	ft_check_valid_char(t_game *game);
 
 //../src/sprite.c
 
@@ -181,5 +196,7 @@ void		ft_put_all_sprites_to_line(t_game *game, int width, int height);
 char	*ft_custom_strdup(char *s1);
 int		ft_custom_strlcpy(char *dst, char *src, int dst_size);
 char	*ft_custom_strjoin(char *s1, char *s2);
+void	ft_check_env(char **env);
+int		ft_check_extension(char *map_name, char *extension);
 
 #endif

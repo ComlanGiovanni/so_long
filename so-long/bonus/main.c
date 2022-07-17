@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/17 02:45:28 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/17 23:34:30 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ int	ft_update(t_game *game)
 	return (1);
 }
 
-int	main(int argc, char *argv[])
+int	main(int argc, char *argv[], char **envp)
 {
 	t_game	*game;
 
@@ -133,7 +133,11 @@ int	main(int argc, char *argv[])
 	else
 	{
 		//secure malloc and define x event
-		game = malloc(sizeof(t_game));
+		ft_check_env(envp);
+		if ((game = malloc(sizeof(t_game))) == NULL)
+			ft_print_error(MALLOC_GAME_ERROR);
+		if (!ft_check_extension(argv[1], BER_EXTENSION))
+			ft_print_error(EXTENSION_ERROR);
 		ft_init_game(game, argv[1]);
 		//mlx_key_hook(game->win, &ft_input_manager, game);
 		mlx_hook(game->win, 2, 0, &ft_input_manager, game);
@@ -144,6 +148,12 @@ int	main(int argc, char *argv[])
 	return(EXIT_SUCCESS);
 }
  /*
+
+-g3 -fsanitize=addres
+
+envi -i check necessaire ??
+because work witout
+
 
  animate door if there is all coin in storage
  

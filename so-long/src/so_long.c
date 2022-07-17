@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/17 03:28:06 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/17 18:56:49 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ft_exit_game(t_game *game)
 
 int		ft_win_game(t_game *game)
 {
-	ft_printf("You win with only %d steps. Thanks for playing !", game->step);
+	ft_printf(WIN_MSG "%d", game->step);
 	mlx_destroy_window(game->mlx, game->win);
 	exit(EXIT_SUCCESS);
 }

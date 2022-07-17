@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/17 03:30:10 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/17 22:48:57 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@
 # include "../lib/small_lib/libft.h"
 # include "../lib/gnl/get_next_line.h"
 # include "../lib/ft_printf/ft_printf.h"
+# define BER_EXTENSION	    ".ber"
 # define ERROR_MSG	        "Error\n"
 # define GAME_TITLE	        "./so_long"
 # define USAGE_MSG	        "./so_long [pass to map][map name].ber\n"
+# define NO_ENV_ERROR       "No variable environment available\n"
+# define NO_DISP_ERROR      "DISPLAY not found in env\n"
 # define MALLOC_GAME_ERROR	"Malloc t_game fail to\n"
 # define BAD_CHAR_MAP_ERROR	"Map Should only contain those char : '1' 'P' 'C' 'E' '0'\n"
 # define WALL_ERROR	        "[Map_name].ber should be surrounded by walls : 1 see [maps]/classic.ber\n"
@@ -35,6 +38,7 @@
 # define COIN_ERROR			"[Map_name].ber should have at least one collectible -> C\n"
 # define PLAYER_ERROR		"[Map_name].ber should have one starting point -> P\n"
 # define EXIT_ERROR			"[Map_name].ber should have at east one exit -> E\n"
+# define EXTENSION_ERROR	"Map extension should be a .ber\n"
 # define FAIL_OPEN_ERROR	"[Map_name].ber fail to open\n"
 # define MLX_INIT_ERROR		"mlx_init() fail\n"
 # define MLX_WINDOW_ERROR	"mlx_new_window() fail\n"
@@ -43,6 +47,7 @@
 # define WALL_XPM_ERROR		"wall.xpm fail to load\n"
 # define KEY_XPM_ERROR		"key.xpm fail to load\n"
 # define EXIT_XPM_ERROR		"exit.xpm fail to load\n"
+# define WIN_MSG			"Thanks for playing, you win with steps : "
 
 typedef enum e_key_code {
 	CLOSE_ICON = 17,
@@ -69,14 +74,14 @@ typedef enum e_map_char
 	VOID_CHAR = '0'
 }	t_map_char;
 
+// true false enum for loop if etc
 typedef enum e_bool
 {
 	TRUE = 1,
 	FALSE = 0
 }	t_bool;
 
-
-
+// sprite struct
 typedef struct s_sprites {
 	void	*player;
 	void	*ground;
@@ -85,7 +90,7 @@ typedef struct s_sprites {
 	void	*exit;
 }		t_sprites;
 
-// i think making a struc for the player is a good idea
+// game struct
 typedef struct s_game
 {
     t_sprites 			  sprite;
@@ -100,9 +105,6 @@ typedef struct s_game
 	long long int	   	  exit;
 	long long int	      player;
 }		t_game;
-
-
-//int		main(int ac, char *av[]);
 
 //../src/input.c
 
@@ -139,5 +141,7 @@ void		ft_put_all_sprites_to_line(t_game *game, int width, int height);
 char	*ft_custom_strdup(char *s1);
 int		ft_custom_strlcpy(char *dst, char *src, int dst_size);
 char	*ft_custom_strjoin(char *s1, char *s2);
+void	ft_check_env(char **env);
+int		ft_check_extension(char *map_name, char *extension);
 
 #endif

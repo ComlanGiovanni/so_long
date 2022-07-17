@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/17 03:18:53 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/17 18:53:41 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,17 +72,17 @@ void	ft_check_sealed(t_game *game)
 	{
 		if (idx > map_len - game->width)
 		{
-			if (game->map[idx] != '1')
+			if (game->map[idx] != WALL_CHAR)
        			ft_print_error(WALL_ERROR);
 		}
 		else if (idx < game->width)
 		{
-			if (game->map[idx] != '1')
+			if (game->map[idx] != WALL_CHAR)
        			ft_print_error(WALL_ERROR);
 		}
 		else if (idx % game->width == 0 || idx % game->width == game->width - 1)
 		{
-			if (game->map[idx] != '1')
+			if (game->map[idx] != WALL_CHAR)
        			ft_print_error(WALL_ERROR);
 		}
 		idx++;

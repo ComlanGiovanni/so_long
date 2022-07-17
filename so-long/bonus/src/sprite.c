@@ -6,12 +6,34 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/16 20:36:12 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/17 23:20:43 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
+/*
+				IDEA
+			ft_print_spite_error char * path
+		This fct will print Error $variable fail to load header define
+	The variable will be splitted from the path header define
+	
+			ft_split_path char * path
+	this fct will parse the path and put iin double table
+path to the xm file and will return the str int the tab
+
+	Need : ft_split free after using
+
+	pros : less define form specific xpm file
+*/
+
+
+/**
+ * @brief 
+ * 
+ * @param mlx 
+ * @return t_sprites 
+ */
 t_sprites	ft_init_sprites(void *mlx)
 {
 	t_sprites	sprite;

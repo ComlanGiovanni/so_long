@@ -6,11 +6,28 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/16 20:36:37 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/17 03:34:58 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+
+int     ft_input_manager(int key_code, t_game *game)
+{
+	if (key_code == ESC_KEY)
+		ft_exit_game(game);
+	if (key_code == W_KEY || key_code == UP_ARROW_KEY)
+		ft_move_up(game);
+    if (key_code == S_KEY || key_code == DOWN_ARROW_KEY)
+		ft_move_down(game);
+	if (key_code == A_KEY || key_code == LEFT_ARROW_KEY)
+		ft_move_left(game);
+	if (key_code == D_KEY || key_code == RIGHT_ARROW_KEY)
+		ft_move_right(game);
+
+	return (EXIT_SUCCESS);
+}
 
 /*
 make a fct for move
@@ -26,8 +43,6 @@ void	ft_move_up(t_game *game)
 
 	idx = 0;
 	map_len = ft_strlen(game->map);
-
-	game->sprite.player_up = game->sprite.player_up_frame_move;
 	/*
 	at this point we should creat a game->map_len
 	just after checking the validity of the map
@@ -44,15 +59,13 @@ void	ft_move_up(t_game *game)
 	if (game->map[idx - game->width] == COIN_CHAR)
 		game->storage++;
 	if (game->map[idx - game->width] == EXIT_CHAR  && game->coin == game->storage)
-		ft_win_game(game);//for bonus call next stage
+		ft_win_game(game);
 	else if (game->map[idx - game->width] != WALL_CHAR && game->map[idx - game->width] != EXIT_CHAR)
 	{
 		game->map[idx] = VOID_CHAR;
 		game->map[idx - game->width] = PLAYER_CHAR;
 		game->step++;
-		game->direction = 'u';
-		ft_printf("%d\n", game->step);
-		//for bonus use mlx string pu with a special font ?
+		ft_printf("step : %d\n", game->step);
 		ft_put_sprites_by_line(game);
 	}
 }
@@ -64,7 +77,6 @@ void	ft_move_down(t_game *game)
 
 	idx = 0;
 	map_len = ft_strlen(game->map);
-	game->sprite.player_down = game->sprite.player_down_frame_move;
 	while (idx++ < map_len)
 	{
 		if (game->map[idx] == PLAYER_CHAR)
@@ -73,15 +85,13 @@ void	ft_move_down(t_game *game)
 	if (game->map[idx + game->width] == COIN_CHAR)
 		game->storage++;
 	if (game->map[idx + game->width] == EXIT_CHAR && game->coin == game->storage)
-		ft_win_game(game);////for bonus call next stage
+		ft_win_game(game);
 	else if (game->map[idx + game->width] != WALL_CHAR && game->map[idx + game->width] != EXIT_CHAR)
 	{
 		game->map[idx] = VOID_CHAR;
 		game->map[idx + game->width] = PLAYER_CHAR;
 		game->step++;
-		game->direction = 'd';
-		ft_printf("%d\n", game->step);
-		//for bonus use mlx string pu with a special font ?
+		ft_printf("step : %d\n", game->step);
 		ft_put_sprites_by_line(game);
 	}
 }
@@ -93,7 +103,6 @@ void	ft_move_left(t_game *game)
 
 	idx = 0;
 	map_len = ft_strlen(game->map);
-	game->sprite.player_left = game->sprite.player_left_frame_move;
 	while (idx++ < map_len)
 	{
 		if (game->map[idx] == PLAYER_CHAR)
@@ -102,13 +111,12 @@ void	ft_move_left(t_game *game)
 	if (game->map[idx - 1] == COIN_CHAR)
 		game->storage++;
 	if (game->map[idx - 1] == EXIT_CHAR && game->storage == game->coin)
-		ft_win_game(game);////for bonus call next stage
+		ft_win_game(game);
 	else if (game->map[idx - 1] != WALL_CHAR && game->map[idx - 1] != EXIT_CHAR)
 	{
 		game->map[idx] = VOID_CHAR;
 		game->map[idx - 1] = PLAYER_CHAR;
 		game->step++;
-		game->direction = 'l';
 		ft_printf("step : %d\n", game->step);
 		ft_put_sprites_by_line(game);
 	}
@@ -121,7 +129,6 @@ void	ft_move_right(t_game *game)
 
 	idx = 0;
 	map_len = ft_strlen(game->map);
-	game->sprite.player_right = game->sprite.player_right_frame_move;
 	while (idx++ < map_len)
 	{
 		if (game->map[idx] == PLAYER_CHAR)
@@ -130,14 +137,13 @@ void	ft_move_right(t_game *game)
 	if (game->map[idx + 1] == COIN_CHAR)
 		game->storage++;
 	if (game->map[idx + 1] == EXIT_CHAR && game->storage == game->coin)
-		ft_win_game(game);////for bonus call next stage
+		ft_win_game(game);
 	else if (game->map[idx + 1] != WALL_CHAR && game->map[idx + 1] != EXIT_CHAR)
 	{
 		game->map[idx] = VOID_CHAR;
 		game->map[idx + 1] = PLAYER_CHAR;
 		game->step++;
-		game->direction = 'r';
-		ft_printf("%d\n", game->step);
+		ft_printf("step : %d\n", game->step);
 		ft_put_sprites_by_line(game);
 	}
 }

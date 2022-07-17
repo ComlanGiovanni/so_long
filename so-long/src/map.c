@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/15 02:57:53 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/17 03:18:53 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ void	ft_read_map(t_game *game, char *map_name)
 
 	fd = open(map_name, O_RDONLY);
     if (fd <= 0)
-	{
-		//perror(ERROR_MSG);
-        ft_print_error(FAIL_OPEN_ERROR);//perror
-	}
+        ft_print_error(FAIL_OPEN_ERROR);
+
     line = get_next_line(fd);
 	width = ft_strlen(line) - 1;
 	game->height = 0;
@@ -38,9 +36,7 @@ void	ft_read_map(t_game *game, char *map_name)
 		if (line)
 			game->map = ft_custom_strjoin(game->map, line);
 	}
-	//free(line);
 	close(fd);
-	ft_printf("%s\n", game->map);
 }
 
 void	ft_check_map(t_game *game)
@@ -61,6 +57,7 @@ void	ft_check_map(t_game *game)
 	ft_check_sealed(game);
 	ft_check_rectangular(game);
 	ft_check_playability(game);
+	ft_check_valid_char(game);
 }
 
 void	ft_check_sealed(t_game *game)
@@ -76,26 +73,17 @@ void	ft_check_sealed(t_game *game)
 		if (idx > map_len - game->width)
 		{
 			if (game->map[idx] != '1')
-			{
-				//perror(ERROR_MSG);
        			ft_print_error(WALL_ERROR);
-			}
 		}
 		else if (idx < game->width)
 		{
 			if (game->map[idx] != '1')
-			{
-				//perror(ERROR_MSG);
        			ft_print_error(WALL_ERROR);
-			}
 		}
 		else if (idx % game->width == 0 || idx % game->width == game->width - 1)
 		{
 			if (game->map[idx] != '1')
-			{
-				//perror(ERROR_MSG);
        			ft_print_error(WALL_ERROR);
-			}
 		}
 		idx++;
 	}
@@ -107,10 +95,7 @@ void	ft_check_rectangular(t_game *game)
 
 	len_full_map = ft_strlen(game->map);
 	if (game->height * game->width != len_full_map)
-	{
-		//perror(ERROR_MSG);
 		ft_print_error(FORM_ERROR);
-	}
 }
 
 void	ft_check_playability(t_game *game)
@@ -119,11 +104,10 @@ void	ft_check_playability(t_game *game)
 	int map_len;
 	
 	idx = 0;
-	//lol that fuck up funny idx is 0 so
-	game->player = idx;
-	game->coin = idx;
-	game->exit = idx;
-	game->storage = idx;
+	game->player = 0;
+	game->coin = 0;
+	game->exit = 0;
+	game->storage = 0;
 
 	map_len = ft_strlen(game->map);
 	while (idx++ < map_len)
@@ -136,18 +120,9 @@ void	ft_check_playability(t_game *game)
 			game->exit++;
 	}
 	if (game->coin == 0)
-	{
-		//perror(ERROR_MSG);
        	ft_print_error(COIN_ERROR);
-	}
 	if (game->player != 1)
-	{
-		//perror(ERROR_MSG);
        	ft_print_error(PLAYER_ERROR);
-	}
 	if (game->exit == 0)
-	{
-		//perror(ERROR_MSG);
        	ft_print_error(EXIT_ERROR);
-	}
 }

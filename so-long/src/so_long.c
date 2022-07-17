@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/17 18:56:49 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/17 23:48:29 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,3 @@ void	ft_print_error(char *error_msg)
 	write(STDERR_FILENO, error_msg, ft_strlen(error_msg));
 	exit(EXIT_FAILURE);
 }
-
-//random idea : save the file name in struc to display it in error msg

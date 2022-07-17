@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/17 23:34:30 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 00:19:50 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,62 +149,75 @@ int	main(int argc, char *argv[], char **envp)
 }
  /*
 
+ROAD TO CLEAN THIS PROJECT
+
+	* put commun fct in spefic file
+	* have differente header if to much deine
+		define.h or exmple
+		define_communm.h define_bonus.h
+	* make different struc for player aniation map etc
+		see if good idea for both
+	*
+	*
+	* better file organisation
+	* add comment in every fct
+	* add L end game animated ennemie death for player
+	* add mouving ennemie - 1 for lie
+	* check free
+	* add start and end windows only for bonus
+	* add life for player
+	* print map in good format
+	* print life
+	* step
+	* storage
+	* reamaning coim
+	* total coin
+	* direction facing
+	* status iddle or mouving
+	* add iddle sprint only change color
+	* nbr of ennemie
+	* animate key
+	* animate door
+	* fct for evry call of aimated sprit
+		wall 
+		key
+		player etc
+	*  fct for to load too
+	*
+	* try to make modularity for move ?
+	* ft_print_spite_error char * path
+	* ft_split_path char * path
+	*
+	*
+	*
+	*
+	* NNNNOOOOOORRRRRRMMMMMMMMMEEEEEEEE
+
+
 -g3 -fsanitize=addres
 
 envi -i check necessaire ??
 because work witout
 
+animate door if there is all coin in storage
 
- animate door if there is all coin in storage
- 
- so make a variable in stuct 0 or 1 to see if we can activate animation
+so make a variable in stuct 0 or 1 to see if we can activate animation
 
- convert coin.xpm -scale 64x64 coin.xpm
-ImageMagick,
+ImageMagick
+	convert coin.xpm -scale 64x64 coin.xpm
+
+make file cross platform
+	make linux
+	make os
+
+in define change input key code
 
  $(GCC) $(SRC) $(INC) $(OBJ) 
  -Lmlx_linux -lmlx_Linux -L/usr/lib 
  -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
- 
-int	ft_check_env(char **env)
-{
-	int	idx;
 
-	if (!*env)
-		return (EXIT_FAILURE);
-	idx = 0;
-	while (env[idx])
-	{
-		if (!ft_strncmp("DISPLAY", env[idx], ft_strlen(env[idx])))
-			return (EXIT_SUCCESS);
-		idx++;
-	}
-	return (EXIT_FAILURE);
-}
-*/
+random idea : save the file name in struc to display it in error msg
 
-/*
-
-prevent segfault when map is not found null or something
-
-mlx loop to call all the time
 mlx string put for bonus
 
-lib custom
-
-strlen
-strdup
-strjoin
-gnl
-printf
-ft_itoa
-ft_strcmp
-ft_putchar_fd
-ft_putstr
-
-h for help menum ??
-
-ENV check ??
-	if (ft_check_env(env))
-		return (0);
 */

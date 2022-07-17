@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/17 03:34:58 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/17 23:50:02 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,6 @@ int     ft_input_manager(int key_code, t_game *game)
 	return (EXIT_SUCCESS);
 }
 
-/*
-make a fct for move
-and by the keycodepresse asign
-the variable game->width by 1 or
-change the sign for some condition
-*/
-
 void	ft_move_up(t_game *game)
 {
     int	idx;
@@ -43,16 +36,9 @@ void	ft_move_up(t_game *game)
 
 	idx = 0;
 	map_len = ft_strlen(game->map);
-	/*
-	at this point we should creat a game->map_len
-	just after checking the validity of the map
-	*/
+
 	while (idx++ < map_len)
 	{
-		/*
-		par quel magie on peux arriver la ?
-		ft_check_playability already prevent it 
-		*/
 		if (game->map[idx] == PLAYER_CHAR)
 			break ;
 	}

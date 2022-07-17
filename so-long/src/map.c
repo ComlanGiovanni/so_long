@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/17 18:53:41 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/17 23:54:42 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,10 @@ void	ft_read_map(t_game *game, char *map_name)
 
 void	ft_check_map(t_game *game)
 {
-	/*
-	let check if all the char are valid
-	because look like nope
-	int map_len;
-	map_len = ft_strlen(game->map);
-	// and send it too all fct
-	
-	if the maps is rectangular
-		check if its sealed
-			if is sealed check playability
-	else 
-		print and exit
-	*/
+	ft_check_valid_char(game);
 	ft_check_sealed(game);
 	ft_check_rectangular(game);
 	ft_check_playability(game);
-	ft_check_valid_char(game);
 }
 
 void	ft_check_sealed(t_game *game)

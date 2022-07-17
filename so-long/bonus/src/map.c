@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/15 02:57:53 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/17 23:56:30 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	ft_read_map(t_game *game, char *map_name)
 	//free(line);
 	close(fd);
 	ft_printf("%s\n", game->map);
+	// make a fct who print the map by line
 }
 
 void	ft_check_map(t_game *game)
@@ -58,6 +59,7 @@ void	ft_check_map(t_game *game)
 	else 
 		print and exit
 	*/
+	ft_check_valid_char(game);
 	ft_check_sealed(game);
 	ft_check_rectangular(game);
 	ft_check_playability(game);

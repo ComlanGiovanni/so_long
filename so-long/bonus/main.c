@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 00:19:50 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 00:21:09 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,8 +188,8 @@ ROAD TO CLEAN THIS PROJECT
 	* ft_print_spite_error char * path
 	* ft_split_path char * path
 	*
-	*
-	*
+	* make a simple step by step for 100
+	* step by step 125 letter
 	*
 	* NNNNOOOOOORRRRRRMMMMMMMMMEEEEEEEE
 

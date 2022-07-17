@@ -6,35 +6,12 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/17 23:26:10 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 00:24:40 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/so_long.h"
 
-/*
-
-int	ft_strend_cmp(char *name, char *end)
-{
-	int	name_len;
-	int	ext_len;
-
-	name_len = ft_strlen(name);
-	ext_len = ft_strlen(end);
-	if (name_len <= ext_len)
-		return (0);
-	name += name_len - ext_len;
-	while (*name)
-	{
-		if (*name != *end)
-			return (0);
-		name++;
-		end++;
-	}
-	return (1);
-}
-
-*/
 int	main(int argc, char *argv[], char **envp)
 {
 	t_game	*game;

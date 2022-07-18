@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 23:10:19 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 23:53:57 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,10 +163,10 @@ typedef struct s_wall
 {
 	t_animation		  animation;
 }		t_wall;
+
 typedef struct s_game
 {
     t_sprites 			  sprite;
-	//t_player			  player;
 	t_lava				  lava;
 	t_lava				  key;
 	t_wall				  wall;
@@ -185,81 +185,6 @@ typedef struct s_game
 	char	  			  direction;
 }		t_game;
 
-/*
-i think making a struc for the player is a good idea
-but long as fuck need concentration to complite
-
-typedef struct s_animation
-{
-	int		frames;
-	void	*frame_0;
-	void	*frame_1;
-	void	*frame_2;
-}		t_animation;
-
-typedef struct s_player
-{
-	t_animation		  	  animation_up;
-	t_animation		  	  animation_down;
-	t_animation		  	  animation_left;
-	t_animation		  	  animation_right;
-	t_animation		  	  animation_idle;
-	void				  *frame_move;
-	long long int		  life;
-	long long int		  storage;
-	long long int		  step;
-	char	  			  direction;
-	char	  			  status;
-}		t_player;
-
-typedef struct s_wall
-{
-	t_animation		  animation;
-}		t_wall;
-
-typedef struct s_exit
-{
-	t_animation		  animation;
-	t_animation		  animation_win;
-}		t_exit;
-
-typedef struct s_enemy
-{
-	t_animation		  	animation;
-	void				*frame_move;
-	
-}		t_enemy;
-
-typedef struct s_game
-{
-	t_player			  player;
-	t_wall				  wall;
-	t_exit				  exit;
-	t_lava				  lava;
-	t_lava				  enemy;
-	t_map				  map;
-	void	 		   	  *mlx;
-	void   				  *win;
-    long long int		  width;
-	long long int		  height;
-}		t_game;
-
-
-typedef struct s_map
-{
-    char     			  *map_str;
-	long long int		  map_len;
-	long long int		  key;
-	long long int		  remaining_coin;
-	long long int	      player;
-	long long int	      wall;
-	long long int	      exit;
-	long long int	      lava;
-	long long int	      enemy;
-	void				  *ground_sprite;
-}		t_map;
-
-*/
 
 //../src/main.c
 

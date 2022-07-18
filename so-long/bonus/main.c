@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 22:09:22 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 23:53:13 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,5 +183,9 @@ Plus for readme
 	print map info in console
 
 place pillar instead of wall inside the map only
+
+having one stuct for the map typedef struct s_map one for the player stats
+one for the player sprite
+
 
 */

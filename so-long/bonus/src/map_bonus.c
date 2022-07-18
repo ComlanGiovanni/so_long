@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 13:53:16 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 20:54:57 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,20 +93,23 @@ void	ft_check_playability(t_game *game)
 	idx = 0;
 	//lol that fuck up and funny
 	game->player = idx;
-	game->coin = idx;
+	game->nbr_key = idx;
 	game->exit = idx;
 	game->storage = idx;
+	game->lava_nbr = idx;
 
 	while (idx++ < game->map_len)
 	{		
-		if (game->map[idx] == COIN_CHAR)
-			game->coin++;
+		if (game->map[idx] == KEY_CHAR)
+			game->nbr_key++;
 		else if (game->map[idx] == PLAYER_CHAR)
 			game->player++;
 		else if (game->map[idx] == EXIT_CHAR)
 			game->exit++;
+		else if (game->map[idx] == LAVA_CHAR)
+			game->lava_nbr++;
 	}
-	if (game->coin == 0)
+	if (game->nbr_key == 0)
        	ft_print_error(COIN_ERROR);
 	if (game->player != 1)
        	ft_print_error(PLAYER_ERROR);

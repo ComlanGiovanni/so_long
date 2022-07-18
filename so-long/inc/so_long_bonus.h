@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 17:05:06 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 23:10:19 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define NO_ENV_ERROR       "No variable environment available\n"
 # define NO_DISP_ERROR      "DISPLAY not found in env\n"
 # define MALLOC_GAME_ERROR	"Malloc t_game fail to\n"
-# define BAD_CHAR_MAP_ERROR	"Map Should only contain those char : '1' 'P' 'C' 'E' '0'\n"
+# define BAD_CHAR_MAP_ERROR	"Map Should only contain those char : '1' 'P' 'C' 'E' '0' 'L'\n"
 # define WALL_ERROR	        "[Map_name].ber should be surrounded by walls : 1 see [maps]/classic.ber\n"
 # define FORM_ERROR	        "[Map_name].ber should be in rectangular form !\n"
 # define COIN_ERROR			"[Map_name].ber should have at least one collectible -> C\n"
@@ -55,6 +55,7 @@
 # define EXIT_1_XPM_ERROR	"exit_1.xpm fail to load\n"
 # define EXIT_2_XPM_ERROR	"exit_2.xpm fail to load\n"
 # define WIN_MSG			"Thanks for playing, you win with steps : "
+# define LOSE_MSG			"You loooossseee with steps : "
 
 /*
 enum enum e_key_code_linux {
@@ -104,9 +105,10 @@ typedef enum e_map_char
 {
 	WALL_CHAR = '1',
 	PLAYER_CHAR = 'P',
-	COIN_CHAR ='C',
+	KEY_CHAR ='C',
 	EXIT_CHAR = 'E',
-	VOID_CHAR = '0'
+	VOID_CHAR = '0',
+	LAVA_CHAR = 'L'
 }	t_map_char;
 
 typedef enum e_bool
@@ -135,30 +137,51 @@ typedef struct s_sprites {
 	void	*player_right_frame_1;
 	void	*player_right_frame_move;
 	void	*ground;
-	void	*wall;
-	void	*wall_0;
-	void	*wall_1;
 	int		player_frames;
-	int		wall_frames;
-	void	*coin;
 	void	*exit_1;
 	void	*exit_2;
 }		t_sprites;
 
+typedef struct s_animation
+{
+	int		frames;
+	void	*frame_0;
+	void	*frame_1;
+	void	*frame_2;
+}		t_animation;
+typedef struct s_lava
+{
+	t_animation		  animation;
+}		t_lava;
+
+typedef struct s_key
+{
+	t_animation		  animation;
+}		t_key;
+
+typedef struct s_wall
+{
+	t_animation		  animation;
+}		t_wall;
 typedef struct s_game
 {
     t_sprites 			  sprite;
-	long long int		  step;
+	//t_player			  player;
+	t_lava				  lava;
+	t_lava				  key;
+	t_wall				  wall;
 	void	 		   	  *mlx;
 	void   				  *win;
     char     			  *map;
+	long long int		  step;
 	long long int		  map_len;
     long long int		  width;
 	long long int		  height;
-	long long int		  coin;
+	long long int		  nbr_key;
 	long long int		  storage;
 	long long int	   	  exit;
 	long long int	      player;
+	long long int	      lava_nbr;
 	char	  			  direction;
 }		t_game;
 
@@ -200,11 +223,6 @@ typedef struct s_exit
 	t_animation		  animation_win;
 }		t_exit;
 
-typedef struct s_lava
-{
-	t_animation		  animation;
-}		t_lava;
-
 typedef struct s_enemy
 {
 	t_animation		  	animation;
@@ -231,7 +249,7 @@ typedef struct s_map
 {
     char     			  *map_str;
 	long long int		  map_len;
-	long long int		  coin;
+	long long int		  key;
 	long long int		  remaining_coin;
 	long long int	      player;
 	long long int	      wall;
@@ -243,12 +261,17 @@ typedef struct s_map
 
 */
 
-//../src/animation_bonus.c
+//../src/main.c
 
 void	ft_render(t_game *game);
-void	ft_wall_animation(t_sprites *sprite);
-void	ft_player_animation(t_sprites *sprite);
 int		ft_update(t_game *game);
+
+//../src/animation_bonus.c
+
+void	ft_wall_animation(t_animation *animation);
+void	ft_player_animation(t_sprites *sprite);
+void	ft_lava_animation(t_animation *animation);
+void	ft_key_animation(t_animation *animation);
 
 //../src/input_bonus.c
 
@@ -257,6 +280,14 @@ void	ft_move_up(t_game *game);
 void	ft_move_down(t_game *game);
 void	ft_move_left(t_game *game);
 void	ft_move_right(t_game *game);
+
+//../src/load_sprite_bonus.c
+
+void	ft_load_lava_sprite(t_game *game);
+void	ft_load_key_sprite(t_game *game);
+void	ft_load_wall_sprite(t_game *game);
+//void	ft_load_player_up_sprite(t_game *game);
+//void	ft_load_player_down_sprite(t_game *game);
 
 //../src/map_bonus.c
 
@@ -272,6 +303,7 @@ void    ft_print_map_better_format(t_game *game);;
 void    ft_print_game_info(t_game *game, int key_code);
 void    ft_print_facing(t_game *game);
 void    ft_direction_by_pos_after_launch(t_game *game);
+int		ft_lose_game(t_game *game);
 
 //../src/so_long_bonus.c
 

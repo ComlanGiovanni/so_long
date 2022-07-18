@@ -6,38 +6,15 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 10:24:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 13:58:56 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 21:55:15 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long_bonus.h"
 
-void	ft_render(t_game *game)
-{
-	mlx_clear_window(game->mlx, game->win);
-	//mlx_put_image_to_window(game->mlx, game->win, game->sprite.wall, 64,  64);
-	ft_put_sprites_by_line(game);
-	//mlx_destroy_image(game->mlx, game->sprite.wall);
-}
-
-
-void	ft_wall_animation(t_sprites *sprite)
-{
-    static int	frame;
-	if (sprite->wall_frames == 0)
-		return ;
-	if (frame == sprite->wall_frames)
-	{
-		sprite->wall = sprite->wall_0;
-	}
-	else if (frame >= sprite->wall_frames * 2)
-	{
-		sprite->wall = sprite->wall_1;
-		frame = 0;
-	}
-	frame += 1;
-}
-
+/*
+	repating myself here how can i fix it ?
+*/
 
 void	ft_player_animation(t_sprites *sprite)
 {
@@ -62,12 +39,59 @@ void	ft_player_animation(t_sprites *sprite)
 	frame += 1;
 }
 
-
-int	ft_update(t_game *game)
+/*
+void	ft_wall_animation(t_sprites *sprite)
 {
-    //printf("ici\n");
-	ft_wall_animation(&game->sprite);
-	ft_player_animation(&game->sprite);
-	ft_render(game);
-	return (1);
+    static int	frame;
+
+	if (frame == sprite->wall_frames)
+		sprite->wall = sprite->wall_0;
+	else if (frame >= sprite->wall_frames * 2)
+	{
+		sprite->wall = sprite->wall_1;
+		frame = 0;
+	}
+	frame += 1;
+}
+*/
+void	ft_wall_animation(t_animation *animation)
+{
+    static int	frame;
+
+	if (frame == animation->frames)
+		animation->frame_0 = animation->frame_1;
+	else if (frame >= animation->frames * 2)
+	{
+		animation->frame_0 = animation->frame_2;
+		frame = 0;
+	}
+	frame += 1;
+}
+
+void ft_lava_animation(t_animation *animation)
+{
+    static int	frame;
+
+	if (frame == animation->frames)
+		animation->frame_0 = animation->frame_1;
+	else if (frame >= animation->frames * 2)
+	{
+		animation->frame_0 = animation->frame_2;
+		frame = 0;
+	}
+	frame += 1;
+}
+
+void ft_key_animation(t_animation *animation)
+{
+    static int	frame;
+
+	if (frame == animation->frames)
+		animation->frame_0 = animation->frame_1;
+	else if (frame >= animation->frames * 2)
+	{
+		animation->frame_0 = animation->frame_2;
+		frame = 0;
+	}
+	frame += 1;
 }

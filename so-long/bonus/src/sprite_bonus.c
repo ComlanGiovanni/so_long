@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 09:52:31 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 22:02:52 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_sprites	ft_init_sprites(void *mlx)
 	int			height;
 
 	sprite.player_frames = 9;
-	sprite.wall_frames = 12;
+	//sprite.wall_frames = 12;
 
 	// fct for missing file for better read
 	//verify header error name
@@ -55,14 +55,6 @@ t_sprites	ft_init_sprites(void *mlx)
 		ft_print_error(PLAYER_R_XPM_ERROR);
 	if ((sprite.ground = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/ground.xpm", &width, &height)) == NULL)
 		ft_print_error(GROUND_XPM_ERROR);
-	if ((sprite.wall = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/wall_frame.xpm", &width, &height)) == NULL)
-		ft_print_error(WALL_XPM_ERROR);
-	if ((sprite.wall_0 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/wall_frame_0.xpm", &width, &height)) == NULL)
-		ft_print_error(WALL_0_XPM_ERROR);
-	if ((sprite.wall_1 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/wall_frame_1.xpm", &width, &height)) == NULL)
-		ft_print_error(WALL_1_XPM_ERROR);
-	if ((sprite.coin = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/key.xpm", &width, &height)) == NULL)
-		ft_print_error(KEY_XPM_ERROR);
 	if ((sprite.exit_1 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/exit_1.xpm", &width, &height)) == NULL)
 		ft_print_error(EXIT_1_XPM_ERROR);
 	if ((sprite.exit_2 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/exit_2.xpm", &width, &height)) == NULL)
@@ -96,7 +88,7 @@ t_sprites	ft_init_sprites(void *mlx)
 	sprite.player = mlx_xpm_file_to_image(mlx, "player.xpm", &width, &height);
 	sprite.ground = mlx_xpm_file_to_image(mlx, "ground.xpm", &width, &height);
 	sprite.wall = mlx_xpm_file_to_image(mlx, "wall.xpm", &width, &height);
-	sprite.coin = mlx_xpm_file_to_image(mlx, "coin.xpm", &width, &height);
+	sprite.key = mlx_xpm_file_to_image(mlx, "key.xpm", &width, &height);
 	sprite.exit = mlx_xpm_file_to_image(mlx, "exit.xpm", &width, &height);
 	sprite.house = mlx_xpm_file_to_image(mlx, "house.xpm", &width, &height);
 */
@@ -125,9 +117,11 @@ void	ft_put_all_sprites_to_line(t_game *game, int width, int height)
 {
 	//int wid ---> game->wid game->direction = 'r'
 	if (game->map[height * game->width + width] == WALL_CHAR)
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.wall, width * 64, height * 64);
-	else if (game->map[height * game->width + width] == COIN_CHAR)
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.coin, width * 64, height * 64);
+		mlx_put_image_to_window(game->mlx, game->win, game->wall.animation.frame_0, width * 64, height * 64);
+	else if (game->map[height * game->width + width] == KEY_CHAR)
+		mlx_put_image_to_window(game->mlx, game->win, game->key.animation.frame_0, width * 64, height * 64);
+	else if (game->map[height * game->width + width] == LAVA_CHAR)
+		mlx_put_image_to_window(game->mlx, game->win, game->lava.animation.frame_0, width * 64, height * 64);
 	else if (game->map[height * game->width + width] == PLAYER_CHAR && game->direction == 'd')
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_down, width * 64, height * 64);
 	else if (game->map[height * game->width + width] == PLAYER_CHAR && game->direction == 'u')
@@ -136,7 +130,7 @@ void	ft_put_all_sprites_to_line(t_game *game, int width, int height)
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_left, width * 64, height * 64);
 	else if (game->map[height * game->width + width] == PLAYER_CHAR && game->direction == 'r')
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_right, width * 64, height * 64);
-	else if (game->map[height * game->width + width] == EXIT_CHAR && game->storage == game->coin)
+	else if (game->map[height * game->width + width] == EXIT_CHAR && game->storage == game->nbr_key)
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit_2, width * 64, height * 64);
 	else if (game->map[height * game->width + width] == EXIT_CHAR)
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit_1, width * 64, height * 64);

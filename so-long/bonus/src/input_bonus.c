@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 14:55:50 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 20:54:50 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,11 @@ void	ft_move_up(t_game *game)
 		if (game->map[idx] == PLAYER_CHAR)
 			break ;
 	}
-	if (game->map[idx - game->width] == COIN_CHAR)
+	if (game->map[idx - game->width] == KEY_CHAR)
 		game->storage++;
-	if (game->map[idx - game->width] == EXIT_CHAR  && game->coin == game->storage)
+	if (game->map[idx - game->width] == LAVA_CHAR)
+		ft_lose_game(game);
+	if (game->map[idx - game->width] == EXIT_CHAR  && game->nbr_key == game->storage)
 		ft_win_game(game);
 	else if (game->map[idx - game->width] != WALL_CHAR && game->map[idx - game->width] != EXIT_CHAR)
 	{
@@ -100,9 +102,11 @@ void	ft_move_down(t_game *game)
 		if (game->map[idx] == PLAYER_CHAR)
 			break ;
 	}
-	if (game->map[idx + game->width] == COIN_CHAR)
+	if (game->map[idx + game->width] == KEY_CHAR)
 		game->storage++;
-	if (game->map[idx + game->width] == EXIT_CHAR && game->coin == game->storage)
+	if (game->map[idx + game->width] == LAVA_CHAR)
+		ft_lose_game(game);
+	if (game->map[idx + game->width] == EXIT_CHAR && game->nbr_key == game->storage)
 		ft_win_game(game);
 	else if (game->map[idx + game->width] != WALL_CHAR && game->map[idx + game->width] != EXIT_CHAR)
 	{
@@ -126,9 +130,11 @@ void	ft_move_left(t_game *game)
 		if (game->map[idx] == PLAYER_CHAR)
 			break ;
 	}
-	if (game->map[idx - 1] == COIN_CHAR)
+	if (game->map[idx - 1] == KEY_CHAR)
 		game->storage++;
-	if (game->map[idx - 1] == EXIT_CHAR && game->storage == game->coin)
+	if (game->map[idx - 1] == LAVA_CHAR)
+		ft_lose_game(game);
+	if (game->map[idx - 1] == EXIT_CHAR && game->storage == game->nbr_key)
 		ft_win_game(game);
 	else if (game->map[idx - 1] != WALL_CHAR && game->map[idx - 1] != EXIT_CHAR)
 	{
@@ -152,9 +158,11 @@ void	ft_move_right(t_game *game)
 		if (game->map[idx] == PLAYER_CHAR)
 			break ;
 	}
-	if (game->map[idx + 1] == COIN_CHAR)
+	if (game->map[idx + 1] == KEY_CHAR)
 		game->storage++;
-	if (game->map[idx + 1] == EXIT_CHAR && game->storage == game->coin)
+	if (game->map[idx + 1] == LAVA_CHAR)
+		ft_lose_game(game);
+	if (game->map[idx + 1] == EXIT_CHAR && game->storage == game->nbr_key)
 		ft_win_game(game);
 	else if (game->map[idx + 1] != WALL_CHAR && game->map[idx + 1] != EXIT_CHAR)
 	{

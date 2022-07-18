@@ -89,3 +89,5 @@ Inspiration, code snippets, etc.
 * [vert](https://www.vertopal.com/)
 * [diff](https://www.diffchecker.com/)
 * [Aspite](https://www.aseprite.org/)
+* [Baba is you](https://hempuli.com/baba/)
+* [color hexa for xpm](https://www.color-hex.com/)

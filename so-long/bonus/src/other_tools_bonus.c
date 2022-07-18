@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 12:41:41 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 17:08:23 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 20:33:50 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ void    ft_print_game_info(t_game *game, int key_code)
 {
     ft_printf("----------------------------------\n");
     ft_printf("**********************************\n");
-	ft_printf("* Key pressed : %d               *\n", key_code);
-	ft_printf("* Life :                          *\n");
-	ft_printf("* Remaining coin : 69             *\n");
-	ft_printf("* Status : i or m                 *\n");
-	ft_printf("* Number of Lava : 4              *\n");
-	ft_printf("* Number of Ennemie : 2           *\n");
-	ft_printf("* Storage : %d                    *\n", game->storage);
-	ft_printf("* Map coin : %d                   *\n", game->coin);
-	ft_printf("* Step counter : %d               *\n", game->step);
+	ft_printf("* key pressed : %d               \n", key_code);
+	ft_printf("* Life : NONE                     \n");
+	ft_printf("* Remaining key : %d             \n", (game->nbr_key - game->storage));
+	ft_printf("* Status : i or m NONE            \n");
+	ft_printf("* Number of Lava : %d             \n", game->lava_nbr);
+	ft_printf("* Number of Ennemie : NONE        \n");
+	ft_printf("* Storage : %d                    \n", game->storage);
+	ft_printf("* Map key : %d                   \n", game->nbr_key);
+	ft_printf("* Step counter : %d               \n", game->step);
     ft_print_facing(game);
     ft_printf("**********************************\n");
 	ft_printf("----------------------------------\n");
@@ -55,13 +55,13 @@ void    ft_print_game_info(t_game *game, int key_code)
 void    ft_print_facing(t_game *game)
 {
     if (game->direction == 'u')
-        ft_printf("* Facing : up                     *\n");
+        ft_printf("* Facing : up                     \n");
     if (game->direction == 'd')
-        ft_printf("* Facing : down                   *\n");
+        ft_printf("* Facing : down                   \n");
     if (game->direction == 'l')
-        ft_printf("* Facing : left                   *\n");
+        ft_printf("* Facing : left                   \n");
     if (game->direction == 'r')
-        ft_printf("* Facing : right                  *\n");
+        ft_printf("* Facing : right                  \n");
 }
 
 void    ft_direction_by_pos_after_launch(t_game *game)
@@ -70,7 +70,7 @@ void    ft_direction_by_pos_after_launch(t_game *game)
 
     srand(time(0));
     random = rand() % 4;
-    ft_printf("%d", random);
+    //ft_printf("%d", random);
 
     if (random == 0)
         game->direction = 'u';
@@ -108,3 +108,12 @@ void    ft_direction_by_pos_after_launch(t_game *game)
         like defaut looking or looking by the pos in map
         
     */
+
+
+int		ft_lose_game(t_game *game)
+{
+	ft_printf(LOSE_MSG "%d ", game->step);
+	ft_printf("Storage : %d\n", game->storage);
+	mlx_destroy_window(game->mlx, game->win);
+	exit(EXIT_FAILURE);
+}

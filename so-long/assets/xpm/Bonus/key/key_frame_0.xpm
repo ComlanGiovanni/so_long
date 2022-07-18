@@ -1,9 +1,9 @@
 /* XPM */
-static char *key[] = {
+static char *key_frame_0[] = {
 /* columns rows colors chars-per-pixel */
 "64 64 2 1 ",
 "  c None",
-". c #EDE285",
+". c #ffd700",
 /* pixels */
 "                                                                ",
 "                                                                ",

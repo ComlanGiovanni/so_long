@@ -1,5 +1,5 @@
 /* XPM */
-static char *coin[] = {
+static char *key[] = {
 /* columns rows colors chars-per-pixel */
 "64 64 17 1 ",
 "  c None",

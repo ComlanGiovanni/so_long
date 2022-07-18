@@ -6,12 +6,27 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 17:24:12 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 22:09:22 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long_bonus.h"
 
+/**
+ * @brief 
+ * 
+ * 		Gamers can feel when developers are passionate about their games.
+ * 				They can smell it like a dog smells fear.
+ * 			Don't be afraid to hold onto your unique vision:
+ * 		Just be aware that it may not turn out exactly how you envisioned.
+ * 
+ * 							-[Scott Rogers]-
+ * 
+ * @param argc 
+ * @param argv 
+ * @param envp 
+ * @return int 
+ */
 int	main(int argc, char *argv[], char **envp)
 {
 	t_game	*game;
@@ -35,6 +50,26 @@ int	main(int argc, char *argv[], char **envp)
 	}
 	return(EXIT_SUCCESS);
 }
+
+void	ft_render(t_game *game)
+{
+	mlx_clear_window(game->mlx, game->win);
+	//mlx_put_image_to_window(game->mlx, game->win, game->sprite.wall, 64,  64);
+	ft_put_sprites_by_line(game);
+	//mlx_destroy_image(game->mlx, game->sprite.wall);
+}
+
+int	ft_update(t_game *game)
+{
+	ft_wall_animation(&game->wall.animation);
+	ft_player_animation(&game->sprite);
+	//ft_player_animation(&game->sprite);
+	ft_lava_animation(&game->lava.animation);
+	ft_key_animation(&game->key.animation);
+	ft_render(game);
+	return (EXIT_SUCCESS);
+}
+
  /*
 
  in my bonus the map can be square
@@ -63,7 +98,7 @@ ROAD TO CLEAN THIS PROJECT
 	* step
 	* storage
 	* reamaning coim
-	* total coin
+	* total key
 	* direction facing
 	* status iddle or mouving
 	* add iddle sprint only change color
@@ -101,12 +136,12 @@ no more ft_strlen(game->map) in file
 envi -i check necessaire ??
 because work witout
 
-animate door if there is all coin in storage
+animate door if there is all key in storage
 
 so make a variable in stuct 0 or 1 to see if we can activate animation
 
 ImageMagick
-	convert coin.xpm -scale 64x64 coin.xpm
+	convert key.xpm -scale 64x64 key.xpm
 
 make file cross platform
 	make linux
@@ -128,6 +163,9 @@ in define change input key code
 
 random idea : save the file name in struc to display it in error msg
 
+some level design map for bonus with lava aamd
+
+header file for error, split file
 get fault map empyt or oneline
 mlx string put for bonus
 
@@ -143,5 +181,7 @@ Plus for readme
 	player do animation move even if he can not go to the next case
 	print the map in the console
 	print map info in console
+
+place pillar instead of wall inside the map only
 
 */

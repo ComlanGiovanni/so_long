@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 13:48:51 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 20:29:59 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ typedef struct s_game
 	long long int		  map_len;
     long long int		  width;
 	long long int		  height;
-	long long int		  coin;
+	long long int		  key;
 	long long int		  storage;
 	long long int	   	  exit;
 	long long int	      player;

@@ -111,7 +111,7 @@ int get_mouse_button(NSEventType eventtype)
   unsigned int val;
 
   flag = [theEvent modifierFlags];
-  //  printf("Key flag changed: %x => %x\n", keyflag, flag);
+  //  printf("key flag changed: %x => %x\n", keyflag, flag);
   //  printf("**mlx flag low part : %d  - %x\n", flag&0xFFFF, flag&0xFFFF);
 
   if (!(val = (keyflag|flag)&(~(keyflag&flag))))
@@ -156,7 +156,7 @@ int get_mouse_button(NSEventType eventtype)
 {
   if (keyrepeat==0 && [theEvent isARepeat])
     return ;
-  //  printf("Key Down: %d\n", [theEvent keyCode]);
+  //  printf("key Down: %d\n", [theEvent keyCode]);
   if (event_funct[2] != NULL)
     event_funct[2]([theEvent keyCode], event_param[2]);
   //  else [super keyDown: theEvent];
@@ -164,7 +164,7 @@ int get_mouse_button(NSEventType eventtype)
 
 - (void) keyUp:(NSEvent *)theEvent
 {
-  //  printf("Key Up: %d\n", [theEvent keyCode]);
+  //  printf("key Up: %d\n", [theEvent keyCode]);
   if (event_funct[3] != NULL)
     event_funct[3]([theEvent keyCode], event_param[3]);
   //  else [super keyUp: theEvent];

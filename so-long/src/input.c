@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 13:57:28 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 20:29:59 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_move_up(t_game *game)
 	}
 	if (game->map[idx - game->width] == COIN_CHAR)
 		game->storage++;
-	if (game->map[idx - game->width] == EXIT_CHAR  && game->coin == game->storage)
+	if (game->map[idx - game->width] == EXIT_CHAR  && game->key == game->storage)
 		ft_win_game(game);
 	else if (game->map[idx - game->width] != WALL_CHAR && game->map[idx - game->width] != EXIT_CHAR)
 	{
@@ -66,7 +66,7 @@ void	ft_move_down(t_game *game)
 	}
 	if (game->map[idx + game->width] == COIN_CHAR)
 		game->storage++;
-	if (game->map[idx + game->width] == EXIT_CHAR && game->coin == game->storage)
+	if (game->map[idx + game->width] == EXIT_CHAR && game->key == game->storage)
 		ft_win_game(game);
 	else if (game->map[idx + game->width] != WALL_CHAR && game->map[idx + game->width] != EXIT_CHAR)
 	{
@@ -90,7 +90,7 @@ void	ft_move_left(t_game *game)
 	}
 	if (game->map[idx - 1] == COIN_CHAR)
 		game->storage++;
-	if (game->map[idx - 1] == EXIT_CHAR && game->storage == game->coin)
+	if (game->map[idx - 1] == EXIT_CHAR && game->storage == game->key)
 		ft_win_game(game);
 	else if (game->map[idx - 1] != WALL_CHAR && game->map[idx - 1] != EXIT_CHAR)
 	{
@@ -114,7 +114,7 @@ void	ft_move_right(t_game *game)
 	}
 	if (game->map[idx + 1] == COIN_CHAR)
 		game->storage++;
-	if (game->map[idx + 1] == EXIT_CHAR && game->storage == game->coin)
+	if (game->map[idx + 1] == EXIT_CHAR && game->storage == game->key)
 		ft_win_game(game);
 	else if (game->map[idx + 1] != WALL_CHAR && game->map[idx + 1] != EXIT_CHAR)
 	{

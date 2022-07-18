@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 16:52:32 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 23:09:44 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ void	ft_init_game(t_game *game, char *map_name)
 	if ((game->mlx = mlx_init()) == NULL)
         ft_print_error(MLX_INIT_ERROR);
 	game->sprite = ft_init_sprites(game->mlx);
+	ft_load_lava_sprite(game);
+	ft_load_key_sprite(game);
+	ft_load_wall_sprite(game);
+	//ft_load_player_up_sprite(game);
+	//ft_load_player_down_sprite(game);
 	ft_read_map(game, map_name);
 	ft_check_map(game);
 	//width = game->width * 64;
@@ -42,7 +47,7 @@ void	ft_check_valid_char(t_game *game)
 	idx = 0;
 	while (game->map[idx] != '\0')
 	{
-		if (game->map[idx] != WALL_CHAR &&  game->map[idx] != PLAYER_CHAR && game->map[idx] != COIN_CHAR  && game->map[idx] != EXIT_CHAR && game->map[idx] != VOID_CHAR)
+		if (game->map[idx] != WALL_CHAR &&  game->map[idx] != PLAYER_CHAR && game->map[idx] != KEY_CHAR  && game->map[idx] != EXIT_CHAR && game->map[idx] != VOID_CHAR && game->map[idx] != LAVA_CHAR)
 			ft_print_error(BAD_CHAR_MAP_ERROR);
 		idx++;
 	}
@@ -65,7 +70,7 @@ int	ft_exit_game(t_game *game)
  * @brief 
  * 
  * This fct is call when the player 
- * get all the coin in the map
+ * get all the key in the map
  * 
  * print in the console a win message
  * destroy the windows 
@@ -76,7 +81,8 @@ int	ft_exit_game(t_game *game)
  */
 int		ft_win_game(t_game *game)
 {
-	ft_printf(WIN_MSG "%d\n", game->step);
+	ft_printf(WIN_MSG "%d ", game->step);
+	ft_printf("Storage : %d\n", game->storage);
 	mlx_destroy_window(game->mlx, game->win);
 	exit(EXIT_SUCCESS);
 }

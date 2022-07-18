@@ -54,21 +54,21 @@ int	expose_win2(void *p)
 
 int	key_win1(int key,void *p)
 {
-  printf("Key in Win1 : %d\n",key);
+  printf("key in Win1 : %d\n",key);
   if (key==0xFF1B)
     exit(0);
 }
 
 int	key_win2(int key,void *p)
 {
-  printf("Key in Win2 : %d\n",key);
+  printf("key in Win2 : %d\n",key);
   if (key==0xFF1B)
     exit(0);
 }
 
 int	key_win3(int key,void *p)
 {
-  printf("Key in Win3 : %d\n",key);
+  printf("key in Win3 : %d\n",key);
   if (key==0xFF1B)
     mlx_destroy_window(mlx,win3);
 }

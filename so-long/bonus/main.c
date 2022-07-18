@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 15:37:33 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 17:24:12 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ in define change input key code
 
 random idea : save the file name in struc to display it in error msg
 
+get fault map empyt or oneline
 mlx string put for bonus
 
 		call ft_exit game windows

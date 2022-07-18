@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 15:35:34 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 16:52:32 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	ft_init_game(t_game *game, char *map_name)
 	//win = game->win;
 	if ((game->win = mlx_new_window(game->mlx, game->width * 64, game->height * 64, GAME_TITLE)) == NULL)
         ft_print_error(MLX_WINDOW_ERROR);
-	game->direction = 'r';//lol changing the direction by they positon of the p int the map ?
+	ft_direction_by_pos_after_launch(game);
+	//game->direction = 'r';//lol changing the direction by they positon of the p int the map ?
 	ft_put_sprites_by_line(game);
 }
 

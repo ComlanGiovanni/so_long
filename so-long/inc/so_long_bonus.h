@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 15:31:00 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 17:05:06 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -270,6 +270,8 @@ void	ft_check_playability(t_game *game);
 
 void    ft_print_map_better_format(t_game *game);;
 void    ft_print_game_info(t_game *game, int key_code);
+void    ft_print_facing(t_game *game);
+void    ft_direction_by_pos_after_launch(t_game *game);
 
 //../src/so_long_bonus.c
 

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 12:38:02 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 15:31:00 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ typedef struct s_game
 	void	 		   	  *mlx;
 	void   				  *win;
     char     			  *map;
+	long long int		  map_len;
     long long int		  width;
 	long long int		  height;
 	long long int		  coin;
@@ -229,7 +230,7 @@ typedef struct s_game
 typedef struct s_map
 {
     char     			  *map_str;
-	void				  *ground_sprite;
+	long long int		  map_len;
 	long long int		  coin;
 	long long int		  remaining_coin;
 	long long int	      player;
@@ -237,6 +238,7 @@ typedef struct s_map
 	long long int	      exit;
 	long long int	      lava;
 	long long int	      enemy;
+	void				  *ground_sprite;
 }		t_map;
 
 */
@@ -261,8 +263,13 @@ void	ft_move_right(t_game *game);
 void	ft_read_map(t_game *game, char *map_name);
 void	ft_check_map(t_game *game);
 void	ft_check_sealed(t_game *game);
-void	ft_check_rectangular(t_game *game);
+//void	ft_check_rectangular(t_game *game);
 void	ft_check_playability(t_game *game);
+
+//../src/other_tools_bonus.c 
+
+void    ft_print_map_better_format(t_game *game);;
+void    ft_print_game_info(t_game *game, int key_code);
 
 //../src/so_long_bonus.c
 

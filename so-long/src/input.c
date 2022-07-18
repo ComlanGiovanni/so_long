@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/17 23:50:02 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 13:57:28 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,10 @@ int     ft_input_manager(int key_code, t_game *game)
 void	ft_move_up(t_game *game)
 {
     int	idx;
-	int map_len;
 
 	idx = 0;
-	map_len = ft_strlen(game->map);
 
-	while (idx++ < map_len)
+	while (idx++ < game->map_len)
 	{
 		if (game->map[idx] == PLAYER_CHAR)
 			break ;
@@ -59,11 +57,9 @@ void	ft_move_up(t_game *game)
 void	ft_move_down(t_game *game)
 {
 	int	idx;
-	int map_len;
 
 	idx = 0;
-	map_len = ft_strlen(game->map);
-	while (idx++ < map_len)
+	while (idx++ < game->map_len)
 	{
 		if (game->map[idx] == PLAYER_CHAR)
 			break ;
@@ -85,11 +81,9 @@ void	ft_move_down(t_game *game)
 void	ft_move_left(t_game *game)
 {
     int	idx;
-	int map_len;
 
 	idx = 0;
-	map_len = ft_strlen(game->map);
-	while (idx++ < map_len)
+	while (idx++ < game->map_len)
 	{
 		if (game->map[idx] == PLAYER_CHAR)
 			break ;
@@ -111,11 +105,9 @@ void	ft_move_left(t_game *game)
 void	ft_move_right(t_game *game)
 {
     int	idx;
-	int map_len;
 
 	idx = 0;
-	map_len = ft_strlen(game->map);
-	while (idx++ < map_len)
+	while (idx++ < game->map_len)
 	{
 		if (game->map[idx] == PLAYER_CHAR)
 			break ;

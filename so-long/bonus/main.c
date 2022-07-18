@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 10:26:12 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 15:37:33 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ int	main(int argc, char *argv[], char **envp)
 	return(EXIT_SUCCESS);
 }
  /*
+
+ in my bonus the map can be square
+
+ //for bonus use mlx string pu with a special font ?
 
 ROAD TO CLEAN THIS PROJECT
 
@@ -88,6 +92,7 @@ ROAD TO CLEAN THIS PROJECT
 
 	// wht if the move hi max int for printf ??
 
+no more ft_strlen(game->map) in file
 
 	NEXT LVL BIG BRAIN DONT DO IT NOW PLEASE BUT FOR YOURSEL 2PLAYER !!1
 
@@ -124,5 +129,18 @@ in define change input key code
 random idea : save the file name in struc to display it in error msg
 
 mlx string put for bonus
+
+		call ft_exit game windows
+		clean win
+		pintf the win message with a xmp gg wp aninmated pixel theme
+
+		IDEAD : add timer counter because frame is evry seconde in upadte ???
+
+//random idea : save the file name in struc to display it in error msg
+
+Plus for readme
+	player do animation move even if he can not go to the next case
+	print the map in the console
+	print map info in console
 
 */

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animation.c                                        :+:      :+:    :+:   */
+/*   animation_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 10:24:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 10:26:08 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 13:58:56 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ft_render(t_game *game)
 
 void	ft_wall_animation(t_sprites *sprite)
 {
-
     static int	frame;
 	if (sprite->wall_frames == 0)
 		return ;

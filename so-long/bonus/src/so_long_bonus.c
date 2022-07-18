@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 11:07:51 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 15:35:34 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,28 +47,35 @@ void	ft_check_valid_char(t_game *game)
 	}
 }
 
-int	ft_exit_game(t_game *game)
-{
-	mlx_destroy_window(game->mlx, game->win);
 	/*
 	free mlx
 	et si t'as des leaks quand tu fermes ta fenêtre/programme 
 	utilise toutes les fonctions mlx_destroy et free le pointeur
 	que t'as utilisé avec mlx_init
 	*/
+
+int	ft_exit_game(t_game *game)
+{
+	mlx_destroy_window(game->mlx, game->win);
 	exit(EXIT_SUCCESS);
 }
 
+/**
+ * @brief 
+ * 
+ * This fct is call when the player 
+ * get all the coin in the map
+ * 
+ * print in the console a win message
+ * destroy the windows 
+ * and exit with success
+ * 
+ * @param game 
+ * @return int 
+ */
 int		ft_win_game(t_game *game)
 {
-	/*
-		call ft_exit game windows
-		clean win
-		pintf the win message with a xmp gg wp aninmated pixel theme
-
-		IDEAD : add timer counter because frame is evry seconde in upadte ???
-	*/
-	ft_printf(WIN_MSG "%d", game->step);
+	ft_printf(WIN_MSG "%d\n", game->step);
 	mlx_destroy_window(game->mlx, game->win);
 	exit(EXIT_SUCCESS);
 }
@@ -96,7 +103,4 @@ void	ft_print_error(char *error_msg)
 	write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
 	write(STDERR_FILENO, error_msg, ft_strlen(error_msg));
 	exit(EXIT_FAILURE);
-	// add perror ?
 }
-
-//random idea : save the file name in struc to display it in error msg

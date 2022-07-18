@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/17 23:54:42 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 13:50:17 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,26 @@ void	ft_read_map(t_game *game, char *map_name)
 			game->map = ft_custom_strjoin(game->map, line);
 	}
 	close(fd);
+	game->map_len = ft_strlen(game->map);
 }
 
 void	ft_check_map(t_game *game)
 {
 	ft_check_valid_char(game);
-	ft_check_sealed(game);
 	ft_check_rectangular(game);
+	ft_check_sealed(game);
 	ft_check_playability(game);
 }
 
 void	ft_check_sealed(t_game *game)
 {
 	int	idx;
-	int map_len;
 
 	idx = 0;
-	map_len = ft_strlen(game->map);
 
-	while (idx < map_len)
+	while (idx < game->map_len)
 	{
-		if (idx > map_len - game->width)
+		if (idx > (game->map_len - game->width))
 		{
 			if (game->map[idx] != WALL_CHAR)
        			ft_print_error(WALL_ERROR);
@@ -78,17 +77,13 @@ void	ft_check_sealed(t_game *game)
 
 void	ft_check_rectangular(t_game *game)
 {
-	int len_full_map;
-
-	len_full_map = ft_strlen(game->map);
-	if (game->height * game->width != len_full_map)
+	if (game->height == game->width)
 		ft_print_error(FORM_ERROR);
 }
 
 void	ft_check_playability(t_game *game)
 {
 	int	idx;
-	int map_len;
 	
 	idx = 0;
 	game->player = 0;
@@ -96,8 +91,7 @@ void	ft_check_playability(t_game *game)
 	game->exit = 0;
 	game->storage = 0;
 
-	map_len = ft_strlen(game->map);
-	while (idx++ < map_len)
+	while (idx++ < game->map_len)
 	{		
 		if (game->map[idx] == COIN_CHAR)
 			game->coin++;

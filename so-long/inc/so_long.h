@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/17 22:48:57 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 13:48:51 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ typedef struct s_game
 	void	 		   	  *mlx;
 	void   				  *win;
     char     			  *map;
+	long long int		  map_len;
     long long int		  width;
 	long long int		  height;
 	long long int		  coin;

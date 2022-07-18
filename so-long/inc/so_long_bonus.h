@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 11:19:34 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 12:38:02 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,8 +145,6 @@ typedef struct s_sprites {
 	void	*exit_2;
 }		t_sprites;
 
-// i think making a struc for the player is a good idea
-
 typedef struct s_game
 {
     t_sprites 			  sprite;
@@ -162,6 +160,86 @@ typedef struct s_game
 	long long int	      player;
 	char	  			  direction;
 }		t_game;
+
+/*
+i think making a struc for the player is a good idea
+but long as fuck need concentration to complite
+
+typedef struct s_animation
+{
+	int		frames;
+	void	*frame_0;
+	void	*frame_1;
+	void	*frame_2;
+}		t_animation;
+
+typedef struct s_player
+{
+	t_animation		  	  animation_up;
+	t_animation		  	  animation_down;
+	t_animation		  	  animation_left;
+	t_animation		  	  animation_right;
+	t_animation		  	  animation_idle;
+	void				  *frame_move;
+	long long int		  life;
+	long long int		  storage;
+	long long int		  step;
+	char	  			  direction;
+	char	  			  status;
+}		t_player;
+
+typedef struct s_wall
+{
+	t_animation		  animation;
+}		t_wall;
+
+typedef struct s_exit
+{
+	t_animation		  animation;
+	t_animation		  animation_win;
+}		t_exit;
+
+typedef struct s_lava
+{
+	t_animation		  animation;
+}		t_lava;
+
+typedef struct s_enemy
+{
+	t_animation		  	animation;
+	void				*frame_move;
+	
+}		t_enemy;
+
+typedef struct s_game
+{
+	t_player			  player;
+	t_wall				  wall;
+	t_exit				  exit;
+	t_lava				  lava;
+	t_lava				  enemy;
+	t_map				  map;
+	void	 		   	  *mlx;
+	void   				  *win;
+    long long int		  width;
+	long long int		  height;
+}		t_game;
+
+
+typedef struct s_map
+{
+    char     			  *map_str;
+	void				  *ground_sprite;
+	long long int		  coin;
+	long long int		  remaining_coin;
+	long long int	      player;
+	long long int	      wall;
+	long long int	      exit;
+	long long int	      lava;
+	long long int	      enemy;
+}		t_map;
+
+*/
 
 //../src/animation_bonus.c
 

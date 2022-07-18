@@ -6,123 +6,11 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 00:21:09 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/18 10:26:12 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/so_long.h"
-
-int     ft_input_manager(int key_code, t_game *game)
-{
-	//add fleche and s d a d minisccule and else if
-	/*
-	 65362 u
-	x: 65364 d
-	x: 65361 l
-	x: 65363 r
-
-key_code 91 : 
-key_code 84 : 
-key_code 86 : 
-key_code 88 : 
-
-digonal move on 	DOWN_ARROW_KEY = 125,
-	LEFT_ARROW_KEY = 123,
-	RIGHT_ARROW_KEY = 125,
-	*/
-	if (key_code == 53)
-		ft_exit_game(game);
-	if (key_code == 13)
-		ft_move_up(game);
-    if (key_code == 1)
-		ft_move_down(game);
-	if (key_code == 0)
-		ft_move_left(game);
-	if (key_code == 2)
-		ft_move_right(game);
-/*
-	if (key_code == ESC_KEY)
-		ft_exit_game(game);
-	if (key_code == W_KEY || key_code == UP_ARROW_KEY || key_code == UP_PAV_NUM_KEY)
-		ft_move_up(game);
-    if (key_code == S_KEY || key_code == DOWN_ARROW_KEY || key_code == DOWN_PAV_NUM_KEY)
-		ft_move_down(game);
-	if (key_code == A_KEY || key_code == LEFT_ARROW_KEY || key_code == LEFT_PAV_NUM_KEY)
-		ft_move_left(game);
-	if (key_code == D_KEY || key_code == RIGHT_ARROW_KEY || key_code == RIGHT_PAV_NUM_KEY)
-		ft_move_right(game);
-*/
-    //else
-        /*iddle animation*/
-	ft_printf("---------------------\n");
-	ft_printf("Key code : %d \n", key_code);
-	ft_printf("Storage : %d \n", game->storage);
-	ft_printf("Map coin : %d \n", game->coin);
-	//ft_printf("Step : %d\n", game->step);
-	ft_printf("---------------------\n");
-	return (EXIT_SUCCESS);
-}
-
-void	ft_render(t_game *game)
-{
-	mlx_clear_window(game->mlx, game->win);
-	//mlx_put_image_to_window(game->mlx, game->win, game->sprite.wall, 64,  64);
-	ft_put_sprites_by_line(game);
-	//mlx_destroy_image(game->mlx, game->sprite.wall);
-}
-
-
-void	ft_wall_animation(t_sprites *sprite)
-{
-
-    static int	frame;
-	if (sprite->wall_frames == 0)
-		return ;
-	if (frame == sprite->wall_frames)
-	{
-		sprite->wall = sprite->wall_0;
-	}
-	else if (frame >= sprite->wall_frames * 2)
-	{
-		sprite->wall = sprite->wall_1;
-		frame = 0;
-	}
-	frame += 1;
-}
-
-
-void	ft_player_animation(t_sprites *sprite)
-{
-    static int	frame;
-	if (sprite->player_frames == 0)
-		return ;
-	if (frame == sprite->player_frames)
-	{
-		sprite->player_up = sprite->player_up_frame_0;
-		sprite->player_down = sprite->player_down_frame_0;
-		sprite->player_left = sprite->player_left_frame_0;
-		sprite->player_right = sprite->player_right_frame_0;
-	}
-	else if (frame >= sprite->player_frames * 2)
-	{
-		sprite->player_up = sprite->player_up_frame_1;
-		sprite->player_down = sprite->player_down_frame_1;
-		sprite->player_left = sprite->player_left_frame_1;
-		sprite->player_right = sprite->player_right_frame_1;
-		frame = 0;
-	}
-	frame += 1;
-}
-
-
-int	ft_update(t_game *game)
-{
-    //printf("ici\n");
-	ft_wall_animation(&game->sprite);
-	ft_player_animation(&game->sprite);
-	ft_render(game);
-	return (1);
-}
+#include "../inc/so_long_bonus.h"
 
 int	main(int argc, char *argv[], char **envp)
 {
@@ -158,7 +46,7 @@ ROAD TO CLEAN THIS PROJECT
 	* make different struc for player aniation map etc
 		see if good idea for both
 	*
-	*
+	* # define IMG_SIZE 64
 	* better file organisation
 	* add comment in every fct
 	* add L end game animated ennemie death for player
@@ -183,16 +71,25 @@ ROAD TO CLEAN THIS PROJECT
 		key
 		player etc
 	*  fct for to load too
-	*
+	* draw_text(t_game game) for score
+			print with sprite 1 2 3 font
 	* try to make modularity for move ?
 	* ft_print_spite_error char * path
 	* ft_split_path char * path
 	*
 	* make a simple step by step for 100
 	* step by step 125 letter
+	* reset key 
+		destroy everything
+			and call back previos fct after the initial init
 	*
+	* Struct to make a list of enemies
 	* NNNNOOOOOORRRRRRMMMMMMMMMEEEEEEEE
 
+	// wht if the move hi max int for printf ??
+
+
+	NEXT LVL BIG BRAIN DONT DO IT NOW PLEASE BUT FOR YOURSEL 2PLAYER !!1
 
 -g3 -fsanitize=addres
 
@@ -211,6 +108,14 @@ make file cross platform
 	make os
 
 in define change input key code
+
+#	@make --no-print-directory -C ft_printf
+#	@make --no-print-directory -C mlx lib_so_long.a
+
+
+# $(GCC) -o $(NAME) $(SRC) -L. $(LIB_NAME) -L. $(MLX_PATH)/$(MLX_NAME) $(FRAME_WORK)
+# -lXext -lX11
+
 
  $(GCC) $(SRC) $(INC) $(OBJ) 
  -Lmlx_linux -lmlx_Linux -L/usr/lib 

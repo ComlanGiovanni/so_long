@@ -6,11 +6,13 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/16 16:42:25 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/18 10:28:09 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-GCC = gcc -Wall -Wextra -Werror -g
+# ------------------------------ VARIABLES ------------------------------
+
+GCC			= gcc -Wall -Wextra -Werror -g
 
 NAME		=	so_long
 
@@ -30,7 +32,8 @@ FRAME_WORK	=	-framework OpenGL -framework AppKit
 
 RM			= rm -f
 
-#Files
+# ------------------------------ SRC ------------------------------
+
 SRC		=	main.c \
 			./src/input.c \
 			./src/map.c \
@@ -39,9 +42,13 @@ SRC		=	main.c \
 			./src/tools.c
 
 SRCS_BONUS	=   ./bonus/main.c \
-				./bonus/truc.c
+				./bonus/src/input_bonus.c \
+				./bonus/src/map_bonus.c \
+				./bonus/src/so_long_bonus.c \
+				./bonus/src/sprite_bonus.c \
+				./bonus/src/tools_bonus.c \
+				./bonus/src/animation.c
 
-#Obj
 SRC_OBJS		=	$(SRC:.c=.o)
 
 OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
@@ -83,11 +90,6 @@ FCLEANED	=	echo "\n🧼 $(GREEN)Fclean: $(NO_COLOR)Removed the executables 🗑\
 NEW_LINE	=	echo "\n"
 
 # ------------------------------ Rules ---------------------------------
-
-#	@make --no-print-directory -C ft_printf
-#	@make --no-print-directory -C mlx lib_so_long.a
-# $(GCC) -o $(NAME) $(SRC) -L. $(LIB_NAME) -L. $(MLX_PATH)/$(MLX_NAME) $(FRAME_WORK)
-# -lXext -lX11
 	
 all : $(NAME)
 
@@ -98,19 +100,19 @@ $(NAME):
 	make --no-print-directory -C $(MLX_PATH)
 	cp $(MLX_PATH)/$(MLX_NAME) .
 	$(GCC) -o $(NAME) -L. $(MLX_NAME) -L. $(LIB_NAME) $(SRC) -lXext -lX11 $(FRAME_WORK)
-	@echo "$$HEADER"
+	@echo "$$ASCII_MANDATORY"
 	@$(SO_LONG_READY)
 
 bonus: $(OBJS_BONUS)
-	make -C $(LIB_PATH)
-	cp $(LIB_PATH)/$(LIB_NAME) $(BONUS_PATH)
-	$(GCC) $(SRCS_BONUS) -L. $(BONUS_PATH)/$(LIB_NAME) -o $(BONUS_NAME)
+	$(GCC) -o $(BONUS_NAME) -L. $(MLX_NAME) -L. $(LIB_NAME) $(SRCS_BONUS) -lXext -lX11 $(FRAME_WORK)
+	@echo "$$ASCII_BONUS"
 	@$(BONUS_READY)
 
 clean :
 	$(RM) *.o
 	$(RM) *~
 	$(RM) *#
+	$(RM) $(BONUS_PATH)/src/*.o
 	$(RM) $(BONUS_PATH)/*.o
 	make -C $(LIB_PATH) clean
 	@$(CLEANED)
@@ -119,21 +121,35 @@ fclean : clean
 	$(RM) $(NAME)
 	make -C $(LIB_PATH) fclean
 	$(RM) $(LIB_NAME)
-	$(RM) $(BONUS_PATH)/$(LIB_NAME)
 	$(RM) $(BONUS_NAME)
+	$(RM) $(MLX_NAME)
 	@$(FCLEANED)
 
 re : fclean all
 
-info: header
+# ------------------------------ Ascii ---------------------------------
 
-define HEADER
-$(CYAN)                       ,         $(NO_COLOR)
-$(CYAN)       ❤            .:/          $(NO_COLOR)
-$(CYAN)         o      ,,///;,   ,;/    $(NO_COLOR)
-$(CYAN)           o   o)::::::;;///     $(NO_COLOR)
-$(CYAN)              >::::::::;;\\\     $(NO_COLOR)
-$(CYAN)                ''\\\\\'" ';\    $(NO_COLOR)
-$(CYAN)                   ';\            $(NO_COLOR)
+info: ascii
+
+define ASCII_MANDATORY
+$(RED)                       ,         $(NO_COLOR)
+$(RED)       ❤            .:/          $(NO_COLOR)
+$(RED)         o      ,,///;,   ,;/    $(NO_COLOR)
+$(RED)           o   o)::::::;;///     $(NO_COLOR)
+$(RED)              >::::::::;;\\\     $(NO_COLOR)
+$(RED)                ''\\\\\'" ';\    $(NO_COLOR)
+$(RED)                   ';\           $(NO_COLOR)
 endef
-export HEADER
+export ASCII_MANDATORY
+
+define ASCII_BONUS
+$(CYAN) o									$(NO_COLOR)
+$(CYAN)o      ______/~/~/~/__           /((	$(NO_COLOR)
+$(CYAN)  o  // __            ====__    /_((	$(NO_COLOR)
+$(CYAN) o  //  @))       ))))      ===/__((	$(NO_COLOR)
+$(CYAN)    ))           )))))))        __((	$(NO_COLOR)
+$(CYAN)    \\     \)     ))))    __===\ _((	$(NO_COLOR)
+$(CYAN)     \\_______________====      \_((	$(NO_COLOR)
+$(CYAN)                                 \((	$(NO_COLOR)
+endef
+export ASCII_BONUS

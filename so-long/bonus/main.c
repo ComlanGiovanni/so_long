@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 00:57:18 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 01:08:50 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,4 +258,20 @@ konami code for invisibility on everyting
 animation of the door all the time or only  when uou can win
 
 adding icon when collecting coin
+
+load pilliar in a struct
+print pillar only in the middle
+
+do some fun maze or bonus
+
+do map with 42 write in it
+		face
+		forme
+		wired
+		funny
+		pattern
+		chunk
+	
+KONAMI CODE
+
 */

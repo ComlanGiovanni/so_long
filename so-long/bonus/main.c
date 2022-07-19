@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 20:45:41 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 21:22:45 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int	ft_update(t_game *game)
 	ft_wall_animation(&game->wall.animation);
 	ft_player_animation(&game->player);
 	ft_lava_animation(&game->lava.animation);
+	ft_love_animation(&game->love.animation);
 	ft_key_animation(&game->key.animation);
 	ft_door_animation(&game->door);
 	ft_render(game);

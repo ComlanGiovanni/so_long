@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 20:46:32 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 21:23:30 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	ft_load_sprites(t_game *game)
 	// put all int frame in a fct ft_init_frames_int
 	ft_load_key_sprites(game);
 	ft_load_lava_sprites(game);
+	ft_load_love_sprites(game);
 	ft_load_wall_sprites(game);
 	ft_load_ground_sprites(game);
 	ft_load_player_up_sprites(game);
@@ -88,6 +89,8 @@ void	ft_put_all_sprites_to_line(t_game *game, int width, int height)
 		mlx_put_image_to_window(game->mlx, game->win, game->key.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map.map_str[height * game->width + width] == LAVA_CHAR)
 		mlx_put_image_to_window(game->mlx, game->win, game->lava.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
+	else if (game->map.map_str[height * game->width + width] == LOVE_CHAR)
+		mlx_put_image_to_window(game->mlx, game->win, game->love.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->player.direction == 'd')
 		mlx_put_image_to_window(game->mlx, game->win, game->player.down_anim.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->player.direction == 'u')

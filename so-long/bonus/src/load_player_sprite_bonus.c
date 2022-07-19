@@ -6,11 +6,38 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 02:28:39 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 20:24:08 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 21:19:20 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long_bonus.h"
+
+/*
+	repating myself here how can i fix it ?
+*/
+
+void	ft_player_animation(t_player *player)
+{
+    static int	frame;
+	if (player->frames == 0)// remove after for test hors is usefull i we put 0 but bro ....
+		return ;
+	if (frame == player->frames)
+	{
+		player->up_anim.frame_0 = player->up_anim.frame_1;
+		player->down_anim.frame_0 = player->down_anim.frame_1;
+		player->left_anim.frame_0 = player->left_anim.frame_1;
+		player->right_anim.frame_0 = player->right_anim.frame_1;
+	}
+	else if (frame >= player->frames * 2)
+	{
+		player->up_anim.frame_0 = player->up_anim.frame_2;
+		player->down_anim.frame_0 = player->down_anim.frame_2;
+		player->left_anim.frame_0 = player->left_anim.frame_2;
+		player->right_anim.frame_0 = player->right_anim.frame_2;
+		frame = 0;
+	}
+	frame += 1;
+}
 
 void	ft_load_player_up_sprites(t_game *game)
 {

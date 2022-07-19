@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 19:38:47 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 21:23:09 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_check_valid_char(t_game *game)
 	idx = 0;
 	while (game->map.map_str[idx] != '\0')
 	{
-		if (game->map.map_str[idx] != WALL_CHAR &&  game->map.map_str[idx] != PLAYER_CHAR && game->map.map_str[idx] != KEY_CHAR  && game->map.map_str[idx] != EXIT_CHAR && game->map.map_str[idx] != VOID_CHAR && game->map.map_str[idx] != LAVA_CHAR)
+		if (game->map.map_str[idx] != WALL_CHAR &&  game->map.map_str[idx] != PLAYER_CHAR && game->map.map_str[idx] != KEY_CHAR  && game->map.map_str[idx] != EXIT_CHAR && game->map.map_str[idx] != VOID_CHAR && game->map.map_str[idx] != LAVA_CHAR && game->map.map_str[idx] != LOVE_CHAR)
 			ft_print_error(BAD_CHAR_MAP_ERROR);
 		idx++;
 	}

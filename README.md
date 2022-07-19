@@ -91,3 +91,6 @@ Inspiration, code snippets, etc.
 * [Aspite](https://www.aseprite.org/)
 * [Baba is you](https://hempuli.com/baba/)
 * [color hexa for xpm](https://www.color-hex.com/)
+* [Some rust doc milibx](https://docs.rs/minilibx/latest/minilibx/struct.Mlx.html)
+* [Remove background](https://www.remove.bg/fr/upload)
+* [Baba all sprite](https://www.spriters-resource.com/fullview/115231/)

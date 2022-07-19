@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 22:02:52 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 14:43:17 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ t_sprites	ft_init_sprites(void *mlx)
 		ft_print_error(PLAYER_L_XPM_ERROR);
 	if ((sprite.player_right = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_right.xpm", &width, &height)) == NULL)
 		ft_print_error(PLAYER_R_XPM_ERROR);
-	if ((sprite.ground = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/ground.xpm", &width, &height)) == NULL)
-		ft_print_error(GROUND_XPM_ERROR);
 	if ((sprite.exit_1 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/exit_1.xpm", &width, &height)) == NULL)
 		ft_print_error(EXIT_1_XPM_ERROR);
 	if ((sprite.exit_2 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/exit_2.xpm", &width, &height)) == NULL)
@@ -116,24 +114,24 @@ void	ft_put_sprites_by_line(t_game *game)
 void	ft_put_all_sprites_to_line(t_game *game, int width, int height)
 {
 	//int wid ---> game->wid game->direction = 'r'
-	if (game->map[height * game->width + width] == WALL_CHAR)
+	if (game->map.map_str[height * game->width + width] == WALL_CHAR)
 		mlx_put_image_to_window(game->mlx, game->win, game->wall.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map[height * game->width + width] == KEY_CHAR)
+	else if (game->map.map_str[height * game->width + width] == KEY_CHAR)
 		mlx_put_image_to_window(game->mlx, game->win, game->key.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map[height * game->width + width] == LAVA_CHAR)
+	else if (game->map.map_str[height * game->width + width] == LAVA_CHAR)
 		mlx_put_image_to_window(game->mlx, game->win, game->lava.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map[height * game->width + width] == PLAYER_CHAR && game->direction == 'd')
+	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->direction == 'd')
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_down, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map[height * game->width + width] == PLAYER_CHAR && game->direction == 'u')
+	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->direction == 'u')
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_up, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map[height * game->width + width] == PLAYER_CHAR && game->direction == 'l')
+	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->direction == 'l')
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_left, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map[height * game->width + width] == PLAYER_CHAR && game->direction == 'r')
+	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->direction == 'r')
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_right, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map[height * game->width + width] == EXIT_CHAR && game->storage == game->nbr_key)
+	else if (game->map.map_str[height * game->width + width] == EXIT_CHAR && game->storage == game->map.nbr_key)
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit_2, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map[height * game->width + width] == EXIT_CHAR)
+	else if (game->map.map_str[height * game->width + width] == EXIT_CHAR)
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit_1, width * IMG_SIZE, height * IMG_SIZE);
 	else
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.ground, width * IMG_SIZE, height * IMG_SIZE);
+		mlx_put_image_to_window(game->mlx, game->win, game->map.ground, width * IMG_SIZE, height * IMG_SIZE);
 }

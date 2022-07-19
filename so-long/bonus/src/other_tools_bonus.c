@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 12:41:41 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 20:33:50 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 15:00:23 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void    ft_print_map_better_format(t_game *game)
 
     idx = 0;
     reset = 1;
-    while (idx < game->map_len)
+    while (idx < game->map.len)
     {
-        if (game->map[idx])
-            ft_printf("%c", game->map[idx]);
+        if (game->map.map_str[idx])
+            ft_printf("%c", game->map.map_str[idx]);
         if (reset == game->width)
         {
             ft_printf("\n");
@@ -34,18 +34,25 @@ void    ft_print_map_better_format(t_game *game)
     }
 }
 
+/*
+print nombre exit
+print nbr player
+*/
+
 void    ft_print_game_info(t_game *game, int key_code)
 {
     ft_printf("----------------------------------\n");
     ft_printf("**********************************\n");
 	ft_printf("* key pressed : %d               \n", key_code);
 	ft_printf("* Life : NONE                     \n");
-	ft_printf("* Remaining key : %d             \n", (game->nbr_key - game->storage));
+	ft_printf("* Remaining key : %d             \n", (game->map.nbr_key - game->storage));
 	ft_printf("* Status : i or m NONE            \n");
-	ft_printf("* Number of Lava : %d             \n", game->lava_nbr);
+	ft_printf("* Number of void : %d             \n", game->map.nbr_void);
+	ft_printf("* Number of Wall : %d             \n", game->map.nbr_wall);
+	ft_printf("* Number of Lava : %d             \n", game->map.nbr_lava);
 	ft_printf("* Number of Ennemie : NONE        \n");
 	ft_printf("* Storage : %d                    \n", game->storage);
-	ft_printf("* Map key : %d                   \n", game->nbr_key);
+	ft_printf("* Map key : %d                   \n", game->map.nbr_key);
 	ft_printf("* Step counter : %d               \n", game->step);
     ft_print_facing(game);
     ft_printf("**********************************\n");

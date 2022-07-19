@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 20:54:50 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 14:42:25 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,21 +69,21 @@ void	ft_move_up(t_game *game)
 	idx = 0;
 
 	//game->sprite.player_up = game->sprite.player_up_frame_move;
-	while (idx++ < game->map_len)
+	while (idx++ < game->map.len)
 	{
-		if (game->map[idx] == PLAYER_CHAR)
+		if (game->map.map_str[idx] == PLAYER_CHAR)
 			break ;
 	}
-	if (game->map[idx - game->width] == KEY_CHAR)
+	if (game->map.map_str[idx - game->width] == KEY_CHAR)
 		game->storage++;
-	if (game->map[idx - game->width] == LAVA_CHAR)
+	if (game->map.map_str[idx - game->width] == LAVA_CHAR)
 		ft_lose_game(game);
-	if (game->map[idx - game->width] == EXIT_CHAR  && game->nbr_key == game->storage)
+	if (game->map.map_str[idx - game->width] == EXIT_CHAR  && game->map.nbr_key == game->storage)
 		ft_win_game(game);
-	else if (game->map[idx - game->width] != WALL_CHAR && game->map[idx - game->width] != EXIT_CHAR)
+	else if (game->map.map_str[idx - game->width] != WALL_CHAR && game->map.map_str[idx - game->width] != EXIT_CHAR)
 	{
-		game->map[idx] = VOID_CHAR;
-		game->map[idx - game->width] = PLAYER_CHAR;
+		game->map.map_str[idx] = VOID_CHAR;
+		game->map.map_str[idx - game->width] = PLAYER_CHAR;
 		game->step++;
 		//game->direction = 'u';
 		//ft_printf("Step counter : %d\n", game->step);
@@ -97,21 +97,21 @@ void	ft_move_down(t_game *game)
 
 	idx = 0;
 	//game->sprite.player_down = game->sprite.player_down_frame_move;
-	while (idx++ < game->map_len)
+	while (idx++ < game->map.len)
 	{
-		if (game->map[idx] == PLAYER_CHAR)
+		if (game->map.map_str[idx] == PLAYER_CHAR)
 			break ;
 	}
-	if (game->map[idx + game->width] == KEY_CHAR)
+	if (game->map.map_str[idx + game->width] == KEY_CHAR)
 		game->storage++;
-	if (game->map[idx + game->width] == LAVA_CHAR)
+	if (game->map.map_str[idx + game->width] == LAVA_CHAR)
 		ft_lose_game(game);
-	if (game->map[idx + game->width] == EXIT_CHAR && game->nbr_key == game->storage)
+	if (game->map.map_str[idx + game->width] == EXIT_CHAR && game->map.nbr_key == game->storage)
 		ft_win_game(game);
-	else if (game->map[idx + game->width] != WALL_CHAR && game->map[idx + game->width] != EXIT_CHAR)
+	else if (game->map.map_str[idx + game->width] != WALL_CHAR && game->map.map_str[idx + game->width] != EXIT_CHAR)
 	{
-		game->map[idx] = VOID_CHAR;
-		game->map[idx + game->width] = PLAYER_CHAR;
+		game->map.map_str[idx] = VOID_CHAR;
+		game->map.map_str[idx + game->width] = PLAYER_CHAR;
 		game->step++;
 		//game->direction = 'd';
 		//ft_printf("Step counter : %d\n", game->step);
@@ -125,21 +125,21 @@ void	ft_move_left(t_game *game)
 
 	idx = 0;
 	//game->sprite.player_left = game->sprite.player_left_frame_move;
-	while (idx++ <game->map_len)
+	while (idx++ < game->map.len)
 	{
-		if (game->map[idx] == PLAYER_CHAR)
+		if (game->map.map_str[idx] == PLAYER_CHAR)
 			break ;
 	}
-	if (game->map[idx - 1] == KEY_CHAR)
+	if (game->map.map_str[idx - 1] == KEY_CHAR)
 		game->storage++;
-	if (game->map[idx - 1] == LAVA_CHAR)
+	if (game->map.map_str[idx - 1] == LAVA_CHAR)
 		ft_lose_game(game);
-	if (game->map[idx - 1] == EXIT_CHAR && game->storage == game->nbr_key)
+	if (game->map.map_str[idx - 1] == EXIT_CHAR && game->storage == game->map.nbr_key)
 		ft_win_game(game);
-	else if (game->map[idx - 1] != WALL_CHAR && game->map[idx - 1] != EXIT_CHAR)
+	else if (game->map.map_str[idx - 1] != WALL_CHAR && game->map.map_str[idx - 1] != EXIT_CHAR)
 	{
-		game->map[idx] = VOID_CHAR;
-		game->map[idx - 1] = PLAYER_CHAR;
+		game->map.map_str[idx] = VOID_CHAR;
+		game->map.map_str[idx - 1] = PLAYER_CHAR;
 		game->step++;
 		//game->direction = 'l';
 		//ft_printf("Step counter : %d\n", game->step);
@@ -153,21 +153,21 @@ void	ft_move_right(t_game *game)
 
 	idx = 0;
 	//game->sprite.player_right = game->sprite.player_right_frame_move;
-	while (idx++ < game->map_len)
+	while (idx++ < game->map.len)
 	{
-		if (game->map[idx] == PLAYER_CHAR)
+		if (game->map.map_str[idx] == PLAYER_CHAR)
 			break ;
 	}
-	if (game->map[idx + 1] == KEY_CHAR)
+	if (game->map.map_str[idx + 1] == KEY_CHAR)
 		game->storage++;
-	if (game->map[idx + 1] == LAVA_CHAR)
+	if (game->map.map_str[idx + 1] == LAVA_CHAR)
 		ft_lose_game(game);
-	if (game->map[idx + 1] == EXIT_CHAR && game->storage == game->nbr_key)
+	if (game->map.map_str[idx + 1] == EXIT_CHAR && game->storage == game->map.nbr_key)
 		ft_win_game(game);
-	else if (game->map[idx + 1] != WALL_CHAR && game->map[idx + 1] != EXIT_CHAR)
+	else if (game->map.map_str[idx + 1] != WALL_CHAR && game->map.map_str[idx + 1] != EXIT_CHAR)
 	{
-		game->map[idx] = VOID_CHAR;
-		game->map[idx + 1] = PLAYER_CHAR;
+		game->map.map_str[idx] = VOID_CHAR;
+		game->map.map_str[idx + 1] = PLAYER_CHAR;
 		game->step++;
 		//game->direction = 'r';
 		//ft_printf("Step counter : %d\n", game->step);

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 02:31:54 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 16:20:51 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	main(int argc, char *argv[], char **envp)
 			ft_print_error(EXTENSION_ERROR);
 		ft_init_game(game, argv[1]);
 		//mlx_key_hook(game->win, &ft_input_manager, game);
+		//mlx_mouse_hide(game->win);
 		mlx_hook(game->win, 2, 0, &ft_input_manager, game);
 		mlx_hook(game->win, 17, 0, &ft_exit_game, game);//for exit button
 		mlx_loop_hook(game->mlx, &ft_update, game);
@@ -92,7 +93,7 @@ void ft_print_info_on_window(t_game *game)
 	mlx_string_put(game->mlx, game->win, 69, 52, RED, str_storage);
 	mlx_string_put(game->mlx, game->win, 5, 62, AQUA, "Facing-> ");
 
-	if (game->storage == game->nbr_key)
+	if (game->storage == game->map.nbr_key)
 		mlx_string_put(game->mlx, game->win, 69, 52, GREEN, str_storage);
 	
 	if (game->direction == 'u')
@@ -226,4 +227,6 @@ one for the player sprite
 mmissing deine for every eror oad sprite
 
 make a map who trigger konamie code lol
+
+add versus mode only 2 player
 */

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 02:56:10 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 16:13:13 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,7 +261,6 @@ typedef struct s_sprites {
 	void	*player_right_frame_0;
 	void	*player_right_frame_1;
 	void	*player_right_frame_move;
-	void	*ground;
 	int		player_frames;
 	void	*exit_1;
 	void	*exit_2;
@@ -289,24 +288,41 @@ typedef struct s_wall
 	t_animation		  animation;
 }		t_wall;
 
+typedef struct s_player
+{
+	//long long int		  life;
+	//long long int		  storage;
+	//long long int		  step;
+	//char	  			  direction;
+}		t_player;
+
+typedef struct s_map
+{
+    char     			  *map_str;
+	void				  *ground;
+	long long int		  len;
+	long long int		  nbr_key;
+	long long int	   	  nbr_exit;
+	long long int	      nbr_player;
+	long long int	      nbr_lava;
+	long long int	      nbr_wall;
+	long long int	      nbr_void;
+}		t_map;
+
 typedef struct s_game
 {
     t_sprites 			  sprite;
+	//t_player			  player;
+	t_map				  map;
 	t_lava				  lava;
 	t_lava				  key;
 	t_wall				  wall;
 	void	 		   	  *mlx;
 	void   				  *win;
-    char     			  *map;
 	long long int		  step;
-	long long int		  map_len;
     long long int		  width;
 	long long int		  height;
-	long long int		  nbr_key;
 	long long int		  storage;
-	long long int	   	  exit;
-	long long int	      player;
-	long long int	      lava_nbr;
 	char	  			  direction;
 }		t_game;
 
@@ -336,6 +352,10 @@ void	ft_move_right(t_game *game);
 void	ft_load_lava_sprite(t_game *game);
 void	ft_load_key_sprite(t_game *game);
 void	ft_load_wall_sprite(t_game *game);
+void	ft_load_ground_sprite(t_game *game);
+
+//../src/load_player_sprite_bonus.c 
+
 //void	ft_load_player_up_sprite(t_game *game);
 //void	ft_load_player_down_sprite(t_game *game);
 
@@ -346,6 +366,7 @@ void	ft_check_map(t_game *game);
 void	ft_check_sealed(t_game *game);
 //void	ft_check_rectangular(t_game *game);
 void	ft_check_playability(t_game *game);
+void	ft_get_info_map(t_game *game);
 
 //../src/other_tools_bonus.c 
 

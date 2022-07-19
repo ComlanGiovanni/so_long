@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 23:09:44 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 14:23:34 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_init_game(t_game *game, char *map_name)
 	ft_load_lava_sprite(game);
 	ft_load_key_sprite(game);
 	ft_load_wall_sprite(game);
+	ft_load_ground_sprite(game);
 	//ft_load_player_up_sprite(game);
 	//ft_load_player_down_sprite(game);
 	ft_read_map(game, map_name);
@@ -45,9 +46,9 @@ void	ft_check_valid_char(t_game *game)
 	int idx;
 
 	idx = 0;
-	while (game->map[idx] != '\0')
+	while (game->map.map_str[idx] != '\0')
 	{
-		if (game->map[idx] != WALL_CHAR &&  game->map[idx] != PLAYER_CHAR && game->map[idx] != KEY_CHAR  && game->map[idx] != EXIT_CHAR && game->map[idx] != VOID_CHAR && game->map[idx] != LAVA_CHAR)
+		if (game->map.map_str[idx] != WALL_CHAR &&  game->map.map_str[idx] != PLAYER_CHAR && game->map.map_str[idx] != KEY_CHAR  && game->map.map_str[idx] != EXIT_CHAR && game->map.map_str[idx] != VOID_CHAR && game->map.map_str[idx] != LAVA_CHAR)
 			ft_print_error(BAD_CHAR_MAP_ERROR);
 		idx++;
 	}

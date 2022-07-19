@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:23:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 02:29:01 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 14:35:57 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,14 @@ void	ft_load_wall_sprite(t_game *game)
 		ft_print_error("wall_frame_1.xpm");
 	if ((game->wall.animation.frame_2 = mlx_xpm_file_to_image(game->mlx, "assets/xpm/Bonus/wall/wall_frame_2.xpm", &width, &height)) == NULL)
 		ft_print_error("wall_frame_2.xpm");
+}
+
+
+void ft_load_ground_sprite(t_game *game)
+{
+	int			width;
+	int			height;
+
+	if ((game->map.ground = mlx_xpm_file_to_image(game->mlx, "assets/xpm/Bonus/ground/ground.xpm", &width, &height)) == NULL)
+		ft_print_error(GROUND_XPM_ERROR);
 }

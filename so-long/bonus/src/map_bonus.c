@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 20:54:57 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 16:17:57 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ void	ft_read_map(t_game *game, char *map_name)
 	game->height = 0;
 	game->step = 0;
 	game->width = width;
-	game->map = ft_custom_strdup(line);
+	game->map.map_str = ft_custom_strdup(line);
 	free(line);
 	while (line)
 	{
 		game->height++;
 		line = get_next_line(fd);
 		if (line)
-			game->map = ft_custom_strjoin(game->map, line);
+			game->map.map_str = ft_custom_strjoin(game->map.map_str, line);
 	}
 	//free(line);
 	close(fd);
-	game->map_len = ft_strlen(game->map);
+	game->map.len = ft_strlen(game->map.map_str);
 }
 
 void	ft_check_map(t_game *game)
@@ -48,6 +48,7 @@ void	ft_check_map(t_game *game)
 	ft_check_valid_char(game);
 	//ft_check_rectangular(game);
 	ft_check_sealed(game);
+	ft_get_info_map(game);
 	ft_check_playability(game);
 	ft_print_map_better_format(game);
 }
@@ -57,21 +58,21 @@ void	ft_check_sealed(t_game *game)
 	int	idx;
 
 	idx = 0;
-	while (idx < game->map_len)
+	while (idx < game->map.len)
 	{
-		if (idx > (game->map_len - game->width))
+		if (idx > (game->map.len - game->width))
 		{
-			if (game->map[idx] != '1')
+			if (game->map.map_str[idx] != '1')
        			ft_print_error(WALL_ERROR);
 		}
 		else if (idx < game->width)
 		{
-			if (game->map[idx] != '1')
+			if (game->map.map_str[idx] != '1')
        			ft_print_error(WALL_ERROR);
 		}
 		else if (idx % game->width == 0 || idx % game->width == game->width - 1)
 		{
-			if (game->map[idx] != '1')
+			if (game->map.map_str[idx] != '1')
        			ft_print_error(WALL_ERROR);
 		}
 		idx++;
@@ -86,33 +87,49 @@ void	ft_check_rectangular(t_game *game)
 }
 */
 
-void	ft_check_playability(t_game *game)
+/*
+	on profite pour recup
+	les info de la map
+*/
+
+void	ft_get_info_map(t_game *game)
 {
 	int	idx;
-	
+
 	idx = 0;
 	//lol that fuck up and funny
-	game->player = idx;
-	game->nbr_key = idx;
-	game->exit = idx;
-	game->storage = idx;
-	game->lava_nbr = idx;
+	game->map.nbr_player = idx;
+	game->map.nbr_key = idx;
+	game->map.nbr_exit = idx;
+	game->storage = idx;// le storage est a initialiser la ou on initialise le player life  direction step etc
+	game->map.nbr_lava = idx;
+	game->map.nbr_wall = 1;
+	game->map.nbr_void = idx;
 
-	while (idx++ < game->map_len)
+	while (idx++ < game->map.len)
 	{		
-		if (game->map[idx] == KEY_CHAR)
-			game->nbr_key++;
-		else if (game->map[idx] == PLAYER_CHAR)
-			game->player++;
-		else if (game->map[idx] == EXIT_CHAR)
-			game->exit++;
-		else if (game->map[idx] == LAVA_CHAR)
-			game->lava_nbr++;
+		if (game->map.map_str[idx] == KEY_CHAR)
+			game->map.nbr_key++;
+		else if (game->map.map_str[idx] == PLAYER_CHAR)
+			game->map.nbr_player++;
+		else if (game->map.map_str[idx] == EXIT_CHAR)
+			game->map.nbr_exit++;
+		else if (game->map.map_str[idx] == LAVA_CHAR)
+			game->map.nbr_lava++;
+		else if (game->map.map_str[idx] == WALL_CHAR)
+			game->map.nbr_wall++;
+		else
+			game->map.nbr_void++;
 	}
-	if (game->nbr_key == 0)
+	//ft_check_playability(game);
+}
+
+void	ft_check_playability(t_game *game)
+{
+	if (game->map.nbr_key == 0)
        	ft_print_error(COIN_ERROR);
-	if (game->player != 1)
+	if (game->map.nbr_player != 1)
        	ft_print_error(PLAYER_ERROR);
-	if (game->exit == 0)
+	if (game->map.nbr_exit == 0)
        	ft_print_error(EXIT_ERROR);
 }

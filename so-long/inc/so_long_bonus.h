@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 01:58:47 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 02:03:19 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,7 +204,7 @@ typedef struct s_game
 
 void	ft_render(t_game *game);
 int		ft_update(t_game *game);
-void	ft_print_step_on_windows(t_game *game);
+void	ft_print_info_on_window(t_game *game);
 
 //../src/animation_bonus.c
 

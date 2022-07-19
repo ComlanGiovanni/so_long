@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 02:01:35 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 02:16:54 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_render(t_game *game)
 	//mlx_put_image_to_window(game->mlx, game->win, game->sprite.wall, IMG_SIZE,  IMG_SIZE);
 	ft_put_sprites_by_line(game);
 	//mlx_destroy_image(game->mlx, game->sprite.wall);
-	ft_print_step_on_windows(game);
+	ft_print_info_on_window(game);
 }
 
 int	ft_update(t_game *game)
@@ -79,30 +79,30 @@ int	ft_update(t_game *game)
 		is a camera zoom
 */
 
-void ft_print_step_on_windows(t_game *game)
+void ft_print_info_on_window(t_game *game)
 {
 	char	*str_step;
 	char	*str_storage;
 
 	str_step = ft_itoa(game->step);
 	str_storage = ft_itoa(game->storage);
-	mlx_string_put(game->mlx, game->win, 5, 32, YELLOW, "Step - ");
-	mlx_string_put(game->mlx, game->win, 69, 32, RED, str_step);
-	mlx_string_put(game->mlx, game->win, 5, 42, RED, "Storage - ");
-	mlx_string_put(game->mlx, game->win, 69, 42, RED, str_storage);
-	mlx_string_put(game->mlx, game->win, 5, 52, AQUA, "Facing - ");
+	mlx_string_put(game->mlx, game->win, 5, 42, YELLOW, "Step-> ");
+	mlx_string_put(game->mlx, game->win, 69, 42, RED, str_step);
+	mlx_string_put(game->mlx, game->win, 5, 52, RED, "Storage-> ");
+	mlx_string_put(game->mlx, game->win, 69, 52, RED, str_storage);
+	mlx_string_put(game->mlx, game->win, 5, 62, AQUA, "Facing-> ");
 
 	if (game->storage == game->nbr_key)
-		mlx_string_put(game->mlx, game->win, 69, 42, GREEN, str_storage);
+		mlx_string_put(game->mlx, game->win, 69, 52, GREEN, str_storage);
 	
 	if (game->direction == 'u')
-		mlx_string_put(game->mlx, game->win, 69, 52, LIME, "Up");
+		mlx_string_put(game->mlx, game->win, 69, 62, LIME, "Up");
 	if (game->direction == 'd')
-		mlx_string_put(game->mlx, game->win, 69, 52, YELLOW, "Down");
+		mlx_string_put(game->mlx, game->win, 69, 62, YELLOW, "Down");
     if (game->direction == 'l')
-		mlx_string_put(game->mlx, game->win, 69, 52, PINK, "Left");
+		mlx_string_put(game->mlx, game->win, 69, 62, PINK, "Left");
     if (game->direction == 'r')
-		mlx_string_put(game->mlx, game->win, 69, 52, TURQUOISE, "Right");
+		mlx_string_put(game->mlx, game->win, 69, 62, TURQUOISE, "Right");
 
 	free(str_step);
 	free(str_storage);
@@ -123,33 +123,22 @@ ROAD TO CLEAN THIS PROJECT
 	* make different struc for player aniation map etc
 		see if good idea for both
 	*
-	* # define IMG_SIZE 
 	* better file organisation
 	* add comment in every fct
-	* add L end game animated ennemie death for player
 	* add mouving ennemie - 1 for lie
 	* check free
 	* add start and end windows only for bonus
 	* add life for player
 	* print map in good format
 	* print life
-	* step
-	* storage
-	* reamaning coim
-	* total key
-	* direction facing
+
 	* status iddle or mouving
 	* add iddle sprint only change color
-	* nbr of ennemie
 	* animate key
 	* animate door
 	* fct for evry call of aimated sprit
-		wall 
-		key
 		player etc
 	*  fct for to load too
-	* draw_text(t_game game) for score
-			print with sprite 1 2 3 font
 	* try to make modularity for move ?
 	* ft_print_spite_error char * path
 	* ft_split_path char * path
@@ -225,5 +214,15 @@ place pillar instead of wall inside the map only
 having one stuct for the map typedef struct s_map one for the player stats
 one for the player sprite
 
+
+
+ ok so the hearth would be RED black type of
+	H for char
+	change back lava color too normal
+	make a randome move by using pLAYER FCT NOUVEMENT
+	i would be random up down right endlessy
+	if baba face it he lose the game
+
+mmissing deine for every eror oad sprite
 
 */

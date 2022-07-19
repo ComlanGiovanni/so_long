@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 00:19:34 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 00:57:18 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -256,4 +256,6 @@ konami code for invisibility on everyting
 
 
 animation of the door all the time or only  when uou can win
+
+adding icon when collecting coin
 */

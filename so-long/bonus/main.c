@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 02:16:54 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 02:31:54 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,4 +225,5 @@ one for the player sprite
 
 mmissing deine for every eror oad sprite
 
+make a map who trigger konamie code lol
 */

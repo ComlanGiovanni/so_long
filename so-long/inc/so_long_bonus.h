@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 02:03:19 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 02:32:12 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,7 +198,6 @@ typedef struct s_game
 	long long int	      lava_nbr;
 	char	  			  direction;
 }		t_game;
-
 
 //../src/main.c
 

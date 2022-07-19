@@ -37,7 +37,16 @@
 
 * How to run the program
 ```
-./
+
+make re 
+./so_long your_map.ber
+
+make re bonus
+./so_long_bons map/basic.ber
+or
+
+make re bonus && ./so_long_bonus maps/fun.ber
+
 ```
 
 <h1 align="center"> Help </h1>

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 17:15:44 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 18:38:58 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,25 @@ int     ft_input_manager(int key_code, t_game *game)
 		ft_exit_game(game);
 	if (key_code == MAC_W_KEY || key_code == MAC_UP_ARROW_KEY || key_code == MAC_UP_PAV_NUM_KEY)
 	{
-		game->sprite.player_up = game->sprite.player_up_frame_move;
+		game->player.up_anim.frame_0 = game->player.up_anim.frame_move;
 		game->player.direction = 'u';
 		ft_move_up(game);
 	}
     if (key_code == MAC_S_KEY || key_code == MAC_DOWN_ARROW_KEY || key_code == MAC_DOWN_PAV_NUM_KEY)
 	{
-		game->sprite.player_down = game->sprite.player_down_frame_move;
+		game->player.down_anim.frame_0 = game->player.down_anim.frame_move;
 		game->player.direction = 'd';
 		ft_move_down(game);
 	}
 	if (key_code == MAC_A_KEY || key_code == MAC_LEFT_ARROW_KEY || key_code == MAC_LEFT_PAV_NUM_KEY)
 	{
-		game->sprite.player_left = game->sprite.player_left_frame_move;
+		game->player.left_anim.frame_0 = game->player.left_anim.frame_move;
 		game->player.direction = 'l';
 		ft_move_left(game);
 	}
 	if (key_code == MAC_D_KEY || key_code == MAC_RIGHT_ARROW_KEY || key_code == MAC_RIGHT_PAV_NUM_KEY)
 	{
-		game->sprite.player_right = game->sprite.player_right_frame_move;
+		game->player.right_anim.frame_0 = game->player.right_anim.frame_move;
 		game->player.direction = 'r';
 		ft_move_right(game);
 	}

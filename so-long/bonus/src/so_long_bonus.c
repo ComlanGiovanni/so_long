@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 17:08:35 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 19:38:47 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,8 @@ void	ft_init_game(t_game *game, char *map_name)
 
 	if ((game->mlx = mlx_init()) == NULL)
         ft_print_error(MLX_INIT_ERROR);
-	game->sprite = ft_init_sprites(game->mlx);
-	ft_load_lava_sprite(game);
-	ft_load_key_sprite(game);
-	ft_load_wall_sprite(game);
-	ft_load_ground_sprite(game);
-	//ft_load_player_up_sprite(game);
-	//ft_load_player_down_sprite(game);
+	ft_load_sprites(game);
+	//ft_init_player_info();
 	ft_read_map(game, map_name);
 	ft_check_map(game);
 	//width = game->width * IMG_SIZE;

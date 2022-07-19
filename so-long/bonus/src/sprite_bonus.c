@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 17:17:51 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 20:46:32 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,63 +34,22 @@ path to the xm file and will return the str int the tab
  * @param mlx 
  * @return t_sprites 
  */
-t_sprites	ft_init_sprites(void *mlx)
+void	ft_load_sprites(t_game *game)
 {
-	t_sprites	sprite;
-	int			width;
-	int			height;
-
-	sprite.player_frames = 9;
-	//sprite.wall_frames = 12;
+	// put all int frame in a fct ft_init_frames_int
+	ft_load_key_sprites(game);
+	ft_load_lava_sprites(game);
+	ft_load_wall_sprites(game);
+	ft_load_ground_sprites(game);
+	ft_load_player_up_sprites(game);
+	ft_load_player_down_sprites(game);
+	ft_load_player_left_sprites(game);
+	ft_load_player_right_sprites(game);
+	ft_load_door_closed_sprites(game);
+	ft_load_door_open_sprites(game);
 
 	// fct for missing file for better read
-	//verify header error name
-	if ((sprite.player_up = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_up.xpm", &width, &height)) == NULL)
-		ft_print_error(PLAYER_U_XPM_ERROR);
-	if ((sprite.player_down = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_down.xpm", &width, &height)) == NULL)
-		ft_print_error(PLAYER_D_XPM_ERROR);
-    if ((sprite.player_left = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_left.xpm", &width, &height)) == NULL)
-		ft_print_error(PLAYER_L_XPM_ERROR);
-	if ((sprite.player_right = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_right.xpm", &width, &height)) == NULL)
-		ft_print_error(PLAYER_R_XPM_ERROR);
-	if ((sprite.exit_1 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/exit_1.xpm", &width, &height)) == NULL)
-		ft_print_error(EXIT_1_XPM_ERROR);
-	if ((sprite.exit_2 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/exit_2.xpm", &width, &height)) == NULL)
-		ft_print_error(EXIT_2_XPM_ERROR);
-	
-	if ((sprite.player_up_frame_0 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_up_frame_0.xpm", &width, &height)) == NULL)
-		ft_print_error("player_up_frame_0.xpm");
-	if ((sprite.player_up_frame_1 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_up_frame_1.xpm", &width, &height)) == NULL)
-		ft_print_error("player_up_frame_1.xpm");
-	if ((sprite.player_up_frame_move = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_up_frame_move.xpm", &width, &height)) == NULL)
-		ft_print_error("player_up_frame_1.xpm");
-	if ((sprite.player_down_frame_0 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_down_frame_0.xpm", &width, &height)) == NULL)
-		ft_print_error("player_down_frame_0.xpm");
-	if ((sprite.player_down_frame_1 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_down_frame_1.xpm", &width, &height)) == NULL)
-		ft_print_error("player_down_frame_1.xpm");
-	if ((sprite.player_down_frame_move = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_down_frame_move.xpm", &width, &height)) == NULL)
-		ft_print_error("player_up_frame_1.xpm");
-	if ((sprite.player_left_frame_0 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_left_frame_0.xpm", &width, &height)) == NULL)
-		ft_print_error("player_left_frame_0.xpm");
-	if ((sprite.player_left_frame_1 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_left_frame_1.xpm", &width, &height)) == NULL)
-		ft_print_error("player_left_frame_1.xpm");
-	if ((sprite.player_right_frame_0 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_right_frame_0.xpm", &width, &height)) == NULL)
-		ft_print_error("player_right_frame_0.xpm");
-	if ((sprite.player_right_frame_1 = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_right_frame_1.xpm", &width, &height)) == NULL)
-		ft_print_error("player_right_frame_1.xpm");
-	if ((sprite.player_right_frame_move = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_right_frame_move.xpm", &width, &height)) == NULL)
-		ft_print_error("player_up_frame_1.xpm");
-	if ((sprite.player_left_frame_move = mlx_xpm_file_to_image(mlx, "assets/xpm/Bonus/player_left_frame_move.xpm", &width, &height)) == NULL)
-		ft_print_error("player_up_frame_1.xpm");
-/*
-	sprite.player = mlx_xpm_file_to_image(mlx, "player.xpm", &width, &height);
-	sprite.ground = mlx_xpm_file_to_image(mlx, "ground.xpm", &width, &height);
-	sprite.wall = mlx_xpm_file_to_image(mlx, "wall.xpm", &width, &height);
-	sprite.key = mlx_xpm_file_to_image(mlx, "key.xpm", &width, &height);
-	sprite.exit = mlx_xpm_file_to_image(mlx, "exit.xpm", &width, &height);
-	sprite.house = mlx_xpm_file_to_image(mlx, "house.xpm", &width, &height);
-*/
-	return (sprite);
+	//verify header error name EXIT_1_XPM_ERROR
 }
 
 void	ft_put_sprites_by_line(t_game *game)
@@ -130,17 +89,17 @@ void	ft_put_all_sprites_to_line(t_game *game, int width, int height)
 	else if (game->map.map_str[height * game->width + width] == LAVA_CHAR)
 		mlx_put_image_to_window(game->mlx, game->win, game->lava.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->player.direction == 'd')
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_down, width * IMG_SIZE, height * IMG_SIZE);
+		mlx_put_image_to_window(game->mlx, game->win, game->player.down_anim.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->player.direction == 'u')
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_up, width * IMG_SIZE, height * IMG_SIZE);
+		mlx_put_image_to_window(game->mlx, game->win, game->player.up_anim.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->player.direction == 'l')
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_left, width * IMG_SIZE, height * IMG_SIZE);
+		mlx_put_image_to_window(game->mlx, game->win, game->player.left_anim.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->player.direction == 'r')
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_right, width * IMG_SIZE, height * IMG_SIZE);
+		mlx_put_image_to_window(game->mlx, game->win, game->player.right_anim.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map.map_str[height * game->width + width] == EXIT_CHAR && game->player.storage == game->map.nbr_key)
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit_2, width * IMG_SIZE, height * IMG_SIZE);
+		mlx_put_image_to_window(game->mlx, game->win, game->door.open.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map.map_str[height * game->width + width] == EXIT_CHAR)
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit_1, width * IMG_SIZE, height * IMG_SIZE);
+		mlx_put_image_to_window(game->mlx, game->win, game->door.closed.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else
 		mlx_put_image_to_window(game->mlx, game->win, game->map.ground, width * IMG_SIZE, height * IMG_SIZE);
 }

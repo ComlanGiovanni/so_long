@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 17:13:09 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 20:49:00 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@
 # define KEY_XPM_ERROR		"key.xpm fail to load\n"
 # define EXIT_1_XPM_ERROR	"exit_1.xpm fail to load\n"
 # define EXIT_2_XPM_ERROR	"exit_2.xpm fail to load\n"
-# define WIN_MSG			"Thanks for playing, you win with steps : "
-# define LOSE_MSG			"You loooossseee with steps : "
+# define WIN_MSG			"Thanks for playing, you WIN with steps : "
+# define LOSE_MSG			"You LOSE with steps : "
 
 /*
 enum enum e_key_code_linux {
@@ -170,6 +170,7 @@ typedef struct s_door
 	t_animation		  anim_open;
 	t_animation	      anim_nope;
 }		t_door;
+
 typedef struct s_love
 {
 	t_animation		  animation;
@@ -217,7 +218,7 @@ typedef struct s_player
 	t_anim_player		  down_anim;
 	t_anim_player		  left_anim;
 	t_anim_player		  right_anim;
-	t_animation			  idle_anim;
+	t_animation			  idle_anim;//no need
 	t_animation			  true_idle;
 	long long int		  life;
 	long long int		  storage;
@@ -243,29 +244,6 @@ typedef struct s_game
 
 */
 
-typedef struct s_sprites {
-	void	*player;
-	void	*player_up;
-	void	*player_up_frame_0;
-	void	*player_up_frame_1;
-	void	*player_up_frame_move;
-	void	*player_down;
-	void	*player_down_frame_0;
-	void	*player_down_frame_1;
-	void	*player_down_frame_move;
-	void	*player_left;
-	void	*player_left_frame_0;
-	void	*player_left_frame_1;
-	void	*player_left_frame_move;
-	void	*player_right;
-	void	*player_right_frame_0;
-	void	*player_right_frame_1;
-	void	*player_right_frame_move;
-	int		player_frames;
-	void	*exit_1;
-	void	*exit_2;
-}		t_sprites;
-
 typedef struct s_animation
 {
 	int		frames;
@@ -288,8 +266,35 @@ typedef struct s_wall
 	t_animation		  animation;
 }		t_wall;
 
+typedef struct s_anim_door
+{
+	void	*frame_0;
+	void	*frame_1;
+	void	*frame_2;
+}		t_anim_door;
+
+typedef struct s_door
+{
+	int				  frames;
+	t_anim_door		  closed;
+	t_anim_door		  open;
+}		t_door;
+
+typedef struct s_anim_player
+{
+	void	*frame_0;
+	void	*frame_1;
+	void	*frame_2;
+	void	*frame_move;
+}		t_anim_player;
+
 typedef struct s_player
 {
+	t_anim_player		  up_anim;
+	t_anim_player		  down_anim;
+	t_anim_player		  left_anim;
+	t_anim_player		  right_anim;
+	int					  frames;
 	//long long int		  life;
 	long long int		  storage;
 	long long int		  step;
@@ -311,12 +316,12 @@ typedef struct s_map
 
 typedef struct s_game
 {
-    t_sprites 			  sprite;
 	t_player			  player;
 	t_map				  map;
 	t_lava				  lava;
 	t_lava				  key;
 	t_wall				  wall;
+	t_door				  door;
 	void	 		   	  *mlx;
 	void   				  *win;
     long long int		  width;
@@ -332,10 +337,10 @@ void	ft_print_info_on_window(t_game *game);
 //../src/animation_bonus.c
 
 void	ft_wall_animation(t_animation *animation);
-void	ft_player_animation(t_sprites *sprite);
+void	ft_player_animation(t_player *player);
 void	ft_lava_animation(t_animation *animation);
 void	ft_key_animation(t_animation *animation);
-
+void	ft_door_animation(t_door *door);
 //../src/input_bonus.c
 
 int     ft_input_manager(int key, t_game *game);
@@ -344,17 +349,24 @@ void	ft_move_down(t_game *game);
 void	ft_move_left(t_game *game);
 void	ft_move_right(t_game *game);
 
+//../src/load_door_sprite_bonus.c
+
+void	ft_load_door_closed_sprites(t_game *game);
+void	ft_load_door_open_sprites(t_game *game);
+
 //../src/load_sprite_bonus.c
 
-void	ft_load_lava_sprite(t_game *game);
-void	ft_load_key_sprite(t_game *game);
-void	ft_load_wall_sprite(t_game *game);
-void	ft_load_ground_sprite(t_game *game);
+void	ft_load_lava_sprites(t_game *game);
+void	ft_load_key_sprites(t_game *game);
+void	ft_load_wall_sprites(t_game *game);
+void	ft_load_ground_sprites(t_game *game);
 
 //../src/load_player_sprite_bonus.c 
 
-//void	ft_load_player_up_sprite(t_game *game);
-//void	ft_load_player_down_sprite(t_game *game);
+void	ft_load_player_up_sprites(t_game *game);
+void	ft_load_player_down_sprites(t_game *game);
+void	ft_load_player_left_sprites(t_game *game);
+void	ft_load_player_right_sprites(t_game *game);
 
 //../src/map_bonus.c
 
@@ -383,7 +395,7 @@ void	ft_check_valid_char(t_game *game);
 
 //../src/sprite_bonus.c
 
-t_sprites	ft_init_sprites(void *mlx);
+void		ft_load_sprites(t_game *game);
 void		ft_put_sprites_by_line(t_game *game);
 void		ft_put_all_sprites_to_line(t_game *game, int width, int height);
 

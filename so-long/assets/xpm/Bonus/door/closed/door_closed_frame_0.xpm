@@ -1,5 +1,5 @@
 /* XPM */
-static char *exit_1[] = {
+static char *_[] = {
 /* columns rows colors chars-per-pixel */
 "64 64 11 1 ",
 "  c None",

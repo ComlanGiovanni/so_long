@@ -6,13 +6,13 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:23:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 14:35:57 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 20:52:20 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long_bonus.h"
 
-void	ft_load_lava_sprite(t_game *game)
+void	ft_load_lava_sprites(t_game *game)
 {
 	int			width;
 	int			height;
@@ -26,7 +26,7 @@ void	ft_load_lava_sprite(t_game *game)
 		ft_print_error("lava_frame_2.xpm");
 }
 
-void	ft_load_key_sprite(t_game *game)
+void	ft_load_key_sprites(t_game *game)
 {
 	int			width;
 	int			height;
@@ -40,7 +40,7 @@ void	ft_load_key_sprite(t_game *game)
 		ft_print_error("key_frame_2.xpm");
 }
 
-void	ft_load_wall_sprite(t_game *game)
+void	ft_load_wall_sprites(t_game *game)
 {
 	int			width;
 	int			height;
@@ -55,7 +55,7 @@ void	ft_load_wall_sprite(t_game *game)
 }
 
 
-void ft_load_ground_sprite(t_game *game)
+void ft_load_ground_sprites(t_game *game)
 {
 	int			width;
 	int			height;

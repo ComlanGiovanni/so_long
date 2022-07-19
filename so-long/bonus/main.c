@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 17:23:20 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 20:45:41 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ void	ft_render(t_game *game)
 int	ft_update(t_game *game)
 {
 	ft_wall_animation(&game->wall.animation);
-	ft_player_animation(&game->sprite);
-	//ft_player_animation(&game->sprite);
+	ft_player_animation(&game->player);
 	ft_lava_animation(&game->lava.animation);
 	ft_key_animation(&game->key.animation);
+	ft_door_animation(&game->door);
 	ft_render(game);
 	return (EXIT_SUCCESS);
 }
@@ -114,6 +114,9 @@ void ft_print_info_on_window(t_game *game)
 }
 
  /*
+
+rename file name ft_eefwe
+   [Dont work harder work smarter]
 
  in my bonus the map can be square
 
@@ -234,4 +237,8 @@ make a map who trigger konamie code lol
 
 add versus mode only 2 player
 Jai envie dajouter un timer, un vs mode un stysteme de path founding pour les ennemies
+konami code for invisibility on everyting
+
+
+animation of the door all the time or only  when uou can win
 */

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 23:49:47 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 00:55:03 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,7 @@ typedef struct s_animation
 typedef struct s_lava
 {
 	t_animation		  animation;
+	char	  		  move;
 }		t_lava;
 
 typedef struct s_key
@@ -226,6 +227,8 @@ typedef struct s_game
     long long int		  width;
 	long long int		  height;
 }		t_game;
+
+//void moving_lava(t_game *game);
 
 //../src/main.c
 

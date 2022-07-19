@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 14:23:34 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 17:08:35 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ int	ft_exit_game(t_game *game)
  */
 int		ft_win_game(t_game *game)
 {
-	ft_printf(WIN_MSG "%d ", game->step);
-	ft_printf("Storage : %d\n", game->storage);
+	ft_printf(WIN_MSG "%d ", game->player.step);
+	ft_printf("Storage : %d\n", game->player.storage);
 	mlx_destroy_window(game->mlx, game->win);
 	exit(EXIT_SUCCESS);
 }

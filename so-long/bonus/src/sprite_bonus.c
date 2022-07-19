@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 14:43:17 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 17:17:51 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,15 @@ void	ft_put_sprites_by_line(t_game *game)
 	}
 }
 
+/*
+this shit will be too long when norme
+
+make a put for
+map info
+for player
+for the door
+*/
+
 void	ft_put_all_sprites_to_line(t_game *game, int width, int height)
 {
 	//int wid ---> game->wid game->direction = 'r'
@@ -120,15 +129,15 @@ void	ft_put_all_sprites_to_line(t_game *game, int width, int height)
 		mlx_put_image_to_window(game->mlx, game->win, game->key.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map.map_str[height * game->width + width] == LAVA_CHAR)
 		mlx_put_image_to_window(game->mlx, game->win, game->lava.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->direction == 'd')
+	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->player.direction == 'd')
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_down, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->direction == 'u')
+	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->player.direction == 'u')
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_up, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->direction == 'l')
+	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->player.direction == 'l')
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_left, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->direction == 'r')
+	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->player.direction == 'r')
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_right, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map.map_str[height * game->width + width] == EXIT_CHAR && game->storage == game->map.nbr_key)
+	else if (game->map.map_str[height * game->width + width] == EXIT_CHAR && game->player.storage == game->map.nbr_key)
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit_2, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map.map_str[height * game->width + width] == EXIT_CHAR)
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit_1, width * IMG_SIZE, height * IMG_SIZE);

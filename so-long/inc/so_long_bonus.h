@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 16:13:13 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 17:13:09 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -291,9 +291,9 @@ typedef struct s_wall
 typedef struct s_player
 {
 	//long long int		  life;
-	//long long int		  storage;
-	//long long int		  step;
-	//char	  			  direction;
+	long long int		  storage;
+	long long int		  step;
+	char	  			  direction;
 }		t_player;
 
 typedef struct s_map
@@ -312,18 +312,15 @@ typedef struct s_map
 typedef struct s_game
 {
     t_sprites 			  sprite;
-	//t_player			  player;
+	t_player			  player;
 	t_map				  map;
 	t_lava				  lava;
 	t_lava				  key;
 	t_wall				  wall;
 	void	 		   	  *mlx;
 	void   				  *win;
-	long long int		  step;
     long long int		  width;
 	long long int		  height;
-	long long int		  storage;
-	char	  			  direction;
 }		t_game;
 
 //../src/main.c

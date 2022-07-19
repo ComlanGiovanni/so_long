@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 16:20:51 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 17:23:20 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,11 @@ int	ft_update(t_game *game)
 }
 
 /*
+	not a problem but for future futur me with more skill
+	there is a astetic problem of the print diirectly on the
+	windows, cool if you can make a more cool way to see it i 
+	dont realy know
+
 		idea font or sprite for step
 		or info like ft_print_game_info)
 		on screen
@@ -85,24 +90,23 @@ void ft_print_info_on_window(t_game *game)
 	char	*str_step;
 	char	*str_storage;
 
-	str_step = ft_itoa(game->step);
-	str_storage = ft_itoa(game->storage);
+	str_step = ft_itoa(game->player.step);
+	str_storage = ft_itoa(game->player.storage);
 	mlx_string_put(game->mlx, game->win, 5, 42, YELLOW, "Step-> ");
 	mlx_string_put(game->mlx, game->win, 69, 42, RED, str_step);
 	mlx_string_put(game->mlx, game->win, 5, 52, RED, "Storage-> ");
 	mlx_string_put(game->mlx, game->win, 69, 52, RED, str_storage);
 	mlx_string_put(game->mlx, game->win, 5, 62, AQUA, "Facing-> ");
 
-	if (game->storage == game->map.nbr_key)
+	if (game->player.storage == game->map.nbr_key)
 		mlx_string_put(game->mlx, game->win, 69, 52, GREEN, str_storage);
-	
-	if (game->direction == 'u')
+	if (game->player.direction == 'u')
 		mlx_string_put(game->mlx, game->win, 69, 62, LIME, "Up");
-	if (game->direction == 'd')
+	if (game->player.direction == 'd')
 		mlx_string_put(game->mlx, game->win, 69, 62, YELLOW, "Down");
-    if (game->direction == 'l')
+    if (game->player.direction == 'l')
 		mlx_string_put(game->mlx, game->win, 69, 62, PINK, "Left");
-    if (game->direction == 'r')
+    if (game->player.direction == 'r')
 		mlx_string_put(game->mlx, game->win, 69, 62, TURQUOISE, "Right");
 
 	free(str_step);
@@ -229,4 +233,5 @@ mmissing deine for every eror oad sprite
 make a map who trigger konamie code lol
 
 add versus mode only 2 player
+Jai envie dajouter un timer, un vs mode un stysteme de path founding pour les ennemies
 */

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 02:32:12 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 02:56:10 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,117 @@ typedef enum e_bool
 	FALSE = 0
 }	t_bool;
 
+/*
+typedef struct s_sprites {
+	void	*player;
+	void	*player_up;
+	void	*player_up_frame_0;
+	void	*player_up_frame_1;
+	void	*player_up_frame_move;
+	void	*player_down;
+	void	*player_down_frame_0;
+	void	*player_down_frame_1;
+	void	*player_down_frame_move;
+	void	*player_left;
+	void	*player_left_frame_0;
+	void	*player_left_frame_1;
+	void	*player_left_frame_move;
+	void	*player_right;
+	void	*player_right_frame_0;
+	void	*player_right_frame_1;
+	void	*player_right_frame_move;
+	void	*ground;
+	int		player_frames;
+	void	*exit_1;
+	void	*exit_2;
+}		t_sprites;
+
+typedef struct s_animation
+{
+	int		frames;
+	void	*frame_0;
+	void	*frame_1;
+	void	*frame_2;
+}		t_animation;
+
+typedef struct s_door
+{
+	t_animation		  anim_closed;
+	t_animation		  anim_open;
+	t_animation	      anim_nope;
+}		t_door;
+typedef struct s_love
+{
+	t_animation		  animation;
+}		t_love;
+
+typedef struct s_lava
+{
+	t_animation		  animation;
+}		t_lava;
+
+typedef struct s_key
+{
+	t_animation		  animation;
+}		t_key;
+
+typedef struct s_wall
+{
+	t_animation		  animation;
+}		t_wall;
+
+typedef struct s_map
+{
+    char     			  *map_str;
+	void				  *ground;
+	long long int		  map_len;
+	long long int		  nbr_key;
+	long long int	   	  nbr_exit;
+	long long int	      nbr_player;
+	long long int	      nbr_lava;
+	long long int	      nbr_wall;
+}		t_map;
+
+typedef struct s_anim_player
+{
+	int		frames; // for default init
+	void	*frame_0;
+	void	*frame_1;
+	void	*frame_2;
+	void	*frame_move;
+}		t_anim_player;
+
+typedef struct s_player
+{
+	t_anim_player		  up_anim;
+	t_anim_player		  down_anim;
+	t_anim_player		  left_anim;
+	t_anim_player		  right_anim;
+	t_animation			  idle_anim;
+	t_animation			  true_idle;
+	long long int		  life;
+	long long int		  storage;
+	long long int		  step;
+	char	  			  direction;
+}		t_player;
+
+typedef struct s_game
+{
+    //t_sprites 			  sprite;
+	t_player		      player;
+	t_lava				  lava;
+	t_love				  love;
+	t_key				  key;
+	t_wall				  wall;
+	t_door				  door;
+	t_map				  map;
+	void	 		   	  *mlx;
+	void   				  *win;
+    long long int		  width;
+	long long int		  height;
+}		t_game;
+
+*/
 
 typedef struct s_sprites {
 	void	*player;

@@ -29,11 +29,11 @@ void	ft_init_game(t_game *game, char *map_name)
 	//ft_load_player_down_sprite(game);
 	ft_read_map(game, map_name);
 	ft_check_map(game);
-	//width = game->width * 64;
-	//height = game->height * 64;
+	//width = game->width * IMG_SIZE;
+	//height = game->height * IMG_SIZE;
 	//mlx = game->mlx;
 	//win = game->win;
-	if ((game->win = mlx_new_window(game->mlx, game->width * 64, game->height * 64, GAME_TITLE)) == NULL)
+	if ((game->win = mlx_new_window(game->mlx, game->width * IMG_SIZE, game->height * IMG_SIZE, GAME_TITLE)) == NULL)
         ft_print_error(MLX_WINDOW_ERROR);
 	ft_direction_by_pos_after_launch(game);
 	//game->direction = 'r';//lol changing the direction by they positon of the p int the map ?

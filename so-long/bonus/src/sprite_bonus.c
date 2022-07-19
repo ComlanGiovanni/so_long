@@ -117,23 +117,23 @@ void	ft_put_all_sprites_to_line(t_game *game, int width, int height)
 {
 	//int wid ---> game->wid game->direction = 'r'
 	if (game->map[height * game->width + width] == WALL_CHAR)
-		mlx_put_image_to_window(game->mlx, game->win, game->wall.animation.frame_0, width * 64, height * 64);
+		mlx_put_image_to_window(game->mlx, game->win, game->wall.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map[height * game->width + width] == KEY_CHAR)
-		mlx_put_image_to_window(game->mlx, game->win, game->key.animation.frame_0, width * 64, height * 64);
+		mlx_put_image_to_window(game->mlx, game->win, game->key.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map[height * game->width + width] == LAVA_CHAR)
-		mlx_put_image_to_window(game->mlx, game->win, game->lava.animation.frame_0, width * 64, height * 64);
+		mlx_put_image_to_window(game->mlx, game->win, game->lava.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map[height * game->width + width] == PLAYER_CHAR && game->direction == 'd')
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_down, width * 64, height * 64);
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_down, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map[height * game->width + width] == PLAYER_CHAR && game->direction == 'u')
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_up, width * 64, height * 64);
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_up, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map[height * game->width + width] == PLAYER_CHAR && game->direction == 'l')
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_left, width * 64, height * 64);
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_left, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map[height * game->width + width] == PLAYER_CHAR && game->direction == 'r')
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_right, width * 64, height * 64);
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.player_right, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map[height * game->width + width] == EXIT_CHAR && game->storage == game->nbr_key)
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit_2, width * 64, height * 64);
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit_2, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map[height * game->width + width] == EXIT_CHAR)
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit_1, width * 64, height * 64);
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit_1, width * IMG_SIZE, height * IMG_SIZE);
 	else
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.ground, width * 64, height * 64);
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.ground, width * IMG_SIZE, height * IMG_SIZE);
 }

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 23:53:13 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 02:01:35 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,10 @@ int	main(int argc, char *argv[], char **envp)
 void	ft_render(t_game *game)
 {
 	mlx_clear_window(game->mlx, game->win);
-	//mlx_put_image_to_window(game->mlx, game->win, game->sprite.wall, 64,  64);
+	//mlx_put_image_to_window(game->mlx, game->win, game->sprite.wall, IMG_SIZE,  IMG_SIZE);
 	ft_put_sprites_by_line(game);
 	//mlx_destroy_image(game->mlx, game->sprite.wall);
+	ft_print_step_on_windows(game);
 }
 
 int	ft_update(t_game *game)
@@ -68,6 +69,43 @@ int	ft_update(t_game *game)
 	ft_key_animation(&game->key.animation);
 	ft_render(game);
 	return (EXIT_SUCCESS);
+}
+
+/*
+		idea font or sprite for step
+		or info like ft_print_game_info)
+		on screen
+		with a map tracking only if there 
+		is a camera zoom
+*/
+
+void ft_print_step_on_windows(t_game *game)
+{
+	char	*str_step;
+	char	*str_storage;
+
+	str_step = ft_itoa(game->step);
+	str_storage = ft_itoa(game->storage);
+	mlx_string_put(game->mlx, game->win, 5, 32, YELLOW, "Step - ");
+	mlx_string_put(game->mlx, game->win, 69, 32, RED, str_step);
+	mlx_string_put(game->mlx, game->win, 5, 42, RED, "Storage - ");
+	mlx_string_put(game->mlx, game->win, 69, 42, RED, str_storage);
+	mlx_string_put(game->mlx, game->win, 5, 52, AQUA, "Facing - ");
+
+	if (game->storage == game->nbr_key)
+		mlx_string_put(game->mlx, game->win, 69, 42, GREEN, str_storage);
+	
+	if (game->direction == 'u')
+		mlx_string_put(game->mlx, game->win, 69, 52, LIME, "Up");
+	if (game->direction == 'd')
+		mlx_string_put(game->mlx, game->win, 69, 52, YELLOW, "Down");
+    if (game->direction == 'l')
+		mlx_string_put(game->mlx, game->win, 69, 52, PINK, "Left");
+    if (game->direction == 'r')
+		mlx_string_put(game->mlx, game->win, 69, 52, TURQUOISE, "Right");
+
+	free(str_step);
+	free(str_storage);
 }
 
  /*
@@ -85,7 +123,7 @@ ROAD TO CLEAN THIS PROJECT
 	* make different struc for player aniation map etc
 		see if good idea for both
 	*
-	* # define IMG_SIZE 64
+	* # define IMG_SIZE 
 	* better file organisation
 	* add comment in every fct
 	* add L end game animated ennemie death for player

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/18 23:53:57 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 01:58:47 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,21 @@
 # include "../lib/gnl/get_next_line.h"
 # include "../lib/ft_printf/ft_printf.h"
 
+# define BLUE 0x0000FF
+# define RED 0xFF0000
+# define YELLOW 0xFFFF00
+# define GREEN 0x00FF00
+# define BROWN 0x993300
+# define WHITE 0xFFFFFF
+# define INDIGO 0xFF4B0082
+# define AQUA 0x00FFFF
+# define NAVY 0x00005F
+# define PINK 0xFF1493
+# define LIME 0x00ff00
+# define TURQUOISE 0x30D5C8
+
 # define BER_EXTENSION	    ".ber"
+# define IMG_SIZE 			(64)
 # define ERROR_MSG	        "Error\n"
 # define GAME_TITLE	        "./so_long"
 # define USAGE_MSG	        "./so_long [pass to map][map name].ber\n"
@@ -190,6 +204,7 @@ typedef struct s_game
 
 void	ft_render(t_game *game);
 int		ft_update(t_game *game);
+void	ft_print_step_on_windows(t_game *game);
 
 //../src/animation_bonus.c
 

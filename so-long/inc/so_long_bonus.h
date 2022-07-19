@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 21:24:50 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 23:49:47 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 
 # define BER_EXTENSION	    ".ber"
 # define IMG_SIZE 			(64)
+# define ICON_SIZE 			(10)
 # define ERROR_MSG	        "Error\n"
 # define GAME_TITLE	        "./so_long"
 # define USAGE_MSG	        "./so_long [pass to map][map name].ber\n"
@@ -174,6 +175,7 @@ typedef struct s_door
 typedef struct s_love
 {
 	t_animation		  animation;
+	void			  *icon;
 }		t_love;
 typedef struct s_anim_player
 {
@@ -190,7 +192,7 @@ typedef struct s_player
 	t_anim_player		  left_anim;
 	t_anim_player		  right_anim;
 	int					  frames;
-	//long long int		  life;
+	long long int		  life;
 	long long int		  storage;
 	long long int		  step;
 	char	  			  direction;
@@ -205,6 +207,7 @@ typedef struct s_map
 	long long int	   	  nbr_exit;
 	long long int	      nbr_player;
 	long long int	      nbr_lava;
+	long long int	      nbr_love;
 	long long int	      nbr_wall;
 	long long int	      nbr_void;
 }		t_map;
@@ -229,6 +232,7 @@ typedef struct s_game
 void	ft_render(t_game *game);
 int		ft_update(t_game *game);
 void	ft_print_info_on_window(t_game *game);
+void	ft_init_player_info(t_game *game);
 
 //../src/animation_bonus.c
 
@@ -245,6 +249,11 @@ void	ft_move_up(t_game *game);
 void	ft_move_down(t_game *game);
 void	ft_move_left(t_game *game);
 void	ft_move_right(t_game *game);
+
+//../src/life_management.c
+
+void display_life_on_windows(t_game *game);
+
 
 //../src/load_door_sprite_bonus.c
 

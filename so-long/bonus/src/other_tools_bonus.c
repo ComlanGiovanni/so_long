@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 12:41:41 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 17:14:37 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 00:17:37 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,17 @@ void    ft_print_game_info(t_game *game, int key_code)
     ft_printf("----------------------------------\n");
     ft_printf("**********************************\n");
 	ft_printf("* key pressed : %d               \n", key_code);
-	ft_printf("* Life : NONE                     \n");
-	ft_printf("* Remaining key : %d             \n", (game->map.nbr_key - game->player.storage));
-	ft_printf("* Status : i or m NONE            \n");
+	ft_printf("* Player Storage : %d                    \n", game->player.storage);
+	ft_printf("* Player Life : %d                     \n", game->player.life);
+	ft_printf("* Remaining key in map : %d             \n", (game->map.nbr_key - game->player.storage));
+    ft_printf("* Remaining love in map : %d             \n", (game->map.nbr_love - game->player.life) + 1);
+	ft_printf("* Status : I or M NONE            \n");
 	ft_printf("* Number of void : %d             \n", game->map.nbr_void);
 	ft_printf("* Number of Wall : %d             \n", game->map.nbr_wall);
 	ft_printf("* Number of Lava : %d             \n", game->map.nbr_lava);
-	ft_printf("* Number of Ennemie : NONE        \n");
-	ft_printf("* Storage : %d                    \n", game->player.storage);
-	ft_printf("* Map key : %d                   \n", game->map.nbr_key);
-	ft_printf("* Step    : %d               \n", game->player.step);
+	ft_printf("* Number of Love/life in map: %d             \n", game->map.nbr_love);
+	ft_printf("* Number of Key on Map : %d                   \n", game->map.nbr_key);
+	ft_printf("* Player Step    : %d               \n", game->player.step);
     ft_print_facing(game);
     ft_printf("**********************************\n");
 	ft_printf("----------------------------------\n");
@@ -120,7 +121,8 @@ void    ft_direction_by_pos_after_launch(t_game *game)
 int		ft_lose_game(t_game *game)
 {
 	ft_printf(LOSE_MSG "%d ", game->player.step);
-	ft_printf("Storage : %d\n", game->player.storage);
+	ft_printf("Storage : %d, ", game->player.storage);
+	ft_printf("Life : %d\n", game->player.life);
 	mlx_destroy_window(game->mlx, game->win);
 	exit(EXIT_FAILURE);
 }

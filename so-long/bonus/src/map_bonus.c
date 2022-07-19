@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 19:23:30 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 23:25:42 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	ft_read_map(t_game *game, char *map_name)
     line = get_next_line(fd);
 	width = ft_strlen(line) - 1;
 	game->height = 0;
-	game->player.step = 0;//fct to init player info
 	game->width = width;
 	game->map.map_str = ft_custom_strdup(line);
 	free(line);
@@ -102,8 +101,8 @@ void	ft_get_info_map(t_game *game)
 	game->map.nbr_player = idx;
 	game->map.nbr_key = idx;
 	game->map.nbr_exit = idx;
-	game->player.storage = idx;// le storage est a initialiser la ou on initialise le player life  direction step etc
 	game->map.nbr_lava = idx;
+	game->map.nbr_love = idx;
 	game->map.nbr_wall = 1;
 	game->map.nbr_void = idx;
 
@@ -117,6 +116,8 @@ void	ft_get_info_map(t_game *game)
 			game->map.nbr_exit++;
 		else if (game->map.map_str[idx] == LAVA_CHAR)
 			game->map.nbr_lava++;
+		else if (game->map.map_str[idx] == LOVE_CHAR)
+			game->map.nbr_love++;
 		else if (game->map.map_str[idx] == WALL_CHAR)
 			game->map.nbr_wall++;
 		else

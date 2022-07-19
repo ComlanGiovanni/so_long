@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 02:28:39 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 21:19:20 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 23:09:47 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_load_player_up_sprites(t_game *game)
 	int			width;
 	int			height;
 
-    game->player.frames = 9;
+    //game->player.frames = 9;
 	if ((game->player.up_anim.frame_0 = mlx_xpm_file_to_image(game->mlx, "assets/xpm/Bonus/player/up/player_up_frame_0.xpm", &width, &height)) == NULL)
 		ft_print_error(PLAYER_U_XPM_ERROR);//change name for all here
 	if ((game->player.up_anim.frame_1 = mlx_xpm_file_to_image(game->mlx, "assets/xpm/Bonus/player/up/player_up_frame_1.xpm", &width, &height)) == NULL)

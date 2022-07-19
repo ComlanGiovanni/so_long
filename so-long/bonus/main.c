@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 21:22:45 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 00:19:34 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,18 @@ int	ft_update(t_game *game)
 	return (EXIT_SUCCESS);
 }
 
+void ft_init_player_info(t_game *game)
+{
+	game->player.life = 1;
+	game->player.storage = 0;
+	game->player.frames = 9;
+	game->player.step = 0;
+	game->player.storage = 0;
+	ft_direction_by_pos_after_launch(game);
+	// le storage est a initialiser la ou 
+	//on initialise le player life  direction step etc
+}
+
 /*
 	not a problem but for future futur me with more skill
 	there is a astetic problem of the print diirectly on the
@@ -93,6 +105,8 @@ void ft_print_info_on_window(t_game *game)
 
 	str_step = ft_itoa(game->player.step);
 	str_storage = ft_itoa(game->player.storage);
+	// ct to print life
+	display_life_on_windows(game);
 	mlx_string_put(game->mlx, game->win, 5, 42, YELLOW, "Step-> ");
 	mlx_string_put(game->mlx, game->win, 69, 42, RED, str_step);
 	mlx_string_put(game->mlx, game->win, 5, 52, RED, "Storage-> ");

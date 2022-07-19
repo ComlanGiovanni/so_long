@@ -53,6 +53,7 @@ void ft_lava_animation(t_animation *animation)
 		frame = 0;
 	}
 	frame += 1;
+	//call random mouvement fct
 }
 
 void ft_key_animation(t_animation *animation)

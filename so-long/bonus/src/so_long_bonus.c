@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 21:23:09 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 00:09:43 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_init_game(t_game *game, char *map_name)
 	if ((game->mlx = mlx_init()) == NULL)
         ft_print_error(MLX_INIT_ERROR);
 	ft_load_sprites(game);
-	//ft_init_player_info();
+	ft_init_player_info(game);
 	ft_read_map(game, map_name);
 	ft_check_map(game);
 	//width = game->width * IMG_SIZE;
@@ -31,7 +31,7 @@ void	ft_init_game(t_game *game, char *map_name)
 	//win = game->win;
 	if ((game->win = mlx_new_window(game->mlx, game->width * IMG_SIZE, game->height * IMG_SIZE, GAME_TITLE)) == NULL)
         ft_print_error(MLX_WINDOW_ERROR);
-	ft_direction_by_pos_after_launch(game);
+	//ft_direction_by_pos_after_launch(game);
 	//game->direction = 'r';//lol changing the direction by they positon of the p int the map ?
 	ft_put_sprites_by_line(game);
 }
@@ -78,7 +78,8 @@ int	ft_exit_game(t_game *game)
 int		ft_win_game(t_game *game)
 {
 	ft_printf(WIN_MSG "%d ", game->player.step);
-	ft_printf("Storage : %d\n", game->player.storage);
+	ft_printf("Storage : %d, ", game->player.storage);
+	ft_printf("Life : %d\n", game->player.life);
 	mlx_destroy_window(game->mlx, game->win);
 	exit(EXIT_SUCCESS);
 }

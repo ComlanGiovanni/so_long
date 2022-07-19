@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:23:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 21:17:35 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/19 23:40:27 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,6 @@ void	ft_load_love_sprites(t_game *game)
 		ft_print_error("love_frame_1.xpm");//do a define
 	if ((game->love.animation.frame_2 = mlx_xpm_file_to_image(game->mlx, "assets/xpm/Bonus/love/love_frame_2.xpm", &width, &height)) == NULL)
 		ft_print_error("love_frame_2.xpm");//do a define
+	if ((game->love.icon = mlx_xpm_file_to_image(game->mlx, "assets/xpm/Bonus/love/love_small_icon.xpm", &width, &height)) == NULL)
+		ft_print_error("love_small_icon.xpm");//do a define
 }

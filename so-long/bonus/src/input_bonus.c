@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 18:38:58 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 00:13:35 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,10 @@ void	ft_move_up(t_game *game)
 	}
 	if (game->map.map_str[idx - game->width] == KEY_CHAR)
 		game->player.storage++;
+	if (game->map.map_str[idx - game->width] == LOVE_CHAR)
+		game->player.life++;
 	if (game->map.map_str[idx - game->width] == LAVA_CHAR)
-		ft_lose_game(game);
+		game->player.life--;
 	if (game->map.map_str[idx - game->width] == EXIT_CHAR  && game->map.nbr_key == game->player.storage)
 		ft_win_game(game);
 	else if (game->map.map_str[idx - game->width] != WALL_CHAR && game->map.map_str[idx - game->width] != EXIT_CHAR)
@@ -90,6 +92,12 @@ void	ft_move_up(t_game *game)
 		ft_put_sprites_by_line(game);
 	}
 }
+
+/*
+	need to watch overflex if anyint
+	storage or life ou sa ne sert a rine paceque
+	la possiiliter aue ca arriv est ultra longue et rare ??
+*/
 
 void	ft_move_down(t_game *game)
 {
@@ -104,8 +112,10 @@ void	ft_move_down(t_game *game)
 	}
 	if (game->map.map_str[idx + game->width] == KEY_CHAR)
 		game->player.storage++;
+	if (game->map.map_str[idx + game->width] == LOVE_CHAR)
+		game->player.life++;
 	if (game->map.map_str[idx + game->width] == LAVA_CHAR)
-		ft_lose_game(game);
+		game->player.life--;
 	if (game->map.map_str[idx + game->width] == EXIT_CHAR && game->map.nbr_key == game->player.storage)
 		ft_win_game(game);
 	else if (game->map.map_str[idx + game->width] != WALL_CHAR && game->map.map_str[idx + game->width] != EXIT_CHAR)
@@ -132,8 +142,10 @@ void	ft_move_left(t_game *game)
 	}
 	if (game->map.map_str[idx - 1] == KEY_CHAR)
 		game->player.storage++;
+	if (game->map.map_str[idx - 1] == LOVE_CHAR)
+		game->player.life++;
 	if (game->map.map_str[idx - 1] == LAVA_CHAR)
-		ft_lose_game(game);
+		game->player.life--;
 	if (game->map.map_str[idx - 1] == EXIT_CHAR && game->player.storage == game->map.nbr_key)
 		ft_win_game(game);
 	else if (game->map.map_str[idx - 1] != WALL_CHAR && game->map.map_str[idx - 1] != EXIT_CHAR)
@@ -160,8 +172,10 @@ void	ft_move_right(t_game *game)
 	}
 	if (game->map.map_str[idx + 1] == KEY_CHAR)
 		game->player.storage++;
+	if (game->map.map_str[idx + 1] == LOVE_CHAR)
+		game->player.life++;
 	if (game->map.map_str[idx + 1] == LAVA_CHAR)
-		ft_lose_game(game);
+		game->player.life--;
 	if (game->map.map_str[idx + 1] == EXIT_CHAR && game->player.storage == game->map.nbr_key)
 		ft_win_game(game);
 	else if (game->map.map_str[idx + 1] != WALL_CHAR && game->map.map_str[idx + 1] != EXIT_CHAR)

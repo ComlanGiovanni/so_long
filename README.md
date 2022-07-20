@@ -103,3 +103,4 @@ Inspiration, code snippets, etc.
 * [Some rust doc milibx](https://docs.rs/minilibx/latest/minilibx/struct.Mlx.html)
 * [Remove background](https://www.remove.bg/fr/upload)
 * [Baba all sprite](https://www.spriters-resource.com/fullview/115231/)
+* [Maze Generator](https://www.dcode.fr/maze-generator)

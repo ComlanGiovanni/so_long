@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 17:48:42 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 22:25:53 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@
 # define LOVE_ICON_ERROR	"love_small_icon.xpm fail to load\n"
 # define WIN_MSG			"Thanks for playing, you WIN with steps : "
 # define LOSE_MSG			"You LOSE with steps : "
+# define BITCHISEMPTY 	"Remove that empty line please :(\n"
 
 /*
 enum enum e_key_code_linux {
@@ -284,6 +285,7 @@ void	ft_input_right(t_game *game);
 //../src/life_management.c
 
 void	ft_display_life_on_windows(t_game *game);
+void	ft_anal_yze_line(char	*line);
 
 //../src/load_door_sprite_bonus.c
 

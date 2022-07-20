@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 16:20:41 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 23:33:10 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,37 @@ void	ft_put_all_sprites_to_line(t_game *game, int width, int height)
 	else
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->sprite.ground, width * 64, height * 64);
+}
+
+/*
+int temp;
+int temp1;
+int temp11;
+int temp111;
+
+Because using temp2, temp3 would be too mainstream.
+
+char coal
+
+float away; 
+long long ago;
+
+char mander; 
+long timeAgo;	// In a galaxy far far away 
+bool dozer; 
+int erNalExam; 
+ 
+short circuit; 
+short onTime; 
+double trouble; 
+Exception up = new Exception("Something is wrong"); 
+throw up; 
+
+
+*/
+
+void	ft_anal_yze_line(char	*line)
+{
+	if (line == NULL)
+		ft_print_error(BITCHISEMPTY);
 }

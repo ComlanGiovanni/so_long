@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:34:07 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 13:44:10 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 22:26:52 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,15 @@ void	ft_display_life_on_windows(t_game *game)
 	}
 	if (game->player.life == 0)
 		ft_lose_game(game);
+}
+
+/*
+LOL long long ago long penetration or 
+roue libre pour le joueur francais en fin de projet
+*/
+
+void	ft_anal_yze_line(char	*line)
+{
+	if (line == NULL)
+		ft_print_error(BITCHISEMPTY);
 }

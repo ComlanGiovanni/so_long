@@ -6,12 +6,20 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 03:27:42 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 23:51:26 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/so_long.h"
 
+/**
+ * @brief 
+ * 
+ * @param argc 
+ * @param argv 
+ * @param envp 
+ * @return int 
+ */
 int	main(int argc, char *argv[], char **envp)
 {
 	t_game	*game;
@@ -33,3 +41,5 @@ int	main(int argc, char *argv[], char **envp)
 	}
 	return (EXIT_SUCCESS);
 }
+
+//norminette bonus inc lib main.c src

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 16:01:19 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 22:13:40 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	ft_init_player_info(t_game *game)
 	game->player.storage = 0;
 	ft_direction_by_pos_after_launch(game);
 }
+
 // le storage est a initialiser la ou 
 //on initialise le player life  direction step etc
 

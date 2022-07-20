@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 16:12:28 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 22:25:48 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@
 # define KEY_XPM_ERROR		"key.xpm fail to load\n"
 # define EXIT_XPM_ERROR		"exit.xpm fail to load\n"
 # define WIN_MSG			"Thanks for playing, you win with steps : "
+# define BITCHISEMPTY 		"Remove that empty line please :(\n"
 
 typedef enum e_key_code {
 	CLOSE_ICON = 17,
@@ -135,6 +136,7 @@ void		ft_check_valid_char(t_game *game);
 t_sprites	ft_init_sprites(void *mlx);
 void		ft_put_sprites_by_line(t_game *game);
 void		ft_put_all_sprites_to_line(t_game *game, int width, int height);
+void		ft_anal_yze_line(char	*line);
 
 //../src/tools.c
 

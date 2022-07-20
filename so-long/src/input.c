@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 03:32:59 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 16:17:32 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	ft_move_up(t_game *game)
 		game->storage++;
 	if (game->map[idx - game->width] == EXIT_CHAR && game->key == game->storage)
 		ft_win_game(game);
-	else if (game->map[idx - game->width] != WALL_CHAR && game->map[idx - game->width] != EXIT_CHAR)
+	else if (game->map[idx - game->width] != WALL_CHAR
+		&& game->map[idx - game->width] != EXIT_CHAR)
 	{
 		game->map[idx] = VOID_CHAR;
 		game->map[idx - game->width] = PLAYER_CHAR;
@@ -65,7 +66,8 @@ void	ft_move_down(t_game *game)
 		game->storage++;
 	if (game->map[idx + game->width] == EXIT_CHAR && game->key == game->storage)
 		ft_win_game(game);
-	else if (game->map[idx + game->width] != WALL_CHAR && game->map[idx + game->width] != EXIT_CHAR)
+	else if (game->map[idx + game->width] != WALL_CHAR
+		&& game->map[idx + game->width] != EXIT_CHAR)
 	{
 		game->map[idx] = VOID_CHAR;
 		game->map[idx + game->width] = PLAYER_CHAR;

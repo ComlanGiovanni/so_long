@@ -6,44 +6,46 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 00:09:43 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 14:19:10 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long_bonus.h"
 
+//ft_direction_by_pos_after_launch(game);
+//game->direction = 'r';
+//lol changing the direction by they positon of the p int the map ?
+
 void	ft_init_game(t_game *game, char *map_name)
 {
-	//int width;
-	//int height;
-	//void *mlx;
-	//void *win;
-
-	if ((game->mlx = mlx_init()) == NULL)
-        ft_print_error(MLX_INIT_ERROR);
+	game->mlx = mlx_init();
+	if (game->mlx == NULL)
+		ft_print_error(MLX_INIT_ERROR);
 	ft_load_sprites(game);
 	ft_init_player_info(game);
 	ft_read_map(game, map_name);
 	ft_check_map(game);
-	//width = game->width * IMG_SIZE;
-	//height = game->height * IMG_SIZE;
-	//mlx = game->mlx;
-	//win = game->win;
-	if ((game->win = mlx_new_window(game->mlx, game->width * IMG_SIZE, game->height * IMG_SIZE, GAME_TITLE)) == NULL)
-        ft_print_error(MLX_WINDOW_ERROR);
-	//ft_direction_by_pos_after_launch(game);
-	//game->direction = 'r';//lol changing the direction by they positon of the p int the map ?
+	game->win = mlx_new_window(game->mlx, game->width * IMG_SIZE,
+			game->height * IMG_SIZE, GAME_TITLE);
+	if (game->win == NULL)
+		ft_print_error(MLX_WINDOW_ERROR);
 	ft_put_sprites_by_line(game);
 }
 
 void	ft_check_valid_char(t_game *game)
 {
-	int idx;
+	int	idx;
 
 	idx = 0;
 	while (game->map.map_str[idx] != '\0')
 	{
-		if (game->map.map_str[idx] != WALL_CHAR &&  game->map.map_str[idx] != PLAYER_CHAR && game->map.map_str[idx] != KEY_CHAR  && game->map.map_str[idx] != EXIT_CHAR && game->map.map_str[idx] != VOID_CHAR && game->map.map_str[idx] != LAVA_CHAR && game->map.map_str[idx] != LOVE_CHAR)
+		if (game->map.map_str[idx] != WALL_CHAR
+			&& game->map.map_str[idx] != PLAYER_CHAR
+			&& game->map.map_str[idx] != KEY_CHAR
+			&& game->map.map_str[idx] != EXIT_CHAR
+			&& game->map.map_str[idx] != VOID_CHAR
+			&& game->map.map_str[idx] != LAVA_CHAR
+			&& game->map.map_str[idx] != LOVE_CHAR)
 			ft_print_error(BAD_CHAR_MAP_ERROR);
 		idx++;
 	}
@@ -75,7 +77,7 @@ int	ft_exit_game(t_game *game)
  * @param game 
  * @return int 
  */
-int		ft_win_game(t_game *game)
+int	ft_win_game(t_game *game)
 {
 	ft_printf(WIN_MSG "%d ", game->player.step);
 	ft_printf("Storage : %d, ", game->player.storage);

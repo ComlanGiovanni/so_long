@@ -6,12 +6,12 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 03:06:05 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 16:09:32 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 //mac deine __apple_ and __linux
 //# if defined (__APPLE__)
@@ -48,27 +48,50 @@
 # define NO_ENV_ERROR       "No variable environment available\n"
 # define NO_DISP_ERROR      "DISPLAY not found in env\n"
 # define MALLOC_GAME_ERROR	"Malloc t_game fail to\n"
-# define BAD_CHAR_MAP_ERROR	"Map Should only contain those char : '1' 'P' 'C' 'E' '0' 'L'\n"
-# define WALL_ERROR	        "[Map_name].ber should be surrounded by walls : 1 see [maps]/classic.ber\n"
-# define FORM_ERROR	        "[Map_name].ber should be in rectangular form !\n"
-# define COIN_ERROR			"[Map_name].ber should have at least one collectible -> C\n"
-# define PLAYER_ERROR		"[Map_name].ber should have one starting point -> P\n"
-# define EXIT_ERROR			"[Map_name].ber should have at east one exit -> E\n"
+# define BAD_CHAR_MAP_ERROR	"Map Should contain char : '1' 'P' 'C' 'E' '0' 'L'\n"
+# define WALL_ERROR	        ".ber should be surrounded by walls\n"
+# define FORM_ERROR	        ".ber should be in rectangular form !\n"
+# define COIN_ERROR			".ber should have at least one collectible -> C\n"
+# define PLAYER_ERROR		".ber should have one starting point -> P\n"
+# define EXIT_ERROR			"].ber should have at east one exit -> E\n"
 # define EXTENSION_ERROR	"Map extension should be a .ber\n"
 # define FAIL_OPEN_ERROR	"[Map_name].ber fail to open\n"
 # define MLX_INIT_ERROR		"mlx_init() fail\n"
 # define MLX_WINDOW_ERROR	"mlx_new_window() fail\n"
-# define PLAYER_U_XPM_ERROR	"player_up.xpm fail to load\n"
-# define PLAYER_D_XPM_ERROR	"player_down.xpm fail to load\n"
-# define PLAYER_L_XPM_ERROR "player_left.xpm fail to load\n"
-# define PLAYER_R_XPM_ERROR	"player_right.xpm fail to load\n"
+# define PLAYER_U_0_ERROR	"player_up_frame_0.xpm fail to load\n"
+# define PLAYER_U_1_ERROR	"player_up_frame_0.xpm fail to load\n"
+# define PLAYER_U_2_ERROR	"player_up_frame_0.xpm fail to load\n"
+# define PLAYER_U_M_ERROR	"player_up_frame_move.xpm fail to load\n"
 # define GROUND_XPM_ERROR	"ground.xpm fail to load\n"
-# define WALL_XPM_ERROR		"wall.xpm fail to load\n"
-# define WALL_0_XPM_ERROR	"wall_1.xpm fail to load\n"
-# define WALL_1_XPM_ERROR	"wall_2.xpm fail to load\n"
-# define KEY_XPM_ERROR		"key.xpm fail to load\n"
-# define EXIT_1_XPM_ERROR	"exit_1.xpm fail to load\n"
-# define EXIT_2_XPM_ERROR	"exit_2.xpm fail to load\n"
+# define PLAYER_D_0_ERROR	"player_down_frame_0.xpm fail to load\n"
+# define PLAYER_D_1_ERROR	"player_down_frame_1.xpm fail to load\n"
+# define PLAYER_D_2_ERROR	"player_down_frame_2.xpm fail to load\n"
+# define PLAYER_D_M_ERROR	"player_down_frame_move.xpm fail to load\n"
+# define WALL_0_XPM_ERROR	"wall_frame_0.xpm fail to load\n"
+# define WALL_1_XPM_ERROR	"wall_frame_1.xpm fail to load\n"
+# define WALL_2_XPM_ERROR	"wall_frame_2.xpm fail to load\n"
+# define PLAYER_L_0_ERROR	"player_left_frame_0.xpm fail to load\n"
+# define PLAYER_L_1_ERROR	"player_left_frame_1.xpm fail to load\n"
+# define PLAYER_L_2_ERROR	"player_left_frame_2.xpm fail to load\n"
+# define PLAYER_L_M_ERROR	"player_left_frame_move.xpm fail to load\n"
+# define KEY_0_XPM_ERROR	"key_frame_0.xpm to load\n"
+# define KEY_1_XPM_ERROR	"key_frame_1.xpm to load\n"
+# define KEY_2_XPM_ERROR	"key_frame_2.xpm to load\n"
+# define PLAYER_R_0_ERROR	"player_right_frame_0.xpm fail to load\n"
+# define PLAYER_R_1_ERROR	"player_right_frame_1.xpm fail to load\n"
+# define PLAYER_R_2_ERROR	"player_right_frame_2.xpm fail to load\n"
+# define PLAYER_R_M_ERROR	"player_right_frame_move.xpm fail to load\n"
+# define LAVA_0_XPM_ERROR	"lava_frame_0.xpm fail to load\n"
+# define LAVA_1_XPM_ERROR	"lava_frame_1.xpm fail to load\n"
+# define LAVA_2_XPM_ERROR	"lava_frame_2.xpm fail to load\n"
+# define DOOR_C_0_XPM_ERROR	"door_closed_frame_0.xpm fail to load\n"
+# define DOOR_O_0_XPM_ERROR	"door_open_frame_0.xpm fail to load\n"
+# define DOOR_O_1_XPM_ERROR	"door_open_frame_1.xpm fail to load\n"
+# define DOOR_O_2_XPM_ERROR	"door_open_frame_2.xpm fail to load\n"
+# define LOVE_0_XPM_ERROR	"love_frame_0.xpm fail to load\n"
+# define LOVE_1_XPM_ERROR	"love_frame_1.xpm fail to load\n"
+# define LOVE_2_XPM_ERROR	"love_frame_2.xpm fail to load\n"
+# define LOVE_ICON_ERROR	"love_small_icon.xpm fail to load\n"
 # define WIN_MSG			"Thanks for playing, you WIN with steps : "
 # define LOSE_MSG			"You LOSE with steps : "
 
@@ -145,18 +168,18 @@ typedef struct s_animation
 }		t_animation;
 typedef struct s_lava
 {
-	t_animation		  animation;
-	char	  		  move;
+	t_animation	animation;
+	char		move;
 }		t_lava;
 
 typedef struct s_key
 {
-	t_animation		  animation;
+	t_animation	animation;
 }		t_key;
 
 typedef struct s_wall
 {
-	t_animation		  animation;
+	t_animation	animation;
 }		t_wall;
 
 typedef struct s_anim_door
@@ -168,15 +191,15 @@ typedef struct s_anim_door
 
 typedef struct s_door
 {
-	int				  frames;
-	t_anim_door		  closed;
-	t_anim_door		  open;
+	int			frames;
+	t_anim_door	closed;
+	t_anim_door	open;
 }		t_door;
 
 typedef struct s_love
 {
-	t_animation		  animation;
-	void			  *icon;
+	t_animation	animation;
+	void		*icon;
 }		t_love;
 typedef struct s_anim_player
 {
@@ -188,44 +211,44 @@ typedef struct s_anim_player
 
 typedef struct s_player
 {
-	t_anim_player		  up_anim;
-	t_anim_player		  down_anim;
-	t_anim_player		  left_anim;
-	t_anim_player		  right_anim;
-	int					  frames;
-	long long int		  life;
-	long long int		  storage;
-	long long int		  step;
-	char	  			  direction;
+	t_anim_player	up_anim;
+	t_anim_player	down_anim;
+	t_anim_player	left_anim;
+	t_anim_player	right_anim;
+	int				frames;
+	long long int	life;
+	long long int	storage;
+	long long int	step;
+	char			direction;
 }		t_player;
 
 typedef struct s_map
 {
-    char     			  *map_str;
-	void				  *ground;
-	long long int		  len;
-	long long int		  nbr_key;
-	long long int	   	  nbr_exit;
-	long long int	      nbr_player;
-	long long int	      nbr_lava;
-	long long int	      nbr_love;
-	long long int	      nbr_wall;
-	long long int	      nbr_void;
+	char			*map_str;
+	void			*ground;
+	long long int	len;
+	long long int	nbr_key;
+	long long int	nbr_exit;
+	long long int	nbr_player;
+	long long int	nbr_lava;
+	long long int	nbr_love;
+	long long int	nbr_wall;
+	long long int	nbr_void;
 }		t_map;
 
 typedef struct s_game
 {
-	t_player			  player;
-	t_love				  love;
-	t_map				  map;
-	t_lava				  lava;
-	t_lava				  key;
-	t_wall				  wall;
-	t_door				  door;
-	void	 		   	  *mlx;
-	void   				  *win;
-    long long int		  width;
-	long long int		  height;
+	t_player		player;
+	t_love			love;
+	t_map			map;
+	t_lava			lava;
+	t_lava			key;
+	t_wall			wall;
+	t_door			door;
+	void			*mlx;
+	void			*win;
+	long long int	width;
+	long long int	height;
 }		t_game;
 
 //../src/main.c
@@ -245,7 +268,7 @@ void	ft_love_animation(t_animation *animation);
 
 //../src/input_bonus.c
 
-int     ft_input_manager(int key, t_game *game);
+int		ft_input_manager(int key, t_game *game);
 void	ft_move_up(t_game *game);
 void	ft_move_down(t_game *game);
 void	ft_move_left(t_game *game);
@@ -253,8 +276,7 @@ void	ft_move_right(t_game *game);
 
 //../src/life_management.c
 
-void display_life_on_windows(t_game *game);
-
+void	ft_display_life_on_windows(t_game *game);
 
 //../src/load_door_sprite_bonus.c
 
@@ -288,10 +310,10 @@ void	ft_get_info_map(t_game *game);
 
 //../src/other_tools_bonus.c 
 
-void    ft_print_map_better_format(t_game *game);;
-void    ft_print_game_info(t_game *game, int key_code);
-void    ft_print_facing(t_game *game);
-void    ft_direction_by_pos_after_launch(t_game *game);
+void	ft_print_map_better_format(t_game *game);;
+void	ft_print_game_info(t_game *game, int key_code);
+void	ft_print_facing(t_game *game);
+void	ft_direction_by_pos_after_launch(t_game *game);
 int		ft_lose_game(t_game *game);
 
 //../src/so_long_bonus.c
@@ -304,9 +326,9 @@ void	ft_check_valid_char(t_game *game);
 
 //../src/sprite_bonus.c
 
-void		ft_load_sprites(t_game *game);
-void		ft_put_sprites_by_line(t_game *game);
-void		ft_put_all_sprites_to_line(t_game *game, int width, int height);
+void	ft_load_sprites(t_game *game);
+void	ft_put_sprites_by_line(t_game *game);
+void	ft_put_all_sprites_to_line(t_game *game, int width, int height);
 
 //../src/tools_bonus.c
 

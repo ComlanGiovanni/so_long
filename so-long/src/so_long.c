@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 03:40:27 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 16:16:58 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	ft_init_game(t_game *game, char *map_name)
 	game->sprite = ft_init_sprites(game->mlx);
 	ft_read_map(game, map_name);
 	ft_check_map(game);
-	game->win = mlx_new_window(game->mlx, game->width * 64, game->height * 64, GAME_TITLE);
+	game->win = mlx_new_window(game->mlx, game->width * 64,
+			game->height * 64, GAME_TITLE);
 	if (game->win == NULL)
 		ft_print_error(MLX_WINDOW_ERROR);
 	ft_put_sprites_by_line(game);
@@ -33,7 +34,11 @@ void	ft_check_valid_char(t_game *game)
 	idx = 0;
 	while (game->map[idx] != '\0')
 	{
-		if (game->map[idx] != WALL_CHAR && game->map[idx] != PLAYER_CHAR && game->map[idx] != COIN_CHAR && game->map[idx] != EXIT_CHAR && game->map[idx] != VOID_CHAR)
+		if (game->map[idx] != WALL_CHAR
+			&& game->map[idx] != PLAYER_CHAR
+			&& game->map[idx] != COIN_CHAR
+			&& game->map[idx] != EXIT_CHAR
+			&& game->map[idx] != VOID_CHAR)
 			ft_print_error(BAD_CHAR_MAP_ERROR);
 		idx++;
 	}

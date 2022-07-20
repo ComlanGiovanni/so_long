@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 03:25:07 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 16:01:19 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,34 +32,35 @@ int	main(int argc, char *argv[], char **envp)
 	t_game	*game;
 
 	if (argc != 2)
-        ft_print_error(USAGE_MSG);
+		ft_print_error(USAGE_MSG);
 	else
 	{
-		//secure malloc and define x event
 		ft_check_env(envp);
-		if ((game = malloc(sizeof(t_game))) == NULL)
+		game = malloc(sizeof(t_game));
+		if (game == NULL)
 			ft_print_error(MALLOC_GAME_ERROR);
 		if (!ft_check_extension(argv[1], BER_EXTENSION))
 			ft_print_error(EXTENSION_ERROR);
 		ft_init_game(game, argv[1]);
-		//mlx_key_hook(game->win, &ft_input_manager, game);
-		//mlx_mouse_hide(game->win);
-		mlx_hook(game->win, 2, 0, &ft_input_manager, game);
-		mlx_hook(game->win, 17, 0, &ft_exit_game, game);//for exit button
+		mlx_mouse_hide(game->win);
+		mlx_hook(game->win, MAC_KEY_PRESS, FALSE, &ft_input_manager, game);
+		mlx_hook(game->win, MAC_CLOSE_ICON, FALSE, &ft_exit_game, game);
 		mlx_loop_hook(game->mlx, &ft_update, game);
 		mlx_loop(game->mlx);
 	}
-	return(EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }
+//mlx_key_hook(game->win, &ft_input_manager, game);
 
 void	ft_render(t_game *game)
 {
 	mlx_clear_window(game->mlx, game->win);
-	//mlx_put_image_to_window(game->mlx, game->win, game->sprite.wall, IMG_SIZE,  IMG_SIZE);
 	ft_put_sprites_by_line(game);
-	//mlx_destroy_image(game->mlx, game->sprite.wall);
 	ft_print_info_on_window(game);
 }
+//mlx_put_image_to_window(game->mlx, game->win,
+//game->sprite.wall, IMG_SIZE,  IMG_SIZE);
+//mlx_destroy_image(game->mlx, game->sprite.wall);
 
 int	ft_update(t_game *game)
 {
@@ -73,7 +74,7 @@ int	ft_update(t_game *game)
 	return (EXIT_SUCCESS);
 }
 
-void ft_init_player_info(t_game *game)
+void	ft_init_player_info(t_game *game)
 {
 	game->player.life = 1;
 	game->player.storage = 0;
@@ -81,9 +82,9 @@ void ft_init_player_info(t_game *game)
 	game->player.step = 0;
 	game->player.storage = 0;
 	ft_direction_by_pos_after_launch(game);
-	// le storage est a initialiser la ou 
-	//on initialise le player life  direction step etc
 }
+// le storage est a initialiser la ou 
+//on initialise le player life  direction step etc
 
 /*
 	not a problem but for future futur me with more skill
@@ -98,39 +99,34 @@ void ft_init_player_info(t_game *game)
 		is a camera zoom
 */
 
-void ft_print_info_on_window(t_game *game)
+void	ft_print_info_on_window(t_game *game)
 {
 	char	*str_step;
 	char	*str_storage;
 
 	str_step = ft_itoa(game->player.step);
 	str_storage = ft_itoa(game->player.storage);
-	// ct to print life
-	display_life_on_windows(game);
+	ft_display_life_on_windows(game);
 	mlx_string_put(game->mlx, game->win, 5, 42, YELLOW, "Step-> ");
 	mlx_string_put(game->mlx, game->win, 69, 42, RED, str_step);
 	mlx_string_put(game->mlx, game->win, 5, 52, RED, "Storage-> ");
 	mlx_string_put(game->mlx, game->win, 69, 52, RED, str_storage);
 	mlx_string_put(game->mlx, game->win, 5, 62, AQUA, "Facing-> ");
-
 	if (game->player.storage == game->map.nbr_key)
 		mlx_string_put(game->mlx, game->win, 69, 52, GREEN, str_storage);
 	if (game->player.direction == 'u')
 		mlx_string_put(game->mlx, game->win, 69, 62, LIME, "Up");
 	if (game->player.direction == 'd')
 		mlx_string_put(game->mlx, game->win, 69, 62, YELLOW, "Down");
-    if (game->player.direction == 'l')
+	if (game->player.direction == 'l')
 		mlx_string_put(game->mlx, game->win, 69, 62, PINK, "Left");
-    if (game->player.direction == 'r')
+	if (game->player.direction == 'r')
 		mlx_string_put(game->mlx, game->win, 69, 62, TURQUOISE, "Right");
-
 	free(str_step);
 	free(str_storage);
 }
 
- /*
-
-		CHECK NORME AND QUIK FIX SEGFAULT BAD MAP
+/*	CHECK NORME AND QUIK FIX SEGFAULT BAD MAP
 
 rename file name ft_eefwe
    [Dont work harder work smarter]
@@ -181,7 +177,8 @@ ROAD TO CLEAN THIS PROJECT
 
 no more ft_strlen(game->map) in file
 
-	NEXT LVL BIG BRAIN DONT DO IT NOW PLEASE BUT FOR YOURSEL 2PLAYER !!1
+	NEXT LVL BIG BRAIN DONT DO IT NOW PLEASE
+	 BUT FOR YOURSEL 2PLAYER !!1
 
 -g3 -fsanitize=addres
 
@@ -190,7 +187,8 @@ because work witout
 
 animate door if there is all key in storage
 
-so make a variable in stuct 0 or 1 to see if we can activate animation
+so make a variable in stuct 0 or 1 to see if we
+ can activate animation
 
 ImageMagick
 	convert key.xpm -scale 64x64 key.xpm
@@ -205,7 +203,8 @@ in define change input key code
 #	@make --no-print-directory -C mlx lib_so_long.a
 
 
-# $(GCC) -o $(NAME) $(SRC) -L. $(LIB_NAME) -L. $(MLX_PATH)/$(MLX_NAME) $(FRAME_WORK)
+# $(GCC) -o $(NAME) $(SRC) -L. 
+$(LIB_NAME) -L. $(MLX_PATH)/$(MLX_NAME) $(FRAME_WORK)
 # -lXext -lX11
 
 
@@ -253,7 +252,8 @@ mmissing deine for every eror oad sprite
 make a map who trigger konamie code lol
 
 add versus mode only 2 player
-Jai envie dajouter un timer, un vs mode un stysteme de path founding pour les ennemies
+Jai envie dajouter un timer, un vs mode un stysteme
+ de path founding pour les ennemies
 konami code for invisibility on everyting
 
 

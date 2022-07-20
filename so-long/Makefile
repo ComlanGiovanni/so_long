@@ -6,7 +6,7 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/20 16:20:37 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/20 17:47:35 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,10 @@ SRCS_BONUS	=   ./bonus/main.c \
 				./bonus/src/load_sprite_bonus.c \
 				./bonus/src/load_player_sprite_bonus.c \
 				./bonus/src/load_door_sprite_bonus.c \
-				./bonus/src/life_management.c
+				./bonus/src/life_management.c \
+				./bonus/src/input_fct_bonus.c \
+				./bonus/src/map_sprite_bonus.c \
+				./bonus/src/player_sprite_direction_bonus.c
 
 SRC_OBJS		=	$(SRC:.c=.o)
 

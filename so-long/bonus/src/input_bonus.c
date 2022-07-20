@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 15:59:11 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 16:48:46 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,30 +27,18 @@ int	ft_input_manager(int key_code, t_game *game)
 {
 	if (key_code == MAC_ESC_KEY)
 		ft_exit_game(game);
-	if (key_code == MAC_W_KEY || key_code == MAC_UP_ARROW_KEY || key_code == MAC_UP_PAV_NUM_KEY)
-	{
-		game->player.up_anim.frame_0 = game->player.up_anim.frame_move;
-		game->player.direction = 'u';
-		ft_move_up(game);
-	}
-	if (key_code == MAC_S_KEY || key_code == MAC_DOWN_ARROW_KEY || key_code == MAC_DOWN_PAV_NUM_KEY)
-	{
-		game->player.down_anim.frame_0 = game->player.down_anim.frame_move;
-		game->player.direction = 'd';
-		ft_move_down(game);
-	}
-	if (key_code == MAC_A_KEY || key_code == MAC_LEFT_ARROW_KEY || key_code == MAC_LEFT_PAV_NUM_KEY)
-	{
-		game->player.left_anim.frame_0 = game->player.left_anim.frame_move;
-		game->player.direction = 'l';
-		ft_move_left(game);
-	}
-	if (key_code == MAC_D_KEY || key_code == MAC_RIGHT_ARROW_KEY || key_code == MAC_RIGHT_PAV_NUM_KEY)
-	{
-		game->player.right_anim.frame_0 = game->player.right_anim.frame_move;
-		game->player.direction = 'r';
-		ft_move_right(game);
-	}
+	if (key_code == MAC_W_KEY || key_code == MAC_UP_ARROW_KEY
+		|| key_code == MAC_UP_PAV_NUM_KEY)
+		ft_input_up(game);
+	if (key_code == MAC_S_KEY || key_code == MAC_DOWN_ARROW_KEY
+		|| key_code == MAC_DOWN_PAV_NUM_KEY)
+		ft_input_down(game);
+	if (key_code == MAC_A_KEY || key_code == MAC_LEFT_ARROW_KEY
+		|| key_code == MAC_LEFT_PAV_NUM_KEY)
+		ft_input_left(game);
+	if (key_code == MAC_D_KEY || key_code == MAC_RIGHT_ARROW_KEY
+		|| key_code == MAC_RIGHT_PAV_NUM_KEY)
+		ft_input_right(game);
 	ft_print_game_info(game, key_code);
 	return (EXIT_SUCCESS);
 }

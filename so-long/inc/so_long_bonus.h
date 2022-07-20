@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 16:09:32 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 17:48:42 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,6 +274,13 @@ void	ft_move_down(t_game *game);
 void	ft_move_left(t_game *game);
 void	ft_move_right(t_game *game);
 
+//../src/input_fct_bonus.c  
+
+void	ft_input_up(t_game *game);
+void	ft_input_down(t_game *game);
+void	ft_input_left(t_game *game);
+void	ft_input_right(t_game *game);
+
 //../src/life_management.c
 
 void	ft_display_life_on_windows(t_game *game);
@@ -308,6 +315,14 @@ void	ft_check_sealed(t_game *game);
 void	ft_check_playability(t_game *game);
 void	ft_get_info_map(t_game *game);
 
+//../src/map_sprite_bonus.c
+
+void	ft_key_sprite(t_game *game, int width, int height);
+void	ft_lava_sprite(t_game *game, int width, int height);
+void	ft_love_sprite(t_game *game, int width, int height);
+void	ft_exit_sprite(t_game *game, int width, int height);
+void	ft_ground_sprite(t_game *game, int width, int height);
+
 //../src/other_tools_bonus.c 
 
 void	ft_print_map_better_format(t_game *game);;
@@ -315,6 +330,14 @@ void	ft_print_game_info(t_game *game, int key_code);
 void	ft_print_facing(t_game *game);
 void	ft_direction_by_pos_after_launch(t_game *game);
 int		ft_lose_game(t_game *game);
+
+//../src/player_sprite_direction_bonus.c
+
+void	ft_player_sprite_call(t_game *game, int width, int height);
+void	ft_down_sprite(t_game *game, int width, int height);
+void	ft_up_sprite(t_game *game, int width, int height);
+void	ft_left_sprite(t_game *game, int width, int height);
+void	ft_right_sprite(t_game *game, int width, int height);
 
 //../src/so_long_bonus.c
 
@@ -329,6 +352,7 @@ void	ft_check_valid_char(t_game *game);
 void	ft_load_sprites(t_game *game);
 void	ft_put_sprites_by_line(t_game *game);
 void	ft_put_all_sprites_to_line(t_game *game, int width, int height);
+void	ft_wall_sprite(t_game *game, int width, int height);
 
 //../src/tools_bonus.c
 

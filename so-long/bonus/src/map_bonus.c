@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 14:52:12 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 16:36:31 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,20 @@ void	ft_read_map(t_game *game, char *map_name)
 /*
 //ft_check_rectangular(game);
 in bonus we can have squared map
+
+i should make a fct name ft_int_map_info;
 */
 void	ft_check_map(t_game *game)
 {
 	ft_check_valid_char(game);
 	ft_check_sealed(game);
+	game->map.nbr_player = FALSE;
+	game->map.nbr_key = FALSE;
+	game->map.nbr_exit = FALSE;
+	game->map.nbr_lava = FALSE;
+	game->map.nbr_love = FALSE;
+	game->map.nbr_wall = TRUE;
+	game->map.nbr_void = FALSE;
 	ft_get_info_map(game);
 	ft_check_playability(game);
 	ft_print_map_better_format(game);
@@ -105,13 +114,6 @@ void	ft_get_info_map(t_game *game)
 	int	idx;
 
 	idx = 0;
-	game->map.nbr_player = idx;
-	game->map.nbr_key = idx;
-	game->map.nbr_exit = idx;
-	game->map.nbr_lava = idx;
-	game->map.nbr_love = idx;
-	game->map.nbr_wall = 1;
-	game->map.nbr_void = idx;
 	while (idx++ < game->map.len)
 	{		
 		if (game->map.map_str[idx] == KEY_CHAR)

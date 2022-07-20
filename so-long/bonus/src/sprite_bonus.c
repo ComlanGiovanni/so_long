@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 14:12:30 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 18:06:52 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,44 +81,36 @@ for the door
 //int wid ---> game->wid game->direction = 'r'
 
 /make fct or player 
+
+oh but the slit was anoying
 */
 
 void	ft_put_all_sprites_to_line(t_game *game, int width, int height)
 {
 	if (game->map.map_str[height * game->width + width] == WALL_CHAR)
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->wall.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
+		ft_wall_sprite(game, width, height);
 	else if (game->map.map_str[height * game->width + width] == KEY_CHAR)
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->key.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
+		ft_key_sprite(game, width, height);
 	else if (game->map.map_str[height * game->width + width] == LAVA_CHAR)
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->lava.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
+		ft_lava_sprite(game, width, height);
 	else if (game->map.map_str[height * game->width + width] == LOVE_CHAR)
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->love.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->player.direction == 'd')
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->player.down_anim.frame_0, width * IMG_SIZE,
-			height * IMG_SIZE);
-	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->player.direction == 'u')
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->player.up_anim.frame_0, width * IMG_SIZE, height * IMG_SIZE);
-	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->player.direction == 'l')
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->player.left_anim.frame_0, width * IMG_SIZE,
-			height * IMG_SIZE);
-	else if (game->map.map_str[height * game->width + width] == PLAYER_CHAR && game->player.direction == 'r')
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->player.right_anim.frame_0, width * IMG_SIZE,
-			height * IMG_SIZE);
-	else if (game->map.map_str[height * game->width + width] == EXIT_CHAR && game->player.storage == game->map.nbr_key)
+		ft_love_sprite(game, width, height);
+	else if (game->map.map_str[height * game->width + width] == EXIT_CHAR
+		&& game->player.storage == game->map.nbr_key)
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->door.open.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map.map_str[height * game->width + width] == EXIT_CHAR)
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->door.closed.frame_0, width * IMG_SIZE, height * IMG_SIZE);
+		ft_exit_sprite(game, width, height);
+	else if (game->map.map_str[height * game->width + width] == VOID_CHAR)
+		ft_ground_sprite(game, width, height);
 	else
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->map.ground, width * IMG_SIZE, height * IMG_SIZE);
+		ft_player_sprite_call(game, width, height);
+}
+
+// not great but you will stay here lol
+
+void	ft_wall_sprite(t_game *game, int width, int height)
+{
+	mlx_put_image_to_window(game->mlx, game->win,
+		game->wall.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
 }

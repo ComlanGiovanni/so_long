@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 22:27:34 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/17 18:46:57 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 03:43:50 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_custom_strdup(char *s1)
 	dest = NULL;
 	size = ft_strlen(s1);
 	idx = 0;
-	dest =	(char *)malloc(sizeof(char) * size + 1);
+	dest = (char *)malloc(sizeof(char) * size + 1);
 	if (!(dest))
 		return (NULL);
 	while (s1[idx] && s1[idx] != '\n')
@@ -89,9 +89,9 @@ char	*ft_custom_strjoin(char *s1, char *s2)
 	char	*dst;
 
 	dst = NULL;
-    if (s1 == NULL && s2 == NULL)
+	if (s1 == NULL && s2 == NULL)
 		return (NULL);
-    else if (s1 == NULL)
+	else if (s1 == NULL)
 		return (ft_custom_strdup(s2));
 	else if (s2 == NULL)
 		return (ft_custom_strdup(s1));
@@ -102,7 +102,7 @@ char	*ft_custom_strjoin(char *s1, char *s2)
 		return (NULL);
 	ft_custom_strlcpy(dst, s1, s1_len + 1);
 	ft_custom_strlcpy((dst + s1_len), s2, s2_len + 1);
-    free(s1);
+	free(s1);
 	free(s2);
 	return (dst);
 }
@@ -112,13 +112,13 @@ void	ft_check_env(char **env)
 	int	idx;
 
 	if (!*env)
-        ft_print_error(NO_ENV_ERROR);
+		ft_print_error(NO_ENV_ERROR);
 	idx = 0;
 	while (env[idx])
 	{
 		if (ft_strncmp("DISPLAY", env[idx], ft_strlen("DISPLAY")) == 0)
-            return ;
-        else
+			return ;
+		else
 			idx++;
 	}
 	ft_print_error(NO_DISP_ERROR);

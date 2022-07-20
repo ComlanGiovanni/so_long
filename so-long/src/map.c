@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/19 16:10:06 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 03:36:18 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ void	ft_read_map(t_game *game, char *map_name)
 	char	*line;
 
 	fd = open(map_name, O_RDONLY);
-    if (fd <= 0)
-        ft_print_error(FAIL_OPEN_ERROR);
-
-    line = get_next_line(fd);
+	if (fd <= 0)
+		ft_print_error(FAIL_OPEN_ERROR);
+	line = get_next_line(fd);
 	width = ft_strlen(line) - 1;
 	game->height = 0;
 	game->step = 0;
@@ -53,23 +52,22 @@ void	ft_check_sealed(t_game *game)
 	int	idx;
 
 	idx = 0;
-
 	while (idx < game->map_len)
 	{
 		if (idx > (game->map_len - game->width))
 		{
 			if (game->map[idx] != WALL_CHAR)
-       			ft_print_error(WALL_ERROR);
+				ft_print_error(WALL_ERROR);
 		}
 		else if (idx < game->width)
 		{
 			if (game->map[idx] != WALL_CHAR)
-       			ft_print_error(WALL_ERROR);
+				ft_print_error(WALL_ERROR);
 		}
 		else if (idx % game->width == 0 || idx % game->width == game->width - 1)
 		{
 			if (game->map[idx] != WALL_CHAR)
-       			ft_print_error(WALL_ERROR);
+				ft_print_error(WALL_ERROR);
 		}
 		idx++;
 	}
@@ -84,13 +82,12 @@ void	ft_check_rectangular(t_game *game)
 void	ft_check_playability(t_game *game)
 {
 	int	idx;
-	
+
 	idx = 0;
 	game->player = 0;
 	game->key = 0;
 	game->exit = 0;
 	game->storage = 0;
-
 	while (idx++ < game->map_len)
 	{		
 		if (game->map[idx] == COIN_CHAR)
@@ -101,9 +98,9 @@ void	ft_check_playability(t_game *game)
 			game->exit++;
 	}
 	if (game->key == 0)
-       	ft_print_error(COIN_ERROR);
+		ft_print_error(COIN_ERROR);
 	if (game->player != 1)
-       	ft_print_error(PLAYER_ERROR);
+		ft_print_error(PLAYER_ERROR);
 	if (game->exit == 0)
-       	ft_print_error(EXIT_ERROR);
+		ft_print_error(EXIT_ERROR);
 }

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 01:08:50 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/20 03:25:07 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,8 @@ void ft_print_info_on_window(t_game *game)
 }
 
  /*
+
+		CHECK NORME AND QUIK FIX SEGFAULT BAD MAP
 
 rename file name ft_eefwe
    [Dont work harder work smarter]

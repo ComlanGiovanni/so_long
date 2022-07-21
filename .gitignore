@@ -57,7 +57,10 @@ a.out
 *.json
 .vscode/configurationCache.log
 *.o
+mlx/libmlx.a
 lib/lib_so_long.a
 lib_so_long.a
 so_long
+so_long_bonus
 so_long.dSYM
+so_long_bonus.dSYM

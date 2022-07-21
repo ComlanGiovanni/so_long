@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 22:13:40 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/21 13:48:08 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,7 +239,8 @@ place pillar instead of wall inside the map only
 having one stuct for the map typedef struct s_map one for the player stats
 one for the player sprite
 
-
+no leak om linux
+leak on mac os because of
 
  ok so the hearth would be RED black type of
 	H for char

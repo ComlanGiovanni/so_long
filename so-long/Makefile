@@ -6,7 +6,7 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/20 23:46:25 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/21 15:51:07 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ SRC		=	main.c \
 			./src/map.c \
 			./src/so_long.c \
 			./src/sprite.c \
-			./src/tools.c
+			./src/tools.c \
+			./src/check_map_format.c 
 
 SRCS_BONUS	=   ./bonus/main.c \
 				./bonus/src/input_bonus.c \
@@ -55,7 +56,8 @@ SRCS_BONUS	=   ./bonus/main.c \
 				./bonus/src/life_management.c \
 				./bonus/src/input_fct_bonus.c \
 				./bonus/src/map_sprite_bonus.c \
-				./bonus/src/player_sprite_direction_bonus.c
+				./bonus/src/player_sprite_direction_bonus.c \
+				./bonus/src/check_map_format.c
 
 SRC_OBJS		=	$(SRC:.c=.o)
 
@@ -123,6 +125,7 @@ clean :
 	$(RM) $(BONUS_PATH)/src/*.o
 	$(RM) $(BONUS_PATH)/*.o
 	make -C $(LIB_PATH) clean
+	make -C $(MLX_PATH) clean
 	@$(CLEANED)
 
 fclean : clean

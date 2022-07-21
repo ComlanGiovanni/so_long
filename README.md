@@ -17,6 +17,47 @@
 * git clone git@github.com:ComlanGiovanni/so_long.git
 * make re && make bonus
 
+<h1 align="center"> Executing program </h1>
+
+* How to run the program
+```
+🚨 mlxlib can run in your machine.
+```
+```
+
+make re 
+./so_long your_map.ber
+
+make re bonus
+./so_long_bons map/basic.ber
+or
+
+make re bonus && ./so_long_bonus maps/fun.ber
+
+```
+
+### HOW TO PLAY
+The player’s goal is to collect all collectibles present on the map by escaping with minimal movement.
+
+|KEYBOARD|ACTION|
+|---|---|
+|`W`, `↑`|Move up|
+|`S`, `↓`|Move down|
+|`A`, `←`|Move left|
+|`D`, `→`|Move right|
+|`ESC ⎋`|Close the game window|
+
+<h1 align="center"> Help </h1>
+
+Any advise for common problems or issues.
+```
+Read the code and the comment
+```
+
+<h1 align="center"> Improve and bug </h1>
+
+* 
+
 <h1 align="center"> Idea </h1>
 
 * Konami code
@@ -31,33 +72,6 @@
 * there is not baba is you
 * game very not inspired
 * timer
-* 
-
-<h1 align="center"> Executing program </h1>
-
-* How to run the program
-```
-
-make re 
-./so_long your_map.ber
-
-make re bonus
-./so_long_bons map/basic.ber
-or
-
-make re bonus && ./so_long_bonus maps/fun.ber
-
-```
-
-<h1 align="center"> Help </h1>
-
-Any advise for common problems or issues.
-```
-Read the code and the comment
-```
-
-<h1 align="center"> Improve and bug </h1>
-
 * 
 
 <h1 align="center"> Authors </h1>
@@ -104,3 +118,6 @@ Inspiration, code snippets, etc.
 * [Remove background](https://www.remove.bg/fr/upload)
 * [Baba all sprite](https://www.spriters-resource.com/fullview/115231/)
 * [Maze Generator](https://www.dcode.fr/maze-generator)
+* [More png](https://www.vhv.rs/)
+* [Minlibx tuto](https://aurelienbrabant.fr/blog)
+* [Png tools](https://onlinepngtools.com=)

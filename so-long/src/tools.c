@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 22:27:34 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 03:43:50 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/21 20:08:44 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
  * @brief 
  * 
  * It's just a strdup but until \n
- * dest =	malloc(size + 1);
  * 
  * @param s1 
  * @return char* 
@@ -75,8 +74,7 @@ int	ft_custom_strlcpy(char *dst, char *src, int dst_size)
 /**
  * @brief 
  * 
- * its just a strjoing but by the \n
- * dst = malloc((s1_len + s2_len));
+ * its just a strjoin but by the \n
  * 
  * @param s1 
  * @param s2 
@@ -107,6 +105,15 @@ char	*ft_custom_strjoin(char *s1, char *s2)
 	return (dst);
 }
 
+/**
+ * @brief 
+ * 
+ * if the env is NULL we quit and print the error msg
+ * we loop in the tab end if we found Display we quit
+ * if there is no display we print the error msg
+ * 
+ * @param env 
+ */
 void	ft_check_env(char **env)
 {
 	int	idx;
@@ -124,6 +131,15 @@ void	ft_check_env(char **env)
 	ft_print_error(NO_DISP_ERROR);
 }
 
+/**
+ * @brief 
+ * 
+ * 
+ * 
+ * @param map_name 
+ * @param extension 
+ * @return int 
+ */
 int	ft_check_extension(char *map_name, char *extension)
 {
 	int	len_map_name;

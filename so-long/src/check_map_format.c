@@ -6,12 +6,23 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 02:35:15 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/21 15:12:15 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/21 23:13:10 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
+/**
+ * @brief Get the map height object
+ * 
+ * 			so we secure the open in read only of the file
+ * 		then get the first line set height to 1 and inc
+ * 			the height will the get_next_line is not NULL
+ * 				free close and return the int
+ * 
+ * @param map_name 
+ * @return int 
+ */
 int	get_map_height(char *map_name)
 {
 	int		height;
@@ -19,10 +30,10 @@ int	get_map_height(char *map_name)
 	char	*line;
 
 	fd = open(map_name, O_RDONLY);
-	if (fd <= 0)
+	if (fd <= FALSE)
 		ft_print_error(FAIL_OPEN_ERROR);
 	line = get_next_line(fd);
-	height = 1;
+	height = TRUE;
 	free(line);
 	while (line)
 	{
@@ -62,14 +73,22 @@ void	check_ber_format(char *map_name, int height)
 	close(fd);
 }
 
+/**
+ * @brief 
+ * 
+ * 		init to 0 height step
+ * 				and init width to the
+ * 		len of line send to the fct
+ * 					the copy the line in map
+ * 
+ * @param game 
+ * @param line 
+ */
 void	ft_init_map_info(t_game *game, char *line)
 {
-	int		width;
-
-	width = ft_strlen(line) - 1;
-	game->height = 0;
-	game->step = 0;
-	game->width = width;
+	game->height = FALSE;
+	game->step = FALSE;
+	game->width = ft_strlen(line) - TRUE;
 	game->map = ft_custom_strdup(line);
 	free(line);
 }

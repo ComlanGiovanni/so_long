@@ -1,6 +1,6 @@
 <p align="center"><img height="280em" src="So_long_preview.png"></p>
 
-This 2D game project use the sprite of baba is you [Baba is you](https://store.steampowered.com/app/736260/Baba_Is_You/) please try the game its pretty damn cool buy it.
+This 2D game project use the sprite sheet of baba is you [Baba is you](https://store.steampowered.com/app/736260/Baba_Is_You/) please try the game its pretty damn cool buy it.
 
 <h1 align="center"> Description </h1>
 
@@ -41,7 +41,6 @@ so_long and so_long is now generate
 <p align="center">
 How to run the program
 </p>
-<p/>
 ```
 ./so_long 42.ber
 ```

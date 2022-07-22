@@ -43,10 +43,6 @@ so_long and so_long is now generate
 
 <h1 align="center"> Executing program </h1>
 
-<p align="center">
-How to run the program
-</p>
-
 ```
 ./so_long 42.ber
 ```

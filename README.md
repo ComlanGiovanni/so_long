@@ -72,9 +72,10 @@ HOW TO PLAY
 
 * [Intro](https://www.youtube.com/watch?v=N_dUmDBfp6k) - [Book](https://www.amazon.fr/So-Long-Thanks-All-Fish/dp/1529034558) - [42 vid](https://elearning.intra.42.fr/notions/minilibx/subnotions) - [MinilibxGit](https://github.com/42Paris/minilibx-linux) - [MinilibxDoc](https://harm-smits.github.io/42docs/libs/minilibx/introduction.html) - [MinilibxTester](https://github.com/augustobecker/so_long_tester) - [MLX42](https://github.com/codam-coding-college/MLX42) - [Xpm convertor](https://convertio.co/fr/png-xpm/) - [Xpm convertor 2](https://anyconv.com/fr/convertisseur-de-png-en-xpm/) - [Background remove](https://www.remove.bg/) - [Tuto](https://achedeuzot.me/2014/12/20/installer-la-minilibx/) - [Assets](https://itch.io/game-assets/free/tag-sprites) - [fun](https://www.youtube.com/watch?v=OCh2l0J1uJk) - [baba is you](https://babaiswiki.fandom.com/wiki/Category:Nouns) - [vert](https://www.vertopal.com/) - [diff](https://www.diffchecker.com/) - [Aspite](https://www.aseprite.org/) - [Baba is you](https://hempuli.com/baba/) - [color hexa for xpm](https://www.color-hex.com/) - [Some rust doc milibx](https://docs.rs/minilibx/latest/minilibx/struct.Mlx.html) - [Remove background](https://www.remove.bg/fr/upload) - [Baba all sprite](https://www.spriters-resource.com/fullview/115231/) - [Maze Generator](https://www.dcode.fr/maze-generator) - [More png](https://www.vhv.rs/) - [Minlibx tuto](https://aurelienbrabant.fr/blog) - [Png tools](https://onlinepngtools.com=)
 
-  __          __             __          __                      
- |  |--.---.-|  |--.---.-.  |__.-----.  |  |  .--.--.-----.--.--.
- |  _  |  _  |  _  |  _  |  |  |__ --|  |__|  |  |  |  _  |  |  |
- |_____|___._|_____|___._|  |__|_____|  |__|  |___  |_____|_____|
-                                              |_____|      
+
+
+<div align='right'>
+
 by -> [@ComlanGiovanni](https://github.com/ComlanGiovanni)
+
+</div>

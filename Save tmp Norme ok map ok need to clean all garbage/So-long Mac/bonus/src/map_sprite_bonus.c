@@ -6,11 +6,23 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:44:49 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 18:08:04 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 03:32:25 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long_bonus.h"
+
+/**
+ * @brief 
+ * 			
+ * 
+ * 		we split for 25 line norm so see ft_put_all_sprites_to_line comment			
+ * 
+ * 
+ * @param game 
+ * @param width 
+ * @param height 
+ */
 
 void	ft_key_sprite(t_game *game, int width, int height)
 {

@@ -6,33 +6,43 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/21 01:16:43 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 04:36:51 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long_bonus.h"
 
-/*
-ft_print_error(FAIL_OPEN_ERROR);
-make a custom fct for fd fail segfautl or
-ft_print_error(map_name);
-*/
+/**
+ * @brief 
+ * 			map str is not the game->map struct
+ * 
+ * 	first we need the height of the map to check if the map is well formatted
+ * 		before reading it, then re-open the file to get every line in the
+ * 			line variable.	 (secure the open with a print message)
+ * 		just before joining every line we initialized all the map info
+ * 			step height width to 0 and map to the first line of the map with a 
+ * 						custom strdup of first line.
+ * 	when we are able to open the map on READONLY we can get the next line of the
+ * 		map aka the first line, we can now join the next line until the end
+ * 			to the game->map(str), then free and close the fd
+ * 							the get the full len of it
+ * 
+ * @param game 
+ * @param map_name 
+ */
 void	ft_read_map(t_game *game, char *map_name)
 {
 	int		fd;
-	int		width;
+	int		height;
 	char	*line;
 
+	height = get_map_height(map_name);
+	check_ber_format(map_name, height);
 	fd = open(map_name, O_RDONLY);
-	if (fd <= 0)
+	if (fd <= FALSE)
 		ft_print_error(FAIL_OPEN_ERROR);
 	line = get_next_line(fd);
-	ft_anal_yze_line(line);
-	width = ft_strlen(line) - 1;
-	game->height = 0;
-	game->width = width;
-	game->map.map_str = ft_custom_strdup(line);
-	free(line);
+	ft_init_map_info(game, line);
 	while (line)
 	{
 		game->height++;
@@ -44,12 +54,32 @@ void	ft_read_map(t_game *game, char *map_name)
 	game->map.len = ft_strlen(game->map.map_str);
 }
 
-/*
-//ft_check_rectangular(game);
-in bonus we can have squared map
-
-i should make a fct name ft_int_map_info;
-*/
+/**
+ * @brief 
+ * 
+ * 
+ *  	here is the fct who call all the check we need to the game
+ * 
+ * 	valid char 0 1 P C E			 ----------- void wall player coin exit
+ * 	 NOT	rectangular form		|			|   FOR BONUS
+ * 	no breathing room around the map ----------
+ * 				playable P = 1 C/E >=1
+ * 	in bonus we can have squared map
+ * 				all the fct need game->map so we send a pointer to
+ * 		t_game *game we could just send the game->map but who care ? i am lazy
+ * 
+ * 		we init some map info 
+ *	 		nbr of key 
+ *   	exit player storage
+ *  	lava love wall void etc
+ * 	 the wall is 1 because
+ * we start already at the firs wall
+ * 
+ * the we print the map in console not in line but in
+ * the file format with they new line
+ * 
+ * @param game 
+ */
 void	ft_check_map(t_game *game)
 {
 	ft_check_valid_char(game);
@@ -66,55 +96,72 @@ void	ft_check_map(t_game *game)
 	ft_print_map_better_format(game);
 }
 
+/**
+ * @brief 
+ * 					11111CC11PE11111 
+ * 
+ * 1111	(game->map_len - game->width) 11111CC11PE * [11111] (idx near end)
+ * 1CC1 (idx < game->width) [1111] * 1CC11PE11111 (idx less)
+ * 1PE1	(idx % game->width == 0 || idx % game->width == game->width - 1)
+ * 1111			(1111) [1CC1] [1PE1] (1111)
+ * 
+ * 	     *      *
+ * 		[1CC1] [1PE1]	the first idx modulo width is alway 0 
+ * 						because we alway add the width because
+ * 						its a perfect form square rectangle
+ * 			*	   *
+ * 		[1CC1] [1PE1]	this last idx of a line modulo of width
+ * 						is alway equal to width - 1 because
+ * 						we are almost near to the next whose
+ * 						modulo is 0 cf above
+ * 
+ * 		first if it's for the last width bottom of map
+ * 		second if it's for the first width top of the map
+ * 		third if is for 
+ * 
+ * 
+ * @param game 
+ */
 void	ft_check_sealed(t_game *game)
 {
 	int	idx;
 
-	idx = 0;
+	idx = FALSE;
 	while (idx < game->map.len)
 	{
 		if (idx > (game->map.len - game->width))
 		{
-			if (game->map.map_str[idx] != '1')
+			if (game->map.map_str[idx] != WALL_CHAR)
 				ft_print_error(WALL_ERROR);
 		}
 		else if (idx < game->width)
 		{
-			if (game->map.map_str[idx] != '1')
+			if (game->map.map_str[idx] != WALL_CHAR)
 				ft_print_error(WALL_ERROR);
 		}
-		else if (idx % game->width == 0 || idx % game->width == game->width - 1)
+		else if (idx % game->width == FALSE
+			|| idx % game->width == game->width - TRUE)
 		{
-			if (game->map.map_str[idx] != '1')
+			if (game->map.map_str[idx] != WALL_CHAR)
 				ft_print_error(WALL_ERROR);
 		}
 		idx++;
 	}
 }
 
-/*
-void	ft_check_rectangular(t_game *game)
-{
-	if (game->height == game->width)
-		ft_print_error(FORM_ERROR);
-}
-*/
-
-/*
-	on profite pour recup
-	les info de la map
-*/
-
-//lol that fuck up and funny idx flemme move
-//ft_check_playability
-
-// maka fucking fct for init mapino to 0
-
+/**
+ * @brief 
+ * 		we loop in the map until we reach the end (map.len)
+ * 			we get all the map info that we read previously 
+ * 		if we found any char 0 1 P E L S we inc the variable
+ * 
+ * @param game 
+ */
 void	ft_get_info_map(t_game *game)
 {
 	int	idx;
 
-	idx = 0;
+	idx = FALSE;
 	while (idx++ < game->map.len)
 	{		
 		if (game->map.map_str[idx] == KEY_CHAR)
@@ -134,12 +181,47 @@ void	ft_get_info_map(t_game *game)
 	}
 }
 
+/**
+ * @brief 
+ * 
+ * then check if there is at least one key one exit and
+ * only one player otherwise we print the proper error msg
+ * 
+ * @param game 
+ */
 void	ft_check_playability(t_game *game)
 {
-	if (game->map.nbr_key == 0)
+	if (game->map.nbr_key == FALSE)
 		ft_print_error(COIN_ERROR);
-	if (game->map.nbr_player != 1)
+	if (game->map.nbr_player != TRUE)
 		ft_print_error(PLAYER_ERROR);
-	if (game->map.nbr_exit == 0)
+	if (game->map.nbr_exit == FALSE)
 		ft_print_error(EXIT_ERROR);
 }
+
+/**
+ * @brief 
+ * 	
+ * 			In Euclidean plane geometry,
+ * 	 a rectangle is a quadrilateral with four right angles.
+ * 	A rectangle with four sides of equal length is a square.
+ * 	
+ * Les côtés d'un rectangle étant deux à deux de même longueur 
+ * 						a et b
+ * 			
+ * 		rec : a != b 		&& 		carr  a = b
+ * 
+ * 			 Mine de rien dans la rigolade 
+ * 		j'avais oublier qu'un carree est un rectangle
+ * 
+ * 	du coup si height == width is a reactangle
+ * 
+ * @param game 
+ */
+/*
+void	ft_check_rectangular(t_game *game)
+{
+	if (game->height == game->width)
+		ft_print_error(FORM_ERROR);
+}
+*/

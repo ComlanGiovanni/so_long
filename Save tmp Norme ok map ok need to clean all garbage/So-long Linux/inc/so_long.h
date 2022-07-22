@@ -6,25 +6,18 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 22:25:48 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/21 15:31:04 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-//mac deine __apple_ and __linux
-//# if defined (__APPLE__)
-//#  define PTR_NULL "0x0"
-//# elif __linux__
-//#  define PTR_NULL "(nil)"
-//# endif
-//for copatibility
-
 # include "../mlx/mlx.h"
 # include "../lib/small_lib/libft.h"
 # include "../lib/gnl/get_next_line.h"
 # include "../lib/ft_printf/ft_printf.h"
+
 # define BER_EXTENSION	    ".ber"
 # define ERROR_MSG	        "Error\n"
 # define GAME_TITLE	        "./so_long"
@@ -48,7 +41,7 @@
 # define KEY_XPM_ERROR		"key.xpm fail to load\n"
 # define EXIT_XPM_ERROR		"exit.xpm fail to load\n"
 # define WIN_MSG			"Thanks for playing, you win with steps : "
-# define BITCHISEMPTY 		"Remove that empty line please :(\n"
+# define EMPTY_LINE 		"Remove that empty line at the top or middle\n"
 
 typedef enum e_key_code {
 	CLOSE_ICON = 17,
@@ -107,8 +100,13 @@ typedef struct s_game
 	long long int	player;
 }		t_game;
 
-//../src/input.c
+//../src/check_map_format.c   
 
+int			get_map_height(char *map_name);
+void		check_ber_format(char *map_name, int height);
+void		ft_init_map_info(t_game *game, char *line);
+
+//../src/input.c
 int			ft_input_manager(int key, t_game *game);
 void		ft_move_up(t_game *game);
 void		ft_move_down(t_game *game);
@@ -136,7 +134,6 @@ void		ft_check_valid_char(t_game *game);
 t_sprites	ft_init_sprites(void *mlx);
 void		ft_put_sprites_by_line(t_game *game);
 void		ft_put_all_sprites_to_line(t_game *game, int width, int height);
-void		ft_anal_yze_line(char	*line);
 
 //../src/tools.c
 

@@ -6,20 +6,29 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 02:28:39 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 15:57:12 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 05:06:39 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long_bonus.h"
 
-/*
-	repating myself here how can i fix it ?
-	// remove after for test hors is usefull i we put 0 but bro ....
-	if (player->frames == 0)
-		return ;
-	//game->player.frames = 9;
-*/
-
+/**
+ * @brief 
+ * 
+ * 			Same thing for every animation 
+ * 
+ * 	so every x.frames and x.frame * 2
+ *  	we change the frame_0 to the 1 when we hit
+ * 			the frame fof the object aka frame count
+ * 				in the fct, then change it to frame 2
+ * 					when we hit the double of the frame
+ * 						the reset it to 0 again and again
+ * 
+ * 	same but we change every state of the player
+ * 		in can we are facing up down left and right
+ * 
+ * @param player 
+ */
 void	ft_player_animation(t_player *player)
 {
 	static int	frame;
@@ -37,11 +46,22 @@ void	ft_player_animation(t_player *player)
 		player->down_anim.frame_0 = player->down_anim.frame_2;
 		player->left_anim.frame_0 = player->left_anim.frame_2;
 		player->right_anim.frame_0 = player->right_anim.frame_2;
-		frame = 0;
+		frame = FALSE;
 	}
-	frame += 1;
+	frame += TRUE;
 }
 
+/**
+ * @brief 
+ * 
+ * 		Check after load to prevent segfault 
+ * 			of all the loaded sprite
+ *			print the good error message
+ * 		Here player sprite close and open sprite
+ * 				UP sprite frame 0 1 2 move
+ * 
+ * @param game 
+ */
 void	ft_load_player_up_sprites(t_game *game)
 {
 	int	width;
@@ -69,6 +89,17 @@ void	ft_load_player_up_sprites(t_game *game)
 		ft_print_error(PLAYER_U_M_ERROR);
 }
 
+/**
+ * @brief 
+ * 
+ * 		Check after load to prevent segfault 
+ * 			of all the loaded sprite
+ *			print the good error message
+ * 		Here player sprite close and open sprite
+ * 				DOWN sprite frame 0 1 2 move
+ * 
+ * @param game 
+ */
 void	ft_load_player_down_sprites(t_game *game)
 {
 	int	width;
@@ -96,6 +127,17 @@ void	ft_load_player_down_sprites(t_game *game)
 		ft_print_error(PLAYER_D_M_ERROR);
 }
 
+/**
+ * @brief 
+ * 
+ * 		Check after load to prevent segfault 
+ * 			of all the loaded sprite
+ *			print the good error message
+ * 		Here player sprite close and open sprite
+ * 				LEFT sprite frame 0 1 2 move
+ * 
+ * @param game 
+ */
 void	ft_load_player_left_sprites(t_game *game)
 {
 	int	width;
@@ -123,6 +165,17 @@ void	ft_load_player_left_sprites(t_game *game)
 		ft_print_error(PLAYER_L_M_ERROR);
 }
 
+/**
+ * @brief 
+ * 
+ * 		Check after load to prevent segfault 
+ * 			of all the loaded sprite
+ *			print the good error message
+ * 		Here player sprite close and open sprite
+ * 				RIGHT sprite frame 0 1 2 move
+ * 
+ * @param game 
+ */
 void	ft_load_player_right_sprites(t_game *game)
 {
 	int	width;

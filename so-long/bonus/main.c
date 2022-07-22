@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/22 15:30:10 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 17:09:53 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
  * 
  * 							-[Scott Rogers]-
  * 
- * 		> norminette bonus inc lib main.c src
+ * 				> norminette bonus inc lib main.c src
  * 
  * @param argc 
  * @param argv 
@@ -162,154 +162,104 @@ void	ft_print_info_on_window(t_game *game)
 
 /*
 
+			PERSONAL COMMENT IDEAD RANDOM STUFF
+
+						/\     \
+                      /  \     \
+                     /    \_____\
+                    _\    / ____/_
+                   /\ \  / /\     \
+                  /  \ \/_/  \     \
+                 /    \__/    \_____\
+                _\    /  \    / ____/_
+               /\ \  /    \  / /\     \
+              /  \ \/_____/\/_/  \     \
+             /    \_____\    /    \_____\
+            _\    /     /    \    / ____/_
+           /\ \  /     /      \  / /\     \
+          /  \ \/_____/        \/_/  \     \
+         /    \_____\            /    \_____\
+        _\    /     /            \    / ____/_
+       /\ \  /     /              \  / /\     \
+      /  \ \/_____/                \/_/  \     \
+     /    \_____\                    /    \_____\
+    _\    /     /_  ______  ______  _\____/ ____/_
+   /\ \  /     /  \/\     \/\     \/\     \/\     \
+  /  \ \/_____/    \ \     \ \     \ \     \ \     \
+ /    \_____\ \_____\ \_____\ \_____\ \_____\ \_____\
+ \    /     / /     / /     / /     / /     / /     /
+  \  /     / /     / /     / /     / /     / /     /
+   \/_____/\/_____/\/_____/\/_____/\/_____/\/_____/
+
+		[Dont work harder work smarter]
+			[TODO IF NOT TOO LAZY]
+		
+*		rename all file name with prefix ft_
+*		for bonus use mlx string pu with a 
+		special font or sprite like life
+*		put commun fct in spefic file to share 
+			btw bonus and mandatory
+*	read all the project to found repetition
+			and make 5 in 1 ex : 
+  		try to make modularity for move ?
+*		share define or define file for mandatory
+*	better file organisation and include order
+* 		add start and end windows
+* 			status iddle or mouving
+* 		ft_print_spite_error char path
+* 			ft_split_path char * path
+* 		reset button r to reload the game
+* 			try to limit int overflow long long
+			or life storage limit
+* 			versus mode 1v1
+* 		make file cross platform
+				make linux make os
+	
+* 		make a simple step by step for 100
+* 			make a simple step by step for bonus
+
+			[WHAT I HAVE FOUND]
+	
+			ImageMagick
+		convert key.xpm -scale 64x64 key.xpm
 //mlx_key_hook(game->win, &ft_input_manager, game);
-
-rename file name ft
-   [Dont work harder work smarter]
-
- //for bonus use mlx string pu with a special font ?
-
-ROAD TO CLEAN THIS PROJECT
-
-	* put commun fct in spefic file
-	* have differente header if to much deine
-		define.h or exmple
-		define_communm.h define_bonus.h
-	* make different struc for player aniation map etc
-		see if good idea for both
-	*
-	* better file organisation
-	* add comment in every fct
-	* add mouving ennemie - 1 for lie
-	* check free
-	* add start and end windows only for bonus
-	* add life for player
-	* print map in good format
-	* print life
-
-	* status iddle or mouving
-	* add iddle sprint only change color
-	* animate key
-	* animate door
-	* fct for evry call of aimated sprit
-		player etc
-	*  fct for to load too
-	* try to make modularity for move ?
-	* ft_print_spite_error char * path
-	* ft_split_path char * path
-	*
-	* make a simple step by step for 100
-	* step by step 125 letter
-	* reset key 
-		destroy everything
-			and call back previos fct after the initial init
-	*
-	* Struct to make a list of enemies
-	* NNNNOOOOOORRRRRRMMMMMMMMMEEEEEEEE
-
-	// wht if the move hi max int for printf ??
-
-no more ft_strlen(game->map) in file
-
-	NEXT LVL BIG BRAIN DONT DO IT NOW PLEASE
-	 BUT FOR YOURSEL 2PLAYER !!1
-
--g3 -fsanitize=addres
-
-envi -i check necessaire ??
-because work witout
-
-animate door if there is all key in storage
-
-so make a variable in stuct 0 or 1 to see if we
- can activate animation
-
-ImageMagick
-	convert key.xpm -scale 64x64 key.xpm
-
-make file cross platform
-	make linux
-	make os
-
-in define change input key code
 
 #	@make --no-print-directory -C ft_printf
 #	@make --no-print-directory -C mlx lib_so_long.a
 
-
-# $(GCC) -o $(NAME) $(SRC) -L. 
+# 		$(GCC) -o $(NAME) $(SRC) -L. 
 $(LIB_NAME) -L. $(MLX_PATH)/$(MLX_NAME) $(FRAME_WORK)
-# -lXext -lX11
+# 		-lXext -lX11
 
+ 		$(GCC) $(SRC) $(INC) $(OBJ) 
+ 			-Lmlx_linux -lmlx_Linux -L/usr/lib 
+ 		-Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
- $(GCC) $(SRC) $(INC) $(OBJ) 
- -Lmlx_linux -lmlx_Linux -L/usr/lib 
- -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+		 [DEFENSE]
+		-g3 -fsanitize=addres
+		envi -i check necessaire ??
 
-random idea : save the file name in struc to display it in error msg
+			[IDEA]
 
-some level design map for bonus with lava aamd
+		 	konamie code
+	konami code for invisibility on everyting
 
-header file for error, split file
-get fault map empyt or oneline
-mlx string put for bonus
-
-		call ft_exit game windows
-		clean win
-		pintf the win message with a xmp gg wp aninmated pixel theme
-
-		IDEAD : add timer counter because frame is evry seconde in upadte ???
+	moving ennemie (maybe tracing)
+	* Theme song
+		* song when take item
+			* song when die
+* try to nake a difference btw normal iddel instant and delay iddle
+*	random idea : save the file name in struc
+	 to display it in error msg
+IDEAD : add timer counter because frame is every seconde in upadte ???
 
 //random idea : save the file name in struc to display it in error msg
 
-Plus for readme
-	player do animation move even if he can not go to the next case
-	print the map in the console
-	print map info in console
-
 place pillar instead of wall inside the map only
-
-having one stuct for the map typedef struct s_map one for the player stats
-one for the player sprite
-
-no leak om linux
-leak on mac os because of
-
- ok so the hearth would be RED black type of
-	H for char
-	change back lava color too normal
-	make a randome move by using pLAYER FCT NOUVEMENT
-	i would be random up down right endlessy
-	if baba face it he lose the game
-
-mmissing deine for every eror oad sprite
-
-make a map who trigger konamie code lol
 
 add versus mode only 2 player
 Jai envie dajouter un timer, un vs mode un stysteme
  de path founding pour les ennemies
-konami code for invisibility on everyting
-
-
-animation of the door all the time or only  when uou can win
-
-adding icon when collecting coin
-
-load pilliar in a struct
-print pillar only in the middle
-
-do some fun maze or bonus
-
-do map with 42 write in it
-		face
-		forme
-		wired
-		funny
-		pattern
-		chunk
-	
-KONAMI CODE
 
 */
 
@@ -343,33 +293,6 @@ KONAMI CODE
 */
 
 /*
-int temp;
-int temp1;
-int temp11;
-int temp111;
-
-Because using temp2, temp3 would be too mainstream.
-
-char coal
-
-float away; 
-long long ago;
-
-char mander; 
-long timeAgo;	// In a galaxy far far away 
-bool dozer; 
-int erNalExam; 
- 
-short circuit; 
-short onTime; 
-double trouble; 
-Exception up = new Exception("Something is wrong"); 
-throw up; 
-
-
-*/
-
-/*
 				IDEAD
 		DIAGONAL MOVE IF 7 9 1 3 is pressed
 	fct who combine move (up + left) by the  vailableness up up or let etc
@@ -378,22 +301,6 @@ throw up;
     else
         iddle animation counter 5 sec
 
-*/
-
-//try define for path
-
-/*
-	repating myself here how can i fix it ? animationn and load
-	// remove after for test hors is usefull i we put 0 but bro ....
-	if (player->frames == 0)
-		return ;
-	//game->player.frames = 9;
-*/
-
-/*
-ft_print_error(FAIL_OPEN_ERROR);
-make a custom fct for fd fail segfautl or
-ft_print_error(map_name);
 */
 
 /*
@@ -407,4 +314,24 @@ ft_print_error(map_name);
 		on screen
 		with a map tracking only if there 
 		is a camera zoom
+*/
+
+/*
+			int temp;
+			int temp1;
+			int temp11;
+			int temp111;
+	Because using temp2, temp3 would be too mainstream.
+			char coal
+			float away; 
+			long long ago;
+			char mander; 
+	long timeAgo;	// In a galaxy far far away 
+			bool dozer; 
+			int erNalExam; 
+			short circuit; 
+			short onTime; 
+			double trouble; 
+Exception up = new Exception("Something is wrong"); 
+			throw up; 
 */

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:34:07 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/22 15:31:07 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 16:26:54 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  * 				10x10 at the x y and we also reset
  * 			the x position to 0 to print at the next line y
  * 
- * is not the greated display because for 100 life we dont manage to print all
+ * is not great display because for 100 life we dont manage to print all
  * 		for DLC we can stack every heath
  * 
  * @param game 
@@ -50,8 +50,19 @@ void	ft_display_life_on_windows(t_game *game)
 		ft_lose_game(game);
 }
 
-// no place found so stay here
-
+/**
+ * @brief 
+ * 		
+ * 		we simply generate a random int 
+ * 			aka direction for the
+ * 			ft_move_lava(game);
+ * 			
+ * 	no good place found stay here
+ * 
+ * sleep(1); dont work kinda wierd
+ * 
+ * @param game 
+ */
 void	ft_random_lava_move(t_game *game)
 {
 	int	random;

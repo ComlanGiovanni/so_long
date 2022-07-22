@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/22 04:39:08 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 05:24:25 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,35 @@ int	main(int argc, char *argv[], char **envp)
 	}
 	return (EXIT_SUCCESS);
 }
-//mlx_key_hook(game->win, &ft_input_manager, game);
 
+/**
+ * @brief 
+ * 
+ * clean the game and print back the sprite to
+ * create animation feeling because all the frame 0
+ * is change by the seconde and the third every time
+ * 
+ * @param game 
+ */
 void	ft_render(t_game *game)
 {
 	mlx_clear_window(game->mlx, game->win);
 	ft_put_sprites_by_line(game);
 	ft_print_info_on_window(game);
 }
-//mlx_put_image_to_window(game->mlx, game->win,
-//game->sprite.wall, IMG_SIZE,  IMG_SIZE);
-//mlx_destroy_image(game->mlx, game->sprite.wall);
 
+/**
+ * @brief 
+ * 
+ * this fct is call every time int loop by mlx_loop_hook
+ * and trigger the animation of wall player lava love key door
+ * and then render the new sprite for each elem by cleaning the win
+ * and printing again line by line all the sprite and also print a 
+ * hud type for player info in the windows
+ * 
+ * @param game 
+ * @return int 
+ */
 int	ft_update(t_game *game)
 {
 	ft_wall_animation(&game->wall.animation);
@@ -100,22 +117,18 @@ void	ft_init_player_info(t_game *game)
 	ft_direction_by_pos_after_launch(game);
 }
 
-// le storage est a initialiser la ou 
-//on initialise le player life  direction step etc
-
-/*
-	not a problem but for future futur me with more skill
-	there is a astetic problem of the print diirectly on the
-	windows, cool if you can make a more cool way to see it i 
-	dont realy know
-
-		idea font or sprite for step
-		or info like ft_print_game_info)
-		on screen
-		with a map tracking only if there 
-		is a camera zoom
-*/
-
+/**
+ * @brief
+ * 
+ * 	we display a itoa o step storage on the win and free it the end
+ * 	we print all info in color define in the define header
+ * 	we can make a fct for the print of up down life right but iam lazy
+ * 	so in fct of the char in game->player.direction we print the
+ * 	full word in color
+ * 	
+ * 
+ * @param game 
+ */
 void	ft_print_info_on_window(t_game *game)
 {
 	char	*str_step;
@@ -143,12 +156,12 @@ void	ft_print_info_on_window(t_game *game)
 	free(str_storage);
 }
 
-/*	CHECK NORME AND QUIK FIX SEGFAULT BAD MAP
+/*
 
-rename file name ft_eefwe
+//mlx_key_hook(game->win, &ft_input_manager, game);
+
+rename file name ft
    [Dont work harder work smarter]
-
- in my bonus the map can be square
 
  //for bonus use mlx string pu with a special font ?
 
@@ -224,8 +237,6 @@ in define change input key code
 $(LIB_NAME) -L. $(MLX_PATH)/$(MLX_NAME) $(FRAME_WORK)
 # -lXext -lX11
 
-
-double maze croix rouge gamerd map pac map coeur de coeur among us
 
  $(GCC) $(SRC) $(INC) $(OBJ) 
  -Lmlx_linux -lmlx_Linux -L/usr/lib 
@@ -379,4 +390,17 @@ throw up;
 ft_print_error(FAIL_OPEN_ERROR);
 make a custom fct for fd fail segfautl or
 ft_print_error(map_name);
+*/
+
+/*
+	not a problem but for future futur me with more skill
+	there is a astetic problem of the print diirectly on the
+	windows, cool if you can make a more cool way to see it i 
+	dont realy know
+
+		idea font or sprite for step
+		or info like ft_print_game_info)
+		on screen
+		with a map tracking only if there 
+		is a camera zoom
 */

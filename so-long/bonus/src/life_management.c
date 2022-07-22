@@ -6,11 +6,12 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:34:07 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/22 04:40:45 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 15:31:07 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long_bonus.h"
+#include <time.h>
 
 /**
  * @brief 
@@ -47,4 +48,23 @@ void	ft_display_life_on_windows(t_game *game)
 	}
 	if (game->player.life == FALSE)
 		ft_lose_game(game);
+}
+
+// no place found so stay here
+
+void	ft_random_lava_move(t_game *game)
+{
+	int	random;
+
+	srand(time(0));
+	random = rand() % 4;
+	if (random == 0)
+		game->lava.move = 'u';
+	if (random == 1)
+		game->lava.move = 'd';
+	if (random == 2)
+		game->lava.move = 'l';
+	if (random == 3)
+		game->lava.move = 'r';
+	ft_move_lava(game);
 }

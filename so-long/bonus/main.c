@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/22 05:24:25 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 15:30:10 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,9 @@ void	ft_render(t_game *game)
  * and printing again line by line all the sprite and also print a 
  * hud type for player info in the windows
  * 
+ * put just before for lava moving all the time ft_random_lava_move(game);
+ * my bad i dix it look in the comment to change the game dynamic
+ * 
  * @param game 
  * @return int 
  */
@@ -89,6 +92,7 @@ int	ft_update(t_game *game)
 	ft_love_animation(&game->love.animation);
 	ft_key_animation(&game->key.animation);
 	ft_door_animation(&game->door);
+	ft_random_lava_move(game);
 	ft_render(game);
 	return (EXIT_SUCCESS);
 }

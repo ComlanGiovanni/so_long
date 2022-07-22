@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/21 15:30:47 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 15:30:55 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ typedef struct s_game
 }		t_game;
 
 //../src/bonus/main.c
-
+void	ft_moving_lava(t_game *game);
 void	ft_render(t_game *game);
 int		ft_update(t_game *game);
 void	ft_print_info_on_window(t_game *game);
@@ -186,9 +186,18 @@ void	ft_input_down(t_game *game);
 void	ft_input_left(t_game *game);
 void	ft_input_right(t_game *game);
 
+//../src/bonus/lava_movement.c
+
+void	ft_move_lava(t_game *game);
+void	ft_lava_move_up(t_game *game);
+void	ft_lava_move_down(t_game *game);
+void	ft_lava_move_left(t_game *game);
+void	ft_lava_move_right(t_game *game);
+
 //../src/bonus/life_management.c
 
 void	ft_display_life_on_windows(t_game *game);
+void	ft_random_lava_move(t_game *game);
 
 //../src/bonus/load_door_sprite_bonus.c
 

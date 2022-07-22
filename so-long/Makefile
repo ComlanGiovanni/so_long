@@ -6,7 +6,7 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/21 15:51:07 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/22 15:12:30 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,8 @@ SRCS_BONUS	=   ./bonus/main.c \
 				./bonus/src/input_fct_bonus.c \
 				./bonus/src/map_sprite_bonus.c \
 				./bonus/src/player_sprite_direction_bonus.c \
-				./bonus/src/check_map_format.c
+				./bonus/src/check_map_format.c \
+				./bonus/src/lava_movement.c
 
 SRC_OBJS		=	$(SRC:.c=.o)
 

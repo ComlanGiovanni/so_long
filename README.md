@@ -76,6 +76,6 @@ HOW TO PLAY
 
 <div align='right'>
 
-by -> [@ComlanGiovanni](https://github.com/ComlanGiovanni)
+In 2 week by -> [@ComlanGiovanni](https://github.com/ComlanGiovanni)
 
 </div>

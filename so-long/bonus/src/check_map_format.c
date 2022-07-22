@@ -6,12 +6,23 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 02:35:15 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/21 15:20:45 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 04:54:40 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long_bonus.h"
 
+/**
+ * @brief Get the map height object
+ * 
+ * 			so we secure the open in read only of the file
+ * 		then get the first line set height to 1 and inc
+ * 			the height will the get_next_line is not NULL
+ * 				free close and return the int
+ * 
+ * @param map_name 
+ * @return int 
+ */
 int	get_map_height(char *map_name)
 {
 	int		height;
@@ -19,10 +30,10 @@ int	get_map_height(char *map_name)
 	char	*line;
 
 	fd = open(map_name, O_RDONLY);
-	if (fd <= 0)
+	if (fd <= FALSE)
 		ft_print_error(FAIL_OPEN_ERROR);
 	line = get_next_line(fd);
-	height = 1;
+	height = TRUE;
 	free(line);
 	while (line)
 	{
@@ -34,6 +45,38 @@ int	get_map_height(char *map_name)
 	return (height);
 }
 
+/**
+ * @brief 
+ * 
+ * 				this fct its call before doing anything else
+ * 					the goal is symply exist when when 
+ * 				have a empty ne line int the top 
+ * 					and int the middle of the map
+ * 
+ * 	we open in readonly the file and if the open fail we print a error msg
+ * 		else we get the first line of the .ber if is NULL or exist we quit then
+ * 					get the len - 1 of the first line 
+ * 			who is the width of the map and a checker for the next line
+ * 	we are at the 1 height er get the next line et inc the curr_height
+ * 	if the next line is empty or the first elm is \n and the curr_height is not
+ * 			the height of the map get with get_map_height
+ * 				we print a error msg , 
+ * 			if we are at the last line and line is NULL we return
+ *
+ * 			this is a small problem that i will maybe fix,
+ * 					we can have new line at the end of
+ * 			the map, so i need to specify that if there is 
+ * 		not new line at the last line is ok
+ * 				else error, but is not a 
+ * 			big deal because er have the map and not matter what if there
+ * 		is anything else we have a error 
+ * 			or if there is two map we also get an error because
+ * 			there is a new line between the 
+ * 				map because for us is only one map split by error
+ * 
+ * @param map_name 
+ * @param height 
+ */
 void	check_ber_format(char *map_name, int height)
 {
 	int		fd;
@@ -42,18 +85,18 @@ void	check_ber_format(char *map_name, int height)
 	int		curr_height;
 
 	fd = open(map_name, O_RDONLY);
-	if (fd <= 0)
+	if (fd <= FALSE)
 		ft_print_error(FAIL_OPEN_ERROR);
 	line = get_next_line(fd);
-	if (line == NULL || line[0] == '\n')
+	if (line == NULL || line[FALSE] == '\n')
 		ft_print_error(EMPTY_LINE);
-	width = ft_strlen(line) - 1;
-	curr_height = 1;
+	width = ft_strlen(line) - TRUE;
+	curr_height = TRUE;
 	while (line)
 	{
 		line = get_next_line(fd);
 		curr_height++;
-		if ((line == NULL || line[0] == '\n') && curr_height != height)
+		if ((line == NULL || line[FALSE] == '\n') && curr_height != height)
 			ft_print_error(EMPTY_LINE);
 		if ((curr_height == height) && line == NULL)
 			return ;
@@ -62,40 +105,22 @@ void	check_ber_format(char *map_name, int height)
 	close(fd);
 }
 
-/*
-int temp;
-int temp1;
-int temp11;
-int temp111;
-
-Because using temp2, temp3 would be too mainstream.
-
-char coal
-
-float away; 
-long long ago;
-
-char mander; 
-long timeAgo;	// In a galaxy far far away 
-bool dozer; 
-int erNalExam; 
- 
-short circuit; 
-short onTime; 
-double trouble; 
-Exception up = new Exception("Something is wrong"); 
-throw up; 
-
-
-*/
+/**
+ * @brief 
+ * 
+ * 		init to 0 height step
+ * 				and init width to the
+ * 		len of line send to the fct
+ * 					the copy the line in map
+ * 
+ * @param game 
+ * @param line 
+ */
 
 void	ft_init_map_info(t_game *game, char *line)
 {
-	int		width;
-
-	width = ft_strlen(line) - 1;
-	game->height = 0;
-	game->width = width;
+	game->height = FALSE;
+	game->width = ft_strlen(line) - TRUE;
 	game->map.map_str = ft_custom_strdup(line);
 	free(line);
 }

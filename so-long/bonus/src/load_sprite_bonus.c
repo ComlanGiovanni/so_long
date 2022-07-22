@@ -6,11 +6,29 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:23:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 15:24:43 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 04:18:25 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long_bonus.h"
+
+/**
+ * @brief 
+ * 
+ * 		Check after load to prevent segfault of all the loaded sprite
+ * 			set of the frame of the animation in the struct
+ *				print the good errorr message
+ * 		Here lava love wall ground sprite close and open sprite
+ * 
+ * 	ground is xpm black void only one the rest have 3 state frame 012
+ * 				we also load the love icon struct 10x10
+ * 			we can load the key icon struc in the future
+ *				to display the number of key we have
+ *				Same for step and small icon step(DLC 5)
+ * 
+ * 
+ * @param game 
+ */
 
 void	ft_load_lava_sprites(t_game *game)
 {

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/21 22:48:23 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 03:44:42 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,31 +94,6 @@ void	ft_move_up(t_game *game)
 	}
 }
 
-/**
- * @brief 
- * 
- *  the player is never at map[0] so we can idx++ right away in the first line
- * 	so if we found the p char we get out of the while to manage P behaviour
- * 					-        +
- * 			str "11111PC11CE11111"  len 16 	width 	4	height 4
- * 1111
- * 1CC1		+(width) is for down because in str down is moving forward so ++
- * 1PE1  so game->map[idx + game->width] is the char just in bottom of map[idx]
- * 1111  
- * 	
- * so if in bottom the player there is a wall or exit you can not move
- * else move the p and change the char at the previous index to void char 0
- * and the [idx + game->width] is now the player char
- * 
- * 		if the player is in up of a exit and he collect all the coin
- * 			game->key == game->storage we exit the game by calling
- * 					ft_win_game(game);
- * 
- *	so if we move inc step and print the game->step in console
- * 	then display again all the sprite line by line because we change position
- *
- * @param game 
- */
 void	ft_move_down(t_game *game)
 {
 	int	idx;

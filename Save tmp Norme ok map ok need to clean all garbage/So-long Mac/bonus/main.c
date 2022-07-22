@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 22:13:40 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 03:34:34 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,27 @@ int	ft_update(t_game *game)
 	return (EXIT_SUCCESS);
 }
 
+/**
+ * @brief
+ * 
+ * 		This fct set all the player stat in game.player[]
+ * 				1 life because 1 is enough
+ * 			0 for storage step  and the frames is 9
+ * 				after several test 9 feel good
+ * 		we also generate randomly a direction of the first
+ * 			int of the player to give player more life
+ * 		we use srand rand of 4 digit (up down left right)
+ * 						u d l r
+ * 
+ * @param game 
+ */
 void	ft_init_player_info(t_game *game)
 {
-	game->player.life = 1;
-	game->player.storage = 0;
+	game->player.life = TRUE;
+	game->player.storage = FALSE;
 	game->player.frames = 9;
-	game->player.step = 0;
-	game->player.storage = 0;
+	game->player.step = FALSE;
+	game->player.storage = FALSE;
 	ft_direction_by_pos_after_launch(game);
 }
 

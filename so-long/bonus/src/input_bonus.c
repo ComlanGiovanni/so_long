@@ -6,23 +6,30 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 16:48:46 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 03:47:42 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long_bonus.h"
 
-/*
-				IDEAD
-		DIAGONAL MOVE IF 7 9 1 3 is pressed
-	fct who combine move (up + left) by the  vailableness up up or let etc
-
-
-    else
-        iddle animation counter 5 sec
-
-*/
-
+/**
+ * @brief 
+ * 
+ * 		this fct will be trigger by mlx_hook in the main
+ * 	mlx_hook is alway listening if there i KEY_PRESS -> 2 x_event
+ * the send it to input manager as a int, look at the mlx_hook
+ * 	prototype, the here i manager wasd up down left right arrow
+ * 				and also 4 8 6 2 pav num
+ * 		those are set in the enumeration in .h  t_key_code
+ * 
+ * for each direction we call the good fct and seed the t_game pointer
+ * 			alway returning 0 -> EXIT_SUCCESS
+ * 
+ * 
+ * @param key_code 
+ * @param game 
+ * @return int 
+ */
 int	ft_input_manager(int key_code, t_game *game)
 {
 	if (key_code == MAC_ESC_KEY)
@@ -43,23 +50,38 @@ int	ft_input_manager(int key_code, t_game *game)
 	return (EXIT_SUCCESS);
 }
 
-/*
-make a fct for move
-and by the keycodepresse asign
-the variable game->width by 1 or
-change the sign for some condition
-
-//game->sprite.player_up = game->sprite.player_up_frame_move;
-
-//game->direction = 'u';
-//ft_printf("Step counter : %d\n", game->step);
-*/
-
+/**
+ * @brief 
+ * 
+ *  the player is never at map[0] so we can idx++ right away in the first line
+ * 	so if we found the p char we get out of the while to manage P behaviour
+ * 					-        +
+ * 			str "11111PC11CE11111"  len 16 	width 	4	height 4
+ * 1111
+ * 1CC1		-(width) is for up because in str up is before
+ * 1PE1  so game->map[idx - game->width] is the char just in font of map[idx]
+ * 1111  
+ * 
+ * 		we inc storage life if KEY_CHAR LOVE_CHAR and lose life i LAVA_CHAR
+ * 			
+ * so if in front the player there is a wall or exit you can not move
+ * else move the p and change the char at the previous index to void char 0
+ * and the [idx - game->width] is now the player char
+ * 
+ * 		if the player is down front of a exit and he collect all the coin
+ * 			game->key == game->storage we exit the game by calling
+ * 					ft_win_game(game);
+ * 
+ *	so if we move inc step and print the game->step in console
+ * 	then display again all the sprite line by line because we change position
+ *
+ * @param game 
+ */
 void	ft_move_up(t_game *game)
 {
 	int	idx;
 
-	idx = 0;
+	idx = FALSE;
 	while (idx++ < game->map.len)
 	{
 		if (game->map.map_str[idx] == PLAYER_CHAR)
@@ -84,22 +106,38 @@ void	ft_move_up(t_game *game)
 	}
 }
 
-/*
-	need to watch overflex if anyint
-	storage or life ou sa ne sert a rine paceque
-	la possiiliter aue ca arriv est ultra longue et rare ??
-
-//game->sprite.player_down = game->sprite.player_down_frame_move;
-
-//game->direction = 'd';
-//ft_printf("Step counter : %d\n", game->step);
-*/
-
+/**
+ * @brief 
+ * 
+ *  the player is never at map[0] so we can idx++ right away in the first line
+ * 	so if we found the p char we get out of the while to manage P behaviour
+ * 					-        +
+ * 			str "11111PC11CE11111"  len 16 	width 	4	height 4
+ * 1111
+ * 1CC1		+(width) is for down because in str down is moving forward so ++
+ * 1PE1  so game->map[idx + game->width] is the char just in bottom of map[idx]
+ * 1111  
+ * 	
+ * 		we inc storage life if KEY_CHAR LOVE_CHAR and lose life i LAVA_CHAR
+ * 
+ * so if in bottom the player there is a wall or exit you can not move
+ * else move the p and change the char at the previous index to void char 0
+ * and the [idx + game->width] is now the player char
+ * 
+ * 		if the player is in up of a exit and he collect all the coin
+ * 			game->key == game->storage we exit the game by calling
+ * 					ft_win_game(game);
+ * 
+ *	so if we move inc step and print the game->step in console
+ * 	then display again all the sprite line by line because we change position
+ *
+ * @param game 
+ */
 void	ft_move_down(t_game *game)
 {
 	int	idx;
 
-	idx = 0;
+	idx = FALSE;
 	while (idx++ < game->map.len)
 	{
 		if (game->map.map_str[idx] == PLAYER_CHAR)
@@ -124,69 +162,113 @@ void	ft_move_down(t_game *game)
 	}
 }
 
-//game->sprite.player_left = game->sprite.player_left_frame_move;
-
-//game->direction = 'l';
-//ft_printf("Step counter : %d\n", game->step);
-
+/**
+ * @brief 
+ * 
+ *  the player is never at map[0] so we can idx++ right away in the first line
+ * 	so if we found the p char we get out of the while to manage P behaviour
+ * 					-        +
+ * 			str "11111PC11CE11111"  len 16 	width 	4	height 4
+ * 1111
+ * 1CC1		-(1) is for left because in str left is moving downward so --
+ * 1PE1  so game->map[idx - 1] is the char just in left of map[idx]
+ * 1111  
+ *
+ * 		we inc storage life if KEY_CHAR LOVE_CHAR and lose life i LAVA_CHAR
+ * 
+ * so if in the of left the player there is a wall or exit you can not move
+ * else move the p and change the char at the previous index to void char 0
+ * and the [idx - 1] is now the player char
+ * 
+ * 		if the player is in right of a exit and he collect all the coin
+ * 			game->key == game->storage we exit the game by calling
+ * 					ft_win_game(game);
+ * 
+ *	so if we move inc step and print the game->step in console
+ * 	then display again all the sprite line by line because we change position
+ *
+ * @param game 
+ */
 void	ft_move_left(t_game *game)
 {
 	int	idx;
 
-	idx = 0;
+	idx = FALSE;
 	while (idx++ < game->map.len)
 	{
 		if (game->map.map_str[idx] == PLAYER_CHAR)
 			break ;
 	}
-	if (game->map.map_str[idx - 1] == KEY_CHAR)
+	if (game->map.map_str[idx - TRUE] == KEY_CHAR)
 		game->player.storage++;
-	if (game->map.map_str[idx - 1] == LOVE_CHAR)
+	if (game->map.map_str[idx - TRUE] == LOVE_CHAR)
 		game->player.life++;
-	if (game->map.map_str[idx - 1] == LAVA_CHAR)
+	if (game->map.map_str[idx - TRUE] == LAVA_CHAR)
 		game->player.life--;
-	if (game->map.map_str[idx - 1] == EXIT_CHAR
+	if (game->map.map_str[idx - TRUE] == EXIT_CHAR
 		&& game->player.storage == game->map.nbr_key)
 		ft_win_game(game);
-	else if (game->map.map_str[idx - 1] != WALL_CHAR
-		&& game->map.map_str[idx - 1] != EXIT_CHAR)
+	else if (game->map.map_str[idx - TRUE] != WALL_CHAR
+		&& game->map.map_str[idx - TRUE] != EXIT_CHAR)
 	{
 		game->map.map_str[idx] = VOID_CHAR;
-		game->map.map_str[idx - 1] = PLAYER_CHAR;
+		game->map.map_str[idx - TRUE] = PLAYER_CHAR;
 		game->player.step++;
 		ft_put_sprites_by_line(game);
 	}
 }
 
-//game->sprite.player_right = game->sprite.player_right_frame_move;
-
-//game->direction = 'r';
-//ft_printf("Step counter : %d\n", game->step);
-
+/**
+ * @brief 
+ * 
+ *  the player is never at map[0] so we can idx++ right away in the first line
+ * 	so if we found the p char we get out of the while to manage P behaviour
+ * 					-        +
+ * 			str "11111PC11CE11111"  len 16 	width 	4	height 4
+ * 1111
+ * 1CC1		+(1) is for right because in str left is moving forward so ++
+ * 1PE1  so game->map[idx + 1] is the char just in right of map[idx]
+ * 1111  
+ * 	
+ * 		we inc storage life if KEY_CHAR LOVE_CHAR and lose life i LAVA_CHAR
+ * 
+ * so if in the right of the player there is a wall or exit you can not move
+ * else move the p and change the char at the previous index to void char 0
+ * and the [idx - 1] is now the player char
+ * 
+ * 		if the player is in left of a exit and he collect all the coin
+ * 			game->key == game->storage we exit the game by calling
+ * 					ft_win_game(game);
+ * 
+ *	so if we move inc step and print the game->step in console
+ * 	then display again all the sprite line by line because we change position
+ *
+ * @param game 
+ */
 void	ft_move_right(t_game *game)
 {
 	int	idx;
 
-	idx = 0;
+	idx = FALSE;
 	while (idx++ < game->map.len)
 	{
 		if (game->map.map_str[idx] == PLAYER_CHAR)
 			break ;
 	}
-	if (game->map.map_str[idx + 1] == KEY_CHAR)
+	if (game->map.map_str[idx + TRUE] == KEY_CHAR)
 		game->player.storage++;
-	if (game->map.map_str[idx + 1] == LOVE_CHAR)
+	if (game->map.map_str[idx + TRUE] == LOVE_CHAR)
 		game->player.life++;
-	if (game->map.map_str[idx + 1] == LAVA_CHAR)
+	if (game->map.map_str[idx + TRUE] == LAVA_CHAR)
 		game->player.life--;
-	if (game->map.map_str[idx + 1] == EXIT_CHAR
+	if (game->map.map_str[idx + TRUE] == EXIT_CHAR
 		&& game->player.storage == game->map.nbr_key)
 		ft_win_game(game);
-	else if (game->map.map_str[idx + 1] != WALL_CHAR
-		&& game->map.map_str[idx + 1] != EXIT_CHAR)
+	else if (game->map.map_str[idx + TRUE] != WALL_CHAR
+		&& game->map.map_str[idx + TRUE] != EXIT_CHAR)
 	{
 		game->map.map_str[idx] = VOID_CHAR;
-		game->map.map_str[idx + 1] = PLAYER_CHAR;
+		game->map.map_str[idx + TRUE] = PLAYER_CHAR;
 		game->player.step++;
 		ft_put_sprites_by_line(game);
 	}

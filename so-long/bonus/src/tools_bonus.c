@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 22:27:34 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 14:02:18 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 04:22:15 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
  * @brief 
  * 
  * It's just a strdup but until \n
- * dest =	malloc(size + 1);
  * 
  * @param s1 
  * @return char* 
@@ -29,7 +28,7 @@ char	*ft_custom_strdup(char *s1)
 
 	dest = NULL;
 	size = ft_strlen(s1);
-	idx = 0;
+	idx = FALSE;
 	dest = (char *)malloc(sizeof(char) * size + 1);
 	if (!(dest))
 		return (NULL);
@@ -58,10 +57,10 @@ int	ft_custom_strlcpy(char *dst, char *src, int dst_size)
 	int	len;
 
 	len = ft_strlen(src);
-	idx = 0;
-	if (dst_size == 0)
+	idx = FALSE;
+	if (dst_size == FALSE)
 		return (len);
-	while (idx < dst_size - 1 && *src && *src != '\n')
+	while (idx < dst_size - TRUE && *src && *src != '\n')
 	{
 		*dst = *src;
 		dst++;
@@ -75,8 +74,7 @@ int	ft_custom_strlcpy(char *dst, char *src, int dst_size)
 /**
  * @brief 
  * 
- * its just a strjoing but by the \n
- * dst = malloc((s1_len + s2_len));
+ * its just a strjoin but by the \n
  * 
  * @param s1 
  * @param s2 
@@ -107,16 +105,25 @@ char	*ft_custom_strjoin(char *s1, char *s2)
 	return (dst);
 }
 
+/**
+ * @brief 
+ * 
+ * if the env is NULL we quit and print the error msg
+ * we loop in the tab end if we found Display we quit
+ * if there is no display we print the error msg
+ * 
+ * @param env 
+ */
 void	ft_check_env(char **env)
 {
 	int	idx;
 
 	if (!*env)
 		ft_print_error(NO_ENV_ERROR);
-	idx = 0;
+	idx = FALSE;
 	while (env[idx])
 	{
-		if (ft_strncmp("DISPLAY", env[idx], ft_strlen("DISPLAY")) == 0)
+		if (ft_strncmp("DISPLAY", env[idx], ft_strlen("DISPLAY")) == FALSE)
 			return ;
 		else
 			idx++;
@@ -124,6 +131,24 @@ void	ft_check_env(char **env)
 	ft_print_error(NO_DISP_ERROR);
 }
 
+/**
+ * @brief 
+ * 
+ * we get the len of the map and the extension
+ * 	/path/to/map.ber  and .ber
+ * 
+ * if we have less than .ber ex .be we found a bad extension
+ * so we return SUCCESS			flemme de changer cest linverse....
+ * then we get the cursor at * 
+ * 				 /path/to/map.ber 
+ * 			then we compare with .ber if there is not equal
+ * 	we return SUCCESS because we found bad extenstion
+ * 	   then inc the pointer of both
+ * 
+ * @param map_name 
+ * @param extension 
+ * @return int 
+ */
 int	ft_check_extension(char *map_name, char *extension)
 {
 	int	len_map_name;

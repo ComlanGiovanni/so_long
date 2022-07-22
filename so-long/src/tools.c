@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 22:27:34 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/21 20:08:44 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 01:32:00 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,16 @@ void	ft_check_env(char **env)
 /**
  * @brief 
  * 
+ * we get the len of the map and the extension
+ * 	/path/to/map.ber  and .ber
  * 
+ * if we have less than .ber ex .be we found a bad extension
+ * so we return SUCCESS			flemme de changer cest linverse....
+ * then we get the cursor at * 
+ * 				 /path/to/map.ber 
+ * 			then we compare with .ber if there is not equal
+ * 	we return SUCCESS because we found bad extenstion
+ * 	   then inc the pointer of both
  * 
  * @param map_name 
  * @param extension 

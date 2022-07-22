@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/21 19:54:38 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 04:39:08 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
  * @param argc 
  * @param argv 
  * @param envp 
- * @return int 
+ * @return int    
  */
 int	main(int argc, char *argv[], char **envp)
 {
@@ -76,13 +76,27 @@ int	ft_update(t_game *game)
 	return (EXIT_SUCCESS);
 }
 
+/**
+ * @brief
+ * 
+ * 		This fct set all the player stat in game.player[]
+ * 				1 life because 1 is enough
+ * 			0 for storage step  and the frames is 9
+ * 				after several test 9 feel good
+ * 		we also generate randomly a direction of the first
+ * 			int of the player to give player more life
+ * 		we use srand rand of 4 digit (up down left right)
+ * 						u d l r
+ * 
+ * @param game 
+ */
 void	ft_init_player_info(t_game *game)
 {
-	game->player.life = 1;
-	game->player.storage = 0;
+	game->player.life = TRUE;
+	game->player.storage = FALSE;
 	game->player.frames = 9;
-	game->player.step = 0;
-	game->player.storage = 0;
+	game->player.step = FALSE;
+	game->player.storage = FALSE;
 	ft_direction_by_pos_after_launch(game);
 }
 
@@ -211,6 +225,8 @@ $(LIB_NAME) -L. $(MLX_PATH)/$(MLX_NAME) $(FRAME_WORK)
 # -lXext -lX11
 
 
+double maze croix rouge gamerd map pac map coeur de coeur among us
+
  $(GCC) $(SRC) $(INC) $(OBJ) 
  -Lmlx_linux -lmlx_Linux -L/usr/lib 
  -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
@@ -280,4 +296,87 @@ do map with 42 write in it
 	
 KONAMI CODE
 
+*/
+
+/*   
+			IDEA
+			
+    on parcour la  map
+    si inc une valeur pur trouver la position de p
+    si on trouve l position on arrete et on sort de la boucle
+    on a pas bessoin de verifier que p existe dans la map on 
+    le fait deja dan check playabibliity
+    
+    du coup si la pos de p est sup a a la moitier de la longeur
+    de la map on regarde a gquche don l
+        sinon r
+        et si on est au mileu top on regarde vers le baa
+        milieu bas on regarde vers le haut
+
+        0                           0
+            r       d           l
+            
+                               
+            r        u          l 
+
+        0                           0
+
+    Just realiszed that i could like the face only if there is nothing in face
+    managee case where he can not move
+        like defaut looking or looking by the pos in map
+        
+*/
+
+/*
+int temp;
+int temp1;
+int temp11;
+int temp111;
+
+Because using temp2, temp3 would be too mainstream.
+
+char coal
+
+float away; 
+long long ago;
+
+char mander; 
+long timeAgo;	// In a galaxy far far away 
+bool dozer; 
+int erNalExam; 
+ 
+short circuit; 
+short onTime; 
+double trouble; 
+Exception up = new Exception("Something is wrong"); 
+throw up; 
+
+
+*/
+
+/*
+				IDEAD
+		DIAGONAL MOVE IF 7 9 1 3 is pressed
+	fct who combine move (up + left) by the  vailableness up up or let etc
+
+
+    else
+        iddle animation counter 5 sec
+
+*/
+
+//try define for path
+
+/*
+	repating myself here how can i fix it ? animationn and load
+	// remove after for test hors is usefull i we put 0 but bro ....
+	if (player->frames == 0)
+		return ;
+	//game->player.frames = 9;
+*/
+
+/*
+ft_print_error(FAIL_OPEN_ERROR);
+make a custom fct for fd fail segfautl or
+ft_print_error(map_name);
 */

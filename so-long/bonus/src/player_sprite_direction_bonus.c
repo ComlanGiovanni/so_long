@@ -6,12 +6,25 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:54:16 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/20 17:50:46 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 04:14:14 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long_bonus.h"
 
+/**
+ * @brief 
+ * 
+ * 					see ft_put_all_sprites_to_line 
+ * 			because its only because of 25 line norm we here
+ * 
+ * 	But we print but the direction the good loade fram of player move
+ * this frame_0 is alway changing in the animation_bonus fct for the iddle anim
+ * 
+ * @param game 
+ * @param width 
+ * @param height 
+ */
 void	ft_player_sprite_call(t_game *game, int width, int height)
 {
 	if (game->map.map_str[height * game->width + width] == PLAYER_CHAR
@@ -28,6 +41,15 @@ void	ft_player_sprite_call(t_game *game, int width, int height)
 		ft_right_sprite(game, width, height);
 }
 
+/**
+ * @brief 
+ * 
+ * 	25 line norm small fct because of long struct name and inception
+ * 
+ * @param game 
+ * @param width 
+ * @param height 
+ */
 void	ft_down_sprite(t_game *game, int width, int height)
 {
 	mlx_put_image_to_window(game->mlx, game->win,

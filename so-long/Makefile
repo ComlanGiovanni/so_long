@@ -6,7 +6,7 @@
 #    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/22 15:12:30 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/22 21:12:17 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ BONUS_PATH	=	./bonus
 BONUS_NAME	=	so_long_bonus
 
 FRAME_WORK	=	-framework OpenGL -framework AppKit
+
+
 
 RM			= rm -f
 

@@ -6,7 +6,7 @@
 /*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/22 17:09:53 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/22 21:17:46 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,6 +226,24 @@ void	ft_print_info_on_window(t_game *game)
 
 #	@make --no-print-directory -C ft_printf
 #	@make --no-print-directory -C mlx lib_so_long.a
+
+-L$./mlx-linux/ -lmlx -lXext -lX11
+ -L$./MLX_MAC/ -lmlx -framework OpenGL -framework AppKit
+
+FLAGS += -I$(MLXDIR)
+
+OS := $(shell uname)
+
+ ifeq ($(OS),Darwin)
+	MLXDIR = $(MACDIR)
+	MLXFLAGS = $(MACFLAGS)
+else ifeq ($(OS),Linux)
+	MLXDIR = $(LINUXDIR)
+	MLXFLAGS = $(LINUXFLAGS)
+else
+$(error Incompatable OS Detected)
+endif
+
 
 # 		$(GCC) -o $(NAME) $(SRC) -L. 
 $(LIB_NAME) -L. $(MLX_PATH)/$(MLX_NAME) $(FRAME_WORK)

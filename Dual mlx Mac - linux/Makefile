@@ -5,71 +5,181 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/24 23:13:29 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/25 15:13:27 by gcomlan          ###   ########.fr        #
+#    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
+#    Updated: 2022/07/25 15:26:29 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=mlxstart
+# ------------------------------ VARIABLES ------------------------------
 
-INC_PATH := ./includes/
+GCC			= gcc -Wall -Wextra -Werror -g
 
-SRC_PATH := ./src/
+NAME		=	so_long
 
-OBJ_PATH := ./obj/
+LIB_PATH	=	./lib/small_lib
 
-GCC := gcc -Wall -Werror -Wextra -g
+LIB_NAME	=	lib_so_long.a
 
-INC_FLAGS := -I$(INC_PATH)
+MAC_PATH	=	./mlx
 
-SRC := $(wildcard $(SRC_PATH)*.c)
+LINUX_PATH 	=	./mlx-linux
 
-OBJ := $(addprefix $(OBJ_PATH),$(notdir $(SRC:.c=.o)))
+MLX_NAME	=	libmlx.a
 
-OS := $(shell uname)
+BONUS_PATH	=	./bonus
 
-LINUX_PATH := ./MLX_LINUX/
+BONUS_NAME	=	so_long_bonus
 
-LINUX_FLAGS := -L$(LINUX_PATH) -lmlx -lXext -lX11
+FRAME_WORK	=	-framework OpenGL -framework AppKit
 
-MAC_PATH := ./MLX_MAC/
+LINUX_FLAGS = 	-L $(LINUX_PATH) -lmlx -lXext -lX11
 
-MAC_FLAGS := -L$(MAC_PATH) -lmlx -framework OpenGL -framework AppKit
+MAC_FLAGS 	=	-L $(MAC_PATH) -lmlx $(FRAME_WORK)
 
 RM			= rm -f
 
+OS	:=	$(shell uname)
+
+# ------------------------------ SRC ------------------------------
+
+SRC		=	main.c \
+			./src/input.c \
+			./src/map.c \
+			./src/so_long.c \
+			./src/sprite.c \
+			./src/tools.c \
+			./src/check_map_format.c 
+
+SRCS_BONUS	=   ./bonus/main.c \
+				./bonus/src/input_bonus.c \
+				./bonus/src/map_bonus.c \
+				./bonus/src/so_long_bonus.c \
+				./bonus/src/sprite_bonus.c \
+				./bonus/src/tools_bonus.c \
+				./bonus/src/animation_bonus.c \
+				./bonus/src/other_tools_bonus.c \
+				./bonus/src/load_sprite_bonus.c \
+				./bonus/src/load_player_sprite_bonus.c \
+				./bonus/src/load_door_sprite_bonus.c \
+				./bonus/src/life_management.c \
+				./bonus/src/input_fct_bonus.c \
+				./bonus/src/map_sprite_bonus.c \
+				./bonus/src/player_sprite_direction_bonus.c \
+				./bonus/src/check_map_format.c \
+				./bonus/src/lava_movement.c
+
+SRC_OBJS		=	$(SRC:.c=.o)
+
+OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
+
 ifeq ($(OS),Darwin)
 	MLX_PATH = $(MAC_PATH)
-	MLXFLAGS = $(MAC_FLAGS)
+	MLX_FLAGS = $(MAC_FLAGS)
 else ifeq ($(OS),Linux)
 	MLX_PATH = $(LINUX_PATH)
-	MLXFLAGS = $(LINUX_FLAGS)
+	MLX_FLAGS = $(LINUX_FLAGS)
 else
 $(error Incompatable OS Detected Linux and Mac os only)
 endif
 
-MLX := $(MLX_PATH)libmlx.a
+# ------------------------------ Colors ------------------------------
 
-INC_FLAGS += -I$(MLX_PATH)
+BLACK			=	\033[0;30m
+RED				=	\033[0;31m
+GREEN			=	\033[0;32m
+ORANGE			=	\033[0;33m
+BLUE			=	\033[0;34m
+PURPLE			=	\033[0;35m
+CYAN			=	\033[0;36m
+LIGHT_GRAY		=	\033[0;37m
+DARK_GRAY		=	\033[1;30m
+LIGHT_RED		=	\033[1;31m
+LIGHT_GREEN		=	\033[1;32m
+YELLOW			=	\033[1;33m
+LIGHT_BLUE		=	\033[1;34m
+LIGHT_PURPLE	=	\033[1;35m
+LIGHT_CYAN		=	\033[1;36m
+WHITE			=	\033[1;37m
+NO_COLOR		=	\033[0m
 
-all: $(NAME)
+# ------------------------------ Messages ------------------------------
 
-$(NAME): $(MLX) $(OBJ)
-	$(GCC) $(OBJ) $(INC_FLAGS) $(MLXFLAGS) -o $(NAME)
+COMP_START	=	echo "\n🚧 $(PURPLE)Make: $(NO_COLOR)Starting the compilation...\n"
 
-$(MLX):
-	make -C $(MLX_PATH)
+SO_LONG_COMP	=	echo "\n🚧 $(YELLOW) $(NAME): $(NO_COLOR)Starting the compilation...\n"
 
-$(OBJ_PATH)%.o:$(SRC_PATH)%.c | $(OBJ_PATH)
-	$(GCC) $(INC_FLAGS) -c $< -o $@
+SO_LONG_READY	=	echo "\n🧮 $(RED) $(NAME) $(NO_COLOR)ready!\n"
 
-$(OBJ_PATH):
-	mkdir -p $(OBJ_PATH)
+BONUS_READY	=	echo "\n🎯 Bonus: $(CYAN) $(BONUS_NAME) $(NO_COLOR)ready!\n"
 
-clean:
-	make clean -s -C $(MLX_PATH)
+CLEANED		=	echo "\n💧 $(GREEN)Clean: $(NO_COLOR)Removed all the \".o\" files 🗑\\n"
 
-fclean: clean
+FCLEANED	=	echo "\n🧼 $(GREEN)Fclean: $(NO_COLOR)Removed the executables 🗑\\n"
+
+NEW_LINE	=	echo "\n"
+
+# ------------------------------ Rules ---------------------------------
+	
+all : $(NAME)
+
+$(NAME):
+	make -C $(LIB_PATH)
+	cp $(LIB_PATH)/$(LIB_NAME) .
+	@$(SO_LONG_COMP)
+	make --no-print-directory -C $(MLX_PATH)
+	cp $(MLX_PATH)/$(MLX_NAME) .
+	$(GCC) -o $(NAME) $(SRC) $(MLX_FLAGS) -L. $(MLX_NAME) -L. $(LIB_NAME)
+	@echo "$$ASCII_MANDATORY"
+	@$(SO_LONG_READY)
+
+bonus: $(OBJS_BONUS)
+	$(GCC) -o $(BONUS_NAME) $(SRCS_BONUS) $(MLX_FLAGS)  -L. $(MLX_NAME) -L. $(LIB_NAME)
+	@echo "$$ASCII_BONUS"
+	@$(BONUS_READY)
+
+clean :
+	$(RM) *.o
+	$(RM) *~
+	$(RM) *#
+	$(RM) $(BONUS_PATH)/src/*.o
+	$(RM) $(BONUS_PATH)/*.o
+	make -C $(LIB_PATH) clean
+	make -C $(MLX_PATH) clean
+	@$(CLEANED)
+
+fclean : clean
 	$(RM) $(NAME)
+	make -C $(LIB_PATH) fclean
+	$(RM) $(LIB_NAME)
+	$(RM) $(BONUS_NAME)
+	$(RM) $(MLX_NAME)
+	@$(FCLEANED)
 
-re: fclean all
+re : fclean all
+
+# ------------------------------ Ascii ---------------------------------
+
+info: ascii
+
+define ASCII_MANDATORY
+$(RED)                       ,         $(NO_COLOR)
+$(RED)       ❤            .:/          $(NO_COLOR)
+$(RED)         o      ,,///;,   ,;/    $(NO_COLOR)
+$(RED)           o   o)::::::;;///     $(NO_COLOR)
+$(RED)              >::::::::;;\\\     $(NO_COLOR)
+$(RED)                ''\\\\\'" ';\    $(NO_COLOR)
+$(RED)                   ';\           $(NO_COLOR)
+endef
+export ASCII_MANDATORY
+
+define ASCII_BONUS
+$(CYAN) o									$(NO_COLOR)
+$(CYAN)o      ______/~/~/~/__           /((	$(NO_COLOR)
+$(CYAN)  o  // __            ====__    /_((	$(NO_COLOR)
+$(CYAN) o  //  @))       ))))      ===/__((	$(NO_COLOR)
+$(CYAN)    ))           )))))))        __((	$(NO_COLOR)
+$(CYAN)    \\     \)     ))))    __===\ _((	$(NO_COLOR)
+$(CYAN)     \\_______________====      \_((	$(NO_COLOR)
+$(CYAN)                                 \((	$(NO_COLOR)
+endef
+export ASCII_BONUS

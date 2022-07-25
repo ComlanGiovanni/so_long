@@ -1,0 +1,18 @@
+/* XPM */
+static char *love_small_icon[] = {
+/* columns rows colors chars-per-pixel */
+"10 10 2 1 ",
+"  c None",
+". c #EB91CA",
+/* pixels */
+"          ",
+"  ... ... ",
+" ........ ",
+"..........",
+" ........ ",
+"  ......  ",
+"   ....   ",
+"    ..    ",
+"    ..    ",
+"          "
+};

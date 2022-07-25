@@ -6,7 +6,7 @@
 #    By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/25 15:26:29 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/25 19:04:18 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ LIB_PATH	=	./lib/small_lib
 
 LIB_NAME	=	lib_so_long.a
 
-MAC_PATH	=	./mlx
+MAC_PATH	=	./mlx_mac
 
-LINUX_PATH 	=	./mlx-linux
+LINUX_PATH 	=	./mlx_linux
 
 MLX_NAME	=	libmlx.a
 
@@ -42,42 +42,76 @@ OS	:=	$(shell uname)
 
 # ------------------------------ SRC ------------------------------
 
-SRC		=	main.c \
-			./src/input.c \
-			./src/map.c \
-			./src/so_long.c \
-			./src/sprite.c \
-			./src/tools.c \
-			./src/check_map_format.c 
+SRCS_MAC		=		main_mac.c \
+						./src_mac/input_mac.c \
+						./src_mac/map_mac.c \
+						./src_mac/so_long_mac.c \
+						./src_mac/sprite_mac.c \
+						./src_mac/tools_mac.c \
+						./src_mac/check_map_format_mac.c
 
-SRCS_BONUS	=   ./bonus/main.c \
-				./bonus/src/input_bonus.c \
-				./bonus/src/map_bonus.c \
-				./bonus/src/so_long_bonus.c \
-				./bonus/src/sprite_bonus.c \
-				./bonus/src/tools_bonus.c \
-				./bonus/src/animation_bonus.c \
-				./bonus/src/other_tools_bonus.c \
-				./bonus/src/load_sprite_bonus.c \
-				./bonus/src/load_player_sprite_bonus.c \
-				./bonus/src/load_door_sprite_bonus.c \
-				./bonus/src/life_management.c \
-				./bonus/src/input_fct_bonus.c \
-				./bonus/src/map_sprite_bonus.c \
-				./bonus/src/player_sprite_direction_bonus.c \
-				./bonus/src/check_map_format.c \
-				./bonus/src/lava_movement.c
+SRCS_LINUX		=		main_linux.c \
+						./src_linux/input_linux.c \
+						./src_linux/map_linux.c \
+						./src_linux/so_long_linux.c \
+						./src_linux/sprite_linux.c \
+						./src_linux/tools_linux.c \
+						./src_linux/check_map_format_linux.c 
 
-SRC_OBJS		=	$(SRC:.c=.o)
+SRCS_MAC_BONUS		=   ./bonus_mac/main_mac.c \
+						./bonus_mac/src/input_bonus_mac.c \
+						./bonus_mac/src/map_bonus_mac.c \
+						./bonus_mac/src/so_long_bonus_mac.c \
+						./bonus_mac/src/sprite_bonus_mac.c \
+						./bonus_mac/src/tools_bonus_mac.c \
+						./bonus_mac/src/animation_bonus_mac.c \
+						./bonus_mac/src/other_tools_bonus_mac.c \
+						./bonus_mac/src/load_sprite_bonus_mac.c \
+						./bonus_mac/src/load_player_sprite_bonus_mac.c \
+						./bonus_mac/src/load_door_sprite_bonus_mac.c \
+						./bonus_mac/src/life_management_mac.c \
+						./bonus_mac/src/input_fct_bonus_mac.c \
+						./bonus_mac/src/map_sprite_bonus_mac.c \
+						./bonus_mac/src/player_sprite_direction_bonus_mac.c \
+						./bonus_mac/src/check_map_format_mac.c \
+						./bonus_mac/src/lava_movement_mac.c
 
-OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
+SRCS_LINUX_BONUS	=	./bonus_linux/main_linux.c \
+						./bonus_linux/src/input_bonus_linux.c \
+						./bonus_linux/src/map_bonus_linux.c \
+						./bonus_linux/src/so_long_bonus_linux.c \
+						./bonus_linux/src/sprite_bonus_linux.c \
+						./bonus_linux/src/tools_bonus_linux.c \
+						./bonus_linux/src/animation_bonus_linux.c \
+						./bonus_linux/src/other_tools_bonus_linux.c \
+						./bonus_linux/src/load_sprite_bonus_linux.c \
+						./bonus_linux/src/load_player_sprite_bonus_linux.c \
+						./bonus_linux/src/load_door_sprite_bonus_linux.c \
+						./bonus_linux/src/life_management_linux.c \
+						./bonus_linux/src/input_fct_bonus_linux.c \
+						./bonus_linux/src/map_sprite_bonus_linux.c \
+						./bonus_linux/src/player_sprite_direction_bonus_linux.c \
+						./bonus_linux/src/check_map_format_linux.c \
+						./bonus_linux/src/lava_movement_linux.c
+
+SRCS_MAC_OBJS		=	$(SRCS_MAC:.c=.o)
+
+SRCS_LINUX_OBJS		=	$(SRCS_LINUX:.c=.o)
+
+OBJS_MAC_BONUS		=	$(SRCS_MAC_BONUS:.c=.o)
+
+OBJS_LINUX_BONUS	=	$(SRCS_LINUX_BONUS:.c=.o)
 
 ifeq ($(OS),Darwin)
 	MLX_PATH = $(MAC_PATH)
 	MLX_FLAGS = $(MAC_FLAGS)
+	SRC = $(SRCS_MAC)
+	SRCS_BONUS = $(SRCS_MAC_BONUS)
 else ifeq ($(OS),Linux)
 	MLX_PATH = $(LINUX_PATH)
 	MLX_FLAGS = $(LINUX_FLAGS)
+	SRC = $(SRCS_LINUX)
+	SRCS_BONUS = $(SRCS_LINUX_BONUS)
 else
 $(error Incompatable OS Detected Linux and Mac os only)
 endif

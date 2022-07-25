@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 20:27:06 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/26 01:12:17 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,24 @@ int	main(int argc, char *argv[], char **envp)
 		ft_init_game(game, argv[1]);
 		mlx_mouse_hide(game->mlx, game->win);
 		//mlx_hook(game->win, MAC_KEY_PRESS, FALSE, &ft_input_manager, game);
+				/*
+		mlx_loop_hook(game.mlx, sl_loop_hook, &game);
+		int	sl_key_press_hook(unsigned long keysym, t_game *game)
+		int	sl_key_press_hook(unsigned long keysym, t_game *game)
+
+			mlx_hook(game.win, 2, 1 << 0, sl_key_press_hook, &game);
+	mlx_hook(game.win, 3, 1 << 1, sl_key_release_hook, &game);
+
+			if (keysym == UP_KEYSYM)
+		game->lvl.pressing_up = true;
+	else if (keysym == LEFT_KEYSYM)
+		game->lvl.pressing_left = true;
+	else if (keysym == DOWN_KEYSYM)
+		game->lvl.pressing_down = true;
+	else if (keysym == RIGHT_KEYSYM)
+		game->lvl.pressing_right = true;
+		
+		*/
 		mlx_key_hook(game->win, &ft_input_manager, game);
 		mlx_hook(game->win, LINUX_CLOSE_ICON, FALSE, &ft_exit_game, game);
 		mlx_loop_hook(game->mlx, &ft_update, game);

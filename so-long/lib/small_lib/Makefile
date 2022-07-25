@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+         #
+#    By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 08:46:58 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/20 16:25:15 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/25 15:23:56 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME = lib_so_long.a
 
 CC = gcc -Wall -Wextra -Werror
 
-#normal not fd after
 SRC = 	ft_strlen.c \
 		ft_strncmp.c \
 		../gnl/get_next_line.c \

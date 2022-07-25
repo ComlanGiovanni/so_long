@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_format.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcomlan < gcomlan@student.42.fr>           +#+  +:+       +#+        */
+/*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 02:35:15 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/22 04:54:48 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/25 15:20:08 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ int	get_map_height(char *map_name)
 void	check_ber_format(char *map_name, int height)
 {
 	int		fd;
-	int		width;
 	char	*line;
 	int		curr_height;
 
@@ -90,7 +89,6 @@ void	check_ber_format(char *map_name, int height)
 	line = get_next_line(fd);
 	if (line == NULL || line[FALSE] == '\n')
 		ft_print_error(EMPTY_LINE);
-	width = ft_strlen(line) - TRUE;
 	curr_height = TRUE;
 	while (line)
 	{

@@ -6,7 +6,7 @@
 #    By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/24 23:00:10 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/25 15:26:29 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ LIB_PATH	=	./lib/small_lib
 
 LIB_NAME	=	lib_so_long.a
 
-MLX_PATH	=	./mlx
+MAC_PATH	=	./mlx
+
+LINUX_PATH 	=	./mlx-linux
 
 MLX_NAME	=	libmlx.a
 
@@ -30,7 +32,13 @@ BONUS_NAME	=	so_long_bonus
 
 FRAME_WORK	=	-framework OpenGL -framework AppKit
 
+LINUX_FLAGS = 	-L $(LINUX_PATH) -lmlx -lXext -lX11
+
+MAC_FLAGS 	=	-L $(MAC_PATH) -lmlx $(FRAME_WORK)
+
 RM			= rm -f
+
+OS	:=	$(shell uname)
 
 # ------------------------------ SRC ------------------------------
 
@@ -62,7 +70,17 @@ SRCS_BONUS	=   ./bonus/main.c \
 
 SRC_OBJS		=	$(SRC:.c=.o)
 
-OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
+OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
+
+ifeq ($(OS),Darwin)
+	MLX_PATH = $(MAC_PATH)
+	MLX_FLAGS = $(MAC_FLAGS)
+else ifeq ($(OS),Linux)
+	MLX_PATH = $(LINUX_PATH)
+	MLX_FLAGS = $(LINUX_FLAGS)
+else
+$(error Incompatable OS Detected Linux and Mac os only)
+endif
 
 # ------------------------------ Colors ------------------------------
 
@@ -110,12 +128,12 @@ $(NAME):
 	@$(SO_LONG_COMP)
 	make --no-print-directory -C $(MLX_PATH)
 	cp $(MLX_PATH)/$(MLX_NAME) .
-	$(GCC) -o $(NAME) -L. $(MLX_NAME) -L. $(LIB_NAME) $(SRC) -lXext -lX11 $(FRAME_WORK)
+	$(GCC) -o $(NAME) $(SRC) $(MLX_FLAGS) -L. $(MLX_NAME) -L. $(LIB_NAME)
 	@echo "$$ASCII_MANDATORY"
 	@$(SO_LONG_READY)
 
 bonus: $(OBJS_BONUS)
-	$(GCC) -o $(BONUS_NAME) -L. $(MLX_NAME) -L. $(LIB_NAME) $(SRCS_BONUS) -lXext -lX11 $(FRAME_WORK)
+	$(GCC) -o $(BONUS_NAME) $(SRCS_BONUS) $(MLX_FLAGS)  -L. $(MLX_NAME) -L. $(LIB_NAME)
 	@echo "$$ASCII_BONUS"
 	@$(BONUS_READY)
 

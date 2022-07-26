@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 01:17:05 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/26 15:59:17 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,13 @@ void	ft_free_all(t_game *game)
 	mlx_destroy_image(game->mlx, game->sprite.wall);
 	mlx_destroy_image(game->mlx, game->sprite.key);
 	mlx_destroy_image(game->mlx, game->sprite.exit);
-	//free(game->mlx);
-	free(game->win);
 	free(game->map);
+	//free(game->win);
+	//free(game);
+	mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
 	free(game);
-	//mlx_destroy_window(game->mlx, game->win);
-	if (game->mlx != NULL)
-		mlx_destroy_display(game->mlx);
 }
 
 /*

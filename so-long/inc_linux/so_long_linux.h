@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 20:39:51 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/26 16:28:55 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,8 @@ void		ft_free_all(t_game *game);
 
 //../src_linux/check_map_format_linux.c   
 
-int			get_map_height(char *map_name);
-void		check_ber_format(char *map_name, int height);
+int			get_map_height(char *map_name, t_game *game);
+void		check_ber_format(char *map_name, int height, t_game *game);
 void		ft_init_map_info(t_game *game, char *line);
 
 //../src_linux/input_linux.c
@@ -130,12 +130,12 @@ void		ft_check_playability(t_game *game);
 void		ft_init_game(t_game *game, char *map_name);
 int			ft_exit_game(t_game *game);
 int			ft_win_game(t_game *game);
-void		ft_print_error(char *error_msg);
+void		ft_print_error(char *error_msg, t_game *game);
 void		ft_check_valid_char(t_game *game);
 
 //../src_linux/sprite_linux.c
 
-t_sprites	ft_init_sprites(void *mlx);
+t_sprites	ft_init_sprites(void *mlx, t_game *game);
 void		ft_put_sprites_by_line(t_game *game);
 void		ft_put_all_sprites_to_line(t_game *game, int width, int height);
 

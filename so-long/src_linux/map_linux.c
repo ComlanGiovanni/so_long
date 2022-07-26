@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 19:11:54 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/26 16:18:36 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ void	ft_read_map(t_game *game, char *map_name)
 	int		height;
 	char	*line;
 
-	height = get_map_height(map_name);
-	check_ber_format(map_name, height);
+	height = get_map_height(map_name, game);
+	check_ber_format(map_name, height, game);
 	fd = open(map_name, O_RDONLY);
 	if (fd <= FALSE)
-		ft_print_error(FAIL_OPEN_ERROR);
+		ft_print_error(FAIL_OPEN_ERROR, game);
 	line = get_next_line(fd);
 	ft_init_map_info(game, line);
 	while (line)
@@ -112,18 +112,18 @@ void	ft_check_sealed(t_game *game)
 		if (idx > (game->map_len - game->width))
 		{
 			if (game->map[idx] != WALL_CHAR)
-				ft_print_error(WALL_ERROR);
+				ft_print_error(WALL_ERROR, game);
 		}
 		else if (idx < game->width)
 		{
 			if (game->map[idx] != WALL_CHAR)
-				ft_print_error(WALL_ERROR);
+				ft_print_error(WALL_ERROR, game);
 		}
 		else if (idx % game->width == FALSE
 			|| (idx % game->width) == game->width - TRUE)
 		{
 			if (game->map[idx] != WALL_CHAR)
-				ft_print_error(WALL_ERROR);
+				ft_print_error(WALL_ERROR, game);
 		}
 		idx++;
 	}
@@ -151,7 +151,7 @@ void	ft_check_sealed(t_game *game)
 void	ft_check_rectangular(t_game *game)
 {
 	if (game->height == game->width)
-		ft_print_error(FORM_ERROR);
+		ft_print_error(FORM_ERROR, game);
 }
 
 /**
@@ -186,9 +186,9 @@ void	ft_check_playability(t_game *game)
 			game->exit++;
 	}
 	if (game->key == FALSE)
-		ft_print_error(COIN_ERROR);
+		ft_print_error(COIN_ERROR, game);
 	if (game->player != TRUE)
-		ft_print_error(PLAYER_ERROR);
+		ft_print_error(PLAYER_ERROR, game);
 	if (game->exit == FALSE)
-		ft_print_error(EXIT_ERROR);
+		ft_print_error(EXIT_ERROR, game);
 }

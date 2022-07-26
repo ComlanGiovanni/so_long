@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 02:35:15 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 19:34:29 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/26 16:17:30 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  * @param map_name 
  * @return int 
  */
-int	get_map_height(char *map_name)
+int	get_map_height(char *map_name, t_game *game)
 {
 	int		height;
 	int		fd;
@@ -31,7 +31,7 @@ int	get_map_height(char *map_name)
 
 	fd = open(map_name, O_RDONLY);
 	if (fd <= FALSE)
-		ft_print_error(FAIL_OPEN_ERROR);
+		ft_print_error(FAIL_OPEN_ERROR, game);
 	line = get_next_line(fd);
 	height = TRUE;
 	free(line);
@@ -77,7 +77,7 @@ int	get_map_height(char *map_name)
  * @param map_name 
  * @param height 
  */
-void	check_ber_format(char *map_name, int height)
+void	check_ber_format(char *map_name, int height, t_game *game)
 {
 	int		fd;
 	char	*line;
@@ -85,10 +85,10 @@ void	check_ber_format(char *map_name, int height)
 
 	fd = open(map_name, O_RDONLY);
 	if (fd <= FALSE)
-		ft_print_error(FAIL_OPEN_ERROR);
+		ft_print_error(FAIL_OPEN_ERROR, game);
 	line = get_next_line(fd);
 	if (line == NULL || line[FALSE] == '\n')
-		ft_print_error(EMPTY_LINE);
+		ft_print_error(EMPTY_LINE, game);
 	curr_height = TRUE;
 	free(line);
 	while (line)
@@ -96,7 +96,7 @@ void	check_ber_format(char *map_name, int height)
 		line = get_next_line(fd);
 		curr_height++;
 		if ((line == NULL || line[FALSE] == '\n') && curr_height != height)
-			ft_print_error(EMPTY_LINE);
+			ft_print_error(EMPTY_LINE, game);
 		if ((curr_height == height) && line == NULL)
 			return ;
 		free(line);

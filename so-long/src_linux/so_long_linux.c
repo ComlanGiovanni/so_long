@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 16:03:58 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/26 16:15:51 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ void	ft_init_game(t_game *game, char *map_name)
 {
 	game->mlx = mlx_init();
 	if (game->mlx == NULL)
-		ft_print_error(MLX_INIT_ERROR);
-	game->sprite = ft_init_sprites(game->mlx);
+		ft_print_error(MLX_INIT_ERROR, game);
+	game->sprite = ft_init_sprites(game->mlx, game);
 	ft_read_map(game, map_name);
 	ft_check_map(game);
 	game->win = mlx_new_window(game->mlx, game->width * 64,
 			game->height * 64, GAME_TITLE);
 	if (game->win == NULL)
-		ft_print_error(MLX_WINDOW_ERROR);
+		ft_print_error(MLX_WINDOW_ERROR, game);
 	ft_put_sprites_by_line(game);
 }
 
@@ -66,7 +66,7 @@ void	ft_check_valid_char(t_game *game)
 			&& game->map[idx] != COIN_CHAR
 			&& game->map[idx] != EXIT_CHAR
 			&& game->map[idx] != VOID_CHAR)
-			ft_print_error(BAD_CHAR_MAP_ERROR);
+			ft_print_error(BAD_CHAR_MAP_ERROR, game);
 		idx++;
 	}
 }
@@ -145,8 +145,9 @@ int	ft_win_game(t_game *game)
  * @param error_code 
  * @return int 
  */
-void	ft_print_error(char *error_msg)
+void	ft_print_error(char *error_msg, t_game *game)
 {
+	ft_free_all(game);
 	write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
 	write(STDERR_FILENO, error_msg, ft_strlen(error_msg));
 	exit(EXIT_FAILURE);

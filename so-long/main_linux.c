@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 16:04:22 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/26 16:56:53 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,67 +34,62 @@ int	main(int argc, char *argv[], char **envp)
 	t_game	*game;
 
 	if (argc != 2)
-		ft_print_error(USAGE_MSG);
+	{
+		write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
+		write(STDERR_FILENO, USAGE_MSG, ft_strlen(USAGE_MSG));
+		exit(EXIT_FAILURE);
+	}
 	else
 	{
 		ft_check_env(envp);
 		game = malloc(sizeof(t_game));
 		if (game == NULL)
-			ft_print_error(MALLOC_GAME_ERROR);
+			ft_print_error(MALLOC_GAME_ERROR, game);
 		if (!ft_check_extension(argv[1], BER_EXTENSION))
-			ft_print_error(EXTENSION_ERROR);
+			ft_print_error(EXTENSION_ERROR, game);
 		ft_init_game(game, argv[1]);
 		mlx_key_hook(game->win, &ft_input_manager, game);
-		//mlx_hook(game->win, KEY_PRESS, FALSE, &ft_input_manager, game);
-		/*
-		mlx_loop_hook(game.mlx, sl_loop_hook, &game);
-		int	sl_key_press_hook(unsigned long keysym, t_game *game)
-		int	sl_key_press_hook(unsigned long keysym, t_game *game)
-
-			mlx_hook(game.win, 2, 1 << 0, sl_key_press_hook, &game);
-	mlx_hook(game.win, 3, 1 << 1, sl_key_release_hook, &game);
-
-			if (keysym == UP_KEYSYM)
-		game->lvl.pressing_up = true;
-	else if (keysym == LEFT_KEYSYM)
-		game->lvl.pressing_left = true;
-	else if (keysym == DOWN_KEYSYM)
-		game->lvl.pressing_down = true;
-	else if (keysym == RIGHT_KEYSYM)
-		game->lvl.pressing_right = true;
-		
-		*/
 		mlx_hook(game->win, CLOSE_ICON, FALSE, &ft_exit_game, game);
 		mlx_loop(game->mlx);
 	}
 	return (EXIT_SUCCESS);
 }
 
+/**
+ * @brief 
+ * 
+ * 	Free of last minutes, need to read the project again for better free fct
+ * 	we need to free all the image load in sprites before so we check and free
+ * 	then the map in str (alway check if exist)
+ * 	then we destroy the game (mlx, win)
+ * 	then the display (mlx)
+ * 	and at the end we need to free the mlx and the game we malloc in the main
+ * 
+ * 
+ * @param game 
+ */
 void	ft_free_all(t_game *game)
 {
 	if (!game)
 		return ;
-	mlx_destroy_image(game->mlx, game->sprite.player);
-	mlx_destroy_image(game->mlx, game->sprite.ground);
-	mlx_destroy_image(game->mlx, game->sprite.wall);
-	mlx_destroy_image(game->mlx, game->sprite.key);
-	mlx_destroy_image(game->mlx, game->sprite.exit);
-	free(game->map);
-	//free(game->win);
-	//free(game);
-	mlx_destroy_window(game->mlx, game->win);
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
-	free(game);
+	if (game->sprite.player)
+		mlx_destroy_image(game->mlx, game->sprite.player);
+	if (game->sprite.ground)
+		mlx_destroy_image(game->mlx, game->sprite.ground);
+	if (game->sprite.wall)
+		mlx_destroy_image(game->mlx, game->sprite.wall);
+	if (game->sprite.key)
+		mlx_destroy_image(game->mlx, game->sprite.key);
+	if (game->sprite.exit)
+		mlx_destroy_image(game->mlx, game->sprite.exit);
+	if (game->map)
+		free(game->map);
+	if (game->mlx && game->win)
+		mlx_destroy_window(game->mlx, game->win);
+	if (game->mlx)
+		mlx_destroy_display(game->mlx);
+	if (game->mlx)
+		free(game->mlx);
+	if (game)
+		free(game);
 }
-
-/*
-
-	all img 
-		mlx_destroy_image(g->mlx, g->images[i++].image);
-	mlx_destroy_image(game->mlx, game->canvas.image);
-	mlx_destroy_window(game->mlx, game->win);
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
-
-*/

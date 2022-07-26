@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 19:12:17 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/26 16:13:19 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
  * @param mlx 
  * @return t_sprites 
  */
-t_sprites	ft_init_sprites(void *mlx)
+t_sprites	ft_init_sprites(void *mlx, t_game *game)
 {
 	t_sprites	sprite;
 	int			width;
@@ -34,23 +34,23 @@ t_sprites	ft_init_sprites(void *mlx)
 	sprite.player = mlx_xpm_file_to_image(mlx,
 			"assets/xpm/Mandatory/player.xpm", &width, &height);
 	if (sprite.player == NULL)
-		ft_print_error(PLAYER_XPM_ERROR);
+		ft_print_error(PLAYER_XPM_ERROR, game);
 	sprite.ground = mlx_xpm_file_to_image(mlx,
 			"assets/xpm/Mandatory/ground.xpm", &width, &height);
 	if (sprite.ground == NULL)
-		ft_print_error(GROUND_XPM_ERROR);
+		ft_print_error(GROUND_XPM_ERROR, game);
 	sprite.wall = mlx_xpm_file_to_image(mlx,
 			"assets/xpm/Mandatory/wall.xpm", &width, &height);
 	if (sprite.wall == NULL)
-		ft_print_error(WALL_XPM_ERROR);
+		ft_print_error(WALL_XPM_ERROR, game);
 	sprite.key = mlx_xpm_file_to_image(mlx,
 			"assets/xpm/Mandatory/key.xpm", &width, &height);
 	if (sprite.key == NULL)
-		ft_print_error(KEY_XPM_ERROR);
+		ft_print_error(KEY_XPM_ERROR, game);
 	sprite.exit = mlx_xpm_file_to_image(mlx,
 			"assets/xpm/Mandatory/exit.xpm", &width, &height);
 	if (sprite.exit == NULL)
-		ft_print_error(EXIT_XPM_ERROR);
+		ft_print_error(EXIT_XPM_ERROR, game);
 	return (sprite);
 }
 

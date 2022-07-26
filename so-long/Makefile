@@ -6,13 +6,15 @@
 #    By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/25 19:04:18 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/26 21:22:15 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ------------------------------ VARIABLES ------------------------------
 
 GCC			= gcc -Wall -Wextra -Werror -g
+
+#GCC			+= -fsanitize=address
 
 NAME		=	so_long
 
@@ -24,7 +26,7 @@ MAC_PATH	=	./mlx_mac
 
 LINUX_PATH 	=	./mlx_linux
 
-MLX_NAME	=	libmlx.a
+MLX_NAME	=	libmlx_Linux.a
 
 BONUS_PATH	=	./bonus
 
@@ -32,13 +34,13 @@ BONUS_NAME	=	so_long_bonus
 
 FRAME_WORK	=	-framework OpenGL -framework AppKit
 
-LINUX_FLAGS = 	-L $(LINUX_PATH) -lmlx -lXext -lX11
+LINUX_FLAGS = 	-L $(LINUX_PATH) -lmlx -lXext -lX11 -lm -lz
 
 MAC_FLAGS 	=	-L $(MAC_PATH) -lmlx $(FRAME_WORK)
 
-RM			= rm -f
+RM			=	rm -f
 
-OS	:=	$(shell uname)
+OS			:=	$(shell uname)
 
 # ------------------------------ SRC ------------------------------
 
@@ -92,7 +94,8 @@ SRCS_LINUX_BONUS	=	./bonus_linux/main_linux.c \
 						./bonus_linux/src/map_sprite_bonus_linux.c \
 						./bonus_linux/src/player_sprite_direction_bonus_linux.c \
 						./bonus_linux/src/check_map_format_linux.c \
-						./bonus_linux/src/lava_movement_linux.c
+						./bonus_linux/src/lava_movement_linux.c \
+						./bonus_linux/src/free_all.c
 
 SRCS_MAC_OBJS		=	$(SRCS_MAC:.c=.o)
 
@@ -166,7 +169,7 @@ $(NAME):
 	@echo "$$ASCII_MANDATORY"
 	@$(SO_LONG_READY)
 
-bonus: $(OBJS_BONUS)
+bonus : $(OBJS_BONUS)
 	$(GCC) -o $(BONUS_NAME) $(SRCS_BONUS) $(MLX_FLAGS)  -L. $(MLX_NAME) -L. $(LIB_NAME)
 	@echo "$$ASCII_BONUS"
 	@$(BONUS_READY)

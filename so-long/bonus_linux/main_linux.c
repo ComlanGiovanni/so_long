@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 17:30:19 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/26 21:35:12 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,10 @@ int	main(int argc, char *argv[], char **envp)
 			ft_print_error(EXTENSION_ERROR);
 		ft_init_game(game, argv[1]);
 		mlx_mouse_hide(game->mlx, game->win);
-		//mlx_hook(game->win, MAC_KEY_PRESS, FALSE, &ft_input_manager, game);
-		/*
-		mlx_loop_hook(game.mlx, sl_loop_hook, &game);
-		int	key_press_hook(unsigned long keysym, t_game *game)
-		int	key_press_hook(unsigned long keysym, t_game *game)
-
-			mlx_hook(game.win, 2, 1 << 0, key_press_hook, &game);
-	mlx_hook(game.win, 3, 1 << 1, key_release_hook, &game);
-
-			if (keysym == UP_KEY)
-		game->lvl.press_up = true;
-	else if (keysym == LEFT_KEY)
-		game->lvl.press_left = true;
-	else if (keysym == DOWN_KEY)
-		game->lvl.press_down = true;
-	else if (keysym == RIGHT_KEY)
-		game->lvl.press_right = true;
-		
-		*/
-		mlx_key_hook(game->win, &ft_input_manager, game);
-		mlx_hook(game->win, LINUX_CLOSE_ICON, FALSE, &ft_exit_game, game);
+		mlx_do_key_autorepeaton(game->mlx);
+		mlx_hook(game->win, LINUX_KEY_PRESS, (1L << 0),
+			&ft_input_manager, game);
+		mlx_hook(game->win, LINUX_CLOSE_ICON, (1L << 0), &ft_exit_game, game);
 		mlx_loop_hook(game->mlx, &ft_update, game);
 		mlx_loop(game->mlx);
 	}
@@ -85,8 +68,6 @@ void	ft_render(t_game *game)
 {
 	ft_put_sprites_by_line(game);
 	ft_print_info_on_window(game);
-	//mlx_do_sync(game->mlx);
-	//mlx_clear_window(game->mlx, game->win);
 }
 
 /**
@@ -101,6 +82,8 @@ void	ft_render(t_game *game)
  * put just before for lava moving all the time ft_random_lava_move(game);
  * my bad i dix it look in the comment to change the game dynamic
  * 
+ * usleep(25000); is for linux wack pc for validation
+ * 
  * @param game 
  * @return int 
  */
@@ -113,6 +96,7 @@ int	ft_update(t_game *game)
 	ft_key_animation(&game->key.animation);
 	ft_door_animation(&game->door);
 	ft_random_lava_move(game);
+	usleep(25000);
 	ft_render(game);
 	return (EXIT_SUCCESS);
 }
@@ -252,7 +236,7 @@ void	ft_print_info_on_window(t_game *game)
  -L$./MLX_MAC/ -lmlx -framework OpenGL -framework AppKit
 
 FLAGS += -I$(MLXDIR)
-
+//mlx_do_key_autorepeatoff(game->mlx);
 OS := $(shell uname)
 
  ifeq ($(OS),Darwin)
@@ -264,6 +248,8 @@ else ifeq ($(OS),Linux)
 else
 $(error Incompatable OS Detected)
 endif
+
+
 
 
 # 		$(GCC) -o $(NAME) $(SRC) -L. 
@@ -374,3 +360,23 @@ Jai envie dajouter un timer, un vs mode un stysteme
 Exception up = new Exception("Something is wrong"); 
 			throw up; 
 */
+
+		//mlx_hook(game->win, MAC_KEY_PRESS, FALSE, &ft_input_manager, game);
+		/*
+		mlx_loop_hook(game.mlx, sl_loop_hook, &game);
+		int	key_press_hook(unsigned long keysym, t_game *game)
+		int	key_press_hook(unsigned long keysym, t_game *game)
+
+			mlx_hook(game.win, 2, 1 << 0, key_press_hook, &game);
+	mlx_hook(game.win, 3, 1 << 1, key_release_hook, &game);
+
+			if (keysym == UP_KEY)
+		game->lvl.press_up = true;
+	else if (keysym == LEFT_KEY)
+		game->lvl.press_left = true;
+	else if (keysym == DOWN_KEY)
+		game->lvl.press_down = true;
+	else if (keysym == RIGHT_KEY)
+		game->lvl.press_right = true;
+		
+		*/

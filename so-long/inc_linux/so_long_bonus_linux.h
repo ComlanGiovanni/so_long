@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 20:11:33 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/26 21:23:53 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,14 @@ void	ft_love_animation(t_animation *animation);
 int		get_map_height(char *map_name);
 void	check_ber_format(char *map_name, int height);
 void	ft_init_map_info(t_game *game, char *line);
+
+//../src/bonus/free_all.c
+
+void	ft_free_all(t_game *game);
+void	ft_free_player(t_game *game);
+void	ft_free_player_move(t_game *game);
+void	ft_free_map_love_lava(t_game *game);
+void	ft_free_key_wall_door(t_game *game);
 
 //../src/bonus/input_bonus.c
 

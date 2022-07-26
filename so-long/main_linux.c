@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 16:56:53 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/26 21:26:29 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
  */
 int	main(int argc, char *argv[], char **envp)
 {
-	t_game	*game;
+	t_game	*game; // ft_bzero game
 
 	if (argc != 2)
 	{

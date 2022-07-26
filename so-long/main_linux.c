@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 21:26:29 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/26 23:54:12 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@
  */
 int	main(int argc, char *argv[], char **envp)
 {
-	t_game	*game; // ft_bzero game
+	t_game	*game;
 
+	ft_memset(&game, 0, sizeof(t_game));
 	if (argc != 2)
 	{
 		write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
@@ -92,4 +93,24 @@ void	ft_free_all(t_game *game)
 		free(game->mlx);
 	if (game)
 		free(game);
+}
+
+/* 
+print error and free, print error and free
+if (!map_fits_screen(g))
+	write(2, "not fit screen size\n",);
+
+*/
+
+int	map_fits_screen(t_game *game)
+{
+	int	width;
+	int	height;
+
+	height = 0;
+	width = 0;
+	mlx_get_screen_size(game->mlx, &width, &height);
+	if (game->width * 64 > width || game->height * 64 > height)
+		return (0);
+	return (1);
 }

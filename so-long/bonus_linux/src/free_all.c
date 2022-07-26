@@ -6,11 +6,31 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 21:31:27 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/27 00:08:37 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc_linux/so_long_bonus_linux.h"
+
+/* 
+print error and free, print error and free
+if (!map_fits_screen(g))
+	write(2, "not fit screen size\n",);
+
+*/
+
+int	is_map_fit_screen(t_game *game)
+{
+	int	width;
+	int	height;
+
+	height = 0;
+	width = 0;
+	mlx_get_screen_size(game->mlx, &width, &height);
+	if (game->width * IMG_SIZE > width || game->height * IMG_SIZE > height)
+		return (0);
+	return (1);
+}
 
 /**
  * @brief 

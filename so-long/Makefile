@@ -6,7 +6,7 @@
 #    By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/26 21:22:15 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/27 00:05:48 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,6 @@ LIB_NAME	=	lib_so_long.a
 MAC_PATH	=	./mlx_mac
 
 LINUX_PATH 	=	./mlx_linux
-
-MLX_NAME	=	libmlx_Linux.a
 
 BONUS_PATH	=	./bonus
 
@@ -106,11 +104,13 @@ OBJS_MAC_BONUS		=	$(SRCS_MAC_BONUS:.c=.o)
 OBJS_LINUX_BONUS	=	$(SRCS_LINUX_BONUS:.c=.o)
 
 ifeq ($(OS),Darwin)
+	MLX_NAME	=	libmlx.a
 	MLX_PATH = $(MAC_PATH)
 	MLX_FLAGS = $(MAC_FLAGS)
 	SRC = $(SRCS_MAC)
 	SRCS_BONUS = $(SRCS_MAC_BONUS)
 else ifeq ($(OS),Linux)
+	MLX_NAME	=	libmlx_Linux.a
 	MLX_PATH = $(LINUX_PATH)
 	MLX_FLAGS = $(LINUX_FLAGS)
 	SRC = $(SRCS_LINUX)

@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 15:59:17 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/26 16:04:22 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int	main(int argc, char *argv[], char **envp)
 
 void	ft_free_all(t_game *game)
 {
+	if (!game)
+		return ;
 	mlx_destroy_image(game->mlx, game->sprite.player);
 	mlx_destroy_image(game->mlx, game->sprite.ground);
 	mlx_destroy_image(game->mlx, game->sprite.wall);

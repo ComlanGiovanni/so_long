@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:27:10 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 20:35:01 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 00:13:55 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@
 # define WIN_MSG			"Thanks for playing, you WIN with steps : "
 # define LOSE_MSG			"You LOSE with steps : "
 # define EMPTY_LINE 		"Remove that empty line at the top or middle\n"
+# define MAP_TOO_BIG    	"Reduce map size, map too big for the screen\n"
 
 #endif

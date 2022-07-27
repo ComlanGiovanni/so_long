@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 19:47:12 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 19:10:11 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/27 23:59:21 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_load_door_closed_sprites(t_game *game)
 			"assets/xpm/Bonus/door/closed/door_closed_frame_0.xpm",
 			&width, &height);
 	if (game->door.closed.frame_0 == NULL)
-		ft_print_error(DOOR_C_0_XPM_ERROR);
+		ft_print_error(DOOR_C_0_XPM_ERROR, game);
 }
 
 void	ft_load_door_open_sprites(t_game *game)
@@ -50,15 +50,15 @@ void	ft_load_door_open_sprites(t_game *game)
 			"assets/xpm/Bonus/door/open/door_open_frame_0.xpm",
 			&width, &height);
 	if (game->door.open.frame_0 == NULL)
-		ft_print_error(DOOR_O_0_XPM_ERROR);
+		ft_print_error(DOOR_O_0_XPM_ERROR, game);
 	game->door.open.frame_1 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/door/open/door_open_frame_1.xpm",
 			&width, &height);
 	if (game->door.open.frame_1 == NULL)
-		ft_print_error(DOOR_O_1_XPM_ERROR);
+		ft_print_error(DOOR_O_1_XPM_ERROR, game);
 	game->door.open.frame_2 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/door/open/door_open_frame_2.xpm",
 			&width, &height);
 	if (game->door.open.frame_2 == NULL)
-		ft_print_error(DOOR_O_2_XPM_ERROR);
+		ft_print_error(DOOR_O_2_XPM_ERROR, game);
 }

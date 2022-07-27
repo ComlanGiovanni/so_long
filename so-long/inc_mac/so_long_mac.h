@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 19:07:23 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/27 16:02:11 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ typedef struct s_game
 	long long int	exit;
 	long long int	player;
 }		t_game;
+
+//main.c
 
 //../src/check_map_format.c   
 

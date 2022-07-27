@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 21:23:53 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 00:10:02 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,7 @@ typedef struct s_game
 }		t_game;
 
 //../src/bonus/main.c
+
 void	ft_moving_lava(t_game *game);
 void	ft_render(t_game *game);
 int		ft_update(t_game *game);
@@ -167,8 +168,8 @@ void	ft_love_animation(t_animation *animation);
 
 //../src/bonus/check_map_format.c   
 
-int		get_map_height(char *map_name);
-void	check_ber_format(char *map_name, int height);
+int		get_map_height(char *map_name, t_game *game);
+void	check_ber_format(char *map_name, int height, t_game *game);
 void	ft_init_map_info(t_game *game, char *line);
 
 //../src/bonus/free_all.c
@@ -206,6 +207,7 @@ void	ft_lava_move_right(t_game *game);
 
 void	ft_display_life_on_windows(t_game *game);
 void	ft_random_lava_move(t_game *game);
+void	ft_map_fit_screen(t_game *game);
 
 //../src/bonus/load_door_sprite_bonus.c
 
@@ -266,7 +268,7 @@ void	ft_right_sprite(t_game *game, int width, int height);
 void	ft_init_game(t_game *game, char *map_name);
 int		ft_exit_game(t_game *game);
 int		ft_win_game(t_game *game);
-void	ft_print_error(char *error_msg);
+void	ft_print_error(char *error_msg, t_game *game);
 void	ft_check_valid_char(t_game *game);
 
 //../src/bonus/sprite_bonus.c

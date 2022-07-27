@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:23:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 19:10:24 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 00:02:35 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ void	ft_load_lava_sprites(t_game *game)
 	game->lava.animation.frame_0 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/lava/lava_frame_0.xpm", &width, &height);
 	if (game->lava.animation.frame_0 == NULL)
-		ft_print_error(LAVA_0_XPM_ERROR);
+		ft_print_error(LAVA_0_XPM_ERROR, game);
 	game->lava.animation.frame_1 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/lava/lava_frame_1.xpm", &width, &height);
 	if (game->lava.animation.frame_1 == NULL)
-		ft_print_error(LAVA_1_XPM_ERROR);
+		ft_print_error(LAVA_1_XPM_ERROR, game);
 	game->lava.animation.frame_2 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/lava/lava_frame_2.xpm", &width, &height);
 	if (game->lava.animation.frame_2 == NULL)
-		ft_print_error(LAVA_2_XPM_ERROR);
+		ft_print_error(LAVA_2_XPM_ERROR, game);
 }
 
 void	ft_load_key_sprites(t_game *game)
@@ -59,15 +59,15 @@ void	ft_load_key_sprites(t_game *game)
 	game->key.animation.frame_0 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/key/key_frame_0.xpm", &width, &height);
 	if (game->key.animation.frame_0 == NULL)
-		ft_print_error(KEY_0_XPM_ERROR);
+		ft_print_error(KEY_0_XPM_ERROR, game);
 	game->key.animation.frame_1 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/key/key_frame_1.xpm", &width, &height);
 	if (game->key.animation.frame_1 == NULL)
-		ft_print_error(KEY_1_XPM_ERROR);
+		ft_print_error(KEY_1_XPM_ERROR, game);
 	game->key.animation.frame_2 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/key/key_frame_2.xpm", &width, &height);
 	if (game->key.animation.frame_2 == NULL)
-		ft_print_error(KEY_2_XPM_ERROR);
+		ft_print_error(KEY_2_XPM_ERROR, game);
 }
 
 void	ft_load_wall_sprites(t_game *game)
@@ -79,15 +79,15 @@ void	ft_load_wall_sprites(t_game *game)
 	game->wall.animation.frame_0 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/wall/wall_frame_0.xpm", &width, &height);
 	if (game->wall.animation.frame_0 == NULL)
-		ft_print_error(WALL_0_XPM_ERROR);
+		ft_print_error(WALL_0_XPM_ERROR, game);
 	game->wall.animation.frame_1 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/wall/wall_frame_1.xpm", &width, &height);
 	if (game->wall.animation.frame_1 == NULL)
-		ft_print_error(WALL_1_XPM_ERROR);
+		ft_print_error(WALL_1_XPM_ERROR, game);
 	game->wall.animation.frame_2 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/wall/wall_frame_2.xpm", &width, &height);
 	if (game->wall.animation.frame_2 == NULL)
-		ft_print_error(WALL_2_XPM_ERROR);
+		ft_print_error(WALL_2_XPM_ERROR, game);
 }
 
 void	ft_load_ground_sprites(t_game *game)
@@ -98,7 +98,7 @@ void	ft_load_ground_sprites(t_game *game)
 	game->map.ground = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/ground/ground.xpm", &width, &height);
 	if (game->map.ground == NULL)
-		ft_print_error(GROUND_XPM_ERROR);
+		ft_print_error(GROUND_XPM_ERROR, game);
 }
 
 void	ft_load_love_sprites(t_game *game)
@@ -110,17 +110,17 @@ void	ft_load_love_sprites(t_game *game)
 	game->love.animation.frame_0 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/love/love_frame_0.xpm", &width, &height);
 	if (game->love.animation.frame_0 == NULL)
-		ft_print_error(LOVE_0_XPM_ERROR);
+		ft_print_error(LOVE_0_XPM_ERROR, game);
 	game->love.animation.frame_1 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/love/love_frame_1.xpm", &width, &height);
 	if (game->love.animation.frame_1 == NULL)
-		ft_print_error(LOVE_1_XPM_ERROR);
+		ft_print_error(LOVE_1_XPM_ERROR, game);
 	game->love.animation.frame_2 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/love/love_frame_2.xpm", &width, &height);
 	if (game->love.animation.frame_2 == NULL)
-		ft_print_error(LOVE_2_XPM_ERROR);
+		ft_print_error(LOVE_2_XPM_ERROR, game);
 	game->love.icon = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/love/love_small_icon.xpm", &width, &height);
 	if (game->love.icon == NULL)
-		ft_print_error(LOVE_ICON_ERROR);
+		ft_print_error(LOVE_ICON_ERROR, game);
 }

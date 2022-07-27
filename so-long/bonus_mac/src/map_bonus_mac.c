@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 17:08:21 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/27 20:05:01 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	ft_read_map(t_game *game, char *map_name)
  */
 void	ft_check_map(t_game *game)
 {
+	//ft_map_fit_screen(game);
 	ft_check_valid_char(game);
 	ft_check_sealed(game);
 	game->map.nbr_player = FALSE;

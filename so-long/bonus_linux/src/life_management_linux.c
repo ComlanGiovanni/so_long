@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:34:07 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 19:10:06 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 00:13:35 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,23 @@ void	ft_random_lava_move(t_game *game)
 	if (random == 3)
 		game->lava.move = 'r';
 	ft_move_lava(game);
+}
+
+/* 
+print error and free, print error and free
+if (!map_fits_screen(g))
+	write(2, "not fit screen size\n",);
+
+*/
+
+void	ft_map_fit_screen(t_game *game)
+{
+	int	width;
+	int	height;
+
+	height = 0;
+	width = 0;
+	mlx_get_screen_size(game->mlx, &width, &height);
+	if (game->width * 64 > width || game->height * 64 > height)
+		ft_print_error(MAP_TOO_BIG, game);
 }

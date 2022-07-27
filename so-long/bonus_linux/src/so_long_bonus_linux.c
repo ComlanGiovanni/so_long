@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 20:39:04 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 00:07:20 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_init_game(t_game *game, char *map_name)
 {
 	game->mlx = mlx_init();
 	if (game->mlx == NULL)
-		ft_print_error(MLX_INIT_ERROR);
+		ft_print_error(MLX_INIT_ERROR, game);
 	ft_load_sprites(game);
 	ft_init_player_info(game);
 	ft_read_map(game, map_name);
@@ -42,7 +42,7 @@ void	ft_init_game(t_game *game, char *map_name)
 	game->win = mlx_new_window(game->mlx, game->width * IMG_SIZE,
 			game->height * IMG_SIZE, GAME_TITLE);
 	if (game->win == NULL)
-		ft_print_error(MLX_WINDOW_ERROR);
+		ft_print_error(MLX_WINDOW_ERROR, game);
 	ft_put_sprites_by_line(game);
 }
 
@@ -69,7 +69,7 @@ void	ft_check_valid_char(t_game *game)
 			&& game->map.map_str[idx] != VOID_CHAR
 			&& game->map.map_str[idx] != LAVA_CHAR
 			&& game->map.map_str[idx] != LOVE_CHAR)
-			ft_print_error(BAD_CHAR_MAP_ERROR);
+			ft_print_error(BAD_CHAR_MAP_ERROR, game);
 		idx++;
 	}
 }
@@ -94,7 +94,8 @@ void	ft_check_valid_char(t_game *game)
  */
 int	ft_exit_game(t_game *game)
 {
-	mlx_destroy_window(game->mlx, game->win);
+	ft_free_all(game);
+	//mlx_destroy_window(game->mlx, game->win);
 	exit(EXIT_SUCCESS);
 }
 
@@ -125,7 +126,8 @@ int	ft_win_game(t_game *game)
 	ft_printf(WIN_MSG "%d ", game->player.step);
 	ft_printf("Storage : %d, ", game->player.storage);
 	ft_printf("Life : %d\n", game->player.life);
-	mlx_destroy_window(game->mlx, game->win);
+	ft_free_all(game);
+	//mlx_destroy_window(game->mlx, game->win);
 	exit(EXIT_SUCCESS);
 }
 
@@ -147,8 +149,9 @@ int	ft_win_game(t_game *game)
  * @param error_code 
  * @return int 
  */
-void	ft_print_error(char *error_msg)
+void	ft_print_error(char *error_msg, t_game *game)
 {
+	ft_free_all(game);
 	write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
 	write(STDERR_FILENO, error_msg, ft_strlen(error_msg));
 	exit(EXIT_FAILURE);

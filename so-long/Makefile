@@ -6,7 +6,7 @@
 #    By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/12 01:52:41 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/27 00:05:48 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/27 15:36:16 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -159,6 +159,8 @@ NEW_LINE	=	echo "\n"
 	
 all : $(NAME)
 
+bonus : ${BONUS_NAME}
+
 $(NAME):
 	make -C $(LIB_PATH)
 	cp $(LIB_PATH)/$(LIB_NAME) .
@@ -169,7 +171,11 @@ $(NAME):
 	@echo "$$ASCII_MANDATORY"
 	@$(SO_LONG_READY)
 
-bonus : $(OBJS_BONUS)
+${BONUS_NAME} : ${OBJS_BONUS}
+	make -C $(LIB_PATH)
+	cp $(LIB_PATH)/$(LIB_NAME) .
+	make --no-print-directory -C $(MLX_PATH)
+	cp $(MLX_PATH)/$(MLX_NAME) .
 	$(GCC) -o $(BONUS_NAME) $(SRCS_BONUS) $(MLX_FLAGS)  -L. $(MLX_NAME) -L. $(LIB_NAME)
 	@echo "$$ASCII_BONUS"
 	@$(BONUS_READY)
@@ -220,3 +226,5 @@ $(CYAN)     \\_______________====      \_((	$(NO_COLOR)
 $(CYAN)                                 \((	$(NO_COLOR)
 endef
 export ASCII_BONUS
+
+.PHONY: all clean fclean re bonus

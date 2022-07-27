@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 02:28:39 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 20:01:13 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 00:00:59 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,22 +71,22 @@ void	ft_load_player_up_sprites(t_game *game)
 			"assets/xpm/Bonus/player/up/player_up_frame_0.xpm",
 			&width, &height);
 	if (game->player.up_anim.frame_0 == NULL)
-		ft_print_error(PLAYER_U_0_ERROR);
+		ft_print_error(PLAYER_U_0_ERROR, game);
 	game->player.up_anim.frame_1 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/player/up/player_up_frame_1.xpm",
 			&width, &height);
 	if (game->player.up_anim.frame_1 == NULL)
-		ft_print_error(PLAYER_U_1_ERROR);
+		ft_print_error(PLAYER_U_1_ERROR, game);
 	game->player.up_anim.frame_2 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/player/up/player_up_frame_2.xpm",
 			&width, &height);
 	if (game->player.up_anim.frame_2 == NULL)
-		ft_print_error(PLAYER_U_2_ERROR);
+		ft_print_error(PLAYER_U_2_ERROR, game);
 	game->player.up_anim.frame_move = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/player/up/player_up_frame_move.xpm",
 			&width, &height);
 	if (game->player.up_anim.frame_move == NULL)
-		ft_print_error(PLAYER_U_M_ERROR);
+		ft_print_error(PLAYER_U_M_ERROR, game);
 }
 
 /**
@@ -109,22 +109,22 @@ void	ft_load_player_down_sprites(t_game *game)
 			"assets/xpm/Bonus/player/down/player_down_frame_0.xpm",
 			&width, &height);
 	if (game->player.down_anim.frame_0 == NULL)
-		ft_print_error(PLAYER_D_0_ERROR);
+		ft_print_error(PLAYER_D_0_ERROR, game);
 	game->player.down_anim.frame_1 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/player/down/player_down_frame_1.xpm",
 			&width, &height);
 	if (game->player.down_anim.frame_1 == NULL)
-		ft_print_error(PLAYER_D_1_ERROR);
+		ft_print_error(PLAYER_D_1_ERROR, game);
 	game->player.down_anim.frame_2 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/player/down/player_down_frame_2.xpm",
 			&width, &height);
 	if (game->player.down_anim.frame_2 == NULL)
-		ft_print_error(PLAYER_D_2_ERROR);
+		ft_print_error(PLAYER_D_2_ERROR, game);
 	game->player.down_anim.frame_move = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/player/down/player_down_frame_move.xpm",
 			&width, &height);
 	if (game->player.down_anim.frame_move == NULL)
-		ft_print_error(PLAYER_D_M_ERROR);
+		ft_print_error(PLAYER_D_M_ERROR, game);
 }
 
 /**
@@ -147,22 +147,22 @@ void	ft_load_player_left_sprites(t_game *game)
 			"assets/xpm/Bonus/player/left/player_left_frame_0.xpm",
 			&width, &height);
 	if (game->player.left_anim.frame_0 == NULL)
-		ft_print_error(PLAYER_L_0_ERROR);
+		ft_print_error(PLAYER_L_0_ERROR, game);
 	game->player.left_anim.frame_1 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/player/left/player_left_frame_1.xpm",
 			&width, &height);
 	if (game->player.left_anim.frame_1 == NULL)
-		ft_print_error(PLAYER_L_1_ERROR);
+		ft_print_error(PLAYER_L_1_ERROR, game);
 	game->player.left_anim.frame_2 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/player/left/player_left_frame_2.xpm",
 			&width, &height);
 	if (game->player.left_anim.frame_2 == NULL)
-		ft_print_error(PLAYER_L_2_ERROR);
+		ft_print_error(PLAYER_L_2_ERROR, game);
 	game->player.left_anim.frame_move = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/player/left/player_left_frame_move.xpm",
 			&width, &height);
 	if (game->player.left_anim.frame_move == NULL)
-		ft_print_error(PLAYER_L_M_ERROR);
+		ft_print_error(PLAYER_L_M_ERROR, game);
 }
 
 /**
@@ -185,20 +185,20 @@ void	ft_load_player_right_sprites(t_game *game)
 			"assets/xpm/Bonus/player/right/player_right_frame_0.xpm",
 			&width, &height);
 	if (game->player.right_anim.frame_0 == NULL)
-		ft_print_error(PLAYER_R_0_ERROR);
+		ft_print_error(PLAYER_R_0_ERROR, game);
 	game->player.right_anim.frame_1 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/player/right/player_right_frame_1.xpm",
 			&width, &height);
 	if (game->player.right_anim.frame_1 == NULL)
-		ft_print_error(PLAYER_R_1_ERROR);
+		ft_print_error(PLAYER_R_1_ERROR, game);
 	game->player.right_anim.frame_2 = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/player/right/player_right_frame_2.xpm",
 			&width, &height);
 	if (game->player.right_anim.frame_2 == NULL)
-		ft_print_error(PLAYER_R_2_ERROR);
+		ft_print_error(PLAYER_R_2_ERROR, game);
 	game->player.right_anim.frame_move = mlx_xpm_file_to_image(game->mlx,
 			"assets/xpm/Bonus/player/right/player_right_frame_move.xpm",
 			&width, &height);
 	if (game->player.right_anim.frame_move == NULL)
-		ft_print_error(PLAYER_R_M_ERROR);
+		ft_print_error(PLAYER_R_M_ERROR, game);
 }

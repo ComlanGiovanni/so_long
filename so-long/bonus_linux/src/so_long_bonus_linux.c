@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:48 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 00:07:20 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 16:09:21 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,14 @@ void	ft_check_valid_char(t_game *game)
  * 			if need send t_game * game to ft_print_error
  * 				for good free for linux version
  * 
+ * 			mlx_destroy_window(game->mlx, game->win);
+ * 
  * @param game 
  * @return int 
  */
 int	ft_exit_game(t_game *game)
 {
 	ft_free_all(game);
-	//mlx_destroy_window(game->mlx, game->win);
 	exit(EXIT_SUCCESS);
 }
 
@@ -118,6 +119,8 @@ int	ft_exit_game(t_game *game)
  * 			if need send t_game * game to ft_print_error
  * 				for good free for linux version
  * 
+ * 		mlx_destroy_window(game->mlx, game->win);
+ * 
  * @param game 
  * @return int 
  */
@@ -127,7 +130,6 @@ int	ft_win_game(t_game *game)
 	ft_printf("Storage : %d, ", game->player.storage);
 	ft_printf("Life : %d\n", game->player.life);
 	ft_free_all(game);
-	//mlx_destroy_window(game->mlx, game->win);
 	exit(EXIT_SUCCESS);
 }
 

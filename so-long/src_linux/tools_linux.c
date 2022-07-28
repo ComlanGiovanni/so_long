@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 22:27:34 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 16:30:38 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 15:01:20 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,9 @@ char	*ft_custom_strjoin(char *s1, char *s2)
  * we loop in the tab end if we found Display we quit
  * if there is no display we print the error msg
  * 
+ * 		ft_print_error(NO_ENV_ERROR, game);
+ * 		ft_print_error(NO_DISP_ERROR, game);
+ * 
  * @param env 
  */
 void	ft_check_env(char **env)
@@ -124,7 +127,6 @@ void	ft_check_env(char **env)
 		write(STDERR_FILENO, NO_ENV_ERROR, ft_strlen(NO_ENV_ERROR));
 		exit(EXIT_FAILURE);
 	}
-	//ft_print_error(NO_ENV_ERROR, game);
 	idx = 0;
 	while (env[idx])
 	{
@@ -136,7 +138,6 @@ void	ft_check_env(char **env)
 	write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
 	write(STDERR_FILENO, NO_DISP_ERROR, ft_strlen(NO_DISP_ERROR));
 	exit(EXIT_FAILURE);
-	//ft_print_error(NO_DISP_ERROR, game);
 }
 
 /**

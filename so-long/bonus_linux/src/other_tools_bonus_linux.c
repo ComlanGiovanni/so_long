@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 12:41:41 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 19:10:35 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 17:04:59 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,8 @@ void	ft_direction_by_pos_after_launch(t_game *game)
  * 				
  * 		return 1 because we fail hummmm legit ? or its 0
  * 
+ * 		 mlx_destroy_window(game->mlx, game->win);
+ * 
  * @param game 
  * @return int 
  */
@@ -166,6 +168,6 @@ int	ft_lose_game(t_game *game)
 	ft_printf(LOSE_MSG "%d ", game->player.step);
 	ft_printf("Storage : %d, ", game->player.storage);
 	ft_printf("Life : %d\n", game->player.life);
-	mlx_destroy_window(game->mlx, game->win);
+	ft_free_all(game);
 	exit(EXIT_FAILURE);
 }

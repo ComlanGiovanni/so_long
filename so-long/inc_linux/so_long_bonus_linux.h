@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 00:10:02 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 17:04:06 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,7 +182,7 @@ void	ft_free_key_wall_door(t_game *game);
 
 //../src/bonus/input_bonus.c
 
-int		ft_input_manager(int key, t_game *game);
+int		ft_manag_input(int key, t_game *game);
 void	ft_move_up(t_game *game);
 void	ft_move_down(t_game *game);
 void	ft_move_left(t_game *game);

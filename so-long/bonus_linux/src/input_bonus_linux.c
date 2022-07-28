@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:01:54 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 20:38:45 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 17:03:53 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
  * @param game 
  * @return int 
  */
-int	ft_input_manager(int key_code, t_game *game)
+int	ft_manag_input(int key_code, t_game *game)
 {
 	if (key_code == LINUX_ESC_KEY)
 		ft_exit_game(game);

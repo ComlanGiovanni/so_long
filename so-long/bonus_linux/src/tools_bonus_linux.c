@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 22:27:34 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 19:10:51 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 17:01:18 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,11 @@ void	ft_check_env(char **env)
 	int	idx;
 
 	if (!*env)
-		ft_print_error(NO_ENV_ERROR);
+	{
+		write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
+		write(STDERR_FILENO, NO_ENV_ERROR, ft_strlen(NO_ENV_ERROR));
+		exit(EXIT_FAILURE);
+	}
 	idx = FALSE;
 	while (env[idx])
 	{
@@ -128,7 +132,9 @@ void	ft_check_env(char **env)
 		else
 			idx++;
 	}
-	ft_print_error(NO_DISP_ERROR);
+	write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
+	write(STDERR_FILENO, NO_DISP_ERROR, ft_strlen(NO_DISP_ERROR));
+	exit(EXIT_FAILURE);
 }
 
 /**

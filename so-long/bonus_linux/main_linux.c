@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 00:08:12 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 17:07:28 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,16 @@ int	main(int argc, char *argv[], char **envp)
 {
 	t_game	*game;
 
-	ft_memset(&game, 0, sizeof(t_game));
 	if (argc != 2)
-		ft_print_error(USAGE_MSG, game);
+	{
+		write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
+		write(STDERR_FILENO, USAGE_MSG, ft_strlen(USAGE_MSG));
+		exit(EXIT_FAILURE);
+	}
 	else
 	{
 		ft_check_env(envp);
-		game = malloc(sizeof(t_game));
+		game = ft_calloc(sizeof(t_game), sizeof(t_game));
 		if (game == NULL)
 			ft_print_error(MALLOC_GAME_ERROR, game);
 		if (!ft_check_extension(argv[1], BER_EXTENSION))
@@ -47,10 +50,8 @@ int	main(int argc, char *argv[], char **envp)
 		ft_init_game(game, argv[1]);
 		mlx_mouse_hide(game->mlx, game->win);
 		mlx_do_key_autorepeaton(game->mlx);
-		mlx_hook(game->win, LINUX_KEY_PRESS, (1L << 0),
-			&ft_input_manager, game);
-		mlx_hook(game->win, LINUX_CLOSE_ICON, (1L << 0),
-			&ft_exit_game, game);
+		mlx_hook(game->win, LINUX_KEY_PRESS, (1L << 0), &ft_manag_input, game);
+		mlx_hook(game->win, LINUX_CLOSE_ICON, (1L << 0), &ft_exit_game, game);
 		mlx_loop_hook(game->mlx, &ft_update, game);
 		mlx_loop(game->mlx);
 	}
@@ -224,6 +225,11 @@ void	ft_print_info_on_window(t_game *game)
 * 		make a simple step by step for 100
 * 			make a simple step by step for bonus
 * 		mlx_get_screen_size
+
+		//ft_free_all(game);
+		//ft_print_error(USAGE_MSG, game);
+
+		
 
 			[WHAT I HAVE FOUND]
 	

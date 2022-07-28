@@ -6,7 +6,7 @@
 #    By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 08:46:58 by gcomlan           #+#    #+#              #
-#    Updated: 2022/07/26 23:48:16 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/07/28 14:29:44 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ CC = gcc -Wall -Wextra -Werror
 SRC = 	ft_strlen.c \
 		ft_strncmp.c \
 		ft_memset.c \
+		ft_bzero.c \
+		ft_calloc.c \
 		../gnl/get_next_line.c \
 		../gnl/get_next_line_utils.c \
 		../ft_printf/ft_printf.c \

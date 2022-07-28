@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 23:54:12 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 14:58:47 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(int argc, char *argv[], char **envp)
 {
 	t_game	*game;
 
-	ft_memset(&game, 0, sizeof(t_game));
 	if (argc != 2)
 	{
 		write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
@@ -43,7 +42,7 @@ int	main(int argc, char *argv[], char **envp)
 	else
 	{
 		ft_check_env(envp);
-		game = malloc(sizeof(t_game));
+		game = ft_calloc(sizeof(t_game), sizeof(t_game));
 		if (game == NULL)
 			ft_print_error(MALLOC_GAME_ERROR, game);
 		if (!ft_check_extension(argv[1], BER_EXTENSION))
@@ -66,6 +65,7 @@ int	main(int argc, char *argv[], char **envp)
  * 	then the display (mlx)
  * 	and at the end we need to free the mlx and the game we malloc in the main
  * 
+ *  make garbage collector next time
  * 
  * @param game 
  */
@@ -95,14 +95,7 @@ void	ft_free_all(t_game *game)
 		free(game);
 }
 
-/* 
-print error and free, print error and free
-if (!map_fits_screen(g))
-	write(2, "not fit screen size\n",);
-
-*/
-
-int	map_fits_screen(t_game *game)
+void	ft_map_fit_screen(t_game *game)
 {
 	int	width;
 	int	height;
@@ -111,6 +104,5 @@ int	map_fits_screen(t_game *game)
 	width = 0;
 	mlx_get_screen_size(game->mlx, &width, &height);
 	if (game->width * 64 > width || game->height * 64 > height)
-		return (0);
-	return (1);
+		ft_print_error(MAP_TOO_BIG, game);
 }

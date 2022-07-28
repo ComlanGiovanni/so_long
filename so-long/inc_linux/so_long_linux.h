@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 16:28:55 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/28 15:00:03 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define USAGE_MSG	        "./so_long [pass to map][map name].ber\n"
 # define NO_ENV_ERROR       "No variable environment available\n"
 # define NO_DISP_ERROR      "DISPLAY not found in env\n"
-# define MALLOC_GAME_ERROR	"Malloc t_game fail to\n"
+# define MALLOC_GAME_ERROR	"Malloc t_game fail\n"
 # define BAD_CHAR_MAP_ERROR	"Map Should contain char : '1' 'P' 'C' 'E' '0'\n"
 # define WALL_ERROR	        ".ber should be surrounded by walls : 1\n"
 # define FORM_ERROR	        ".ber should be in rectangular form !\n"
@@ -42,6 +42,7 @@
 # define EXIT_XPM_ERROR		"exit.xpm fail to load\n"
 # define WIN_MSG			"Thanks for playing, you win with steps : "
 # define EMPTY_LINE 		"Remove that empty line at the top or middle\n"
+# define MAP_TOO_BIG    	"Reduce map size, map too big for the screen\n"
 
 typedef enum e_key_code {
 	CLOSE_ICON = 17,
@@ -101,6 +102,8 @@ typedef struct s_game
 }		t_game;
 
 //main_linux
+
+void		ft_map_fit_screen(t_game *game);
 
 void		ft_free_all(t_game *game);
 

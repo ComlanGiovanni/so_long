@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 00:09:21 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 00:58:22 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	ft_read_map(t_game *game, char *map_name)
 
 	height = get_map_height(map_name, game);
 	check_ber_format(map_name, height, game);
+	if (game->empty_line == 1)
+		ft_print_error(EMPTY_LINE, game);
 	fd = open(map_name, O_RDONLY);
 	if (fd <= FALSE)
 		ft_print_error(FAIL_OPEN_ERROR, game);
@@ -84,6 +86,7 @@ void	ft_check_map(t_game *game)
 {
 	ft_map_fit_screen(game);
 	ft_check_valid_char(game);
+	ft_check_rectangular(game);
 	ft_check_sealed(game);
 	game->map.nbr_player = FALSE;
 	game->map.nbr_key = FALSE;
@@ -199,30 +202,3 @@ void	ft_check_playability(t_game *game)
 	if (game->map.nbr_exit == FALSE)
 		ft_print_error(EXIT_ERROR, game);
 }
-
-/**
- * @brief 
- * 	
- * 			In Euclidean plane geometry,
- * 	 a rectangle is a quadrilateral with four right angles.
- * 	A rectangle with four sides of equal length is a square.
- * 	
- * Les côtés d'un rectangle étant deux à deux de même longueur 
- * 						a et b
- * 			
- * 		rec : a != b 		&& 		carr  a = b
- * 
- * 			 Mine de rien dans la rigolade 
- * 		j'avais oublier qu'un carree est un rectangle
- * 
- * 	du coup si height == width is a reactangle
- * 
- * @param game 
- */
-/*
-void	ft_check_rectangular(t_game *game)
-{
-	if (game->height == game->width)
-		ft_print_error(FORM_ERROR);
-}
-*/

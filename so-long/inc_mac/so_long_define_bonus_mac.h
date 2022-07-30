@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:27:10 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 17:11:29 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 01:27:26 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 # define FORM_ERROR	        ".ber should be in rectangular form !\n"
 # define COIN_ERROR			".ber should have at least one collectible -> C\n"
 # define PLAYER_ERROR		".ber should have one starting point -> P\n"
-# define EXIT_ERROR			"].ber should have at east one exit -> E\n"
+# define EXIT_ERROR			".ber should have at east one exit -> E\n"
 # define EXTENSION_ERROR	"Map extension should be a .ber\n"
 # define FAIL_OPEN_ERROR	"[Map_name].ber fail to open\n"
 # define MLX_INIT_ERROR		"mlx_init() fail\n"

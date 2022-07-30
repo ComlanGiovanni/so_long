@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 17:04:06 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 01:01:09 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef enum e_bool
 typedef struct s_animation
 {
 	int		frames;
+	void	*current;
 	void	*frame_0;
 	void	*frame_1;
 	void	*frame_2;
@@ -83,6 +84,7 @@ typedef struct s_wall
 
 typedef struct s_anim_door
 {
+	void	*current;
 	void	*frame_0;
 	void	*frame_1;
 	void	*frame_2;
@@ -102,6 +104,7 @@ typedef struct s_love
 }		t_love;
 typedef struct s_anim_player
 {
+	void	*current;
 	void	*frame_0;
 	void	*frame_1;
 	void	*frame_2;
@@ -146,8 +149,11 @@ typedef struct s_game
 	t_door			door;
 	void			*mlx;
 	void			*win;
+	char			*str_step;
+	char			*str_storage;
 	long long int	width;
 	long long int	height;
+	long long int	empty_line;
 }		t_game;
 
 //../src/bonus/main.c
@@ -171,6 +177,7 @@ void	ft_love_animation(t_animation *animation);
 int		get_map_height(char *map_name, t_game *game);
 void	check_ber_format(char *map_name, int height, t_game *game);
 void	ft_init_map_info(t_game *game, char *line);
+void	ft_check_rectangular(t_game *game);
 
 //../src/bonus/free_all.c
 
@@ -208,6 +215,8 @@ void	ft_lava_move_right(t_game *game);
 void	ft_display_life_on_windows(t_game *game);
 void	ft_random_lava_move(t_game *game);
 void	ft_map_fit_screen(t_game *game);
+void	ft_load_player_current(t_game *game);
+void	ft_print_error_empty_and_free(char *error_msg, t_game *game);
 
 //../src/bonus/load_door_sprite_bonus.c
 
@@ -235,7 +244,6 @@ void	ft_load_player_right_sprites(t_game *game);
 void	ft_read_map(t_game *game, char *map_name);
 void	ft_check_map(t_game *game);
 void	ft_check_sealed(t_game *game);
-//void	ft_check_rectangular(t_game *game);
 void	ft_check_playability(t_game *game);
 void	ft_get_info_map(t_game *game);
 

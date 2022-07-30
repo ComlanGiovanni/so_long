@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:44:49 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 19:10:31 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/30 23:39:39 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@
 void	ft_key_sprite(t_game *game, int width, int height)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
-		game->key.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
+		game->key.animation.current, width * IMG_SIZE, height * IMG_SIZE);
 }
 
 void	ft_lava_sprite(t_game *game, int width, int height)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
-		game->lava.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
+		game->lava.animation.current, width * IMG_SIZE, height * IMG_SIZE);
 }
 
 void	ft_love_sprite(t_game *game, int width, int height)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
-		game->love.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
+		game->love.animation.current, width * IMG_SIZE, height * IMG_SIZE);
 }
 
 void	ft_exit_sprite(t_game *game, int width, int height)

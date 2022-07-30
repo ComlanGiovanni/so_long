@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:34:07 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 00:13:35 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 01:01:36 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_display_life_on_windows(t_game *game)
 		idx++;
 		x += 15;
 	}
-	if (game->player.life == FALSE)
+	if (game->player.life <= FALSE)
 		ft_lose_game(game);
 }
 
@@ -97,4 +97,52 @@ void	ft_map_fit_screen(t_game *game)
 	mlx_get_screen_size(game->mlx, &width, &height);
 	if (game->width * 64 > width || game->height * 64 > height)
 		ft_print_error(MAP_TOO_BIG, game);
+}
+
+/**
+ * @brief 
+ * 
+ *  For real i rteally dont know, i jjust 
+ * notcce thatthe current frqme of the door 
+ * is not loadead and i can easly free the 
+ * frae 0 of te door even if its animated
+ * aka cchange y the fram 1 2 when i am playing
+ * the game so that meain that i can
+ * free the frame 0 even if it animatead ????
+ * 
+ * @param game 
+ */
+void	ft_load_player_current(t_game *game)
+{
+	game->player.up_anim.current = game->player.up_anim.frame_0;
+	if (game->player.up_anim.current == NULL)
+		ft_print_error(PLAYER_U_0_ERROR, game);
+	game->player.down_anim.current = game->player.down_anim.frame_0;
+	if (game->player.down_anim.current == NULL)
+		ft_print_error(PLAYER_D_0_ERROR, game);
+	game->player.left_anim.current = game->player.left_anim.frame_0;
+	if (game->player.left_anim.current == NULL)
+		ft_print_error(PLAYER_L_0_ERROR, game);
+	game->player.right_anim.current = game->player.right_anim.frame_0;
+	if (game->player.right_anim.current == NULL)
+		ft_print_error(PLAYER_R_0_ERROR, game);
+}
+
+void	ft_print_error_empty_and_free(char *error_msg, t_game *game)
+{
+	ft_free_player(game);
+	ft_free_player_move(game);
+	ft_free_map_love_lava(game);
+	ft_free_key_wall_door(game);
+	if (game->mlx && game->win)
+		mlx_destroy_window(game->mlx, game->win);
+	if (game->mlx)
+		mlx_destroy_display(game->mlx);
+	if (game->mlx)
+		free(game->mlx);
+	if (game)
+		free(game);
+	write(STDERR_FILENO, ERROR_MSG, ft_strlen(ERROR_MSG));
+	write(STDERR_FILENO, error_msg, ft_strlen(error_msg));
+	exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 02:28:39 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 00:00:59 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 00:45:41 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,17 @@ void	ft_player_animation(t_player *player)
 
 	if (frame == player->frames)
 	{
-		player->up_anim.frame_0 = player->up_anim.frame_1;
-		player->down_anim.frame_0 = player->down_anim.frame_1;
-		player->left_anim.frame_0 = player->left_anim.frame_1;
-		player->right_anim.frame_0 = player->right_anim.frame_1;
+		player->up_anim.current = player->up_anim.frame_1;
+		player->down_anim.current = player->down_anim.frame_1;
+		player->left_anim.current = player->left_anim.frame_1;
+		player->right_anim.current = player->right_anim.frame_1;
 	}
 	else if (frame >= player->frames * 2)
 	{
-		player->up_anim.frame_0 = player->up_anim.frame_2;
-		player->down_anim.frame_0 = player->down_anim.frame_2;
-		player->left_anim.frame_0 = player->left_anim.frame_2;
-		player->right_anim.frame_0 = player->right_anim.frame_2;
+		player->up_anim.current = player->up_anim.frame_2;
+		player->down_anim.current = player->down_anim.frame_2;
+		player->left_anim.current = player->left_anim.frame_2;
+		player->right_anim.current = player->right_anim.frame_2;
 		frame = FALSE;
 	}
 	frame += TRUE;

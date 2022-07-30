@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 12:41:41 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 17:04:59 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/30 23:36:21 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,10 @@ int	ft_lose_game(t_game *game)
 	ft_printf(LOSE_MSG "%d ", game->player.step);
 	ft_printf("Storage : %d, ", game->player.storage);
 	ft_printf("Life : %d\n", game->player.life);
+	if (game->str_step != NULL)
+		free(game->str_step);
+	if (game->str_storage != NULL)
+		free(game->str_storage);
 	ft_free_all(game);
 	exit(EXIT_FAILURE);
 }

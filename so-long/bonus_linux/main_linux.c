@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 17:07:28 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 01:28:09 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@
  * 		Just be aware that it may not turn out exactly how you envisioned.
  * 
  * 							-[Scott Rogers]-
- * 
- * 				> norminette bonus inc lib main.c src
+ *  		> norminette bonus_* inc_* src_* lib main_*
  * 
  * @param argc 
  * @param argv 
@@ -46,9 +45,8 @@ int	main(int argc, char *argv[], char **envp)
 		if (game == NULL)
 			ft_print_error(MALLOC_GAME_ERROR, game);
 		if (!ft_check_extension(argv[1], BER_EXTENSION))
-			ft_print_error(EXTENSION_ERROR, game);
+			ft_print_error_empty_and_free(EXTENSION_ERROR, game);
 		ft_init_game(game, argv[1]);
-		mlx_mouse_hide(game->mlx, game->win);
 		mlx_do_key_autorepeaton(game->mlx);
 		mlx_hook(game->win, LINUX_KEY_PRESS, (1L << 0), &ft_manag_input, game);
 		mlx_hook(game->win, LINUX_CLOSE_ICON, (1L << 0), &ft_exit_game, game);
@@ -142,19 +140,16 @@ void	ft_init_player_info(t_game *game)
  */
 void	ft_print_info_on_window(t_game *game)
 {
-	char	*str_step;
-	char	*str_storage;
-
-	str_step = ft_itoa(game->player.step);
-	str_storage = ft_itoa(game->player.storage);
+	game->str_step = ft_itoa(game->player.step);
+	game->str_storage = ft_itoa(game->player.storage);
 	ft_display_life_on_windows(game);
 	mlx_string_put(game->mlx, game->win, 5, 42, YELLOW, "Step-> ");
-	mlx_string_put(game->mlx, game->win, 69, 42, RED, str_step);
+	mlx_string_put(game->mlx, game->win, 69, 42, RED, game->str_step);
 	mlx_string_put(game->mlx, game->win, 5, 52, RED, "Storage-> ");
-	mlx_string_put(game->mlx, game->win, 69, 52, RED, str_storage);
+	mlx_string_put(game->mlx, game->win, 69, 52, RED, game->str_storage);
 	mlx_string_put(game->mlx, game->win, 5, 62, AQUA, "Facing-> ");
 	if (game->player.storage == game->map.nbr_key)
-		mlx_string_put(game->mlx, game->win, 69, 52, GREEN, str_storage);
+		mlx_string_put(game->mlx, game->win, 69, 52, GREEN, game->str_storage);
 	if (game->player.direction == 'u')
 		mlx_string_put(game->mlx, game->win, 69, 62, LIME, "Up");
 	if (game->player.direction == 'd')
@@ -163,8 +158,8 @@ void	ft_print_info_on_window(t_game *game)
 		mlx_string_put(game->mlx, game->win, 69, 62, PINK, "Left");
 	if (game->player.direction == 'r')
 		mlx_string_put(game->mlx, game->win, 69, 62, TURQUOISE, "Right");
-	free(str_step);
-	free(str_storage);
+	free(game->str_step);
+	free(game->str_storage);
 }
 
 /*

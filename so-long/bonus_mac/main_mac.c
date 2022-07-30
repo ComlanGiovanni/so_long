@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 17:09:46 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 01:28:25 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
  * 
  * 							-[Scott Rogers]-
  * 
- * 				> norminette bonus inc lib main.c src
+ * 				> norminette bonus_* inc_* src_* lib main_*
  * 
  * @param argc 
  * @param argv 

@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 02:35:15 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 00:09:37 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 00:58:52 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,26 +83,27 @@ void	check_ber_format(char *map_name, int height, t_game *game)
 	char	*line;
 	int		curr_height;
 
+	game->empty_line = 0;
 	fd = open(map_name, O_RDONLY);
 	if (fd <= FALSE)
 		ft_print_error(FAIL_OPEN_ERROR, game);
 	line = get_next_line(fd);
 	if (line == NULL || line[FALSE] == '\n')
-		ft_print_error(EMPTY_LINE, game);
+		game->empty_line = 1;
 	curr_height = TRUE;
+	free(line);
 	while (line)
 	{
 		line = get_next_line(fd);
 		curr_height++;
 		if ((line == NULL || line[FALSE] == '\n') && curr_height != height)
-			ft_print_error(EMPTY_LINE, game);
+			game->empty_line = 1;
 		if ((curr_height == height) && line == NULL)
 			return ;
 		free(line);
 	}
 	close(fd);
 }
-
 /**
  * @brief 
  * 
@@ -121,4 +122,29 @@ void	ft_init_map_info(t_game *game, char *line)
 	game->width = ft_strlen(line) - TRUE;
 	game->map.map_str = ft_custom_strdup(line);
 	free(line);
+}
+
+/**
+ * @brief 
+ * 	
+ * 			In Euclidean plane geometry,
+ * 	 a rectangle is a quadrilateral with four right angles.
+ * 	A rectangle with four sides of equal length is a square.
+ * 	
+ * Les côtés d'un rectangle étant deux à deux de même longueur 
+ * 						a et b
+ * 			
+ * 		rec : a != b 		&& 		carr  a = b
+ * 
+ * 			 Mine de rien dans la rigolade 
+ * 		j'avais oublier qu'un carree est un rectangle
+ * 
+ * 	du coup si height == width is a reactangle
+ * 
+ * @param game 
+ */
+void	ft_check_rectangular(t_game *game)
+{
+	if (game->height * game->width != game->map.len)
+		ft_print_error(FORM_ERROR, game);
 }

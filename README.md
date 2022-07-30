@@ -20,6 +20,15 @@ Custom libft for so_long, Work on linux and mac os, not on windows.
 <h1 align="center"> Getting Started </h1>
 
 <p align="center">
+Requirements for linux
+</p>
+
+```bash
+➜  ~ sudo apt-get install xorg openbox
+➜  ~ sudo apt-get install libxext-dev libbsd-dev
+```
+
+<p align="center">
 Requirements for MacOS
 </p>
 

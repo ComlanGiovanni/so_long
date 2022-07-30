@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 19:10:47 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 00:57:21 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	ft_load_sprites(t_game *game)
 	ft_load_player_down_sprites(game);
 	ft_load_player_left_sprites(game);
 	ft_load_player_right_sprites(game);
+	ft_load_player_current(game);
 	ft_load_door_closed_sprites(game);
 	ft_load_door_open_sprites(game);
 }
@@ -127,7 +128,7 @@ void	ft_put_all_sprites_to_line(t_game *game, int width, int height)
 	else if (game->map.map_str[height * game->width + width] == EXIT_CHAR
 		&& game->player.storage == game->map.nbr_key)
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->door.open.frame_0, width * IMG_SIZE, height * IMG_SIZE);
+			game->door.open.current, width * IMG_SIZE, height * IMG_SIZE);
 	else if (game->map.map_str[height * game->width + width] == EXIT_CHAR)
 		ft_exit_sprite(game, width, height);
 	else if (game->map.map_str[height * game->width + width] == VOID_CHAR)
@@ -141,5 +142,5 @@ void	ft_put_all_sprites_to_line(t_game *game, int width, int height)
 void	ft_wall_sprite(t_game *game, int width, int height)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
-		game->wall.animation.frame_0, width * IMG_SIZE, height * IMG_SIZE);
+		game->wall.animation.current, width * IMG_SIZE, height * IMG_SIZE);
 }

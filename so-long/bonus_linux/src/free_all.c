@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 16:49:05 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 00:20:25 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@
  */
 void	ft_free_all(t_game *game)
 {
-	if (!game)
-		return ;
+	mlx_loop_end(game->mlx);
 	ft_free_player(game);
 	ft_free_player_move(game);
 	ft_free_map_love_lava(game);
@@ -61,18 +60,15 @@ void	ft_free_player(t_game *game)
 		mlx_destroy_image(game->mlx, game->player.right_anim.frame_1);
 	if (game->player.right_anim.frame_2)
 		mlx_destroy_image(game->mlx, game->player.right_anim.frame_2);
+	if (game->player.right_anim.frame_0)
+		mlx_destroy_image(game->mlx, game->player.right_anim.frame_0);
+	if (game->player.left_anim.frame_0)
+		mlx_destroy_image(game->mlx, game->player.left_anim.frame_0);
+	if (game->player.up_anim.frame_0)
+		mlx_destroy_image(game->mlx, game->player.up_anim.frame_0);
+	if (game->player.down_anim.frame_0)
+		mlx_destroy_image(game->mlx, game->player.down_anim.frame_0);
 }
-
-/*
-//if (game->player.right_anim.frame_0)
-	//mlx_destroy_image(game->mlx, game->player.right_anim.frame_0);
-//if (game->player.left_anim.frame_0)
-		//mlx_destroy_image(game->mlx, game->player.left_anim.frame_0);
-if (game->player.up_anim.frame_0)
-	mlx_destroy_image(game->mlx, game->player.up_anim.frame_0);
-if (game->player.down_anim.frame_0)
-	mlx_destroy_image(game->mlx, game->player.down_anim.frame_0);
-*/
 
 void	ft_free_player_move(t_game *game)
 {
@@ -102,16 +98,11 @@ void	ft_free_map_love_lava(t_game *game)
 		mlx_destroy_image(game->mlx, game->lava.animation.frame_1);
 	if (game->lava.animation.frame_2)
 		mlx_destroy_image(game->mlx, game->lava.animation.frame_2);
+	if (game->lava.animation.frame_0)
+		mlx_destroy_image(game->mlx, game->lava.animation.frame_0);
+	if (game->love.animation.frame_0)
+		mlx_destroy_image(game->mlx, game->love.animation.frame_0);
 }
-
-/*
-//if (game->love.animation.frame_0)
-		//mlx_destroy_image(game->mlx, game->love.animation.frame_0);
-//if (game->lava.animation.frame_0)
-		//mlx_destroy_image(game->mlx, game->lava.animation.frame_0);
-//if (game->love.animation.frame_0)
-		//mlx_destroy_image(game->mlx, game->love.animation.frame_0);
-*/
 
 void	ft_free_key_wall_door(t_game *game)
 {
@@ -130,16 +121,13 @@ void	ft_free_key_wall_door(t_game *game)
 	if (game->door.closed.frame_0)
 		mlx_destroy_image(game->mlx, game->door.closed.frame_0);
 	if (game->door.closed.frame_1)
-		mlx_destroy_image(game->mlx, game->door.open.frame_1);
+		mlx_destroy_image(game->mlx, game->door.closed.frame_1);
 	if (game->door.closed.frame_2)
-		mlx_destroy_image(game->mlx, game->door.open.frame_2);
+		mlx_destroy_image(game->mlx, game->door.closed.frame_2);
+	if (game->key.animation.frame_0)
+		mlx_destroy_image(game->mlx, game->key.animation.frame_0);
+	if (game->wall.animation.frame_0)
+		mlx_destroy_image(game->mlx, game->wall.animation.frame_0);
+	if (game->door.open.frame_0)
+		mlx_destroy_image(game->mlx, game->door.open.frame_0);
 }
-
-/*
-//if (game->wall.animation.frame_0)
-		//mlx_destroy_image(game->mlx, game->wall.animation.frame_0);
-//if (game->door.open.frame_0)
-		//mlx_destroy_image(game->mlx, game->door.open.frame_0);
-//if (game->key.animation.frame_0)
-		//mlx_destroy_image(game->mlx, game->key.animation.frame_0);
-*/

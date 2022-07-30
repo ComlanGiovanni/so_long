@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:23:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 00:02:35 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 00:00:48 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ void	ft_load_lava_sprites(t_game *game)
 			"assets/xpm/Bonus/lava/lava_frame_2.xpm", &width, &height);
 	if (game->lava.animation.frame_2 == NULL)
 		ft_print_error(LAVA_2_XPM_ERROR, game);
+	game->lava.animation.current = game->lava.animation.frame_0;
+	if (game->lava.animation.current == NULL)
+		ft_print_error(LAVA_0_XPM_ERROR, game);
 }
 
 void	ft_load_key_sprites(t_game *game)
@@ -68,6 +71,9 @@ void	ft_load_key_sprites(t_game *game)
 			"assets/xpm/Bonus/key/key_frame_2.xpm", &width, &height);
 	if (game->key.animation.frame_2 == NULL)
 		ft_print_error(KEY_2_XPM_ERROR, game);
+	game->key.animation.current = game->key.animation.frame_0;
+	if (game->key.animation.current == NULL)
+		ft_print_error(KEY_0_XPM_ERROR, game);
 }
 
 void	ft_load_wall_sprites(t_game *game)
@@ -88,6 +94,9 @@ void	ft_load_wall_sprites(t_game *game)
 			"assets/xpm/Bonus/wall/wall_frame_2.xpm", &width, &height);
 	if (game->wall.animation.frame_2 == NULL)
 		ft_print_error(WALL_2_XPM_ERROR, game);
+	game->wall.animation.current = game->wall.animation.frame_0;
+	if (game->wall.animation.current == NULL)
+		ft_print_error(WALL_0_XPM_ERROR, game);
 }
 
 void	ft_load_ground_sprites(t_game *game)
@@ -123,4 +132,7 @@ void	ft_load_love_sprites(t_game *game)
 			"assets/xpm/Bonus/love/love_small_icon.xpm", &width, &height);
 	if (game->love.icon == NULL)
 		ft_print_error(LOVE_ICON_ERROR, game);
+	game->love.animation.current = game->love.animation.frame_0;
+	if (game->love.animation.current == NULL)
+		ft_print_error(LOVE_0_XPM_ERROR, game);
 }

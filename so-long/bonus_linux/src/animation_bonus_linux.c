@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 10:24:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/26 17:28:03 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 00:23:52 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	ft_wall_animation(t_animation *animation)
 	static int	frame;
 
 	if (frame == animation->frames)
-		animation->frame_0 = animation->frame_1;
+		animation->current = animation->frame_1;
 	else if (frame >= animation->frames * 2)
 	{
-		animation->frame_0 = animation->frame_2;
+		animation->current = animation->frame_2;
 		frame = FALSE;
 	}
 	frame += TRUE;
@@ -59,10 +59,10 @@ void	ft_lava_animation(t_animation *animation)
 	static int	frame;
 
 	if (frame == animation->frames)
-		animation->frame_0 = animation->frame_1;
+		animation->current = animation->frame_1;
 	else if (frame >= animation->frames * 2)
 	{
-		animation->frame_0 = animation->frame_2;
+		animation->current = animation->frame_2;
 		frame = FALSE;
 	}
 	frame += TRUE;
@@ -87,10 +87,10 @@ void	ft_key_animation(t_animation *animation)
 	static int	frame;
 
 	if (frame == animation->frames)
-		animation->frame_0 = animation->frame_1;
+		animation->current = animation->frame_1;
 	else if (frame >= animation->frames * 2)
 	{
-		animation->frame_0 = animation->frame_2;
+		animation->current = animation->frame_2;
 		frame = FALSE;
 	}
 	frame += TRUE;
@@ -117,10 +117,10 @@ void	ft_door_animation(t_door *door)
 
 	frame += 1;
 	if (frame == door->frames)
-		door->open.frame_0 = door->open.frame_1;
+		door->open.current = door->open.frame_1;
 	else if (frame >= door->frames * 2)
 	{
-		door->open.frame_0 = door->open.frame_2;
+		door->open.current = door->open.frame_2;
 		frame = FALSE;
 	}
 	frame += TRUE;
@@ -146,10 +146,10 @@ void	ft_love_animation(t_animation *animation)
 	static int	frame;
 
 	if (frame == animation->frames)
-		animation->frame_0 = animation->frame_1;
+		animation->current = animation->frame_1;
 	else if (frame >= animation->frames * 2)
 	{
-		animation->frame_0 = animation->frame_2;
+		animation->current = animation->frame_2;
 		frame = FALSE;
 	}
 	frame += TRUE;

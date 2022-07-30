@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:54:16 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/25 19:10:39 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/30 23:34:47 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,26 +53,26 @@ void	ft_player_sprite_call(t_game *game, int width, int height)
 void	ft_down_sprite(t_game *game, int width, int height)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
-		game->player.down_anim.frame_0, width * IMG_SIZE,
+		game->player.down_anim.current, width * IMG_SIZE,
 		height * IMG_SIZE);
 }
 
 void	ft_up_sprite(t_game *game, int width, int height)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
-		game->player.up_anim.frame_0, width * IMG_SIZE, height * IMG_SIZE);
+		game->player.up_anim.current, width * IMG_SIZE, height * IMG_SIZE);
 }
 
 void	ft_left_sprite(t_game *game, int width, int height)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
-		game->player.left_anim.frame_0, width * IMG_SIZE,
+		game->player.left_anim.current, width * IMG_SIZE,
 		height * IMG_SIZE);
 }
 
 void	ft_right_sprite(t_game *game, int width, int height)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
-		game->player.right_anim.frame_0, width * IMG_SIZE,
+		game->player.right_anim.current, width * IMG_SIZE,
 		height * IMG_SIZE);
 }

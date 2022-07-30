@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 14:59:09 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/30 23:15:04 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ void	ft_read_map(t_game *game, char *map_name)
  */
 void	ft_check_map(t_game *game)
 {
+	ft_check_sealed(game);
 	ft_map_fit_screen(game);
 	ft_check_valid_char(game);
 	ft_check_rectangular(game);
-	ft_check_sealed(game);
 	ft_check_playability(game);
 }
 
@@ -147,11 +147,13 @@ void	ft_check_sealed(t_game *game)
  * 
  * 	du coup si height == width is a reactangle
  * 
+ * bon bah du les square cest ok
+ * 
  * @param game 
  */
 void	ft_check_rectangular(t_game *game)
 {
-	if (game->height == game->width)
+	if (game->height * game->width != game->map_len)
 		ft_print_error(FORM_ERROR, game);
 }
 

@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 02:35:15 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 14:46:01 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 01:40:21 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,13 @@ void	check_ber_format(char *map_name, int height, t_game *game)
 	char	*line;
 	int		curr_height;
 
+	game->empty_line = 0;
 	fd = open(map_name, O_RDONLY);
 	if (fd <= FALSE)
 		ft_print_error(FAIL_OPEN_ERROR, game);
 	line = get_next_line(fd);
 	if (line == NULL || line[FALSE] == '\n')
-		ft_print_error(EMPTY_LINE, game);
+		game->empty_line = 1;
 	curr_height = TRUE;
 	free(line);
 	while (line)
@@ -96,7 +97,7 @@ void	check_ber_format(char *map_name, int height, t_game *game)
 		line = get_next_line(fd);
 		curr_height++;
 		if ((line == NULL || line[FALSE] == '\n') && curr_height != height)
-			ft_print_error(EMPTY_LINE, game);
+			game->empty_line = 1;
 		if ((curr_height == height) && line == NULL)
 			return ;
 		free(line);

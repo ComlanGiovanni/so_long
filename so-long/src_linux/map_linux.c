@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:58:13 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/30 23:15:04 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 01:38:33 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	ft_read_map(t_game *game, char *map_name)
 
 	height = get_map_height(map_name, game);
 	check_ber_format(map_name, height, game);
+	if (game->empty_line == 1)
+		ft_print_error(EMPTY_LINE, game);
 	fd = open(map_name, O_RDONLY);
 	if (fd <= FALSE)
 		ft_print_error(FAIL_OPEN_ERROR, game);

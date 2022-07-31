@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:57:29 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/28 15:00:03 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/07/31 01:39:24 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ typedef struct s_game
 	long long int	storage;
 	long long int	exit;
 	long long int	player;
+	long long int	empty_line;
 }		t_game;
 
 //main_linux

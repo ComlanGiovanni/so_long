@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:10:08 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 01:28:09 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/17 04:49:14 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -725,7 +725,7 @@ void	ft_load_sprites(t_game *game)
 {
 	game->node = NULL;
 	ft_load_enemies_sprites(game);
-	ft_load_wall_sprites(game);
+	//ft_load_wall_sprites(game);
 	ft_load_ground_sprites(game);
 	ft_load_borders_sprite(game);
 	ft_load_player_sprites(game);

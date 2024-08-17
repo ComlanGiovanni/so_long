@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:12:28 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 01:12:49 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/17 04:33:19 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,20 @@ void	ft_load_grass_sprites(t_game *game)
 		error_messages);
 }
 
-void	ft_load_wall_sprites(t_game *game)
-{
-	const char	*paths[] = {
-		PATH_ASSET"wall/wall_frame_0.xpm",
-		PATH_ASSET"wall/wall_frame_1.xpm",
-		PATH_ASSET"wall/wall_frame_2.xpm"};
-	const char	*error_messages[] = {
-		WALL_0_XPM_ERROR,
-		WALL_1_XPM_ERROR,
-		WALL_2_XPM_ERROR};
+// void	ft_load_wall_sprites(t_game *game)
+// {
+// 	const char	*paths[] = {
+// 		PATH_ASSET"wall/wall_frame_0.xpm",
+// 		PATH_ASSET"wall/wall_frame_1.xpm",
+// 		PATH_ASSET"wall/wall_frame_2.xpm"};
+// 	const char	*error_messages[] = {
+// 		WALL_0_XPM_ERROR,
+// 		WALL_1_XPM_ERROR,
+// 		WALL_2_XPM_ERROR};
 
-	ft_load_animation_sprites(&(game->wall.animation), game, paths,
-		error_messages);
-}
+// 	ft_load_animation_sprites(&(game->wall.animation), game, paths,
+// 		error_messages);
+// }
 
 void	ft_load_pawn_sprites(t_game *game)
 {

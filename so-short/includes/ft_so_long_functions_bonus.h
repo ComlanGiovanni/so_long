@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 02:11:52 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/17 04:47:56 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,13 +132,17 @@ void	ft_four_animation(t_animation *animation);
 void	ft_player_animation(t_player *player);
 void	ft_keke_animation(t_keke *keke);
 
-//============ [ ft_animation_utils.c ]
+//============ [ file.c ]
 
 void	ft_generic_animation(t_animation *animation, int *frame);
 
+//============ [ file.c ]
+
+void	ft_wall_animation(t_game *game);
+
 //============ [ ft_animation_world_bonus.c ]
 
-void	ft_wall_animation(t_animation *animation);
+//void	ft_wall_animation(t_animation *animation);
 void	ft_pawn_animation(t_animation *animation);
 void	ft_lava_animation(t_animation *animation);
 void	ft_key_animation(t_animation *animation);
@@ -224,7 +228,7 @@ void	ft_portal_n_sprite(t_game *game, t_point position);
 
 void	ft_love_sprite(t_game *game, t_point position);
 void	ft_ground_sprite(t_game *game, t_point position);
-void	ft_wall_sprite(t_game *game, t_point position);
+//void	ft_wall_sprite(t_game *game, t_point position);
 
 //============ [ ft_display_assets_one_bonus.c ]
 
@@ -576,7 +580,7 @@ void	ft_load_keke_current(t_game *game);
 
 void	ft_load_ground_sprites(t_game *game);
 void	ft_load_grass_sprites(t_game *game);
-void	ft_load_wall_sprites(t_game *game);
+//void	ft_load_wall_sprites(t_game *game);
 void	ft_load_pawn_sprites(t_game *game);
 
 //============ [ file.c ]

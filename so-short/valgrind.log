@@ -4311,46 +4311,46 @@ Player Exit  position in grid x->9 y->16
 
 New grid with border for camera
 
-======================================
-======================================
-======================================
-======================================
-======================================
-======================////////####0000
-........//////##//////////////####0000
-........//////##///////////////###0000
-.00.....//////##///////////////####000
-0000....//////##////////.//////####000
-//////.///111111111111111111///####000
-//////////11PSL0000N00000011//####0000
-//////////10011100C1100W0001/#####0000
-//////////100100111001111001/####00000
-//////////101000000000000001/####00000
-//////////101100011100010001#####00000
-//////////101000001000111001/####00000
-//////////100000W00000010001/####00000
-//////////10W0000000W0000001//###00000
-//////////100011001110111101//####0000
-./////////101000000000000001///###0000
-..////////100010000100010001///####000
-..////////101010100110110001////###000
-...///////101010100000000001////###000
-...///////100000100110110001////###000
-..////////10W00010001010W001.///####00
-..////////10001000ZE00010001////####00
-./////////10011100000011K001////####00
-./////////110010000111100011////####00
-//////////111111111111111111///####000
-//////#//////....00000..../////####000
-////#####/////....000..../////####0000
-//########////...........////#####0000
-/##########////.........////######0000
-############////......./////#####0000#
-#####000#####/////..../////#######0###
-###000000#####////////////############
-##00000000#####//////////#############
-#0000000000#####////////#############/
-000000000000#####//////############///
+=======#######++++@@@@@@@@@@@+++++++++
+=======#######++++@@@@@@@@@@++++++++++
+=======#######++++@@@@@@@@@@++++++++++
+=======#######+++++@@@@@@@@+++++++++++
+=======#######+++++@@@@@@@++++++++++++
+======########+++++@@@@@@+++++++++++++
+======#######++++++@@@@@++++++++++++++
+=====########++++++@@@@+++++++++++++++
+=====#######+++++++@@@+++++++++#####++
+====#######++++++++@+++++++++########+
+#+++++++++111111111111111111+++++++++@
+++++++++++11PSL0000N00000011++++++++@@
+++++++++++10011100C1100W0001+++++++@@@
+++++++++++100100111001111001++++++@@@@
+++++++++++101000000000000001++++++@@@@
+++++++++++101100011100010001++++++@@@@
+++++++++++101000001000111001++++++@@@@
+++++++++++100000W00000010001++++++@@@@
+++++++++++10W0000000W0000001+++++++@@@
+++++++++++100011001110111101++++++++@@
+++++++++++101000000000000001+++++++++@
+++++++++++100010000100010001++++++++++
++++++++++#101010100110110001++++++++++
+#+++++++##101010100000000001++++++++++
+##++++++##100000100110110001++++++++++
+###++++###10W00010001010W001+++##+++++
+###++++###10001000ZE00010001+######+++
+###+++++##10011100000011K001+#######++
+###++++++#110010000111100011+#######++
+##++++++++111111111111111111+########+
+#++++++++++########++++++++++########+
+#++++++++++########+++++++++##########
+#+++++++++++######++++++++++##########
+++++++++++++++###+++++++++++##########
+++++++++++++++++++++++++++++##########
++++++++++++++++++++++++++++###########
+++++++++++++++++++++++++++############
++++++++++++++++++++++++++#############
+++++++++++++++++++++++++##############
++++++++++++++++++++++++###############
 
 Grid Width && Height -> 	[38 40]
 
@@ -4387,44 +4387,44 @@ Window Height && Width [1280 x 1216]
 
 All image width and height are [64 x 64]
 
-assets/xpm/bonus/lava/lava_frame_0.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/lava/lava_frame_1.xpm : [[0;32m0x5cef790[0m]
-assets/xpm/bonus/lava/lava_frame_2.xpm : [[0;32m0x5ceffd0[0m]
-assets/xpm/bonus/door/closed/door_closed_frame_0.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/door/closed/door_closed_frame_1.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/door/closed/door_closed_frame_2.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/door/open/door_open_frame_0.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/door/open/door_open_frame_1.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/door/open/door_open_frame_2.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/up/player_up_frame_0.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/up/player_up_frame_1.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/up/player_up_frame_2.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/up/player_up_frame_move.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/down/player_down_frame_0.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/down/player_down_frame_1.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/down/player_down_frame_2.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/down/player_down_frame_move.x.pm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/left/player_left_frame_0.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/left/player_left_frame_1.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/left/player_left_frame_2.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/left/player_left_frame_move.x.pm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/right/player_right_frame_0.xp);m : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/right/player_right_frame_1.xp);m : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/right/player_right_frame_2.xp);m : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/player/right/player_right_frame_move);.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/key/key_frame_0.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/key/key_frame_1.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/key/key_frame_2.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/wall/wall_frame_0.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/wall/wall_frame_1.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/wall/wall_frame_2.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/grass/grass_frame_0.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/grass/grass_frame_1.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/grass/grass_frame_0.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/ground/ground.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/love/love_frame_0.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/love/love_frame_1.xpm : [[0;32m0x5ceef50[0m]
-assets/xpm/bonus/love/love_frame_2.xpm : [[0;32m0x5ceef50[0m]
+assets/xpm/bonus/lava/lava_frame_0.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/lava/lava_frame_1.xpm : [[0;32m0x5c9e790[0m]
+assets/xpm/bonus/lava/lava_frame_2.xpm : [[0;32m0x5c9efd0[0m]
+assets/xpm/bonus/door/closed/door_closed_frame_0.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/door/closed/door_closed_frame_1.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/door/closed/door_closed_frame_2.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/door/open/door_open_frame_0.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/door/open/door_open_frame_1.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/door/open/door_open_frame_2.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/up/player_up_frame_0.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/up/player_up_frame_1.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/up/player_up_frame_2.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/up/player_up_frame_move.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/down/player_down_frame_0.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/down/player_down_frame_1.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/down/player_down_frame_2.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/down/player_down_frame_move.x.pm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/left/player_left_frame_0.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/left/player_left_frame_1.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/left/player_left_frame_2.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/left/player_left_frame_move.x.pm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/right/player_right_frame_0.xp);m : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/right/player_right_frame_1.xp);m : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/right/player_right_frame_2.xp);m : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/player/right/player_right_frame_move);.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/key/key_frame_0.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/key/key_frame_1.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/key/key_frame_2.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/wall/wall_frame_0.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/wall/wall_frame_1.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/wall/wall_frame_2.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/grass/grass_frame_0.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/grass/grass_frame_1.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/grass/grass_frame_0.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/ground/ground.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/love/love_frame_0.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/love/love_frame_1.xpm : [[0;32m0x5c9df50[0m]
+assets/xpm/bonus/love/love_frame_2.xpm : [[0;32m0x5c9df50[0m]
 assets/xpm/bonus/love/love_small_icon.xpm
 
 [0;31m        \           EXIT            /
@@ -4450,20 +4450,17 @@ assets/xpm/bonus/love/love_small_icon.xpm
 [0;31m         /           q,            \
 [0;31m        /                           \
 [0m
-==543586== FILE DESCRIPTORS: 8 open (3 std) at exit.
-==543586== Open file descriptor 103: /usr/share/code/v8_context_snapshot.bin
-==543586==    <inherited from parent>
-==543586== 
-==543586== Open file descriptor 42: /dev/ptmx
-==543586==    <inherited from parent>
-==543586== 
-==543586== Open file descriptor 40: /dev/ptmx
-==543586==    <inherited from parent>
-==543586== 
-==543586== Open file descriptor 39: /home/ysera/.config/Code/logs/20240816T230038/ptyhost.log
-==543586==    <inherited from parent>
-==543586== 
-==543586== Open file descriptor 38: /usr/share/code/resources/app/node_modules.asar
-==543586==    <inherited from parent>
-==543586== 
-==543586== 
+==77368== FILE DESCRIPTORS: 7 open (3 std) at exit.
+==77368== Open file descriptor 103: /usr/share/code/v8_context_snapshot.bin
+==77368==    <inherited from parent>
+==77368== 
+==77368== Open file descriptor 40: /dev/ptmx
+==77368==    <inherited from parent>
+==77368== 
+==77368== Open file descriptor 39: /home/ysera/.config/Code/logs/20240817T041624/ptyhost.log
+==77368==    <inherited from parent>
+==77368== 
+==77368== Open file descriptor 38: /usr/share/code/resources/app/node_modules.asar
+==77368==    <inherited from parent>
+==77368== 
+==77368== 

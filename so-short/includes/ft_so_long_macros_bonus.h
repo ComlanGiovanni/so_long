@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:25:57 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 16:59:57 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/17 04:55:25 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define ICON_SIZE 				32
 # define BORDERS_WIDTH 			10//put 20 to test
 # define PERMUTATION_SIZE 		256
+# define WALLS_FRAMES	 		32//define for all frame init ?
 # define DISPLAY				"DISPLAY"
 # define STEP_INDICATOR			"STEP"
 # define FPS_INDICATOR			"FPS"

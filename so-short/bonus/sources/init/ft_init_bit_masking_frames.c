@@ -6,33 +6,32 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 00:16:42 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 01:54:55 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/17 04:53:08 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "ft_so_long_bonus.h"
 
 void	ft_init_wall_bit_masking_frames(t_game *game)
 {
-	game->wall.east.frames = 64;
-	game->wall.east.frames = 64;
-	game->wall.south.frames = 64;
-	game->wall.no_neighbors_four_direction.frames = 64;
-	game->wall.south_plus_east.frames = 64;
-	game->wall.north.frames = 64;
-	game->wall.south_plus_west.frames = 64;
-	game->wall.north_plus_east.frames = 64;
-	game->wall.south_plus_west_plus_east.frames = 64;
-	game->wall.north_plus_south.frames = 64;
-	game->wall.north_plus_south_plus_east.frames = 64;
-	game->wall.north_plus_south_plus_west.frames = 64;
-	game->wall.north_plus_south_plus_west_plus_east.frames = 64;
-	game->wall.west.frames = 64;
-	game->wall.north_plus_west_plus_east.frames = 64;
-	game->wall.west_plus_east.frames = 64;
-	game->wall.north_west.frames = 64;
-	game->wall.animation.frames = 64;
+	game->wall.east.frames = WALLS_FRAMES;
+	game->wall.east.frames = WALLS_FRAMES;
+	game->wall.south.frames = WALLS_FRAMES;
+	game->wall.no_neighbors_four_direction.frames = WALLS_FRAMES;
+	game->wall.south_plus_east.frames = WALLS_FRAMES;
+	game->wall.north.frames = WALLS_FRAMES;
+	game->wall.south_plus_west.frames = WALLS_FRAMES;
+	game->wall.north_plus_east.frames = WALLS_FRAMES;
+	game->wall.south_plus_west_plus_east.frames = WALLS_FRAMES;
+	game->wall.north_plus_south.frames = WALLS_FRAMES;
+	game->wall.north_plus_south_plus_east.frames = WALLS_FRAMES;
+	game->wall.north_plus_south_plus_west.frames = WALLS_FRAMES;
+	game->wall.north_plus_south_plus_west_plus_east.frames = WALLS_FRAMES;
+	game->wall.west.frames = WALLS_FRAMES;
+	game->wall.north_plus_west_plus_east.frames = WALLS_FRAMES;
+	game->wall.west_plus_east.frames = WALLS_FRAMES;
+	game->wall.north_west.frames = WALLS_FRAMES;
+	//game->wall.animation.frames = 64;
 }
 
 void	ft_init_wall_bit_masking(t_game *game, void **wall_sprites)

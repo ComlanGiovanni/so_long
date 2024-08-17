@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 01:20:05 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 01:27:55 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/17 04:33:00 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void ft_init_hud_sprites_position(t_game *game)
 
 void	ft_init_borders_frames(t_game *game)
 {
-	game->wall.animation.frames = 64;
+	//game->wall.animation.frames = 64;
 	game->grass.animation.frames = 12;
 	game->tree.animation.frames = 42;
 	game->trees.animation.frames = 24;

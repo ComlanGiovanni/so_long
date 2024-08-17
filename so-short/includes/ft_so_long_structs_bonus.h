@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:28:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 01:54:55 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/17 04:54:07 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ struct						s_wall
 	t_animation				north_plus_west_plus_east;
 	t_animation				west_plus_east;
 	t_animation				north_west;
-	t_animation				animation;
+	//t_animation				animation;
 };
 
 struct						s_water
@@ -403,8 +403,8 @@ struct s_lists
 struct s_neighbor
 {
 	t_point		goal;
-	t_point		directions[4];
-	char		dir_char[4];
+	t_point		directions[FANTASTIC];
+	char		dir_char[FANTASTIC];
 };
 
 struct s_a_star
@@ -498,7 +498,6 @@ struct						s_hedge
 	t_animation				animation;
 };
 
-
 typedef struct s_flood_fill_data {
     t_bool exit_found;
     int coins;
@@ -541,7 +540,7 @@ struct						s_game
 	t_box					box;
 	t_portal				portal;
 	t_camera				camera;
-	t_sprite_node			*node;
+	t_sprite_node			*node;//garbage_collector_sprite
 	t_point					screen;
 	t_keke					keke;
 	t_fps					fps;

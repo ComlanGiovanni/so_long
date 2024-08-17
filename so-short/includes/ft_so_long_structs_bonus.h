@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:28:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 16:32:39 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/17 01:54:55 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,23 @@ struct						s_grass
 
 struct						s_wall
 {
+	//void					*wall_sprites[16];
+	t_animation				east;
+	t_animation				south;
+	t_animation				no_neighbors_four_direction;
+	t_animation				south_plus_east;
+	t_animation				north;
+	t_animation				south_plus_west;
+	t_animation				north_plus_east;
+	t_animation				south_plus_west_plus_east;
+	t_animation				north_plus_south;
+	t_animation				north_plus_south_plus_east;
+	t_animation				north_plus_south_plus_west;
+	t_animation				north_plus_south_plus_west_plus_east;
+	t_animation				west;
+	t_animation				north_plus_west_plus_east;
+	t_animation				west_plus_east;
+	t_animation				north_west;
 	t_animation				animation;
 };
 
@@ -64,6 +81,7 @@ struct						s_water
 {
 	t_animation				animation;
 };
+
 
 struct s_pawn_movement
 {
@@ -283,7 +301,7 @@ struct						s_digits
 
 struct						s_alphabet
 {
-	void					*tab[26];
+	//void					*tab[26];
 	t_animation				a;
 	t_animation				b;
 	t_animation				c;

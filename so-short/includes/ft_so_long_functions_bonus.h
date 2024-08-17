@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 17:10:01 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/17 02:11:52 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,6 +251,7 @@ t_bool ft_is_other_borders_sprites(char tile);
 //============ [ ft_display_assets_utils_one_bonus.c ]
 
 void	ft_put_sprite(t_game *game, void *sprite, t_point position);
+void ft_draw_wall_bitmask_sprite(t_game *game, t_point grid_pos, t_point camera_pos);
 
 //============ [ ft_display_assets_wall_bit_mask_bonus.c ]
 //============ [ ft_display_assets_wall_simple_bonus.c ]
@@ -418,6 +419,13 @@ void ft_init_a_star_lists(t_game *game);
 void ft_init_a_star_data(t_game *game, t_point *start, \
 	t_point *goal, t_a_star_node **start_node);
 
+//============ [ file.c ]
+
+void	ft_init_wall_bit_masking_frames(t_game *game);
+void	ft_init_wall_bit_masking(t_game *game, void **wall_sprites);
+
+//============ [ file.c ]
+
 void	ft_init_camera(t_game *game);
 void	ft_init_hud_sprites_position(t_game *game);
 void	ft_init_frames(t_game *game);
@@ -523,6 +531,39 @@ void	ft_load_player_left_sprites(t_game *game);
 void	ft_load_player_right_sprites(t_game *game);
 void	ft_load_player_current(t_game *game);
 
+//============ [ file.c ]
+void	ft_load_wall_bit_masking_sprites(t_game *game);
+void	ft_load_wall_east_sprites(t_game *game);
+void	ft_load_wall_south_sprites(t_game *game);
+void	ft_load_wall_north_sprites(t_game *game);
+void	ft_load_wall_west_sprites(t_game *game);
+
+
+//============ [ file.c ]
+
+void	ft_load_wall_no_neighbors_four_direction_sprites(t_game *game);
+void	ft_load_wall_north_plus_south_plus_west_plus_east_sprites(t_game *game);
+
+//============ [ file.c ]
+void	ft_load_wall_north_plus_south_sprites(t_game *game);
+void	ft_load_wall_north_west_sprites(t_game *game);
+void	ft_load_wall_north_plus_east_sprites(t_game *game);
+
+//============ [ file.c ]
+void	ft_load_wall_north_plus_west_plus_east_sprites(t_game *game);
+void	ft_load_wall_north_plus_south_plus_west_sprites(t_game *game);
+void	ft_load_wall_north_plus_south_plus_east_sprites(t_game *game);
+
+
+//============ [ file.c ]
+void	ft_load_wall_south_plus_east_sprites(t_game *game);
+void	ft_load_wall_south_plus_west_sprites(t_game *game);
+void	ft_load_wall_south_plus_west_plus_east_sprites(t_game *game);
+
+
+//============ [ file.c ]
+void	ft_load_wall_west_plus_east_sprites(t_game *game);
+//============ [ file.c ]
 //============ [ file.c ]
 
 void	ft_load_keke_up_sprites(t_game *game);

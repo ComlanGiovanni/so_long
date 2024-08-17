@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:25:44 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 13:37:19 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/17 02:58:15 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_initialize_pawn(t_game *game, long long int index, int x, int y)
 	game->pawn.pawns_array[index].target_position = (t_point){x, y};
 	game->pawn.pawns_array[index].direction = " ";
 	game->pawn.pawns_array[index].is_returning = FALSE;
-	game->pawn.pawns_array[index].is_active = FALSE;
+	game->pawn.pawns_array[index].is_active = TRUE;
 	game->pawn.pawns_array[index].is_available = TRUE;
 	game->pawn.pawns_array[index].steps_taken = 0x0;
 	game->pawn.pawns_array[index].steps_need = 0x0;

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:10:08 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/13 21:13:28 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/17 01:28:09 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -720,6 +720,7 @@ void	ft_load_alphabet_sprites(t_game *game)
 	ft_load_even_alphabet_sprite(game);
 }
 
+
 void	ft_load_sprites(t_game *game)
 {
 	game->node = NULL;
@@ -733,6 +734,7 @@ void	ft_load_sprites(t_game *game)
 	ft_load_digits_sprites(game);
 	ft_load_box_sprites(game);
 	ft_load_alphabet_sprites(game);
+	ft_load_wall_bit_masking_sprites(game);
 }
 
 void	ft_add_sprite_to_list(t_sprite_node **head, void *frame)

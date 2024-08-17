@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 03:11:11 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 13:38:41 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/17 03:14:31 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,12 @@ int	ft_input_manager(int key_code, t_game *game)
 		return (EXIT_SUCCESS);
 	}
 	if (game->state == STATE_PAUSED)
+	{
+		if (key_code == LINUX_ESC_KEY)
+			ft_exit_game(game);
 		return (EXIT_SUCCESS);
-	if (game->map.info.nbr_keke)
-		ft_a_star_keke_movement(game);
+	}
+	//ft_movement_input();
 	if ((key_code == LINUX_W_KEY || key_code == LINUX_UP_ARROW_KEY
 			|| key_code == LINUX_UP_PAV_NUM_KEY))
 		ft_input_up(game);
@@ -72,8 +75,11 @@ int	ft_input_manager(int key_code, t_game *game)
 	if ((key_code == LINUX_D_KEY || key_code == LINUX_RIGHT_ARROW_KEY
 			|| key_code == LINUX_RIGHT_PAV_NUM_KEY))
 		ft_input_right(game);
+	//ft_movement_input();
+	//ft_exit_hanlder_helper
 	if (key_code == LINUX_ESC_KEY)
 		ft_exit_game(game);
+	//ft_exit_hanlder_helper
 	return (EXIT_SUCCESS);
 }
 
@@ -117,14 +123,26 @@ void	handle_box_movement(t_game *game, int new_x, int new_y, char *next_tile)
 	}
 }
 
-void ft_random_pawn_activation(t_game *game) {
-    // Seed the random number generator once at the start of the program, not here
-    int random_index = rand() % game->map.info.nbr_pawn;
+// void ft_random_pawn_activation(t_game *game) {
+//     // Seed the random number generator once at the start of the program, not here
+//     int random_index = rand() % game->map.info.nbr_pawn;
 
-    // Toggle the activation status of a random pawn
-	if (game->pawn.pawns_array[random_index].is_available)
-    	game->pawn.pawns_array[random_index].is_active = !game->pawn.pawns_array[random_index].is_active;
+//     // Toggle the activation status of a random pawn
+// 	if (game->pawn.pawns_array[random_index].is_available)
+//     	game->pawn.pawns_array[random_index].is_active = !game->pawn.pawns_array[random_index].is_active;
+// }
+
+void deactivate_pawn_at_position(t_game *game, int x, int y) {
+    for (int i = 0; i < game->map.info.nbr_pawn; i++) {
+        t_pawn_movement *pawn = &game->pawn.pawns_array[i];
+        if (pawn->current_position.x == x && pawn->current_position.y == y) {
+			ft_player_get_hit(game);
+            pawn->is_active = FALSE;
+            break;
+        }
+    }
 }
+
 
 
 void	ft_move_player(t_game *game, int new_x, int new_y)
@@ -136,8 +154,10 @@ void	ft_move_player(t_game *game, int new_x, int new_y)
 	x = game->player.movement.current_position.x;
 	y = game->player.movement.current_position.y;
 	next_tile = game->map.grid[new_y][new_x];
-	if (game->map.info.nbr_pawn)
-		ft_random_pawn_activation(game);
+	// if (game->map.info.nbr_pawn)
+	// 	ft_random_pawn_activation(game);
+	if (next_tile == PAWN_CHAR)
+		deactivate_pawn_at_position(game, new_x, new_y);
 	handle_box_movement(game, new_x, new_y, &next_tile);
 	if (handle_teleport(game, new_x, new_y, next_tile))
 		return;

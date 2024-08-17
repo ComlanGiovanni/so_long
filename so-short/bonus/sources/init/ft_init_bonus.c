@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 01:20:05 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 01:19:23 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/17 01:27:55 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ void	ft_init_frames(t_game *game)
 	ft_init_digits_frames(game);
 	ft_init_alphabet_frames(game);
 	ft_init_borders_frames(game);
+	ft_init_wall_bit_masking_frames(game);
 }
 
 void	ft_init_fps(t_game *game)

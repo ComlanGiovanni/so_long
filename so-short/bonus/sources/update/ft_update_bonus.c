@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:02:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 13:00:27 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/17 03:09:42 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,13 @@ void	ft_update_fps(t_game *game)
 		game->fps.last_time = game->fps.current_time;
 	}
 	if (game->map.info.nbr_pawn && game->fps.elapsed_time >= 1.0) {
-            // Perform the desired action
-            //printf("One second has passed!\n");
-			// srand((unsigned int)time(NULL));
-			// int tic_or_tac = rand() % 2;
 			if (game->fps.last_time.tv_sec % 2)
 				system("aplay sounds/special-effects/clock_tic.wav > /dev/null 2>&1 &");
 			else
 				system("aplay sounds/special-effects/clock_tac.wav > /dev/null 2>&1 &");
 			ft_move_pawn(game);
+			if (game->map.info.nbr_keke)
+				ft_a_star_keke_movement(game);
         }
 }
 

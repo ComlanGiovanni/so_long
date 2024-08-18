@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:22:27 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/13 22:25:32 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 12:58:58 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@
 # include "ft_so_long_enums_bonus.h"
 # include "ft_so_long_structs_bonus.h"
 # include "ft_so_long_functions_bonus.h"
+# include "ft_so_long_frames_bonus.h"
 
 #endif //!FT_SO_LONG_BONUS_H

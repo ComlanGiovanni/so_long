@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 03:11:17 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 10:44:10 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_handle_tile_action(t_game *game, char next_tile)
 	}
 	else if (next_tile == KEY_CHAR)
 		ft_player_take_coin(game);
-	else if (next_tile == LAVA_CHAR || next_tile == monster_CHAR)
+	else if (next_tile == LAVA_CHAR || next_tile == MONSTER_CHAR)
 		ft_player_get_hit(game);
 	// else if (next_tile == PAWN_CHAR)
 	// 	game->state = STATE_LOSE;

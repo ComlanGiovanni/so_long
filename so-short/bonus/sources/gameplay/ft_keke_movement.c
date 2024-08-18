@@ -38,7 +38,7 @@ void	ft_move_monster_up(t_game *game, int row, int col)
 				> /dev/null 2>&1 &");
 		game->monster.up_anim.current = game->monster.up_anim.frame_move_0;
 		game->map.grid[row][col] = VOID_CHAR;
-		game->map.grid[row - 1][col] = monster_CHAR;
+		game->map.grid[row - 1][col] = MONSTER_CHAR;
 		game->monster.up_anim.current = game->monster.up_anim.frame_move_1;
 	}
 }
@@ -57,7 +57,7 @@ void	ft_move_monster_down(t_game *game, int row, int col)
 				> /dev/null 2>&1 &");
 		game->monster.down_anim.current = game->monster.down_anim.frame_move_0;
 		game->map.grid[row][col] = VOID_CHAR;
-		game->map.grid[row + 1][col] = monster_CHAR;
+		game->map.grid[row + 1][col] = MONSTER_CHAR;
 		game->monster.down_anim.current = game->monster.down_anim.frame_move_1;
 	}
 }
@@ -76,7 +76,7 @@ void	ft_move_monster_left(t_game *game, int row, int col)
 				 > /dev/null 2>&1 &");
 		game->monster.left_anim.current = game->monster.left_anim.frame_move_0;
 		game->map.grid[row][col] = VOID_CHAR;
-		game->map.grid[row][col - 1] = monster_CHAR;
+		game->map.grid[row][col - 1] = MONSTER_CHAR;
 		game->monster.left_anim.current = game->monster.left_anim.frame_move_1;
 	}
 }
@@ -95,7 +95,7 @@ void	ft_move_monster_right(t_game *game, int row, int col)
 				> /dev/null 2>&1 &");
 		game->monster.right_anim.current = game->monster.right_anim.frame_move_0;
 		game->map.grid[row][col] = VOID_CHAR;
-		game->map.grid[row][col + 1] = monster_CHAR;
+		game->map.grid[row][col + 1] = MONSTER_CHAR;
 		game->monster.right_anim.current = game->monster.right_anim.frame_move_1;
 	}
 }

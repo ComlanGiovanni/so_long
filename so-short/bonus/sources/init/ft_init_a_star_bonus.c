@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 01:46:58 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 10:44:10 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_init_a_star_lists(t_game *game)
 void	ft_init_a_star_data(t_game *game, t_point *start, \
 	t_point *goal, t_a_star_node **start_node)
 {
-	*start = ft_find_pos_char(game->map.grid, game->map.size, monster_CHAR);
+	*start = ft_find_pos_char(game->map.grid, game->map.size, MONSTER_CHAR);
 	*goal = game->player.movement.current_position;
 	*start_node = ft_init_monster_start_node(*start, *goal);
 	if (!*start_node)

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:52:04 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 10:44:19 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void	ft_print_map_info(t_game *game)
 	ft_printf("Void   : [%c] -> {%d}\n", VOID_CHAR, game->map.info.nbr_void);
 	ft_printf("Life   : [%c] -> {%d}\n", LOVE_CHAR, game->map.info.nbr_love);
 	ft_printf("Lava   : [%c] -> {%d}\n", LAVA_CHAR, game->map.info.nbr_lava);
-	ft_printf("monster   : [%c] -> {%d}\n", monster_CHAR, game->map.info.nbr_monster);
+	ft_printf("Monster: [%c] -> {%d}\n", \
+		MONSTER_CHAR, game->map.info.nbr_monster);
 	ft_printf("Key    : [%c] -> {%d}\n", KEY_CHAR, game->map.info.nbr_key);
 	ft_printf("Exit   : [%c] -> {%d}\n", EXIT_CHAR, game->map.info.nbr_exit);
 	ft_printf("Box    : [%c] -> {%d}\n", BOX_CHAR, game->map.info.nbr_box);

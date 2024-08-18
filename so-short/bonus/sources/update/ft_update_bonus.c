@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:02:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 11:33:48 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,18 @@ void	ft_draw_pause_message(t_game *game)
 	}
 }
 
+void ft_sleep_for_fps(int fps) {
+    if (fps <= 0) {
+        return; // Avoid division by zero or negative FPS
+    }
+    // Calculate the duration to sleep in microseconds
+    int sleep_duration = 100000 / fps;
+    usleep(sleep_duration);
+}
+
 int	ft_update(t_game *game)
 {
+	ft_sleep_for_fps(60);
 	if (game->state == STATE_PAUSED)
 	{
 		ft_draw_pause_message(game);

@@ -31,6 +31,6 @@ void	ft_direction_monster_after_launch(t_game *game)
 int	ft_is_monster_obstacle(char tile)
 {
 	return (tile == WALL_CHAR || tile == EXIT_CHAR || tile == KEY_CHAR \
-		|| tile == monster_CHAR || tile == LOVE_CHAR || tile == PORTAL_1_CHAR \
+		|| tile == MONSTER_CHAR || tile == LOVE_CHAR || tile == PORTAL_1_CHAR \
 		|| tile == PORTAL_2_CHAR || tile == LAVA_CHAR);
 }

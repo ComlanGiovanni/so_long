@@ -39,7 +39,7 @@ void	ft_check_if_current_node_is_player_position(t_game *game, \
 {
 	t_point	start;
 
-	start = ft_find_pos_char(game->map.grid, game->map.size, monster_CHAR);
+	start = ft_find_pos_char(game->map.grid, game->map.size, MONSTER_CHAR);
 	if (ft_is_same_point(current->pos, game->player.movement.current_position))
 		ft_find_monster_direction(game, current, start);
 }

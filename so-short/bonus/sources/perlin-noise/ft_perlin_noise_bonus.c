@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 01:16:16 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/14 05:11:08 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 15:12:16 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ static void	ft_initialize_permutation_values(int *perm)
 	ft_shuffle_permutation(perm);
 }
 
-// Fonction principale pour calculer le bruit de Perlin
 float	ft_perlin_noise(float x, float y)
 {
 	t_perlin_vars	vars;

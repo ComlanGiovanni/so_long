@@ -23,7 +23,7 @@ void	ft_monster_move_up(t_game *game)
 		col = 0x0;
 		while (col < game->width)
 		{
-			if (game->map.grid[row][col] == monster_CHAR && row > 0x0)
+			if (game->map.grid[row][col] == MONSTER_CHAR && row > 0x0)
 				ft_move_monster_up(game, row, col);
 			col++;
 		}
@@ -42,7 +42,7 @@ void	ft_monster_move_down(t_game *game)
 		col = 0x0;
 		while (col < game->width)
 		{
-			if (game->map.grid[row][col] == monster_CHAR \
+			if (game->map.grid[row][col] == MONSTER_CHAR \
 				&& row < game->height - 0x1)
 				ft_move_monster_down(game, row, col);
 			col++;
@@ -62,7 +62,7 @@ void	ft_monster_move_left(t_game *game)
 		col = 0x0;
 		while (col < game->width)
 		{
-			if (game->map.grid[row][col] == monster_CHAR && col > 0x0)
+			if (game->map.grid[row][col] == MONSTER_CHAR && col > 0x0)
 				ft_move_monster_left(game, row, col);
 			col++;
 		}
@@ -81,7 +81,7 @@ void	ft_monster_move_right(t_game *game)
 		col = game->width - 0x1;
 		while (col >= 0x0)
 		{
-			if (game->map.grid[row][col] == monster_CHAR \
+			if (game->map.grid[row][col] == MONSTER_CHAR \
 				&& col < game->width - 0x1)
 				ft_move_monster_right(game, row, col);
 			col--;

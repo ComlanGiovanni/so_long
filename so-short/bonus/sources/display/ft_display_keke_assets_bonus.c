@@ -15,7 +15,7 @@
 void	ft_monster_sprites(t_game *game, int width, int height,
 		t_point sprite_position)
 {
-	if (game->map.grid[height][width] == monster_CHAR)
+	if (game->map.grid[height][width] == MONSTER_CHAR)
 	{
 		if (game->monster.direction == 'd')
 			ft_monster_down_sprite(game, sprite_position.x, sprite_position.y);

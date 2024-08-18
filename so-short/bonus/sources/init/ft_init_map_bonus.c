@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:59:15 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/14 17:36:22 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void ft_gameplay_map_info(t_info *info, char map_char) {
 void ft_enemies_map_info(t_info *info, char map_char) {
     if (map_char == PAWN_CHAR)
         info->nbr_pawn++;
-    else if (map_char == KEKE_CHAR)
-        info->nbr_keke++;
+    else if (map_char == monster_CHAR)
+        info->nbr_monster++;
     else if (map_char == LAVA_CHAR)
         info->nbr_lava++;
 }
@@ -124,8 +124,8 @@ void ft_get_info_map(t_game *game) {
 // 			game->map.info.nbr_grass++;
 // 		else if (game->map.map_str[idx] == PAWN_CHAR)
 // 			game->map.info.nbr_pawn++;
-// 		else if (game->map.map_str[idx] == KEKE_CHAR)
-// 			game->map.info.nbr_keke++;
+// 		else if (game->map.map_str[idx] == monster_CHAR)
+// 			game->map.info.nbr_monster++;
 // 		else
 // 			game->map.info.nbr_void++;
 // 	}

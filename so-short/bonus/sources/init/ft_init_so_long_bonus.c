@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 01:18:15 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/14 13:44:51 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_init_game(t_game *game, char *map_name)
 		ft_load_sprites(game);
 		ft_init_fps(game);
 		ft_init_player_info(game);
-		ft_init_keke_info(game);
+		ft_init_monster_info(game);
 		ft_read_map(game, map_name);
 		ft_check_map(game);
 		ft_setup_map(game);
@@ -67,10 +67,10 @@ void	ft_init_player_info(t_game *game)
 	//ft_dir_player_by_pos_exit_after_launch(game);
 }
 
-void	ft_init_keke_info(t_game *game)
+void	ft_init_monster_info(t_game *game)
 {
-	game->keke.moved = FALSE;
-	game->keke.step = FALSE;
+	game->monster.moved = FALSE;
+	game->monster.step = FALSE;
 	game->player.step = 0;
-	ft_direction_keke_after_launch(game);
+	ft_direction_monster_after_launch(game);
 }

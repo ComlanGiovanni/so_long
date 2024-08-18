@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_keke_a_star_one_utils_bonus.c                   :+:      :+:    :+:   */
+/*   ft_monster_a_star_one_utils_bonus.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -31,7 +31,7 @@ int	ft_node_is_valid_neighbor(t_game *game, int x, int y)
 {
 	return ((x >= 0x0) && (y >= 0x0) && (x < game->width) \
 		&& (y < game->height) \
-			&& ft_is_keke_walkable_point(game->map.grid, x, y));
+			&& ft_is_monster_walkable_point(game->map.grid, x, y));
 }
 
 void	ft_check_if_current_node_is_player_position(t_game *game, \
@@ -39,7 +39,7 @@ void	ft_check_if_current_node_is_player_position(t_game *game, \
 {
 	t_point	start;
 
-	start = ft_find_pos_char(game->map.grid, game->map.size, KEKE_CHAR);
+	start = ft_find_pos_char(game->map.grid, game->map.size, monster_CHAR);
 	if (ft_is_same_point(current->pos, game->player.movement.current_position))
-		ft_find_keke_direction(game, current, start);
+		ft_find_monster_direction(game, current, start);
 }

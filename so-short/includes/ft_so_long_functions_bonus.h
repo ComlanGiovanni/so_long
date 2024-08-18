@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 04:47:56 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ void	ft_four_animation(t_animation *animation);
 //============ [ ft_animation_player_bonus.c ]
 
 void	ft_player_animation(t_player *player);
-void	ft_keke_animation(t_keke *keke);
+void	ft_monster_animation(t_monster *monster);
 
 //============ [ file.c ]
 
@@ -259,14 +259,14 @@ void ft_draw_wall_bitmask_sprite(t_game *game, t_point grid_pos, t_point camera_
 
 //============ [ ft_display_assets_wall_bit_mask_bonus.c ]
 //============ [ ft_display_assets_wall_simple_bonus.c ]
-//============ [ ft_display_keke_assets_bonus.c ]
+//============ [ ft_display_monster_assets_bonus.c ]
 
-void	ft_keke_sprites(t_game *game, int width, int height, \
+void	ft_monster_sprites(t_game *game, int width, int height, \
 		t_point sprite_position);
-void	ft_keke_down_sprite(t_game *game, int draw_x, int draw_y);
-void	ft_keke_up_sprite(t_game *game, int draw_x, int draw_y);
-void	ft_keke_left_sprite(t_game *game, int draw_x, int draw_y);
-void	ft_keke_right_sprite(t_game *game, int draw_x, int draw_y);
+void	ft_monster_down_sprite(t_game *game, int draw_x, int draw_y);
+void	ft_monster_up_sprite(t_game *game, int draw_x, int draw_y);
+void	ft_monster_left_sprite(t_game *game, int draw_x, int draw_y);
+void	ft_monster_right_sprite(t_game *game, int draw_x, int draw_y);
 
 //============ [ ft_free_a_star_utils_bonus.c ]
 
@@ -294,13 +294,13 @@ void	ft_free_pawns_array(t_game *game);
 void	ft_free_sprites_list(t_sprite_node **head, void *mlx);
 void	ft_free_step_and_storage(t_game *game);
 
-//============ [ ft_keke_a_star_bonus.c ]
+//============ [ ft_monster_a_star_bonus.c ]
 
 void ft_check_neighbor_node(t_game *game, t_a_star_node *current, t_point pos);
 void ft_explore_neighbors_node(t_game *game, t_a_star_node *current);
 void ft_process_a_star_node(t_game *game);
 
-//============ [ ft_keke_a_star_one_utils_bonus.c ]
+//============ [ ft_monster_a_star_one_utils_bonus.c ]
 
 t_bool ft_check_if_point_is_in_list(t_a_star_node **list, \
 	int count, t_point pos);
@@ -308,42 +308,42 @@ int ft_node_is_valid_neighbor(t_game *game, int x, int y);
 void ft_check_if_current_node_is_player_position(t_game *game, \
 	t_a_star_node *current);
 
-//============ [ ft_keke_a_star_utils_bonus.c ]
+//============ [ ft_monster_a_star_utils_bonus.c ]
 
 t_point ft_get_neighbor_position(t_game *game, t_a_star_node *current, \
 	int index);
 t_bool ft_node_is_valid_and_not_in_closed(t_game *game, t_point pos);
-int ft_is_keke_walkable_point(char **grid, int x, int y);
+int ft_is_monster_walkable_point(char **grid, int x, int y);
 
-//============ [ ft_keke_behaviour_bonus.c ]
+//============ [ ft_monster_behaviour_bonus.c ]
 
-void	ft_direction_keke_after_launch(t_game *game);
-int	ft_is_keke_obstacle(char tile);
+void	ft_direction_monster_after_launch(t_game *game);
+int	ft_is_monster_obstacle(char tile);
 
-//============ [ ft_keke_behaviour_utils_bonus.c ]
+//============ [ ft_monster_behaviour_utils_bonus.c ]
 
-void	ft_keke_move_up(t_game *game);
-void	ft_keke_move_down(t_game *game);
-void	ft_keke_move_left(t_game *game);
-void	ft_keke_move_right(t_game *game);
+void	ft_monster_move_up(t_game *game);
+void	ft_monster_move_down(t_game *game);
+void	ft_monster_move_left(t_game *game);
+void	ft_monster_move_right(t_game *game);
 
-//============ [ ft_keke_event_bonus.c ]
+//============ [ ft_monster_event_bonus.c ]
 
-void ft_a_star_keke_movement(t_game *game);
+void ft_a_star_monster_movement(t_game *game);
 void ft_add_to_open_list(t_a_star_node **open_list, int *open_count, \
 	t_a_star_node *new_node);
 void ft_sort_open_list(t_a_star_node **open_list, int open_count);
-void ft_find_keke_direction(t_game *game, t_a_star_node *current, t_point start);
+void ft_find_monster_direction(t_game *game, t_a_star_node *current, t_point start);
 void ft_remove_from_open_list(t_a_star_node **open_list, int *open_count);
 
-//============ [ ft_keke_movement.c ]
+//============ [ ft_monster_movement.c ]
 
 
-void	ft_move_keke(t_game *game);
-void	ft_move_keke_up(t_game *game, int row, int col);
-void	ft_move_keke_down(t_game *game, int row, int col);
-void	ft_move_keke_left(t_game *game, int row, int col);
-void	ft_move_keke_right(t_game *game, int row, int col);
+void	ft_move_monster(t_game *game);
+void	ft_move_monster_up(t_game *game, int row, int col);
+void	ft_move_monster_down(t_game *game, int row, int col);
+void	ft_move_monster_left(t_game *game, int row, int col);
+void	ft_move_monster_right(t_game *game, int row, int col);
 
 //============ [ file.c ]
 //============ [ ft_pawn_patrolling_utils_bonus.c ]
@@ -415,7 +415,7 @@ void	ft_display_life_on_windows(t_game *game);
 
 //============ [ ft_init_a_star_bonus.c ]
 
-t_a_star_node *ft_init_keke_start_node(t_point start, t_point goal);
+t_a_star_node *ft_init_monster_start_node(t_point start, t_point goal);
 t_a_star_node *ft_init_create_neighbor_node(t_game *game,
 	t_a_star_node *current, t_point pos);
 void	ft_init_neighbor_data(t_game *game, t_point goal);
@@ -465,7 +465,7 @@ void	ft_initialize_pawn(t_game *game, long long int index, int x, int y);
 void	ft_init_game(t_game *game, char *map_name);
 void	ft_init_player_info(t_game *game);
 void	ft_init_map_info(t_game *game, char *line);
-void	ft_init_keke_info(t_game *game);
+void	ft_init_monster_info(t_game *game);
 
 //============ [ file.c ]
 
@@ -570,11 +570,11 @@ void	ft_load_wall_west_plus_east_sprites(t_game *game);
 //============ [ file.c ]
 //============ [ file.c ]
 
-void	ft_load_keke_up_sprites(t_game *game);
-void	ft_load_keke_down_sprites(t_game *game);
-void	ft_load_keke_left_sprites(t_game *game);
-void	ft_load_keke_right_sprites(t_game *game);
-void	ft_load_keke_current(t_game *game);
+void	ft_load_monster_up_sprites(t_game *game);
+void	ft_load_monster_down_sprites(t_game *game);
+void	ft_load_monster_left_sprites(t_game *game);
+void	ft_load_monster_right_sprites(t_game *game);
+void	ft_load_monster_current(t_game *game);
 
 //============ [ file.c ]
 

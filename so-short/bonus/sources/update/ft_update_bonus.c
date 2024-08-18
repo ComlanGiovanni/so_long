@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:02:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 03:09:42 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ void	ft_update_fps(t_game *game)
 			else
 				system("aplay sounds/special-effects/clock_tac.wav > /dev/null 2>&1 &");
 			ft_move_pawn(game);
-			if (game->map.info.nbr_keke)
-				ft_a_star_keke_movement(game);
+			if (game->map.info.nbr_monster)
+				ft_a_star_monster_movement(game);
         }
 }
 

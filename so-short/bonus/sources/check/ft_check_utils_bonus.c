@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 03:10:59 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/14 22:59:25 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_is_valid_char_check_map(char tile)
 	static const char	valid_map_chars[] = {
 		LAVA_CHAR, EXIT_CHAR, LOVE_CHAR, KEY_CHAR, PLAYER_CHAR, WALL_CHAR,
 		VOID_CHAR, GRASS_CHAR, VISITED_CHAR, BOX_CHAR, PORTAL_1_CHAR,
-		PORTAL_2_CHAR, KEKE_CHAR, PAWN_CHAR};
+		PORTAL_2_CHAR, monster_CHAR, PAWN_CHAR};
 
 	index = 0;
 	valid_chars_count = sizeof(valid_map_chars) / sizeof(valid_map_chars[0]);
@@ -95,8 +95,8 @@ void	ft_check_playability(t_game *game)
 		ft_print_error(PLAYER_ERROR, game);
 	if (game->map.info.nbr_exit != TRUE)
 		ft_print_error(EXIT_ERROR, game);
-	if (game->map.info.nbr_keke > TRUE)
-		ft_print_error(KEKE_ERROR, game);
+	if (game->map.info.nbr_monster > TRUE)
+		ft_print_error(monster_ERROR, game);
 	if ((game->map.info.nbr_portal_1 > 1 || game->map.info.nbr_portal_2 > 1)
 		|| (game->map.info.nbr_portal_1 == 1
 			&& game->map.info.nbr_portal_2 == 0)

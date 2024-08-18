@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_keke_behaviour_utils_bonus.c                    :+:      :+:    :+:   */
+/*   ft_monster_behaviour_utils_bonus.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "ft_so_long_bonus.h"
 
-void	ft_keke_move_up(t_game *game)
+void	ft_monster_move_up(t_game *game)
 {
 	int	row;
 	int	col;
@@ -23,15 +23,15 @@ void	ft_keke_move_up(t_game *game)
 		col = 0x0;
 		while (col < game->width)
 		{
-			if (game->map.grid[row][col] == KEKE_CHAR && row > 0x0)
-				ft_move_keke_up(game, row, col);
+			if (game->map.grid[row][col] == monster_CHAR && row > 0x0)
+				ft_move_monster_up(game, row, col);
 			col++;
 		}
 		row++;
 	}
 }
 
-void	ft_keke_move_down(t_game *game)
+void	ft_monster_move_down(t_game *game)
 {
 	int	row;
 	int	col;
@@ -42,16 +42,16 @@ void	ft_keke_move_down(t_game *game)
 		col = 0x0;
 		while (col < game->width)
 		{
-			if (game->map.grid[row][col] == KEKE_CHAR \
+			if (game->map.grid[row][col] == monster_CHAR \
 				&& row < game->height - 0x1)
-				ft_move_keke_down(game, row, col);
+				ft_move_monster_down(game, row, col);
 			col++;
 		}
 		row--;
 	}
 }
 
-void	ft_keke_move_left(t_game *game)
+void	ft_monster_move_left(t_game *game)
 {
 	int	row;
 	int	col;
@@ -62,15 +62,15 @@ void	ft_keke_move_left(t_game *game)
 		col = 0x0;
 		while (col < game->width)
 		{
-			if (game->map.grid[row][col] == KEKE_CHAR && col > 0x0)
-				ft_move_keke_left(game, row, col);
+			if (game->map.grid[row][col] == monster_CHAR && col > 0x0)
+				ft_move_monster_left(game, row, col);
 			col++;
 		}
 		row++;
 	}
 }
 
-void	ft_keke_move_right(t_game *game)
+void	ft_monster_move_right(t_game *game)
 {
 	int	row;
 	int	col;
@@ -81,9 +81,9 @@ void	ft_keke_move_right(t_game *game)
 		col = game->width - 0x1;
 		while (col >= 0x0)
 		{
-			if (game->map.grid[row][col] == KEKE_CHAR \
+			if (game->map.grid[row][col] == monster_CHAR \
 				&& col < game->width - 0x1)
-				ft_move_keke_right(game, row, col);
+				ft_move_monster_right(game, row, col);
 			col--;
 		}
 		row++;

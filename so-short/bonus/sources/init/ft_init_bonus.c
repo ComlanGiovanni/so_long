@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 01:20:05 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 04:33:00 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void ft_init_alphabet_frames(t_game *game)
 void	ft_init_enemies_frames(t_game *game)
 {
 	game->lava.animation.frames = 24;
-	game->keke.frames = 24;
+	game->monster.frames = 24;
 	game->pawn.animation.frames = 32;
 }
 
@@ -192,7 +192,7 @@ void	ft_init_game_info(t_game *game)
 	game->map.info.nbr_key = FALSE;
 	game->map.info.nbr_exit = FALSE;
 	game->map.info.nbr_lava = FALSE;
-	game->map.info.nbr_keke = FALSE;
+	game->map.info.nbr_monster = FALSE;
 	game->map.info.nbr_love = FALSE;
 	game->map.info.nbr_wall = TRUE;
 	game->map.info.nbr_pawn = FALSE;

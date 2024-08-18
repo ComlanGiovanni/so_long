@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:20 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/14 13:20:40 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ enum	e_map_char
 	PORTAL_1_CHAR = 'Z',
 	PORTAL_2_CHAR = 'N',
 	LAVA_CHAR = 'L',
-	KEKE_CHAR = 'K',
+	monster_CHAR = 'K',
 	PAWN_CHAR = 'W',
 	GRASS_CHAR = '#',
 	TREE_CHAR = '@',

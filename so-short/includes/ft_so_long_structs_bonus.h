@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:28:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 04:54:07 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,7 +198,7 @@ struct						s_info
 	long long int			nbr_void;
 	long long int			nbr_box;
 	long long int			nbr_grass;
-	long long int			nbr_keke;
+	long long int			nbr_monster;
 	long long int			nbr_portal_1;
 	long long int			nbr_portal_2;
 };
@@ -374,7 +374,7 @@ struct						s_portal
 	t_animation				n;
 };
 
-struct						s_anim_keke
+struct						s_anim_monster
 {
 	void					*current;
 	void					*frame_0;
@@ -413,12 +413,12 @@ struct s_a_star
     t_neighbor				neighbor;
 };
 
-struct						s_keke
+struct						s_monster
 {
-	t_anim_keke				up_anim;
-	t_anim_keke				down_anim;
-	t_anim_keke				left_anim;
-	t_anim_keke				right_anim;
+	t_anim_monster				up_anim;
+	t_anim_monster				down_anim;
+	t_anim_monster				left_anim;
+	t_anim_monster				right_anim;
 	t_bool					moved;
 	t_a_star				a_star;
 	int						frames;
@@ -542,7 +542,7 @@ struct						s_game
 	t_camera				camera;
 	t_sprite_node			*node;//garbage_collector_sprite
 	t_point					screen;
-	t_keke					keke;
+	t_monster					monster;
 	t_fps					fps;
 	t_window				window;
 	t_hud					hud;

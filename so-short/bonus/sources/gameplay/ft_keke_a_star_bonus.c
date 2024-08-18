@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_keke_a_star_bonus.c                             :+:      :+:    :+:   */
+/*   ft_monster_a_star_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 01:45:24 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 02:34:54 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:52:08 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	ft_check_neighbor_node(t_game *game, t_a_star_node *current, \
 	t_a_star_node	*node;
 
 	node = ft_init_create_neighbor_node(game, current, pos);
-	if (!ft_check_if_point_is_in_list(game->keke.a_star.lists.open, \
-		game->keke.a_star.lists.open_count, pos))
-		ft_add_to_open_list(game->keke.a_star.lists.open, \
-			&(game->keke.a_star.lists.open_count), node);
+	if (!ft_check_if_point_is_in_list(game->monster.a_star.lists.open, \
+		game->monster.a_star.lists.open_count, pos))
+		ft_add_to_open_list(game->monster.a_star.lists.open, \
+			&(game->monster.a_star.lists.open_count), node);
 	else
 		free(node);
 }
@@ -45,13 +45,13 @@ void	ft_process_a_star_node(t_game *game)
 {
 	t_a_star_node	*current;
 
-	ft_sort_open_list(game->keke.a_star.lists.open, \
-		game->keke.a_star.lists.open_count);
-	current = game->keke.a_star.lists.open[0];
+	ft_sort_open_list(game->monster.a_star.lists.open, \
+		game->monster.a_star.lists.open_count);
+	current = game->monster.a_star.lists.open[0];
 	ft_check_if_current_node_is_player_position(game, current);
-	ft_remove_from_open_list(game->keke.a_star.lists.open, \
-		&(game->keke.a_star.lists.open_count));
-	game->keke.a_star.lists.closed[\
-		game->keke.a_star.lists.closed_count++] = current;
+	ft_remove_from_open_list(game->monster.a_star.lists.open, \
+		&(game->monster.a_star.lists.open_count));
+	game->monster.a_star.lists.closed[\
+		game->monster.a_star.lists.closed_count++] = current;
 	ft_explore_neighbors_node(game, current);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_keke_a_star_utils_bonus.c                       :+:      :+:    :+:   */
+/*   ft_monster_a_star_utils_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 01:45:21 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 02:36:39 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:52:08 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ t_point	ft_get_neighbor_position(t_game *game, t_a_star_node *current, \
 	int index)
 {
 	return ((t_point){current->pos.x \
-		+ game->keke.a_star.neighbor.directions[index].x, \
-			current->pos.y + game->keke.a_star.neighbor.directions[index].y});
+		+ game->monster.a_star.neighbor.directions[index].x, \
+			current->pos.y + game->monster.a_star.neighbor.directions[index].y});
 }
 
 t_bool	ft_node_is_valid_and_not_in_closed(t_game *game, t_point pos)
 {
 	return (ft_node_is_valid_neighbor(game, pos.x, pos.y) \
-		&& !ft_check_if_point_is_in_list(game->keke.a_star.lists.closed, \
-			game->keke.a_star.lists.closed_count, pos));
+		&& !ft_check_if_point_is_in_list(game->monster.a_star.lists.closed, \
+			game->monster.a_star.lists.closed_count, pos));
 }
 
-int	ft_is_keke_walkable_point(char **grid, int x, int y)
+int	ft_is_monster_walkable_point(char **grid, int x, int y)
 {
 	return ((grid[y][x] != WALL_CHAR)
 		&& (grid[y][x] != KEY_CHAR) && (grid[y][x] != LOVE_CHAR)

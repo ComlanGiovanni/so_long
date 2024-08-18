@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_keke_event_bonus.c                              :+:      :+:    :+:   */
+/*   ft_monster_event_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:40:59 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 02:41:41 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:52:08 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long_bonus.h"
 
-void	ft_a_star_keke_movement(t_game *game)
+void	ft_a_star_monster_movement(t_game *game)
 {
 	t_point			start;
 	t_point			goal;
 	t_a_star_node	*start_node;
 
 	ft_init_a_star_data(game, &start, &goal, &start_node);
-	while (game->keke.a_star.lists.open_count > 0x0)
+	while (game->monster.a_star.lists.open_count > 0x0)
 		ft_process_a_star_node(game);
-	ft_free_a_star_lists_nodes(game->keke.a_star.lists.open, \
-		game->keke.a_star.lists.open_count, game->keke.a_star.lists.closed, \
-		game->keke.a_star.lists.closed_count);
-	ft_move_keke(game);
+	ft_free_a_star_lists_nodes(game->monster.a_star.lists.open, \
+		game->monster.a_star.lists.open_count, game->monster.a_star.lists.closed, \
+		game->monster.a_star.lists.closed_count);
+	ft_move_monster(game);
 }
 
 void	ft_add_to_open_list(t_a_star_node **open_list, int *open_count, \
@@ -58,7 +58,7 @@ void	ft_sort_open_list(t_a_star_node **open_list, int open_count)
 	}
 }
 
-void	ft_find_keke_direction(t_game *game, t_a_star_node *current, \
+void	ft_find_monster_direction(t_game *game, t_a_star_node *current, \
 	t_point start)
 {
 	static int	index;
@@ -69,11 +69,11 @@ void	ft_find_keke_direction(t_game *game, t_a_star_node *current, \
 	while (index < 0x4)
 	{
 		if (ft_is_same_point((t_point){start.x \
-			+ game->keke.a_star.neighbor.directions[index].x, start.y \
-				+ game->keke.a_star.neighbor.directions[index].y}, \
+			+ game->monster.a_star.neighbor.directions[index].x, start.y \
+				+ game->monster.a_star.neighbor.directions[index].y}, \
 					current->pos))
 		{
-			game->keke.direction = game->keke.a_star.neighbor.dir_char[index];
+			game->monster.direction = game->monster.a_star.neighbor.dir_char[index];
 			break ;
 		}
 		index++;

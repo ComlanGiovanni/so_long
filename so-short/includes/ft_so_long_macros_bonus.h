@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:25:57 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 04:55:25 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@
 # define COIN_ERROR				".ber should have at least one collectible -> C\n"
 # define PLAYER_ERROR			".ber should have one starting point -> P\n"
 # define EXIT_ERROR				".ber should have only one exit -> E\n"
-# define KEKE_ERROR				".ber should have only one keke -> K\n"
+# define monster_ERROR				".ber should have only one monster -> K\n"
 # define EXTENSION_ERROR		"Map extension should be a .ber\n"
 # define FAIL_OPEN_ERROR		"[Map_name].ber fail to open\n"
 # define MLX_INIT_ERROR			"mlx_init() fail\n"

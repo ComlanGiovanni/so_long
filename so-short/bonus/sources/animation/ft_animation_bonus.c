@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 03:10:53 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 04:36:15 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_play_animation(t_game *game)
 	//ft_wall_animation(&game->wall.animation);
 	ft_pawn_animation(&game->pawn.animation);
 	ft_player_animation(&game->player);
-	ft_keke_animation(&game->keke);
+	ft_monster_animation(&game->monster);
 	ft_lava_animation(&game->lava.animation);
 	ft_key_animation(&game->key.animation);
 	ft_box_animation(&game->box.animation);

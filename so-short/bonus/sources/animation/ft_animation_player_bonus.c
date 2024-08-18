@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:45:04 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/07 14:57:42 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,23 +51,23 @@ void	ft_player_animation(t_player *player)
 	frame += TRUE;
 }
 
-void	ft_keke_animation(t_keke *keke)
+void	ft_monster_animation(t_monster *monster)
 {
 	static int	frame;
 
-	if (frame == keke->frames)
+	if (frame == monster->frames)
 	{
-		keke->up_anim.current = keke->up_anim.frame_1;
-		keke->down_anim.current = keke->down_anim.frame_1;
-		keke->left_anim.current = keke->left_anim.frame_1;
-		keke->right_anim.current = keke->right_anim.frame_1;
+		monster->up_anim.current = monster->up_anim.frame_1;
+		monster->down_anim.current = monster->down_anim.frame_1;
+		monster->left_anim.current = monster->left_anim.frame_1;
+		monster->right_anim.current = monster->right_anim.frame_1;
 	}
-	else if (frame >= keke->frames * 2)
+	else if (frame >= monster->frames * 2)
 	{
-		keke->up_anim.current = keke->up_anim.frame_2;
-		keke->down_anim.current = keke->down_anim.frame_2;
-		keke->left_anim.current = keke->left_anim.frame_2;
-		keke->right_anim.current = keke->right_anim.frame_2;
+		monster->up_anim.current = monster->up_anim.frame_2;
+		monster->down_anim.current = monster->down_anim.frame_2;
+		monster->left_anim.current = monster->left_anim.frame_2;
+		monster->right_anim.current = monster->right_anim.frame_2;
 		frame = FALSE;
 	}
 	frame += TRUE;

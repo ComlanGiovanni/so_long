@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:46:14 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 02:42:51 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,8 @@ void	ft_put_all_sprites_to_line(t_game *game, int width, int height,
 		ft_handle_other_borders_sprites(game, tile, sprite_pos);
 	else if (ft_is_enemies_sprites(tile))
 		ft_handle_enemies_sprites(game, tile, sprite_pos);
-	else if (tile == KEKE_CHAR)
-		ft_keke_sprites(game, width, height, sprite_pos);
+	else if (tile == monster_CHAR)
+		ft_monster_sprites(game, width, height, sprite_pos);
 	else
 		ft_player_sprite_call(game, width, height, sprite_pos);
 }

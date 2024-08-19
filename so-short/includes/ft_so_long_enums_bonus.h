@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:20 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 10:44:10 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/19 20:34:19 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,21 @@ enum	e_key_code
 	LINUX_DOWN_PAV_NUM_KEY = 65433,
 	LINUX_LEFT_PAV_NUM_KEY = 65430,
 	LINUX_RIGHT_PAV_NUM_KEY = 65432
+};
+
+
+enum	e_mouse_key_code
+{
+	LINUX_MOUSE_MIDDLE_CLICK_KEY = 1,
+	LINUX_MOUSE_RIGHT_CLICK_KEY = 2,
+	LINUX_MOUSE_LEFT_CLICK_KEY = 3,
+	LINUX_MOUSE_SCROLL_UP_KEY = 4,
+	LINUX_MOUSE_SCROLL_DOWN_KEY = 5
+};
+
+enum	e_key_letter_code
+{
+	LINUX_LETTER_P = 112,
 };
 
 enum	e_map_char

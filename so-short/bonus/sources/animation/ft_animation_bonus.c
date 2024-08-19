@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 03:10:53 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/19 20:08:28 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_play_animation(t_game *game)
 	ft_door_open_animation(&game->door.open);
 	ft_door_closed_animation(&game->door.closed);
 	ft_borders_animation(game);
-	if (game->player.life == 6)
+	if (game->player.life == PLAYER_MAX_LIFE)
 		game->love.animation.current = game->love.nope;
 	else
 		ft_love_animation(&game->love.animation);

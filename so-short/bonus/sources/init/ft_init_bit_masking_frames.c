@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 00:16:42 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 04:53:08 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/19 19:16:55 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,31 @@ void	ft_init_wall_bit_masking_frames(t_game *game)
 	game->wall.north_plus_west_plus_east.frames = WALLS_FRAMES;
 	game->wall.west_plus_east.frames = WALLS_FRAMES;
 	game->wall.north_west.frames = WALLS_FRAMES;
-	//game->wall.animation.frames = 64;
 }
 
 void	ft_init_wall_bit_masking(t_game *game, void **wall_sprites)
 {
 	const t_animation	*walls[] = {
-		&game->wall.no_neighbors_four_direction, // 0 (0000): No neighboring walls
-		&game->wall.north, // 1 (0001): North
-		&game->wall.south, // 2 (0010): South
-		&game->wall.north_plus_south, // 3 (0011): North, South
-		&game->wall.west, // 4 (0100): West
-		&game->wall.north_west, // 5 (0101): North, West
-		&game->wall.south_plus_west, // 6 (0110): South, West
-		&game->wall.north_plus_south_plus_west, // 7 (0111): North, South, West
-		&game->wall.east, // 8 (1000): East
-		&game->wall.north_plus_east, // 9 (1001): North, East
-		&game->wall.south_plus_east, // 10 (1010): South, East
-		&game->wall.north_plus_south_plus_east, // 11 (1011): North, South, East
-		&game->wall.west_plus_east, // 12 (1100): West, East
-		&game->wall.north_plus_west_plus_east, // 13 (1101): North, West, East
-		&game->wall.south_plus_west_plus_east, // 14 (1110): South, West, East
-		&game->wall.north_plus_south_plus_west_plus_east // 15 (1111): North, South, West, East
+		&game->wall.no_neighbors_four_direction,
+		&game->wall.north, &game->wall.south,
+		&game->wall.north_plus_south,
+		&game->wall.west,
+		&game->wall.north_west,
+		&game->wall.south_plus_west,
+		&game->wall.north_plus_south_plus_west,
+		&game->wall.east,
+		&game->wall.north_plus_east,
+		&game->wall.south_plus_east,
+		&game->wall.north_plus_south_plus_east,
+		&game->wall.west_plus_east,
+		&game->wall.north_plus_west_plus_east,
+		&game->wall.south_plus_west_plus_east,
+		&game->wall.north_plus_south_plus_west_plus_east
 	};
-	int index = 0;
+	int					index;
 
-	while (index < 16)
+	index = 0x0;
+	while (index < BIT_MASK_POSSIBILITY)
 	{
 		wall_sprites[index] = walls[index]->current;
 		index++;

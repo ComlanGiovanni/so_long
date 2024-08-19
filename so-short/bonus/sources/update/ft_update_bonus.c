@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:02:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 11:33:48 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/19 19:10:19 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void ft_sleep_for_fps(int fps) {
 
 int	ft_update(t_game *game)
 {
-	ft_sleep_for_fps(60);
+	//ft_sleep_for_fps(60);
 	if (game->state == STATE_PAUSED)
 	{
 		ft_draw_pause_message(game);

@@ -6,38 +6,44 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:25:57 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 13:00:39 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/19 21:30:00 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_SO_LONG_MACROS_BONUS_H
 # define FT_SO_LONG_MACROS_BONUS_H
 
+# include "ft_so_long_macros_frames_bonus.h"
+# include "ft_so_long_macros_direction_bonus.h"
+
 # define BER_EXTENSION			".ber"
 # define FANTASTIC		 		0x4//0x
 # define COMPASS		 		0x8//0x
+# define PLAYER_MAX_LIFE	 	6
 # define DIGIT_COUNT		 	10
 # define ALPHABET_COUNT		 	26
 # define IMG_SIZE 				64
 # define ICON_SIZE 				32
-# define BORDERS_WIDTH 			15//put 20 to test
+# define BORDERS_WIDTH 			20//put 20 to test
 # define PERMUTATION_SIZE 		256
+# define BIT_MASK_POSSIBILITY	0x10
 # define DISPLAY				"DISPLAY"
 # define STEP_INDICATOR			"STEP"
 # define FPS_INDICATOR			"FPS"
 # define KEYS_INDICATOR			"KEYS"
-# define UP_DIRECTION			"Up"
-# define DOW_DIRECTION			"Down"
-# define LEFT_DIRECTION			"Left"
-# define RIGHT_DIRECTION		"Right"
-# define DOWN_RIGHT_DIRECTION	"down-right"
-# define DOWN_LEFT_DIRECTION	"down-left"
-# define UP_LEFT_DIRECTION		"up-left"
-# define UP_RIGHT_DIRECTION		"up-right"
+# define MOUSE_LEFT_CLICK		"Left Click"
+# define MOUSE_RIGHT_CLICK		"Right Click"
+# define MOUSE_MIDDLE_CLICK		"Middle Click"
+# define MOUSE_SCROLL_UP		"Scroll Up"
+# define MOUSE_SCROLL_DOWN		"Scroll Down"
+# define MOUSE_UNKNOW_CLICK		"Unknown Click"
 # define PATH_ASSET				"assets/xpm/bonus/"
 # define ERROR_MSG				"Error\n"
 # define KEY_FOUND				"Key found ->"
 # define KEY_AVAILABLE			"Key available -> "
+# define GRID_SIZE_PRINT		"\nGrid Width && Height -->> "
+# define SCREEN_SIZE_PRINT		"Screen Height && Width "
+# define WINDOW_SIZE_PRINT		"Window Height && Width "
 # define GAME_TITLE				"./so_long"
 # define USAGE_MSG				"./so_long [pass to map][map name].ber\n"
 # define NO_ENV_ERROR			"No variable environment available\n"

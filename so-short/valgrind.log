@@ -2,176 +2,155 @@
 1VCESLC1
 1BNWW001
 10B0C001
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVESLC1
 1BNWW001
 10B0C001
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVESLC1
 1BVWW001
 10B0C001
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVESLC1
 1VVWW001
 10B0C001
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVESLC1
 1VVWW001
 1VB0C001
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVESLC1
 1VVWW001
 1VV0C001
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVESLC1
 1VVWW001
 1VVVC001
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVESLC1
 1VVWW001
 1VVVV001
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVESLC1
 1VVWW001
 1VVVVV01
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVESLC1
 1VVWW001
 1VVVVVV1
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVESLC1
 1VVWW0V1
 1VVVVVV1
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVESLC1
 1VVWWVV1
 1VVVVVV1
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVESLC1
 1VVWVVV1
 1VVVVVV1
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVESLC1
 1VVVVVV1
 1VVVVVV1
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVEVLC1
 1VVVVVV1
 1VVVVVV1
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVEVVC1
 1VVVVVV1
 1VVVVVV1
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVEVVV1
 1VVVVVV1
 1VVVVVV1
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVEVVV1
 1VVVVVV1
 1VVVVVV1
-101011V1
-1K000111
+111011V1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVEVVV1
 1VVVVVV1
 1VVVVVV1
-101V11V1
-1K000111
+111V11V1
+1K1SS111
 11111111
 [H[2J[3J11111111
 1VVEVVV1
 1VVVVVV1
 1VVVVVV1
-101V11V1
-1K0V0111
+111V11V1
+1K1VS111
 11111111
 [H[2J[3J11111111
 1VVEVVV1
 1VVVVVV1
 1VVVVVV1
-101V11V1
-1KVV0111
-11111111
-[H[2J[3J11111111
-1VVEVVV1
-1VVVVVV1
-1VVVVVV1
-101V11V1
-1VVV0111
-11111111
-[H[2J[3J11111111
-1VVEVVV1
-1VVVVVV1
-1VVVVVV1
-1V1V11V1
-1VVV0111
-11111111
-[H[2J[3J11111111
-1VVEVVV1
-1VVVVVV1
-1VVVVVV1
-1V1V11V1
-1VVVV111
+111V11V1
+1K1VV111
 11111111
 [H[2J[3JMap is -> basic.ber
 
 A Valid path found in map
 All coin are collectible in map
 
-Grid Width && Height -> 	[8 7]
+Grid Width && Height -->> 	[8 7]
 
 Player Start  position in grid x->1 y->1
 Player Exit  position in grid x->3 y->1
@@ -180,68 +159,172 @@ Player Exit  position in grid x->3 y->1
 1PCESLC1
 1BNWW001
 10B0C001
-101011Z1
-1K000111
+111011Z1
+1K1SS111
 11111111
+Theme picked :num_sets 10 i->5
 
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"Theme picked :num_sets 10 i->5
+
+@"|$?!+/.+/+=#@"
 New grid with border for camera
 
-+++@++++#######++++++#++++@@+++###===#
-+++@++++#######+++++###++++@++++######
-+++@++++########+++######+++@++++#####
-+++@++++########++#######+++@@++++###+
-++@@++++++##########===###+++@@+++++++
-+++++++++++#########===###++++++++++++
-+++++++++++################+++++++++++
-+++++++++++######+#######+++##++++++++
-++++###+++++###+++++###+++++###+++++##
-#+#######+++##+++++++#++++++#####+####
-#+#######+++++++++++++++++++##########
-+++#####++++++++++++++++++++##########
-++++###++++@@@@+++++##+++++++#########
-+++++#++++@@@@++++#####++++++++######+
-+++++#++++@@@++++######++++++++#####++
-#######++++@+++11111111+###+++++###+++
-+#####++++@@+++1PCESLC1#############++
-+####+++++@@+++1BNWW001##############+
-++##+++++++++++10B0C001###===###=#####
-++#++++++++++++101011Z1###=====#######
-###++++++####++1K000111###====########
-###+++++######+11111111####==#########
-###+++++#######++++@++++#######+++++##
-###+++++###==####++++++########+++++##
-###+++++###==####++++++#######+++++++#
-#+++++++###########+++####==###+++++++
-++++++++#################====###++++++
-++++++++#################====####+++++
-++++++++####+++#####++####===###++++++
-+++@++++###+++++###+++++#######++++@++
-++++++++###+++++###+++++#######+++@@++
-++++++++###+++++###++++++#####++++@@@+
-++++++++###++++++###+++++######+++@@@+
-#+++++++###++++++###############+++@@@
-###+++++###++++++###############+++@@@
-###+++++###+++++#########+######+++@@+
-###+++++###+++++#######+++++###++++@++
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@11111111@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@1PCESLC1@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@1BNWW001@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@10B0C001@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@111011Z1@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@1K1SS111@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@11111111@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-Grid Width && Height -> 	[38 37]
+Grid Width && Height -->> 	[48 47]
 
-Player Start   position in grid x->16 y->16
-Player Exit    position in grid x->18 y->16
+Player Start   position in grid x->21 y->21
+Player Exit    position in grid x->23 y->21
 
-Portal 1 : {Z} position in grid x->21 y->19
-Portal 2 : {N} position in grid x->17 y->17
+Portal 1 : {Z} position in grid x->26 y->24
+Portal 2 : {N} position in grid x->22 y->22
 
-Pawn 0 Initial Position (18, 17) 		Target [18, 20] in Down Direction with 3 Steps.
-Pawn 1 Initial Position (19, 17) 		Target [21, 17] in Right Direction with 2 Steps.
+Pawn 0 Initial Position (23, 22) 		Target [23, 24] in Down Direction with 2 Steps.
+Pawn 1 Initial Position (24, 22) 		Target [26, 22] in Right Direction with 2 Steps.
 
 [All item in map Number]
 
 Player : [P] -> {1}
-Wall   : [1] -> {32}
+Wall   : [1] -> {34}
 Pawn   : [W] -> {2}
-Void   : [0] -> {21}
-Life   : [S] -> {1}
+Void   : [0] -> {19}
+Life   : [S] -> {3}
 Lava   : [L] -> {1}
 Monster: [K] -> {1}
 Key    : [C] -> {3}
@@ -250,49 +333,49 @@ Box    : [B] -> {2}
 Portal : [B] -> {2}
 Grass :  [#] -> {0}
 
-Screen Height && Width [7280 x 2692]
-Window Height && Width [1184 x 1216]
+Screen Height && Width [7280 x 2918]
+Window Height && Width [1504 x 1536]
 
 All image width and height are [64 x 64]
 
-assets/xpm/bonus/lava/lava_frame_0.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/lava/lava_frame_1.xpm : [[0;32m0x611898c0b8b0[0m]
-assets/xpm/bonus/lava/lava_frame_2.xpm : [[0;32m0x611898c1b900[0m]
-assets/xpm/bonus/door/closed/door_closed_frame_0.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/door/closed/door_closed_frame_1.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/door/closed/door_closed_frame_2.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/door/open/door_open_frame_0.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/door/open/door_open_frame_1.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/door/open/door_open_frame_2.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/up/player_up_frame_0.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/up/player_up_frame_1.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/up/player_up_frame_2.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/up/player_up_frame_move.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/down/player_down_frame_0.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/down/player_down_frame_1.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/down/player_down_frame_2.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/down/player_down_frame_move.x.pm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/left/player_left_frame_0.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/left/player_left_frame_1.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/left/player_left_frame_2.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/left/player_left_frame_move.x.pm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/right/player_right_frame_0.xp);m : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/right/player_right_frame_1.xp);m : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/right/player_right_frame_2.xp);m : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/player/right/player_right_frame_move);.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/key/key_frame_0.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/key/key_frame_1.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/key/key_frame_2.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/wall/wall_frame_0.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/wall/wall_frame_1.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/wall/wall_frame_2.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/grass/grass_frame_0.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/grass/grass_frame_1.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/grass/grass_frame_0.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/ground/ground.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/love/love_frame_0.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/love/love_frame_1.xpm : [[0;32m0x611898c0b850[0m]
-assets/xpm/bonus/love/love_frame_2.xpm : [[0;32m0x611898c0b850[0m]
+assets/xpm/bonus/lava/lava_frame_0.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/lava/lava_frame_1.xpm : [[0;32m0x6383144479b0[0m]
+assets/xpm/bonus/lava/lava_frame_2.xpm : [[0;32m0x638314447ac0[0m]
+assets/xpm/bonus/door/closed/door_closed_frame_0.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/door/closed/door_closed_frame_1.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/door/closed/door_closed_frame_2.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/door/open/door_open_frame_0.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/door/open/door_open_frame_1.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/door/open/door_open_frame_2.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/up/player_up_frame_0.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/up/player_up_frame_1.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/up/player_up_frame_2.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/up/player_up_frame_move.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/down/player_down_frame_0.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/down/player_down_frame_1.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/down/player_down_frame_2.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/down/player_down_frame_move.x.pm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/left/player_left_frame_0.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/left/player_left_frame_1.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/left/player_left_frame_2.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/left/player_left_frame_move.x.pm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/right/player_right_frame_0.xp);m : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/right/player_right_frame_1.xp);m : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/right/player_right_frame_2.xp);m : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/player/right/player_right_frame_move);.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/key/key_frame_0.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/key/key_frame_1.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/key/key_frame_2.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/wall/wall_frame_0.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/wall/wall_frame_1.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/wall/wall_frame_2.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/grass/grass_frame_0.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/grass/grass_frame_1.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/grass/grass_frame_0.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/ground/ground.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/love/love_frame_0.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/love/love_frame_1.xpm : [[0;32m0x6383144478c0[0m]
+assets/xpm/bonus/love/love_frame_2.xpm : [[0;32m0x6383144478c0[0m]
 assets/xpm/bonus/love/love_small_icon.xpm
 
 [0;31m        \           EXIT            /

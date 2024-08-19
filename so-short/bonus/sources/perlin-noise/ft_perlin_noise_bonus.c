@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 01:16:16 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 15:12:16 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/19 21:45:18 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	ft_copy_permutation_values(int *perm, const int *base_perm)
 {
 	int	index;
 
-	index = 0;
+	index = 0x0;
 	while (index < PERMUTATION_SIZE)
 	{
 		perm[index] = base_perm[index];
@@ -58,10 +58,10 @@ static void	ft_shuffle_permutation(int *perm)
 	int	temp;
 
 	srand((unsigned int)time(NULL));
-	i = PERMUTATION_SIZE - 1;
-	while (i > 0)
+	i = PERMUTATION_SIZE - 0x1;
+	while (i > 0x0)
 	{
-		j = rand() % (i + 1);
+		j = rand() % (i + 0x1);
 		temp = perm[i];
 		perm[i] = perm[j];
 		perm[j] = temp;

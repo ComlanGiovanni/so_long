@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/19 21:24:56 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -431,28 +431,55 @@ void	ft_init_wall_bit_masking(t_game *game, void **wall_sprites);
 //============ [ file.c ]
 
 void	ft_init_camera(t_game *game);
-void	ft_init_hud_sprites_position(t_game *game);
-void	ft_init_frames(t_game *game);
+
+//============ [ ft_init_bonus.c ]
+
+void	ft_init_camera(t_game *game);
+void 	ft_init_hud_sprites_position(t_game *game);
 void	ft_init_fps(t_game *game);
 void	ft_init_map_info(t_game *game, char *line);
 void	ft_init_game_info(t_game *game);
-void	ft_init_pawns_array(t_game *game);
+
+//============ [ ft_init_frames_bonus.c ]
+
+void	ft_init_frames(t_game *game);
+void	ft_init_borders_frames(t_game *game);
+void	ft_init_digits_frames(t_game *game);
+void	ft_init_odd_alphabet_frames(t_game *game);
+void	ft_init_even_alphabet_frames(t_game *game);
+
+//============ [ ft_init_frames_one_bonus.c ]
+
+void	ft_init_alphabet_frames(t_game *game);
+void	ft_init_enemies_frames(t_game *game);
+void	ft_init_gameplay_frames(t_game *game);
+void	ft_init_others_frames(t_game *game);
 
 
 //============ [ ft_init_hud_bonus.c ]
 
+void	ft_init_digits_images(t_game *game, void **digit_images);
 void	init_even_letter_images(t_game *game, void **letter_images);
 void	init_odd_letter_images(t_game *game, void **letter_images);
 
-//============ [ file.c ]
+//============ [ ft_init_map_bonus.c ]
 
 void	ft_setup_map(t_game *game);
-void	ft_get_info_map(t_game *game);
 void	ft_play_random_theme(void);
 
+//============ [ ft_init_map_info_bonus.c ]
+
+void	ft_get_info_map(t_game *game);
+void	ft_gameplay_map_info(t_info *info, char map_char);
+void	ft_enemies_map_info(t_info *info, char map_char);
+void	ft_border_map_info(t_info *info, char map_char);
+void	ft_increment_map_info(t_info *info, char map_char);
+
+void	ft_get_info_map(t_game *game);
 //============ [ ft_init_mlx_bonus.c ]
 
 void	ft_init_mlx(t_game *game);
+void	ft_init_mouse(t_game *game);
 void	ft_create_window(t_game *game);
 
 //============ [ ft_init_pawn_bonus.c ]
@@ -466,16 +493,31 @@ void	ft_init_game(t_game *game, char *map_name);
 void	ft_init_player_info(t_game *game);
 void	ft_init_map_info(t_game *game, char *line);
 void	ft_init_monster_info(t_game *game);
+void	ft_check_map_argument(t_game *game, char *map_name);
 
-//============ [ file.c ]
+//============ [ ft_input_player_bonus.c ]
 
 int		ft_input_manager(int key_code, t_game *game);
+void	ft_movement_input(t_game *game, int key_code);
+void	ft_move_player(t_game *game, int new_x, int new_y);
+void	ft_exit_handler_helper(t_game *game, int key_code);
+void	ft_toggle_pause(t_game *game);
+
+//============ [ ft_input_player_utils_bonus.c ]
+
 void	ft_move_up(t_game *game);
 void	ft_move_down(t_game *game);
 void	ft_move_left(t_game *game);
 void	ft_move_right(t_game *game);
 
-//============ [ file.c ]
+//============ [ ft_input_player_gameplay_bonus.c ]
+
+t_bool	ft_play_can_move_to_tile(t_game *game, char next_tile);
+t_bool	ft_handle_teleport(t_game *game, t_point next_position, char next_tile);
+void	ft_handle_box_movement(t_game *game, t_point next_position, char *next_tile);
+void	ft_deactivate_pawn_at_position(t_game *game, t_point next_position);
+
+//============ [ ft_input_utils_bonus.c ]
 
 void	ft_handle_tile_action(t_game *game, char next_tile);
 void	ft_input_up(t_game *game);
@@ -594,10 +636,12 @@ int ft_manhattan_heuristic_distance(t_point a, t_point b);
 
 //============ [ file.c ]
 
-int ft_is_same_point(t_point a, t_point b);
+int		ft_is_same_point(t_point a, t_point b);
+float	ft_roundf(float number);
 
 //============ [ file.c ]
 
+int		ft_mouse_manager(int mouse_button_key_code, int x, int y, t_game *game);
 void	ft_mlx_hook_loop(t_game *game);
 
 //============ [ file.c ]
@@ -634,7 +678,8 @@ void	ft_calculate_fades_values(t_perlin_vars *vars);
 void	ft_calculate_permutation_indices(t_perlin_vars *vars, int *perm);
 void	ft_calculate_gradients(t_perlin_vars *vars, int *perm);
 void	ft_calculate_interpolation_x(t_perlin_vars *vars);
-char	ft_determine_fill_char(float noise_value);
+void	ft_initialize_fill_chars(t_fill_char_state *state);
+char	ft_determine_fill_char(float noise_value, t_fill_char_state	state);
 float	ft_fade(float relative_position_fade_factor);
 int		ft_floor(float value);
 float	ft_gradient(int hash, float x, float y);

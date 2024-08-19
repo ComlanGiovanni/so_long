@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 12:12:44 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 10:06:40 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/19 21:19:26 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 typedef enum e_bool						t_bool;
 typedef enum e_map_char					t_map_char;
 typedef enum e_key_code					t_key_code;
+typedef enum e_key_letter_code			t_key_letter_code;
+typedef enum e_mouse_key_code			t_mouse_key_code;
 typedef enum e_game_state				t_game_state;
 
 typedef struct s_fps					t_fps;
@@ -71,5 +73,8 @@ typedef struct s_anim_monster			t_anim_monster;
 typedef struct s_direction_map			t_direction_map;
 typedef struct s_pawn_movement			t_pawn_movement;
 typedef struct s_direction_evaluation	t_direction_evaluation;
+typedef struct s_flood_fill_data		t_flood_fill_data;
+typedef struct s_mouse					t_mouse;
+typedef struct s_fill_char_state		t_fill_char_state;
 
 #endif // !FT_SO_LONG_TYPEDEF_BONUS_H

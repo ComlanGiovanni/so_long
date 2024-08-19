@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 01:18:15 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/19 19:42:16 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 void	ft_init_game(t_game *game, char *map_name)
 {
-	//ft_check_map_argument
-	if (!ft_check_extension(map_name, BER_EXTENSION))
-		ft_print_error_empty_and_free(EXTENSION_ERROR, game);
-	game->map.map_name = map_name;
+	ft_check_map_argument(game, map_name);
 	game->state = STATE_PLAYING;
 	if (game->state == STATE_PLAYING)
 	{
@@ -40,37 +37,28 @@ void	ft_init_game(t_game *game, char *map_name)
 	}
 }
 
-
-/**
- * @brief
- *
- * 		This fct set all the player stat in game.player[]
- * 				1 life because 1 is enough
- * 			0 for storage step  and the frames is 9
- * 				after several test 9 feel good
- * 		we also generate randomly a direction of the first
- * 			int of the player to give player more life
- * 		we use srand rand of 4 digit (up down left right)
- * 						u d l r
- *
- * @param game
- */
 void	ft_init_player_info(t_game *game)
 {
-	game->player.life = 3;
+	game->player.life = 0x1;
 	game->player.storage = FALSE;
-	game->player.step = 0;
+	game->player.step = 0x0;
 	game->player.storage = FALSE;
 	game->player.movement.moved = FALSE;
 	game->player.movement.current_position.x = FALSE;
 	game->player.movement.current_position.y = FALSE;
-	//ft_dir_player_by_pos_exit_after_launch(game);
 }
 
 void	ft_init_monster_info(t_game *game)
 {
 	game->monster.moved = FALSE;
 	game->monster.step = FALSE;
-	game->player.step = 0;
+	game->player.step = 0x0;
 	ft_direction_monster_after_launch(game);
+}
+
+void	ft_check_map_argument(t_game *game, char *map_name)
+{
+	if (!ft_check_extension(map_name, BER_EXTENSION))
+		ft_print_error_empty_and_free(EXTENSION_ERROR, game);
+	game->map.map_name = map_name;
 }

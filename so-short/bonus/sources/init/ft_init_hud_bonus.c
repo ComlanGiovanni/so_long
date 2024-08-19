@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 16:34:38 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 17:10:59 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/19 19:26:14 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_init_digits_images(t_game *game, void **digit_images)
 		&game->hud.digits.six, &game->hud.digits.seven, &game->hud.digits.eight,
 		&game->hud.digits.nine
 	};
-	int				index;
+	int					index;
 
 	index = 0x0;
 	while (index < DIGIT_COUNT)
@@ -44,8 +44,8 @@ static void	ft_init_letter_images(t_game *game, void **letter_images, \
 		&game->hud.alphabet.v, &game->hud.alphabet.w, &game->hud.alphabet.x,
 		&game->hud.alphabet.y, &game->hud.alphabet.z
 	};
-	int letter_index;
-	int current_index;
+	int					letter_index;
+	int					current_index;
 
 	letter_index = start_index;
 	current_index = 0x0;
@@ -57,12 +57,12 @@ static void	ft_init_letter_images(t_game *game, void **letter_images, \
 	}
 }
 
-void init_even_letter_images(t_game *game, void **letter_images)
+void	init_even_letter_images(t_game *game, void **letter_images)
 {
 	ft_init_letter_images(game, letter_images, 0x0);
 }
 
-void init_odd_letter_images(t_game *game, void **letter_images)
+void	init_odd_letter_images(t_game *game, void **letter_images)
 {
 	ft_init_letter_images(game, letter_images, 0x1);
 }

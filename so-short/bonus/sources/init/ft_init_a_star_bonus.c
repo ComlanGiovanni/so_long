@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 01:46:58 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 10:44:10 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/19 19:12:52 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_a_star_node	*ft_init_monster_start_node(t_point start, t_point goal)
 {
-	t_a_star_node *start_node;
+	t_a_star_node	*start_node;
 
 	start_node = (t_a_star_node *)malloc(sizeof(t_a_star_node));
 	if (!start_node)
@@ -29,9 +29,9 @@ t_a_star_node	*ft_init_monster_start_node(t_point start, t_point goal)
 t_a_star_node	*ft_init_create_neighbor_node(t_game *game, \
 	t_a_star_node *current, t_point pos)
 {
-	t_a_star_node *node;
-	node = (t_a_star_node *)malloc(sizeof(t_a_star_node));
+	t_a_star_node	*node;
 
+	node = (t_a_star_node *)malloc(sizeof(t_a_star_node));
 	if (!node)
 		ft_print_error(NEIGHBOR_INIT_FAIL, game);
 	node->pos = pos;
@@ -77,6 +77,7 @@ void	ft_init_a_star_data(t_game *game, t_point *start, \
 	if (!*start_node)
 		ft_print_error(NODE_INIT_FAIL, game);
 	ft_init_a_star_lists(game);
-	ft_add_to_open_list(game->monster.a_star.lists.open, &(game->monster.a_star.lists.open_count), *start_node);
+	ft_add_to_open_list(game->monster.a_star.lists.open, \
+		&(game->monster.a_star.lists.open_count), *start_node);
 	ft_init_neighbor_data(game, *goal);
 }

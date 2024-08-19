@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:28:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 08:56:39 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/19 21:19:46 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -498,15 +498,30 @@ struct						s_hedge
 	t_animation				animation;
 };
 
-typedef struct s_flood_fill_data {
-    t_bool exit_found;
-    int coins;
-} t_flood_fill_data;
+struct s_flood_fill_data
+{
+	t_bool exit_found;
+	int coins;
+};
+
+struct 	s_mouse
+{
+	t_point 	mouse_position;
+	char 		*button_name;
+	int			mouse_button_key_code;
+};
+
+struct s_fill_char_state
+{
+	const char		*selected_fill_chars;
+	int				selected_fill_chars_size;
+};
 
 //can put all in a different struct like
 //t_border border
 struct						s_game
 {
+	t_mouse					mouse;
 	t_game_state 			state;
 	t_bool					paused;//state replaced
 	t_bool					key_collected;
@@ -542,7 +557,7 @@ struct						s_game
 	t_camera				camera;
 	t_sprite_node			*node;//garbage_collector_sprite
 	t_point					screen;
-	t_monster					monster;
+	t_monster				monster;
 	t_fps					fps;
 	t_window				window;
 	t_hud					hud;

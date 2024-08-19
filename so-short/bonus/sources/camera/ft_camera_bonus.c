@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_so_long_bonus.h"
+#include "math.h"
+
 
 void	ft_camera_shake(t_game *game)
 {
@@ -30,13 +32,13 @@ void	ft_update_camera(t_game *game)
 {
 	game->camera.lerp_speed = 0.02;
 	game->camera.target.x = (game->player.movement.current_position.x \
-			* IMG_SIZE) - ((game->width * IMG_SIZE) / 4);
+			* IMG_SIZE) - ((game->width * IMG_SIZE) / 4) + IMG_SIZE / 2;
 	game->camera.target.y = (game->player.movement.current_position.y \
-			* IMG_SIZE) - ((game->height * IMG_SIZE) / 4);
-	game->camera.current.x = ft_linear_interpolation(game->camera.lerp_speed, \
+			* IMG_SIZE) - ((game->height * IMG_SIZE) / 4) + IMG_SIZE / 2;
+	game->camera.current.x = roundf(ft_linear_interpolation(game->camera.lerp_speed, \
 			game->camera.current.x,
-			game->camera.target.x);
-	game->camera.current.y = ft_linear_interpolation(game->camera.lerp_speed, \
+			game->camera.target.x));
+	game->camera.current.y = roundf(ft_linear_interpolation(game->camera.lerp_speed, \
 			game->camera.current.y,
-			game->camera.target.y);
+			game->camera.target.y));
 }

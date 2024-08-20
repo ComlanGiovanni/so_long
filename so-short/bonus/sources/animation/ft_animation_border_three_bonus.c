@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:29:14 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/14 21:29:22 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:58:22 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_foliage_animation(t_animation *animation)
 {
-	static int	frame = 0;
+	static int	frame = 0x0;
 
 	ft_generic_animation(animation, &frame);
 	frame++;
@@ -22,7 +22,7 @@ void	ft_foliage_animation(t_animation *animation)
 
 void	ft_bog_animation(t_animation *animation)
 {
-	static int	frame = 0;
+	static int	frame = 0x0;
 
 	ft_generic_animation(animation, &frame);
 	frame++;
@@ -30,7 +30,7 @@ void	ft_bog_animation(t_animation *animation)
 
 void	ft_snail_animation(t_animation *animation)
 {
-	static int	frame = 0;
+	static int	frame = 0x0;
 
 	ft_generic_animation(animation, &frame);
 	frame++;
@@ -38,7 +38,7 @@ void	ft_snail_animation(t_animation *animation)
 
 void	ft_pillar_animation(t_animation *animation)
 {
-	static int	frame = 0;
+	static int	frame = 0x0;
 
 	ft_generic_animation(animation, &frame);
 	frame++;
@@ -46,7 +46,7 @@ void	ft_pillar_animation(t_animation *animation)
 
 void	ft_hedge_animation(t_animation *animation)
 {
-	static int	frame = 0;
+	static int	frame = 0x0;
 
 	ft_generic_animation(animation, &frame);
 	frame++;

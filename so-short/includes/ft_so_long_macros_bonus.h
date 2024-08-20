@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:25:57 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 21:30:00 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:31:08 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 # define ERROR_MSG				"Error\n"
 # define KEY_FOUND				"Key found ->"
 # define KEY_AVAILABLE			"Key available -> "
+# define MAP_NAME_IS			"Map is -> "
 # define GRID_SIZE_PRINT		"\nGrid Width && Height -->> "
 # define SCREEN_SIZE_PRINT		"Screen Height && Width "
 # define WINDOW_SIZE_PRINT		"Window Height && Width "

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:37:08 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/14 21:37:17 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:59:20 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@
  */
 void	ft_door_open_animation(t_anim_door *animation)
 {
-	static int	frame;
+	static int	frame = 0x0;
 
 	if (frame == animation->frames)
 		animation->current = animation->frame_1;
-	else if (frame >= animation->frames * 2)
+	else if (frame >= animation->frames * 0x2)
 	{
 		animation->current = animation->frame_2;
 		frame = FALSE;
@@ -58,13 +58,13 @@ void	ft_door_open_animation(t_anim_door *animation)
  */
 void	ft_door_closed_animation(t_anim_door *animation)
 {
-	static int	frame;
+	static int	frame = 0x0;
 
-	if (frame >= 0 && frame < animation->frames)
+	if (frame >= 0x0 && frame < animation->frames)
 		animation->current = animation->frame_0;
-	else if (frame >= animation->frames && frame < 2 * animation->frames)
+	else if (frame >= animation->frames && frame < 0x2 * animation->frames)
 		animation->current = animation->frame_1;
-	else if (frame >= 2 * animation->frames)
+	else if (frame >= 0x2 * animation->frames)
 	{
 		animation->current = animation->frame_2;
 		frame = -1;

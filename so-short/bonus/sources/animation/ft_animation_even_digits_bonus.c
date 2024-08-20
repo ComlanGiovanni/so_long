@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_animation_utils.c                               :+:      :+:    :+:   */
+/*   ft_animation_even_digits_bonus.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:32:50 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/06 23:34:52 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:59:43 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,40 @@
 
 void	ft_five_animation(t_animation *animation)
 {
-	static int	frame;
+	static int	frame = 0x0;
 
-	frame = 0;
 	ft_generic_animation(animation, &frame);
 	frame++;
 }
 
 void	ft_six_animation(t_animation *animation)
 {
-	static int	frame;
+	static int	frame = 0x0;
 
-	frame = 0;
 	ft_generic_animation(animation, &frame);
 	frame++;
 }
 
 void	ft_seven_animation(t_animation *animation)
 {
-	static int	frame;
+	static int	frame = 0x0;
 
-	frame = 0;
 	ft_generic_animation(animation, &frame);
 	frame++;
 }
 
 void	ft_eight_animation(t_animation *animation)
 {
-	static int	frame;
+	static int	frame = 0x0;
 
-	frame = 0;
 	ft_generic_animation(animation, &frame);
 	frame++;
 }
 
 void	ft_nine_animation(t_animation *animation)
 {
-	static int	frame;
+	static int	frame = 0x0;
 
-	frame = 0;
 	ft_generic_animation(animation, &frame);
 	frame++;
 }

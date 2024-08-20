@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:52:55 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/14 21:53:00 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:59:40 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,24 @@
 
 void	ft_alphabet_v_animation(t_animation *animation)
 {
-	static int	frame;
+	static int	frame = 0x0;
 
-	frame = 0;
 	ft_generic_animation(animation, &frame);
 	frame++;
 }
 
 void	ft_alphabet_x_animation(t_animation *animation)
 {
-	static int	frame;
+	static int	frame = 0x0;
 
-	frame = 0;
 	ft_generic_animation(animation, &frame);
 	frame++;
 }
 
 void	ft_alphabet_z_animation(t_animation *animation)
 {
-	static int	frame;
+	static int	frame = 0x0;
 
-	frame = 0;
 	ft_generic_animation(animation, &frame);
 	frame++;
 }

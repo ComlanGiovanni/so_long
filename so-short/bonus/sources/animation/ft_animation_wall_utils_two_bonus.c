@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_animation_even_alphabet_bonus.c                 :+:      :+:    :+:   */
+/*   ft_animation_wall_utils_two_bonus.c                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 21:24:19 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 19:59:34 by gicomlan         ###   ########.fr       */
+/*   Created: 2024/08/20 20:03:07 by gicomlan          #+#    #+#             */
+/*   Updated: 2024/08/20 20:06:11 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long_bonus.h"
 
-void	ft_alphabet_b_animation(t_animation *animation)
+void	ft_east_animation(t_animation *animation)
 {
 	static int	frame = 0x0;
 
@@ -20,7 +20,7 @@ void	ft_alphabet_b_animation(t_animation *animation)
 	frame++;
 }
 
-void	ft_alphabet_d_animation(t_animation *animation)
+void	ft_south_animation(t_animation *animation)
 {
 	static int	frame = 0x0;
 
@@ -28,7 +28,7 @@ void	ft_alphabet_d_animation(t_animation *animation)
 	frame++;
 }
 
-void	ft_alphabet_f_animation(t_animation *animation)
+void	ft_no_neighbors_four_direction_animation(t_animation *animation)
 {
 	static int	frame = 0x0;
 
@@ -36,7 +36,7 @@ void	ft_alphabet_f_animation(t_animation *animation)
 	frame++;
 }
 
-void	ft_alphabet_h_animation(t_animation *animation)
+void	ft_south_plus_east_animation(t_animation *animation)
 {
 	static int	frame = 0x0;
 
@@ -44,7 +44,7 @@ void	ft_alphabet_h_animation(t_animation *animation)
 	frame++;
 }
 
-void	ft_alphabet_j_animation(t_animation *animation)
+void	ft_north_animation(t_animation *animation)
 {
 	static int	frame = 0x0;
 

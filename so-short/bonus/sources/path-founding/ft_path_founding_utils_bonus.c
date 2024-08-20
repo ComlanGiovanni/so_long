@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:43:51 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/02 13:44:59 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:33:47 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	**ft_split_map(t_game *game)
 	int		column;
 	char	**grid;
 
-	idx = 0;
-	row = 0;
+	idx = 0x0;
+	row = 0x0;
 	grid = (char **)malloc(sizeof(char *) * (game->height + 1));
 	if (!grid)
 		ft_print_error(SPLIT_MAP_ERROR, game);
@@ -39,24 +39,24 @@ char	**ft_split_map(t_game *game)
 	return (grid);
 }
 
-t_point	ft_find_pos_char(char **tab, t_point size, char c)
+t_point	ft_find_pos_char(char **tab, t_point size, char character_to_find)
 {
 	int	x;
 	int	y;
 
-	if (!tab || size.x <= 0 || size.y <= 0)
+	if (!tab || size.x <= 0x0 || size.y <= 0x0)
 		return ((t_point){-1, -1});
 	y = 0;
 	while (y < size.y)
 	{
 		if (tab[y] == NULL)
 			return ((t_point){-1, -1});
-		x = 0;
+		x = 0x0;
 		while (x < size.x)
 		{
 			if (tab[y][x] == '\0')
 				break ;
-			if (tab[y][x] == c)
+			if (tab[y][x] == character_to_find)
 				return ((t_point){x, y});
 			x++;
 		}

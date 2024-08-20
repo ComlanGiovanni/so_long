@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 17:32:24 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 21:42:02 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 20:16:53 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ const char	*get_fill_favorite_theme_chars(void)
 
 const char	*get_fill_beach_chars(void)
 {
-	static const char	fill_chars[] = {WATER_CHAR, GRASS_CHAR, CRAB_CHAR, SNAIL_CHAR};
+	static const char	fill_chars[] = {WATER_CHAR, GRASS_CHAR, \
+		CRAB_CHAR, SNAIL_CHAR};
 
 	return (fill_chars);
 }
@@ -60,14 +61,16 @@ const char	*get_fill_grass_chars(void)
 
 const char	*get_fill_swamp_chars(void)
 {
-	static const char	fill_chars[] = {TREE_CHAR, FOLIAGE_CHAR, PILLAR_CHAR, TREES_CHAR, FUNGUS_CHAR, FUNGI_CHAR};
+	static const char	fill_chars[] = {TREE_CHAR, FOLIAGE_CHAR, PILLAR_CHAR, \
+		TREES_CHAR, FUNGUS_CHAR, FUNGI_CHAR};
 
 	return (fill_chars);
 }
 
 const char	*get_fill_versaille_chars(void)
 {
-	static const char	fill_chars[] = {FLOWER_CHAR, HEDGE_CHAR, BOG_CHAR, FLOWER_CHAR};
+	static const char	fill_chars[] = {FLOWER_CHAR, HEDGE_CHAR, \
+		BOG_CHAR, FLOWER_CHAR};
 
 	return (fill_chars);
 }
@@ -88,7 +91,8 @@ const char	*get_fill_flower_chars(void)
 
 const char	*get_fill_forest_chars(void)
 {
-	static const char	fill_chars[] = {WATER_CHAR, GRASS_CHAR, TREE_CHAR, FOLIAGE_CHAR};
+	static const char	fill_chars[] = {WATER_CHAR, GRASS_CHAR, \
+		TREE_CHAR, FOLIAGE_CHAR};
 
 	return (fill_chars);
 }
@@ -123,7 +127,8 @@ char	ft_determine_fill_char(float noise_value, t_fill_char_state	state)
 	const char			*selected_fill_chars;
 	int					index;
 	float				range_size;
-	//pu the stae before filling and calling perlin noise to see if theme is good
+	//pu the stae before filling and calling perlin
+	// noise to see if theme is good
 	//initialize_fill_chars(&state);
 	selected_fill_chars = state.selected_fill_chars;
 	range_size = 2.0 / state.selected_fill_chars_size;

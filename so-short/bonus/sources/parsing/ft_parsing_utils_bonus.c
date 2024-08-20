@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:57:15 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/02 13:15:49 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:27:54 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,3 @@ char	*ft_custom_strjoin(char *s1, char *s2)
 	free(s2);
 	return (dst);
 }
-
-

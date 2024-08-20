@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:23:29 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 16:25:13 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:48:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,18 @@ void	ft_player_take_life(t_game *game)
 		> /dev/null 2>&1 &");
 }
 
+//game->player.up_anim.current = game->player.up_anim.current
+//load read print or display on hud message or blood
 void	ft_player_get_hit(t_game *game)
 {
 	game->player.life--;
 	system("aplay sounds/special-effects/baba_take_damage.wav \
 		> /dev/null 2>&1 &");
 	ft_camera_shake(game);
-	//game->player.up_anim.current = game->player.up_anim.current
-	//load read print or display on hud message or blood
 }
 
+//display on hud a message like can not take more than 6
 void	ft_baba_forbidden(t_game *game)
 {
 	ft_camera_shake(game);
-	//display on hud a message like can not take more than 6
 }

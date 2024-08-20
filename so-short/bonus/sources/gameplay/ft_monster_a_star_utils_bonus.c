@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_monster_a_star_utils_bonus.c                       :+:      :+:    :+:   */
+/*   ft_monster_a_star_utils_bonus.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 01:45:21 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 08:52:08 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:48:55 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ t_point	ft_get_neighbor_position(t_game *game, t_a_star_node *current, \
 {
 	return ((t_point){current->pos.x \
 		+ game->monster.a_star.neighbor.directions[index].x, \
-			current->pos.y + game->monster.a_star.neighbor.directions[index].y});
+			current->pos.y + \
+				game->monster.a_star.neighbor.directions[index].y});
 }
 
 t_bool	ft_node_is_valid_and_not_in_closed(t_game *game, t_point pos)

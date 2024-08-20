@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_monster_event_bonus.c                              :+:      :+:    :+:   */
+/*   ft_monster_event_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:40:59 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 08:52:08 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:48:02 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	ft_a_star_monster_movement(t_game *game)
 	while (game->monster.a_star.lists.open_count > 0x0)
 		ft_process_a_star_node(game);
 	ft_free_a_star_lists_nodes(game->monster.a_star.lists.open, \
-		game->monster.a_star.lists.open_count, game->monster.a_star.lists.closed, \
+		game->monster.a_star.lists.open_count, \
+		game->monster.a_star.lists.closed, \
 		game->monster.a_star.lists.closed_count);
 	ft_move_monster(game);
 }
@@ -73,7 +74,8 @@ void	ft_find_monster_direction(t_game *game, t_a_star_node *current, \
 				+ game->monster.a_star.neighbor.directions[index].y}, \
 					current->pos))
 		{
-			game->monster.direction = game->monster.a_star.neighbor.dir_char[index];
+			game->monster.direction = \
+				game->monster.a_star.neighbor.dir_char[index];
 			break ;
 		}
 		index++;
@@ -85,9 +87,9 @@ void	ft_remove_from_open_list(t_a_star_node **open_list, int *open_count)
 	static int	index;
 
 	index = 0x0;
-	while (index < (*open_count - 1))
+	while (index < (*open_count - 0x1))
 	{
-		open_list[index] = open_list[index + 1];
+		open_list[index] = open_list[index + 0x1];
 		index++;
 	}
 	(*open_count)--;

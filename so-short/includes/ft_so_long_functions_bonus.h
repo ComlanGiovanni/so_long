@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 21:24:56 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 20:12:40 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,13 +136,41 @@ void	ft_monster_animation(t_monster *monster);
 
 void	ft_generic_animation(t_animation *animation, int *frame);
 
-//============ [ file.c ]
+//============ [ ft_animation_wall_bonus.c ]
 
 void	ft_wall_animation(t_game *game);
 
+//============ [ ft_animation_wall_utils_bonus.c ]
+
+void	ft_south_plus_west_animation(t_animation *animation);
+void	ft_north_plus_east_animation(t_animation *animation);
+void	ft_south_plus_west_plus_east_animation(t_animation *animation);
+void	ft_north_plus_south_animation(t_animation *animation);
+void	ft_north_plus_south_plus_east_animation(t_animation *animation);
+
+//============ [ ft_animation_wall_utils_one_bonus.c ]
+
+void	ft_north_plus_south_plus_west_animation(t_animation *animation);
+void	ft_north_plus_south_plus_west_plus_east_animation(t_animation \
+	*animation);
+void	ft_west_animation(t_animation *animation);
+void	ft_north_plus_west_plus_east_animation(t_animation *animation);
+void	ft_west_plus_east_animation(t_animation *animation);
+
+//============ [ ft_animation_wall_utils_tree_bonus.c ]
+
+void	ft_north_west_animation(t_animation *animation);
+
+//============ [ ft_animation_wall_utils_two_bonus.c ]
+
+void	ft_east_animation(t_animation *animation);
+void	ft_south_animation(t_animation *animation);
+void	ft_no_neighbors_four_direction_animation(t_animation *animation);
+void	ft_south_plus_east_animation(t_animation *animation);
+void	ft_north_animation(t_animation *animation);
+
 //============ [ ft_animation_world_bonus.c ]
 
-//void	ft_wall_animation(t_animation *animation);
 void	ft_pawn_animation(t_animation *animation);
 void	ft_lava_animation(t_animation *animation);
 void	ft_key_animation(t_animation *animation);
@@ -668,7 +696,7 @@ char	*ft_custom_strjoin(char *s1, char *s2);
 void	ft_check_map_finishable(t_game *game);
 void ft_flood_fill(char **tab, t_game *game, t_point start);
 char	**ft_split_map(t_game *game);
-t_point	ft_find_pos_char(char **tab, t_point size, char c);
+t_point	ft_find_pos_char(char **tab, t_point size, char character_to_find);
 
 //============ [ file.c ]
 
@@ -695,7 +723,9 @@ void	ft_print_error_empty_and_free(char *error_msg, t_game *game);
 
 void	ft_print_fill_grid(char **map);
 void	ft_print_display_grid(char **res);
-void	ft_display_position(t_point start, t_point end, t_point z, t_point n);
+void	ft_display_position(t_point player_start_position, \
+	t_point exit_position, t_point portal_z_postion, \
+		t_point portal_n_position);
 void	ft_print_map_info(t_game *game);
 void	ft_print_initial_positions(t_game *game);
 

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:46:14 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/18 10:44:10 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 20:17:10 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	ft_put_all_sprites_to_line(t_game *game, int width, int height,
 
 	tile = game->map.grid[height][width];
 	if (tile == WALL_CHAR)
-		ft_draw_wall_bitmask_sprite(game, (t_point){height, width}, sprite_pos);//ft_wall_sprite(game, sprite_pos);
+		ft_draw_wall_bitmask_sprite(game, (t_point){height, width}, sprite_pos);
 	else if (tile == VOID_CHAR)
 		ft_ground_sprite(game, sprite_pos);
 	else if (ft_is_key_love_box_sprites(tile))

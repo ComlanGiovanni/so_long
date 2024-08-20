@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:52:04 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 19:39:25 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 22:06:52 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_print_display_grid(char **res)
 }
 
 void	ft_display_position(t_point player_start_position, \
-	t_point exit_position, t_point portal_z_postion, \
+	t_point exit_position, t_point portal_z_position, \
 		t_point portal_n_position)
 {
 	ft_printf("\nPlayer Start   position in grid x->%d y->%d\n", \
@@ -38,7 +38,7 @@ void	ft_display_position(t_point player_start_position, \
 	ft_printf("Player Exit    position in grid x->%d y->%d\n\n", \
 		exit_position.x, exit_position.y);
 	ft_printf("Portal 1 : {%c} position in grid x->%d y->%d\n", PORTAL_1_CHAR,
-		portal_z_postion.x, portal_z_postion.y);
+		portal_z_position.x, portal_z_position.y);
 	ft_printf("Portal 2 : {%c} position in grid x->%d y->%d\n\n", PORTAL_2_CHAR,
 		portal_n_position.x, portal_n_position.y);
 }

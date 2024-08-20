@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:46:14 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 20:17:10 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 22:20:07 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,31 +25,30 @@
  */
 void	ft_put_sprites_by_line(t_game *game)
 {
-	int		width;
-	int		height;
-	int		win_width;
-	int		win_height;
-	//t_point win
-	//t_point pos
+	t_point	window_postion;
+	t_point	grid_position;
 	t_point	sprite_pos;
 
-	height = 0;
-	win_width = ((game->width * IMG_SIZE) / 2);
-	win_height = ((game->height * IMG_SIZE) / 2);
-	while (height < game->height)
+	grid_position.y = 0x0;
+	window_postion.x = ((game->width * IMG_SIZE) / 0x2);
+	window_postion.y = ((game->height * IMG_SIZE) / 0x2);
+	while (grid_position.y < game->height)
 	{
-		width = 0;
-		while (width < game->width)
+		grid_position.x = 0x0;
+		while (grid_position.x < game->width)
 		{
-			sprite_pos.x = ((width * IMG_SIZE) - game->camera.current.x);
-			sprite_pos.y = ((height * IMG_SIZE) - game->camera.current.y);
-			if ((sprite_pos.x + IMG_SIZE) >= 0 && (sprite_pos.x <= win_width)
-				&& (sprite_pos.y + IMG_SIZE) >= 0
-				&& (sprite_pos.y <= win_height))
-				ft_put_all_sprites_to_line(game, width, height, sprite_pos);//send t_point
-			width++;
+			sprite_pos.x = ((grid_position.x * IMG_SIZE) \
+				- game->camera.current.x);
+			sprite_pos.y = ((grid_position.y * IMG_SIZE) \
+				- game->camera.current.y);
+			if (((sprite_pos.x + IMG_SIZE) >= 0x0) \
+				&& (sprite_pos.x <= window_postion.x)
+				&& ((sprite_pos.y + IMG_SIZE) >= 0x0)
+				&& (sprite_pos.y <= window_postion.y))
+				ft_put_all_sprites_to_line(game, grid_position, sprite_pos);
+			grid_position.x++;
 		}
-		height++;
+		grid_position.y++;
 	}
 }
 
@@ -90,14 +89,14 @@ void	ft_put_sprites_by_line(t_game *game)
  * @param width
  * @param height
  */
-void	ft_put_all_sprites_to_line(t_game *game, int width, int height,
+void	ft_put_all_sprites_to_line(t_game *game, t_point grid_position,
 		t_point sprite_pos)
 {
 	char	tile;
 
-	tile = game->map.grid[height][width];
+	tile = game->map.grid[grid_position.y][grid_position.x];
 	if (tile == WALL_CHAR)
-		ft_draw_wall_bitmask_sprite(game, (t_point){height, width}, sprite_pos);
+		ft_draw_wall_bitmask_sprite(game, grid_position, sprite_pos);
 	else if (tile == VOID_CHAR)
 		ft_ground_sprite(game, sprite_pos);
 	else if (ft_is_key_love_box_sprites(tile))
@@ -111,9 +110,9 @@ void	ft_put_all_sprites_to_line(t_game *game, int width, int height,
 	else if (ft_is_enemies_sprites(tile))
 		ft_handle_enemies_sprites(game, tile, sprite_pos);
 	else if (tile == MONSTER_CHAR)
-		ft_monster_sprites(game, width, height, sprite_pos);
+		ft_monster_sprites(game, grid_position, sprite_pos);
 	else
-		ft_player_sprite_call(game, width, height, sprite_pos);
+		ft_player_sprite(game, grid_position, sprite_pos);
 }
 
 void	ft_handle_borders_sprites(t_game *game, char tile, t_point sprite_pos)

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 20:12:40 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 23:11:45 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,58 +205,57 @@ void	ft_print_game_info(t_game *game);
 //============ [ ft_display_assets_bonus.c ]
 
 void	ft_put_sprites_by_line(t_game *game);
-void	ft_put_all_sprites_to_line(t_game *game, int width, int height, \
-			t_point sprite_position);
+void	ft_put_all_sprites_to_line(t_game *game, t_point grid_position,
+		t_point sprite_pos);
 void ft_handle_borders_sprites(t_game *game, char tile, t_point sprite_position);
 void ft_handle_other_borders_sprites(t_game *game, char tile, t_point sprite_position);
 void ft_handle_key_love_box_sprites(t_game *game, char tile, t_point sprite_position);
 
 //============ [ ft_display_assets_borders_bonus.c ]
 
-void	ft_grass_sprite(t_game *game, t_point position);
-void	ft_tree_sprite(t_game *game, t_point position);
-void	ft_trees_sprite(t_game *game, t_point position);
-void	ft_reed_sprite(t_game *game, t_point position);
-void	ft_pillar_sprite(t_game *game, t_point position);
+void	ft_grass_sprite(t_game *game, t_point sprite_position);
+void	ft_tree_sprite(t_game *game, t_point sprite_position);
+void	ft_trees_sprite(t_game *game, t_point sprite_position);
+void	ft_reed_sprite(t_game *game, t_point sprite_position);
+void	ft_pillar_sprite(t_game *game, t_point sprite_position);
 
 //============ [ ft_display_assets_borders_one_bonus.c ]
 
-void	ft_husks_sprite(t_game *game, t_point position);
-void	ft_fungus_sprite(t_game *game, t_point position);
-void	ft_fungi_sprite(t_game *game, t_point position);
-void	ft_flower_sprite(t_game *game, t_point position);
-void	ft_algae_sprite(t_game *game, t_point position);
+void	ft_husks_sprite(t_game *game, t_point sprite_position);
+void	ft_fungus_sprite(t_game *game, t_point sprite_position);
+void	ft_fungi_sprite(t_game *game, t_point sprite_position);
+void	ft_flower_sprite(t_game *game, t_point sprite_position);
+void	ft_algae_sprite(t_game *game, t_point sprite_position);
 
 //============ [ ft_display_assets_borders_tree_bonus.c ]
 
-void	ft_hedge_sprite(t_game *game, t_point position);
+void	ft_hedge_sprite(t_game *game, t_point sprite_position);
 
 //============ [ ft_display_assets_borders_two_bonus.c ]
 
-void	ft_water_sprite(t_game *game, t_point position);
-void	ft_crab_sprite(t_game *game, t_point position);
-void	ft_foliage_sprite(t_game *game, t_point position);
-void	ft_bog_sprite(t_game *game, t_point position);
-void	ft_snail_sprite(t_game *game, t_point position);
+void	ft_water_sprite(t_game *game, t_point sprite_position);
+void	ft_crab_sprite(t_game *game, t_point sprite_position);
+void	ft_foliage_sprite(t_game *game, t_point sprite_position);
+void	ft_bog_sprite(t_game *game, t_point sprite_position);
+void	ft_snail_sprite(t_game *game, t_point sprite_position);
 
 //============ [ ft_display_assets_enemies_bonus.c ]
 
-void	ft_lava_sprite(t_game *game, t_point position);
-void	ft_pawn_sprite(t_game *game, t_point position);
+void	ft_lava_sprite(t_game *game, t_point sprite_position);
+void	ft_pawn_sprite(t_game *game, t_point sprite_position);
 
 //============ [ ft_display_assets_gameplay_bonus.c ]
 
-void	ft_key_sprite(t_game *game, t_point position);
-void	ft_exit_sprite(t_game *game, t_point position);
-void	ft_box_sprite(t_game *game, t_point position);
-void	ft_portal_z_sprite(t_game *game, t_point position);
-void	ft_portal_n_sprite(t_game *game, t_point position);
+void	ft_key_sprite(t_game *game, t_point sprite_position);
+void	ft_exit_sprite(t_game *game, t_point sprite_position);
+void	ft_box_sprite(t_game *game, t_point sprite_position);
+void	ft_portal_z_sprite(t_game *game, t_point sprite_position);
+void	ft_portal_n_sprite(t_game *game, t_point sprite_position);
 
 //============ [ ft_display_assets_gameplay_one_bonus.c ]
 
-void	ft_love_sprite(t_game *game, t_point position);
-void	ft_ground_sprite(t_game *game, t_point position);
-//void	ft_wall_sprite(t_game *game, t_point position);
+void	ft_love_sprite(t_game *game, t_point sprite_position);
+void	ft_ground_sprite(t_game *game, t_point sprite_position);
 
 //============ [ ft_display_assets_one_bonus.c ]
 
@@ -265,12 +264,12 @@ void ft_handle_enemies_sprites(t_game *game, char tile, t_point sprite_position)
 
 //============ [ ft_display_assets_player_bonus.c ]
 
-void	ft_player_sprite_call(t_game *game, int width, int height, \
+void	ft_player_sprite(t_game *game, t_point grid_position,
 		t_point sprite_position);
-void	ft_player_down_sprite(t_game *game, int draw_x, int draw_y);
-void	ft_player_up_sprite(t_game *game, int draw_x, int draw_y);
-void	ft_player_left_sprite(t_game *game, int draw_x, int draw_y);
-void	ft_player_right_sprite(t_game *game, int draw_x, int draw_y);
+void	ft_player_down_sprite(t_game *game, t_point sprite_position);
+void	ft_player_up_sprite(t_game *game, t_point sprite_position);
+void	ft_player_left_sprite(t_game *game, t_point sprite_position);
+void	ft_player_right_sprite(t_game *game, t_point sprite_position);
 
 //============ [ ft_display_assets_utils_bonus.c ]
 
@@ -283,18 +282,19 @@ t_bool ft_is_other_borders_sprites(char tile);
 //============ [ ft_display_assets_utils_one_bonus.c ]
 
 void	ft_put_sprite(t_game *game, void *sprite, t_point position);
-void ft_draw_wall_bitmask_sprite(t_game *game, t_point grid_pos, t_point camera_pos);
+void	ft_draw_wall_bitmask_sprite(t_game *game, t_point grid_position,
+		t_point camera_position);
 
 //============ [ ft_display_assets_wall_bit_mask_bonus.c ]
 //============ [ ft_display_assets_wall_simple_bonus.c ]
 //============ [ ft_display_monster_assets_bonus.c ]
 
-void	ft_monster_sprites(t_game *game, int width, int height, \
+void	ft_monster_sprites(t_game *game, t_point grid_position, \
 		t_point sprite_position);
-void	ft_monster_down_sprite(t_game *game, int draw_x, int draw_y);
-void	ft_monster_up_sprite(t_game *game, int draw_x, int draw_y);
-void	ft_monster_left_sprite(t_game *game, int draw_x, int draw_y);
-void	ft_monster_right_sprite(t_game *game, int draw_x, int draw_y);
+void	ft_monster_down_sprite(t_game *game, t_point sprite_position);
+void	ft_monster_up_sprite(t_game *game, t_point sprite_position);
+void	ft_monster_left_sprite(t_game *game, t_point sprite_position);
+void	ft_monster_right_sprite(t_game *game, t_point sprite_position);
 
 //============ [ ft_free_a_star_utils_bonus.c ]
 
@@ -553,7 +553,56 @@ void	ft_input_down(t_game *game);
 void	ft_input_left(t_game *game);
 void	ft_input_right(t_game *game);
 
-//============ [ file.c ]
+//============ [ ft_load_alphabet_assets_bonus.c ]
+
+void	ft_load_odd_alphabet_sprite(t_game *game);
+void	ft_load_even_alphabet_sprite(t_game *game);
+void	ft_load_alphabet_sprites(t_game *game);
+
+//============ [ ft_load_alphabet_even_assets_bonus.c ]
+
+void	ft_load_alphabet_b(t_game *game);
+void	ft_load_alphabet_d(t_game *game);
+void	ft_load_alphabet_f(t_game *game);
+void	ft_load_alphabet_h(t_game *game);
+void	ft_load_alphabet_j(t_game *game);
+
+//============ [ fft_load_alphabet_even_one_assets_bonus.c ]
+
+void	ft_load_alphabet_l(t_game *game);
+void	ft_load_alphabet_n(t_game *game);
+void	ft_load_alphabet_p(t_game *game);
+void	ft_load_alphabet_r(t_game *game);
+void	ft_load_alphabet_t(t_game *game);
+
+//============ [ ft_load_alphabet_even_two_assets_bonus.c ]
+
+void	ft_load_alphabet_v(t_game *game);
+void	ft_load_alphabet_x(t_game *game);
+void	ft_load_alphabet_z(t_game *game);
+
+//============ [ ft_load_alphabet_odd_assets_bonus.c ]
+
+void	ft_load_alphabet_a(t_game *game);
+void	ft_load_alphabet_c(t_game *game);
+void	ft_load_alphabet_e(t_game *game);
+void	ft_load_alphabet_g(t_game *game);
+void	ft_load_alphabet_i(t_game *game);
+
+//============ [ ft_load_alphabet_odd_one_assets_bonus.c ]
+
+void	ft_load_alphabet_k(t_game *game);
+void	ft_load_alphabet_m(t_game *game);
+void	ft_load_alphabet_o(t_game *game);
+void	ft_load_alphabet_q(t_game *game);
+void	ft_load_alphabet_s(t_game *game);
+
+//============ [ ft_load_alphabet_odd_two_assets_bonus.c ]
+
+void	ft_load_alphabet_u(t_game *game);
+void	ft_load_alphabet_w(t_game *game);
+void	ft_load_alphabet_y(t_game *game);
+
 
 void	ft_load_sprites(t_game *game);
 void	ft_add_sprite_to_list(t_sprite_node **head, void *frame);
@@ -562,10 +611,44 @@ void	ft_load_sprite_frame(void **frame, t_game *game, const char *path, \
 void	ft_load_animation_sprites(t_animation *animation, t_game *game,
 			const char **paths, const char **error_messages);
 
+//============ [ ft_load_assets_utils_bonus.c ]
+
+void	ft_load_player_sprites(t_game *game);
+void	ft_load_monster_sprites(t_game *game);
+void	ft_load_gameplay_sprites(t_game *game);
+void	ft_load_enemies_sprites(t_game *game);
+void	ft_load_borders_sprite(t_game *game);
+
+//============ [ ft_load_border_four_assets_bonus.c ]
+
+void	ft_load_hedge_sprites(t_game *game);
+
+//============ [ ft_load_border_one_assets_bonus.c ]
+
+void	ft_load_tree_sprites(t_game *game);
+void	ft_load_trees_sprites(t_game *game);
+void	ft_load_reed_sprites(t_game *game);
+void	ft_load_husks_sprites(t_game *game);
+void	ft_load_fungus_sprites(t_game *game);
+
+//============ [ ft_load_border_tree_assets_bonus.c ]
+
+void	ft_load_foliage_sprites(t_game *game);
+void	ft_load_bog_sprites(t_game *game);
+void	ft_load_snail_sprites(t_game *game);
+void	ft_load_pillar_sprites(t_game *game);
+
+//============ [ ft_load_border_two_assets_bonus.c ]
+
+void	ft_load_fungi_sprites(t_game *game);
+void	ft_load_flower_sprites(t_game *game);
+void	ft_load_algae_sprites(t_game *game);
+void	ft_load_water_sprites(t_game *game);
+void	ft_load_crab_sprites(t_game *game);
+
 //============ [ file.c ]
 
 void	ft_load_digits_sprites(t_game *game);
-void	ft_load_digit_tab(t_game *game);
 
 //============ [ file.c ]
 
@@ -724,7 +807,7 @@ void	ft_print_error_empty_and_free(char *error_msg, t_game *game);
 void	ft_print_fill_grid(char **map);
 void	ft_print_display_grid(char **res);
 void	ft_display_position(t_point player_start_position, \
-	t_point exit_position, t_point portal_z_postion, \
+	t_point exit_position, t_point portal_z_position, \
 		t_point portal_n_position);
 void	ft_print_map_info(t_game *game);
 void	ft_print_initial_positions(t_game *game);

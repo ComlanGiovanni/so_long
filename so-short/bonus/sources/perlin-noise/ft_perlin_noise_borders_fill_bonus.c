@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 17:32:24 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 20:16:53 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 22:04:35 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,8 @@ void	ft_initialize_fill_chars(t_fill_char_state *state)
 	set_index = rand() % num_sets;
 	state->selected_fill_chars = fill_char_functions[set_index]();
 	state->selected_fill_chars_size = fill_char_set_sizes[set_index];
-	ft_printf("Theme picked :num_sets %d i->%d\n\n%s",num_sets, set_index, \
-		fill_char_functions[set_index]());
+	// ft_printf("Theme picked :num_sets %d i->%d\n\n%s",num_sets, set_index,
+	// 	fill_char_functions[set_index]());
 }
 
 char	ft_determine_fill_char(float noise_value, t_fill_char_state	state)

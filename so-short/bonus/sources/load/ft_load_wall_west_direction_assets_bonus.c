@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 00:01:57 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 00:47:54 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 23:47:18 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,7 @@ void	ft_load_wall_west_plus_east_sprites(t_game *game)
 		PATH_ASSET"wall/west_plus_east/wall_west_plus_east_frame_0.xpm",
 		PATH_ASSET"wall/west_plus_east/wall_west_plus_east_frame_1.xpm",
 		PATH_ASSET"wall/west_plus_east/wall_west_plus_east_frame_2.xpm"};
-	const char	*error_messages[] = {
-		"Generic me2312ssage change soon",
-		"Generic m2234essage change soon",
-		"Generic m324ssage change soon"};
 
-	ft_load_animation_sprites(&(game->wall.west_plus_east), game, paths,
-		error_messages);
+	ft_load_animation_sprites(&(game->wall.west_plus_east), \
+		game, paths, paths);
 }
-

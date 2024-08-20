@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:11:28 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/13 13:01:39 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/20 23:54:05 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,12 @@ void	ft_load_player_up_sprites(t_game *game)
 		PATH_ASSET"player/up/player_up_frame_0.xpm",
 		PATH_ASSET"player/up/player_up_frame_1.xpm",
 		PATH_ASSET"player/up/player_up_frame_2.xpm"};
-	const char	*error_messages[] = {
-		"PLAYER_U_0_ERROR",
-		"PLAYER_U_1_ERROR",
-		"PLAYER_U_2_ERROR"};
 
-	ft_load_animation_sprites((t_animation *)&(game->player.up_anim), game,
-		paths, error_messages);
-	ft_load_sprite_frame(&(game->player.up_anim.frame_move), game,
-		PATH_ASSET"player/up/player_up_frame_move.xpm",
-		"Generic message error replace soon");
+	ft_load_animation_sprites((t_animation *)&(game->player.up_anim), \
+		game, paths, paths);
+	ft_load_sprite_frame(&(game->player.up_anim.frame_move), \
+		game, PATH_ASSET"player/up/player_up_frame_move.xpm", \
+		PATH_ASSET"player/up/player_up_frame_move.xpm");
 }
 
 void	ft_load_player_down_sprites(t_game *game)
@@ -36,16 +32,12 @@ void	ft_load_player_down_sprites(t_game *game)
 		PATH_ASSET"player/down/player_down_frame_0.xpm",
 		PATH_ASSET"player/down/player_down_frame_1.xpm",
 		PATH_ASSET"player/down/player_down_frame_2.xpm"};
-	const char	*error_messages[] = {
-		"PLAYER_D_0_ERROR",
-		"PLAYER_D_1_ERROR",
-		"PLAYER_D_2_ERROR"};
 
-	ft_load_animation_sprites((t_animation *)&(game->player.down_anim), game,
-		paths, error_messages);
-	ft_load_sprite_frame(&(game->player.down_anim.frame_move), game,
-		PATH_ASSET"player/down/player_down_frame_move.xpm",
-		"Generic message error replace soon");
+	ft_load_animation_sprites((t_animation *)&(game->player.down_anim), \
+		game, paths, paths);
+	ft_load_sprite_frame(&(game->player.down_anim.frame_move), \
+		game, PATH_ASSET"player/down/player_down_frame_move.xpm", \
+		PATH_ASSET"player/down/player_down_frame_move.xpm");
 }
 
 void	ft_load_player_left_sprites(t_game *game)
@@ -54,16 +46,12 @@ void	ft_load_player_left_sprites(t_game *game)
 		PATH_ASSET"player/left/player_left_frame_0.xpm",
 		PATH_ASSET"player/left/player_left_frame_1.xpm",
 		PATH_ASSET"player/left/player_left_frame_2.xpm"};
-	const char	*error_messages[] = {
-		"PLAYER_L_0_ERROR",
-		"PLAYER_L_1_ERROR",
-		"PLAYER_L_2_ERROR"};
 
-	ft_load_animation_sprites((t_animation *)&(game->player.left_anim), game,
-		paths, error_messages);
-	ft_load_sprite_frame(&(game->player.left_anim.frame_move), game,
-		PATH_ASSET"player/left/player_left_frame_move.xpm",
-		"Generic message error replace soon");
+	ft_load_animation_sprites((t_animation *)&(game->player.left_anim), \
+		game, paths, paths);
+	ft_load_sprite_frame(&(game->player.left_anim.frame_move), \
+		game, PATH_ASSET"player/left/player_left_frame_move.xpm", \
+		PATH_ASSET"player/left/player_left_frame_move.xpm");
 }
 
 void	ft_load_player_right_sprites(t_game *game)
@@ -72,17 +60,12 @@ void	ft_load_player_right_sprites(t_game *game)
 		PATH_ASSET"player/right/player_right_frame_0.xpm",
 		PATH_ASSET"player/right/player_right_frame_1.xpm",
 		PATH_ASSET"player/right/player_right_frame_2.xpm",};
-	const char	*error_messages[] = {
-		"PLAYER_R_0_ERROR",
-		"PLAYER_R_1_ERROR",
-		"PLAYER_R_2_ERROR",
-	};
 
 	ft_load_animation_sprites((t_animation *)&(game->player.right_anim), game,
-		paths, error_messages);
-	ft_load_sprite_frame(&(game->player.right_anim.frame_move), game,
-		PATH_ASSET"player/right/player_right_frame_move.xpm",
-		"Generic message error replace soon");
+		paths, paths);
+	ft_load_sprite_frame(&(game->player.right_anim.frame_move), \
+		game, PATH_ASSET"player/right/player_right_frame_move.xpm", \
+		PATH_ASSET"player/right/player_right_frame_move.xpm");
 }
 
 /**

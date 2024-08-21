@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:17:02 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 23:44:37 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/21 13:50:55 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void	ft_load_love_sprites(t_game *game)
 		game, paths, paths);
 	ft_load_sprite_frame(&(game->love.icon), game,
 		PATH_ASSET"love/love_small_icon.xpm",
-		"Generic message error replace soon");
+		PATH_ASSET"love/love_small_icon.xpm");
 	ft_load_sprite_frame(&(game->love.nope), game,
 		PATH_ASSET"love/love_frame_nope.xpm",
-		"Generic message error replace soon");
+		PATH_ASSET"love/love_frame_nope.xpm");
 }
 
 void	ft_load_box_sprites(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:25:57 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 19:31:08 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/21 14:04:16 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define ALPHABET_COUNT		 	26
 # define IMG_SIZE 				64
 # define ICON_SIZE 				32
-# define BORDERS_WIDTH 			20//put 20 to test
+# define BORDERS_WIDTH 			10//put 20 to test
 # define PERMUTATION_SIZE 		256
 # define BIT_MASK_POSSIBILITY	0x10
 # define DISPLAY				"DISPLAY"
@@ -45,7 +45,7 @@
 # define GRID_SIZE_PRINT		"\nGrid Width && Height -->> "
 # define SCREEN_SIZE_PRINT		"Screen Height && Width "
 # define WINDOW_SIZE_PRINT		"Window Height && Width "
-# define GAME_TITLE				"./so_long"
+# define GAME_TITLE				"baba is long"
 # define USAGE_MSG				"./so_long [pass to map][map name].ber\n"
 # define NO_ENV_ERROR			"No variable environment available\n"
 # define NO_DISP_ERROR			"DISPLAY not found in env\n"

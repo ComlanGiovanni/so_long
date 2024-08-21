@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:29:36 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/17 01:07:06 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/21 22:31:42 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,101 +18,33 @@
 //ANIMATED LIFE ICON LOAD AND PALY ANIMATION
 //ANIMATED LIFE ICON LOAD AND PALY ANIMATION
 
-void ft_init_struct_img(void *img_ptr, t_img *img, t_img_size img_size)
+void	ft_init_struct_img(void *img_ptr, t_img *img, t_img_size img_size)
 {
-	img->data = mlx_get_data_addr(img_ptr, &img->bpp, \
-		&img->size_line, &img->endian);
+	img->data = mlx_get_data_addr(img_ptr, &img->bpp, &img->size_line,
+			&img->endian);
 	img->width = img_size.width;
 	img->height = img_size.height;
 }
 
-int ft_get_pixel_color(t_img *img, int x, int y)
+int	ft_get_pixel_color(t_img *img, int x, int y)//t_point
 {
-	int bpp;
-	char *pixel;
+	int		bpp;
+	char	*pixel;
 
-	if (x < 0 || x >= img->width || y < 0 || y >= img->height)
+	if ((x < 0x0) || (x >= img->width) || (y < 0x0) || (y >= img->height))
 		return (0x0);
-	bpp = img->bpp / 8;
-	pixel = img->data + (y * img->size_line + x * bpp);
+	bpp = img->bpp / 0x8;
+	pixel = (img->data + ((y * img->size_line) + (x * bpp)));
 	return (*(int *)pixel);
 }
 
-void ft_display_transparent_image(t_game *game, void *img_ptr, \
-	t_point position, t_img_size img_size)
+static void	ft_display_direction_string(t_game *game)
 {
-	t_img	img;
-	int		x;
-	int		y;
-	//t_point ?
-	int		color;
+	char	*direction;
+	t_point	direction_pos;
 
-	ft_init_struct_img(img_ptr, &img, img_size);
-	y = 0;
-	while (y < img.height) {
-		x = 0;
-		while (x < img.width) {
-			color = ft_get_pixel_color(&img, x, y);
-			if ((color & 0xFF000000) != 0xFF000000)
-				mlx_pixel_put(game->mlx, game->win, \
-					position.x + x, position.y + y, color);
-			x++;
-		}
-		y++;
-	}
-}
-
-void	ft_display_uppercase(t_game *game, char c, t_point *position,
-		void **letter_images)
-{
-	int	char_index;
-
-	char_index = c - 'A';
-	ft_display_transparent_image(game, letter_images[char_index], \
-		(t_point){position->x, position->y}, (t_img_size){32,32});
-	position->x += ICON_SIZE;
-}
-
-void	ft_display_lowercase(t_game *game, char c, t_point *position,
-		void **letter_images)
-{
-	int	char_index;
-
-	char_index = c - 'a';
-	ft_display_transparent_image(game, letter_images[char_index], \
-		(t_point){position->x, position->y}, (t_img_size){32,32});
-	position->x += ICON_SIZE;
-}
-
-
-void	ft_display_string_sprites(t_game *game, char *alphabet_str,
-		t_point position)
-{
-	void	*letter_images[26];
-	int		index;
-//completement con, d'init a chaque fois que tu veux display
-	init_even_letter_images(game, letter_images);
-	init_odd_letter_images(game, letter_images);
-	index = 0;
-	while (alphabet_str[index] != '\0')
-	{
-		if (alphabet_str[index] >= 'A' && alphabet_str[index] <= 'Z')
-			ft_display_uppercase(game, alphabet_str[index], &position,
-				letter_images);
-		else if (alphabet_str[index] >= 'a' && alphabet_str[index] <= 'z')
-			ft_display_lowercase(game, alphabet_str[index], &position,
-				letter_images);
-		index++;
-	}
-}
-
-void	ft_display_direction_string(t_game *game)
-{
-	char		*direction;
-	t_point		direction_pos;
-
-	direction_pos.x = 5;
-	direction_pos.y = game->window.height - 50;
+	direction_pos.x = 0x5;
+	direction_pos.y = game->window.height - 50;//t_point in game hud struct
 	direction = NULL;
 	if (game->player.movement.direction == 'u')
 		direction = UP_DIRECTION;
@@ -139,7 +71,8 @@ void	ft_display_direction_string(t_game *game)
  *
 	//game->hud.str_storage = ft_itoa(game->player.storage);
 
-	mlx_string_put(game->mlx, game->win, game->hud.fps.x + 80, game->hud.fps.y, RED, "//");
+	mlx_string_put(game->mlx, game->win, game->hud.fps.x + 80, game->hud.fps.y,
+			RED, "//");
  *
  * @param game
  */
@@ -151,45 +84,16 @@ void	ft_print_info_on_window(t_game *game)
 			- game->player.storage);
 	ft_display_life_on_windows(game);
 	ft_display_string_sprites(game, STEP_INDICATOR, game->hud.step);
-	ft_display_digits_sprites(game, game->hud.str_step, (t_point){game->hud.step.x + 130 ,game->hud.step.y});//mdr j'ai la flemme de mettre dans une struct
+	ft_display_digits_sprites(game, game->hud.str_step,
+			(t_point){game->hud.step.x + 130, game->hud.step.y});//t_point in game hud struct
 	ft_display_string_sprites(game, FPS_INDICATOR, game->hud.fps);
-	ft_display_digits_sprites(game, game->hud.str_fps, (t_point){game->hud.fps.x + 100 ,game->hud.fps.y});
+	ft_display_digits_sprites(game, game->hud.str_fps, (t_point){game->hud.fps.x
+			+ 100, game->hud.fps.y});//t_point in game hud struct
 	ft_display_string_sprites(game, KEYS_INDICATOR, game->hud.keys);
-	ft_display_digits_sprites(game, game->hud.str_key_remain, (t_point){game->hud.keys.x + 130 ,game->hud.keys.y});
+	ft_display_digits_sprites(game, game->hud.str_key_remain,
+			(t_point){game->hud.keys.x + 130, game->hud.keys.y});//t_point in game hud struct
 	ft_display_direction_string(game);
-	//ft_event_hud();
-	// if (game->player.storage == game->map.info.nbr_key)
-	// {
-	// 	ft_display_string_sprites(game, "DOOR", (t_point){5, game->window.height - 300});//macro and struct
-	// 	ft_display_string_sprites(game, "OPEN", (t_point){5, game->window.height - 290});//macro and struct
-	// }
-	// if (game->player.life == 1) // the fuck is this ?
-	// 	ft_display_string_sprites(game, "NOOB", (t_point){5, game->window.height - 230});
-	//ft_event_hud();
 	ft_free_step_and_storage(game);
-}
-
-void	ft_init_digits_images(t_game *game, void **digit_images);
-
-void	ft_display_digits_sprites(t_game *game, char *digits_str,
-		t_point position)
-{
-	void	*digit_images[10];
-	int		index;
-
-	index = 0x0;
-	ft_init_digits_images(game, digit_images);
-	while (digits_str[index] != '\0')
-	{
-		if ((digits_str[index] - '0') >= 0 && (digits_str[index] - '0') <= 9)
-		{
-			ft_display_transparent_image(game, \
-				digit_images[(digits_str[index] - '0')], \
-				(t_point){position.x, position.y}, (t_img_size){32,32});
-			position.x += 24;
-		}
-		index++;
-	}
 }
 
 /**
@@ -210,23 +114,24 @@ void	ft_display_digits_sprites(t_game *game, char *digits_str,
 void	ft_display_life_on_windows(t_game *game)
 {
 	int	idx;
-	int	x; //t_point in struct
-	int	y; //t_point in struct
 	int	icons_per_row;
 	int	icon_spacing;
-	idx = 0;
-	x = 5;
-	y = 5;
-	icons_per_row = 3;
-	icon_spacing = 5;
+	int x; //t_point in struct
+	int y; //t_point in struct
+	idx = 0x0;
+	x = 0x5;
+	y = 0x5;
+	icons_per_row = 0x3;
+	icon_spacing = 0x5;
+
 	while (idx < game->player.life && idx < 500)
 	{
-		ft_display_transparent_image(game, game->love.icon, \
-			(t_point){x, y}, (t_img_size){32,32});
+		ft_display_transparent_image(game, game->love.icon, (t_point){x, y},
+				(t_img_size){32, 32});
 		idx++;
-		if ((idx % icons_per_row) == 0)
+		if ((idx % icons_per_row) == 0x0)
 		{
-			x = 5;
+			x = 0x5;
 			y += 32 + icon_spacing;
 		}
 		else

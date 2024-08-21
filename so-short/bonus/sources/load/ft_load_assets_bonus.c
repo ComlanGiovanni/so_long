@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:10:08 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 23:02:38 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/21 15:22:18 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ void	ft_load_sprites(t_game *game)
 	ft_load_wall_bit_masking_sprites(game);
 }
 
-void	ft_add_sprite_to_list(t_sprite_node **head, void *frame)
+void	ft_add_sprite_to_list(t_game *game, void *frame)
 {
 	t_sprite_node	*new_node;
 
 	new_node = (t_sprite_node *)malloc(sizeof(t_sprite_node));
 	if (!new_node)
-		return ;
+		ft_print_error("Add sprite to list fail", game);
 	new_node->frame = frame;
-	new_node->next = *head;
-	*head = new_node;
+	new_node->next = game->node;
+	game->node = new_node;
 }
 
 void	ft_load_sprite_frame(void **frame, t_game *game, const char *path,
@@ -48,7 +48,7 @@ void	ft_load_sprite_frame(void **frame, t_game *game, const char *path,
 	*frame = mlx_xpm_file_to_image(game->mlx, (char *)path, &width, &height);
 	if (*frame == NULL)
 		ft_print_error((char *)error_message, game);
-	ft_add_sprite_to_list(&game->node, *frame);
+	ft_add_sprite_to_list(game, *frame);
 }
 
 void	ft_load_animation_sprites(t_animation *animation, t_game *game,

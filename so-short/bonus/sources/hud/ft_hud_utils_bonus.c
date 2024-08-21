@@ -6,9 +6,96 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:57:32 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 14:57:42 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/21 22:31:07 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long_bonus.h"
 
+void	ft_display_digits_sprites(t_game *game, char *digits_str,
+		t_point position)
+{
+	void	*digit_images[0xa];
+	int		index;
+
+	index = 0x0;
+	ft_init_digits_images(game, digit_images);
+	while (digits_str[index] != '\0')
+	{
+		if ((digits_str[index] - '0') >= 0x0 && (digits_str[index] - '0') <= 0x9)
+		{
+			ft_display_transparent_image(game, \
+				digit_images[(digits_str[index] - '0')], \
+				(t_point){position.x, position.y}, (t_img_size){32,32});
+			position.x += 24;//0x
+		}
+		index++;
+	}
+}
+
+void	ft_display_string_sprites(t_game *game, char *alphabet_str, \
+		t_point position)
+{
+	void	*letter_images[26];
+	int		index;
+
+	init_even_letter_images(game, letter_images);
+	init_odd_letter_images(game, letter_images);
+	index = 0x0;
+	while (alphabet_str[index] != '\0')
+	{
+		if (alphabet_str[index] >= 'A' && alphabet_str[index] <= 'Z')
+			ft_display_uppercase(game, alphabet_str[index], &position,
+				letter_images);
+		else if (alphabet_str[index] >= 'a' && alphabet_str[index] <= 'z')
+			ft_display_lowercase(game, alphabet_str[index], &position,
+				letter_images);
+		index++;
+	}
+}
+
+void	ft_display_uppercase(t_game *game, char c, t_point *position,
+		void **letter_images)
+{
+	int	char_index;
+
+	char_index = c - 'A';
+	ft_display_transparent_image(game, letter_images[char_index], \
+		(t_point){position->x, position->y}, (t_img_size){32,32});
+	position->x += ICON_SIZE;
+}
+
+void	ft_display_lowercase(t_game *game, char c, t_point *position,
+		void **letter_images)
+{
+	int	char_index;
+
+	char_index = c - 'a';
+	ft_display_transparent_image(game, letter_images[char_index], \
+		(t_point){position->x, position->y}, (t_img_size){32,32});
+	position->x += ICON_SIZE;
+}
+
+void ft_display_transparent_image(t_game *game, void *img_ptr, \
+	t_point position, t_img_size img_size)
+{
+	t_img	img;
+	int		x;
+	int		y;
+	//t_point ?
+	int		color;
+
+	ft_init_struct_img(img_ptr, &img, img_size);
+	y = 0x0;
+	while (y < img.height) {
+		x = 0x0;
+		while (x < img.width) {
+			color = ft_get_pixel_color(&img, x, y);
+			if ((color & 0xFF000000) != 0xFF000000)
+				mlx_pixel_put(game->mlx, game->win, \
+					position.x + x, position.y + y, color);
+			x++;
+		}
+		y++;
+	}
+}

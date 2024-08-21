@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 19:55:04 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 19:28:51 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/21 00:13:49 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	ft_fill_map_row(char **new_map, int row, t_game *game, int new_width)
 	int					new_height;
 	float				noise_value;
 	t_fill_char_state	state;
-	ft_initialize_fill_chars(&state);
 
+	ft_initialize_fill_chars(&state);
 	border_width = game->map.border_width;
 	new_height = (game->height + (2 * border_width));
 	column = 0x0;

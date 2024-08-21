@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 12:12:44 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 21:19:26 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/21 13:53:21 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ typedef struct s_direction_evaluation	t_direction_evaluation;
 typedef struct s_flood_fill_data		t_flood_fill_data;
 typedef struct s_mouse					t_mouse;
 typedef struct s_fill_char_state		t_fill_char_state;
+typedef struct s_line_error_data		t_line_error_data;
 
 #endif // !FT_SO_LONG_TYPEDEF_BONUS_H

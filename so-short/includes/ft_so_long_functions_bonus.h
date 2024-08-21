@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 23:11:45 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/21 22:30:07 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -434,12 +434,25 @@ void	ft_player_get_hit(t_game *game);
 void	ft_baba_forbidden(t_game *game);
 void	ft_pawn_movement(t_game *game);
 
-//============ [ file.c ]
+//============ [ ft_hud_bonus.c ]
 
+void	ft_init_struct_img(void *img_ptr, t_img *img, t_img_size img_size);
+int	ft_get_pixel_color(t_img *img, int x, int y);
 void	ft_print_info_on_window(t_game *game);
+void	ft_display_life_on_windows(t_game *game);
+
+
 void	ft_display_digits_sprites(t_game *game, char *digits_str, \
 			t_point position);
-void	ft_display_life_on_windows(t_game *game);
+void	ft_display_string_sprites(t_game *game, char *alphabet_str,
+		t_point position);
+void	ft_display_uppercase(t_game *game, char c, t_point *position,
+		void **letter_images);
+void	ft_display_lowercase(t_game *game, char c, t_point *position,
+		void **letter_images);
+void ft_display_transparent_image(t_game *game, void *img_ptr, \
+	t_point position, t_img_size img_size);
+
 
 //============ [ ft_init_a_star_bonus.c ]
 
@@ -603,9 +616,10 @@ void	ft_load_alphabet_u(t_game *game);
 void	ft_load_alphabet_w(t_game *game);
 void	ft_load_alphabet_y(t_game *game);
 
+//============ [ ft_load_assets_bonus.c ]
 
 void	ft_load_sprites(t_game *game);
-void	ft_add_sprite_to_list(t_sprite_node **head, void *frame);
+void	ft_add_sprite_to_list(t_game *game, void *frame);
 void	ft_load_sprite_frame(void **frame, t_game *game, const char *path, \
 			const char *error_message);
 void	ft_load_animation_sprites(t_animation *animation, t_game *game,

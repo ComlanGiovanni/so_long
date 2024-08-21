@@ -6,13 +6,15 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 21:49:59 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 22:25:16 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/21 16:54:24 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+#include <stdio.h>
 
 # define PERMUTATION_SIZE 		256
 
@@ -161,6 +163,12 @@ void	ft_calculate_relatives_positions(t_perlin_vars *vars, float x, float y)
 	vars->grid_position_y = (int)ft_floor(y) & 255;
 	vars->relative_position_x = x - ft_floor(x);
 	vars->relative_position_y = y - ft_floor(y);
+	// printf("\n\nGrid_position_x -> %d", vars->grid_position_x);
+	// printf("\nGrid_position_y -> %d", vars->grid_position_y);
+	// printf("\nfloor_x -> %d", ft_floor(x));
+	// printf("\nfloor_y -> %d", ft_floor(x));
+	// printf("\nRelative_position_x -> %f", vars->relative_position_x);
+	// printf("\nRelative_position_y -> %f", vars->relative_position_x);
 }
 
 int ft_floor(float value)
@@ -465,10 +473,10 @@ int	main(void)
 	t_fill_char_state	state;
 	ft_initialize_fill_chars(&state);
 	y = 0.0f;
-	while (y < 3.0f)
+	while (y < 8.0f)
 	{
 		x = 0.0f;
-		while (x < 3.0f)
+		while (x < 8.0f)
 		{
 			noise_value = ft_perlin_noise(x, y);
 			printf("%c", ft_determine_fill_char(noise_value, state));

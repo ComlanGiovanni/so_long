@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:12:28 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 23:47:31 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/21 00:11:19 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_load_ground_sprites(t_game *game)
 {
 	ft_load_sprite_frame(&(game->map.ground), \
-		game, PATH_ASSET"ground/ground.xpm", "paths[0]");
+		game, PATH_ASSET"ground/ground.xpm", "paths[0]");//macro file ?
 }
 
 void	ft_load_grass_sprites(t_game *game)

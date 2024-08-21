@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:28:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 21:19:46 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/21 13:54:25 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -361,6 +361,14 @@ struct						s_sprite_node
 {
 	void					*frame;
 	struct s_sprite_node	*next;
+};
+
+struct s_line_error_data
+{
+	int		curr_height;
+	int		height;
+	int		fd;
+	t_game	*game;
 };
 
 struct						s_box

@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Dimensions de la carte
-width=30
-height=11
+width=10
+height=10
 
 # Crée un fichier vide map.ber
-map_file="map.ber"
+map_file="maze.ber"
 > $map_file
 
 # Initialiser la carte avec des 1 (tout est mur au départ)

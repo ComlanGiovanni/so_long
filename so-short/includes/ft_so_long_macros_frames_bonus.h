@@ -6,15 +6,15 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 12:58:36 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/22 15:41:17 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:38:07 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_SO_LONG_MACROS_FRAMES_BONUS_H
 # define FT_SO_LONG_MACROS_FRAMES_BONUS_H
 
-# define WALLS_FRAMES			32
-# define ALPHABET_FRAMES		152
+# define WALLS_FRAMES			128
+# define ALPHABET_FRAMES		32
 # define GRASS_FRAMES			152
 # define TREE_FRAMES			152
 # define TREES_FRAMES			152
@@ -31,8 +31,8 @@
 # define SNAIL_FRAMES			152
 # define PILLAR_FRAMES			152
 # define HEDGE_FRAMES			152
-# define DIGITS_EVEN_FRAMES		152
-# define DIGITS_ODD_FRAMES		152
+# define DIGITS_EVEN_FRAMES		32
+# define DIGITS_ODD_FRAMES		64
 # define KEY_FRAMES				152
 # define LAVA_FRAMES			512
 # define MONSTER_FRAMES			152
@@ -41,6 +41,7 @@
 # define PORTAL_Z_FRAMES		152
 # define BOX_FRAMES				152
 # define LOVE_FRAMES			152
+# define LOVE_ICON_FRAMES		32
 # define PLAYER_FRAMES			152
 # define DOOR_OPEN_FRAMES		152
 # define DOOR_CLOSED_FRAMES		152

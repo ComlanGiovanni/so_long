@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 16:34:38 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 19:26:14 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:25:45 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ static void	ft_init_letter_images(t_game *game, void **letter_images, \
 	}
 }
 
-void	init_even_letter_images(t_game *game, void **letter_images)
+void	ft_init_even_letter_images(t_game *game, void **letter_images)
 {
 	ft_init_letter_images(game, letter_images, 0x0);
 }
 
-void	init_odd_letter_images(t_game *game, void **letter_images)
+void	ft_init_odd_letter_images(t_game *game, void **letter_images)
 {
 	ft_init_letter_images(game, letter_images, 0x1);
 }

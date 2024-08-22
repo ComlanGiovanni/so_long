@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:28:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/22 15:06:00 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:18:48 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,11 +127,17 @@ struct						s_door
 	t_anim_door				open;
 };
 
+typedef struct s_love_icon
+{
+	t_animation			animation;
+}t_love_icon;
+
 struct						s_love
 {
 	t_animation				animation;
 	void					*nope;
-	void					*icon;
+	t_love_icon				icon;
+	//void					*icon;
 };
 
 struct						s_anim_player

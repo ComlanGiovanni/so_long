@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:29:36 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/22 14:19:11 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:21:58 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void	ft_display_life_on_windows(t_game *game)
 	icon_spacing = 0x5;
 	while (idx < game->player.life && idx < 500)
 	{
-		ft_display_transparent_image(game, game->love.icon, \
+		ft_display_transparent_image(game, game->love.icon.animation.current, \
 			(t_point){x, y}, (t_img_size){ICON_SIZE, ICON_SIZE});
 		idx++;
 		if ((idx % icons_per_row) == 0x0)

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:57:32 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/22 14:19:49 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:25:45 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	ft_display_string_sprites(t_game *game, char *alphabet_str, \
 	void	*letter_images[26];
 	int		index;
 
-	init_even_letter_images(game, letter_images);
-	init_odd_letter_images(game, letter_images);
+	ft_init_even_letter_images(game, letter_images);
+	ft_init_odd_letter_images(game, letter_images);
 	index = 0x0;
 	while (alphabet_str[index] != '\0')
 	{

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/22 15:03:11 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:25:45 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,6 +176,7 @@ void			ft_pawn_animation(t_animation *animation);
 void			ft_lava_animation(t_animation *animation);
 void			ft_key_animation(t_animation *animation);
 void			ft_love_animation(t_animation *animation);
+void		ft_love_icon_animation(t_animation *animation);
 
 //============ [ ft_camera_bonus.c  ]
 
@@ -515,8 +516,8 @@ void			ft_init_others_frames(t_game *game);
 //============ [ ft_init_hud_bonus.c ]
 
 void			ft_init_digits_images(t_game *game, void **digit_images);
-void			init_even_letter_images(t_game *game, void **letter_images);
-void			init_odd_letter_images(t_game *game, void **letter_images);
+void			ft_init_even_letter_images(t_game *game, void **letter_images);
+void			ft_init_odd_letter_images(t_game *game, void **letter_images);
 
 //============ [ ft_init_map_bonus.c ]
 
@@ -702,6 +703,7 @@ void			ft_load_digit_eight(t_game *game);
 void			ft_load_lava_sprites(t_game *game);
 void			ft_load_key_sprites(t_game *game);
 void			ft_load_love_sprites(t_game *game);
+void			ft_load_love_icon_sprites(t_game *game);
 void			ft_load_box_sprites(t_game *game);
 
 //============ [ file.c ]

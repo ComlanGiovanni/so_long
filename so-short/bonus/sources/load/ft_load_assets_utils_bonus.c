@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 23:03:03 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 23:03:16 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:29:30 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_load_monster_sprites(t_game *game)
 void	ft_load_gameplay_sprites(t_game *game)
 {
 	ft_load_love_sprites(game);
+	ft_load_love_icon_sprites(game);
 	ft_load_key_sprites(game);
 	ft_load_portal_n_sprites(game);
 	ft_load_portal_z_sprites(game);

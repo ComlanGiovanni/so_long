@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:20:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 19:25:19 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:21:07 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_init_gameplay_frames(t_game *game)
 	game->box.animation.frames = BOX_FRAMES;
 	game->key.animation.frames = KEY_FRAMES;
 	game->love.animation.frames = LOVE_FRAMES;
+	game->love.icon.animation.frames = LOVE_ICON_FRAMES;
 }
 
 void	ft_init_others_frames(t_game *game)

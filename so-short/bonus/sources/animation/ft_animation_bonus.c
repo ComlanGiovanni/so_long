@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 03:10:53 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 19:52:20 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:18:51 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ void	ft_play_animation(t_game *game)
 	ft_door_open_animation(&game->door.open);
 	ft_door_closed_animation(&game->door.closed);
 	ft_borders_animation(game);
+	//ft_life_management
 	if (game->player.life == PLAYER_MAX_LIFE)
 		game->love.animation.current = game->love.nope;
 	else
 		ft_love_animation(&game->love.animation);
+	//ft_life_management
+	ft_love_icon_animation(&game->love.icon.animation);
 	ft_digits_animation(game);
 	ft_alphabet_animation(game);
 	ft_wall_animation(game);

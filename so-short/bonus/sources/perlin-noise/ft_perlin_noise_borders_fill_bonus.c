@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 17:32:24 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 22:04:35 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:42:27 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,6 @@ const char	*get_fill_forest_chars(void)
 	return (fill_chars);
 }
 
-typedef const char	*(*t_fill_char_function)(void);
-
 void	ft_initialize_fill_chars(t_fill_char_state *state)
 {
 	static t_fill_char_function	fill_char_functions[] = {
@@ -117,8 +115,6 @@ void	ft_initialize_fill_chars(t_fill_char_state *state)
 	set_index = rand() % num_sets;
 	state->selected_fill_chars = fill_char_functions[set_index]();
 	state->selected_fill_chars_size = fill_char_set_sizes[set_index];
-	// ft_printf("Theme picked :num_sets %d i->%d\n\n%s",num_sets, set_index,
-	// 	fill_char_functions[set_index]());
 }
 
 char	ft_determine_fill_char(float noise_value, t_fill_char_state	state)

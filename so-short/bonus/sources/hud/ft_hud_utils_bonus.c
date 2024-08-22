@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:57:32 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/21 22:31:07 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:19:49 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ void	ft_display_digits_sprites(t_game *game, char *digits_str,
 	ft_init_digits_images(game, digit_images);
 	while (digits_str[index] != '\0')
 	{
-		if ((digits_str[index] - '0') >= 0x0 && (digits_str[index] - '0') <= 0x9)
+		if (((digits_str[index] - '0') >= 0x0) \
+			&& (digits_str[index] - '0') <= 0x9)
 		{
 			ft_display_transparent_image(game, \
 				digit_images[(digits_str[index] - '0')], \
-				(t_point){position.x, position.y}, (t_img_size){32,32});
-			position.x += 24;//0x
+				(t_point){position.x, position.y}, \
+				(t_img_size){ICON_SIZE, ICON_SIZE});
+			position.x += 24;
 		}
 		index++;
 	}
@@ -54,42 +56,46 @@ void	ft_display_string_sprites(t_game *game, char *alphabet_str, \
 	}
 }
 
-void	ft_display_uppercase(t_game *game, char c, t_point *position,
+void	ft_display_uppercase(t_game *game, char character, t_point *position,
 		void **letter_images)
 {
 	int	char_index;
 
-	char_index = c - 'A';
+	char_index = character - 'A';
 	ft_display_transparent_image(game, letter_images[char_index], \
-		(t_point){position->x, position->y}, (t_img_size){32,32});
+		(t_point){position->x, position->y}, \
+			(t_img_size){ICON_SIZE, ICON_SIZE});
 	position->x += ICON_SIZE;
 }
 
-void	ft_display_lowercase(t_game *game, char c, t_point *position,
+void	ft_display_lowercase(t_game *game, char character, t_point *position,
 		void **letter_images)
 {
 	int	char_index;
 
-	char_index = c - 'a';
+	char_index = character - 'a';
 	ft_display_transparent_image(game, letter_images[char_index], \
-		(t_point){position->x, position->y}, (t_img_size){32,32});
+		(t_point){position->x, position->y}, \
+			(t_img_size){ICON_SIZE, ICON_SIZE});
 	position->x += ICON_SIZE;
 }
 
-void ft_display_transparent_image(t_game *game, void *img_ptr, \
+//t_point ?
+void	ft_display_transparent_image(t_game *game, void *img_ptr, \
 	t_point position, t_img_size img_size)
 {
 	t_img	img;
 	int		x;
 	int		y;
-	//t_point ?
 	int		color;
 
 	ft_init_struct_img(img_ptr, &img, img_size);
 	y = 0x0;
-	while (y < img.height) {
+	while (y < img.height)
+	{
 		x = 0x0;
-		while (x < img.width) {
+		while (x < img.width)
+		{
 			color = ft_get_pixel_color(&img, x, y);
 			if ((color & 0xFF000000) != 0xFF000000)
 				mlx_pixel_put(game->mlx, game->win, \

@@ -6,12 +6,12 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 03:32:10 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/14 15:51:44 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:15:42 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_LINUX_H
-# define SO_LONG_LINUX_H
+#ifndef FT_SO_LONG_MANDATORY_H
+# define FT_SO_LONG_MANDATORY_H
 
 //=================================================================== [ file.c ]
 
@@ -58,12 +58,13 @@
 
 //=================================================================== [ file.c ]
 
-typedef enum e_key_code		t_key_code;
-typedef enum e_map_char		t_map_char;
-typedef enum e_bool			t_bool;
-typedef struct s_point		t_point;
-typedef struct s_sprites	t_sprites;
-typedef struct s_game		t_game;
+typedef enum e_key_code					t_key_code;
+typedef enum e_map_char					t_map_char;
+typedef enum e_bool						t_bool;
+typedef struct s_point					t_point;
+typedef struct s_sprites				t_sprites;
+typedef struct s_game					t_game;
+typedef struct s_line_error_data		t_line_error_data;
 
 //=================================================================== [ file.c ]
 
@@ -122,18 +123,26 @@ struct						s_sprites
 
 //=================================================================== [ file.c ]
 
+typedef struct s_flood_fill_data
+{
+	t_bool					exit_found;
+	int						coins;
+}							t_flood_fill_data;
 
-typedef struct s_flood_fill_data {
-    t_bool exit_found;
-    int coins;
-} t_flood_fill_data;
+struct						s_line_error_data
+{
+	int						curr_height;
+	int						height;
+	int						fd;
+	t_game					*game;
+};
 
 typedef struct s_game
 {
 	t_sprites				sprite;
-	t_point	start;
-	t_point	end;
-	t_point	size;
+	t_point					start;
+	t_point					end;
+	t_point					size;
 	t_flood_fill_data		flood_fill;
 	long long int			step;
 	long long int			nbr_love;
@@ -166,16 +175,16 @@ void						ft_init_map_info(t_game *game, char *line);
 
 void						ft_get_number_collectible(t_game *game);
 t_point						ft_find_pos_char(char **tab, t_point size, char c);
-void	ft_flood_fill(char **tab, t_game *game, t_point start);
+void						ft_flood_fill(char **tab, t_game *game,
+								t_point start);
 
 //=================================================================== [ file.c ]
 
 void						ft_check_map_finishable(t_game *game);
 
 char						**ft_split_map(t_game *game);
-void	ft_clean_fail_malloc_split_map(t_game *game,
-									char **grid,
-									int row);
+void						ft_clean_fail_malloc_split_map(t_game *game, \
+							char **grid, int row);
 void						ft_clean_grid_map(char **grid, int row);
 void						ft_free_and_print(char **map, t_game *game,
 								char *str);
@@ -227,4 +236,4 @@ char						*ft_custom_strjoin(char *s1, char *s2);
 void						ft_check_env(char **env);
 int							ft_check_extension(char *map_name, char *extension);
 
-#endif
+#endif // !FT_SO_LONG_LINUX_MANDATORY_H

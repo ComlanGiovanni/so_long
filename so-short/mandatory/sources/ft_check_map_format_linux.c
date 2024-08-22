@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 03:00:42 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/14 17:25:15 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:27:58 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,17 @@ int	ft_get_map_height(char *map_name, t_game *game)
 	return (height);
 }
 
-void handle_line(char **line, int fd, t_game *game, int curr_height, int height) {
-    if ((*line == NULL || (*line)[0] == '\n') && curr_height != height) {
-        game->empty_line = 1;
-    }
-    free(*line);
-    if (curr_height == height) {
-        close(fd);
-        //*line = NULL; // Set line to NULL to exit the loop
-		return;
-    }
+static void	ft_handle_line_error(char *line, t_line_error_data *data)
+{
+	if ((line == NULL || line[0x0] == '\n')
+		&& data->curr_height != data->height)
+		data->game->empty_line = 0x1;
+	free(line);
+	if (data->curr_height == data->height)
+	{
+		close(data->fd);
+		return ;
+	}
 }
 
 /**
@@ -91,9 +92,10 @@ void handle_line(char **line, int fd, t_game *game, int curr_height, int height)
  */
 void	ft_check_ber_format(char *map_name, int height, t_game *game)
 {
-	int		fd;
-	char	*line;
-	int		curr_height;
+	int					fd;
+	char				*line;
+	int					curr_height;
+	t_line_error_data	data;
 
 	game->empty_line = 0;
 	fd = open(map_name, O_RDONLY);
@@ -104,13 +106,15 @@ void	ft_check_ber_format(char *map_name, int height, t_game *game)
 		game->empty_line = 1;
 	curr_height = TRUE;
 	free(line);
+	data.curr_height = curr_height;
+	data.height = height;
+	data.fd = fd;
+	data.game = game;
 	while (line)
 	{
 		line = get_next_line(fd);
-		curr_height++;
-		handle_line(&line, fd, game, curr_height, height);
-        // if (line == NULL)
-		// 	break; // Exit loop if line is set to NULL
+		data.curr_height++;
+		ft_handle_line_error(line, &data);
 	}
 	close(fd);
 }

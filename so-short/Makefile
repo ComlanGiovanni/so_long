@@ -6,7 +6,7 @@
 #    By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/20 03:25:21 by gicomlan          #+#    #+#              #
-#    Updated: 2024/08/14 22:27:21 by gicomlan         ###   ########.fr        #
+#    Updated: 2024/08/22 15:17:39 by gicomlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -300,6 +300,11 @@ debug_make:
 
 info:
 	@echo "$$INFO_MSG"
+
+norminette :
+	$(NORM) $(INCLUDES_DIR)
+	$(NORM) $(MANDATORY_DIR)
+	$(NORM) $(BONUS_DIR)
 
 # 								(Rule for checking compliance with the standard)
 

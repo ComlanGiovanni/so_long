@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 01:20:05 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 19:24:46 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:29:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,20 @@ void	ft_init_camera(t_game *game)
 //missing t_point for life
 //game->hud.direction.x = ;
 //game->hud.direction.y = ;
+// game->hud.position.life.x = 0x5;
+// game->hud.position.life.y = 0x5;
 void	ft_init_hud_sprites_position(t_game *game)
 {
-	game->hud.step.x = 5;
-	game->hud.step.y = game->window.height - 150;
-	game->hud.fps.x = 5;
-	game->hud.fps.y = game->window.height - 100;
-	game->hud.direction.x = 5;
-	game->hud.direction.y = 320;
-	game->hud.keys.x = 5;
-	game->hud.keys.y = game->window.height - 200;
+	game->hud.position.step.x = 0x5;
+	game->hud.position.step.y = game->window.height - 150;
+	game->hud.position.fps.x = 0x5;
+	game->hud.position.fps.y = game->window.height - 100;
+	game->hud.position.direction.x = 0x5;
+	game->hud.position.direction.y = 320;
+	game->hud.position.keys.x = 0x5;
+	game->hud.position.keys.y = game->window.height - 200;
+	game->hud.position.pause.x = 400;
+	game->hud.position.pause.y = 400;
 }
 
 void	ft_init_fps(t_game *game)

@@ -6,16 +6,17 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:12:28 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/21 00:11:19 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:21:27 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long_bonus.h"
 
+//macro file ?
 void	ft_load_ground_sprites(t_game *game)
 {
 	ft_load_sprite_frame(&(game->map.ground), \
-		game, PATH_ASSET"ground/ground.xpm", "paths[0]");//macro file ?
+		game, PATH_ASSET"ground/ground.xpm", "paths[0]");
 }
 
 void	ft_load_grass_sprites(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 17:11:02 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/12 19:53:38 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:22:52 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static float	ft_compute_gradient(int h, float fade_x, float fade_y)
 	return (result);
 }
 
-
 float	ft_fade(float relative_position_fade_factor)
 {
 	return (relative_position_fade_factor * relative_position_fade_factor
@@ -53,9 +52,9 @@ float	ft_fade(float relative_position_fade_factor)
 			* (relative_position_fade_factor * 6 - 15) + 10));
 }
 
-int ft_floor(float value)
+int	ft_floor(float value)
 {
-	int int_value;
+	int	int_value;
 
 	int_value = (int)value;
 	if (value < int_value)

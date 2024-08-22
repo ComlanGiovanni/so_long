@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 23:24:37 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/14 15:49:46 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:12:02 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_check_map_finishable(t_game *game)
 {
-	game->flood_fill.coins =  0;
-    game->flood_fill.exit_found = FALSE;
 	char	**map;
 
+	game->flood_fill.coins = 0;
+	game->flood_fill.exit_found = FALSE;
 	map = ft_split_map(game);
 	ft_print_display_grid(map);
 	game->size.x = game->width;
@@ -32,8 +32,8 @@ void	ft_check_map_finishable(t_game *game)
 		ft_free_and_print(map, game, PATH_MAP_ERROR);
 	if (game->flood_fill.coins != game->key)
 	{
-		ft_printf("%s %d\n%s %d\n", KEY_FOUND, game->flood_fill.coins, KEY_AVAILABLE,
-			game->key);
+		ft_printf("%s %d\n%s %d\n", KEY_FOUND, \
+			game->flood_fill.coins, KEY_AVAILABLE, game->key);
 		ft_free_and_print(map, game, COIN_MAP_ERROR);
 	}
 	ft_printf("%s", PATH_MAP_GOOD);

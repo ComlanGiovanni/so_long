@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:28:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/21 13:54:25 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:06:00 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ struct						s_grass
 
 struct						s_wall
 {
-	//void					*wall_sprites[16];
 	t_animation				east;
 	t_animation				south;
 	t_animation				no_neighbors_four_direction;
@@ -74,7 +73,6 @@ struct						s_wall
 	t_animation				north_plus_west_plus_east;
 	t_animation				west_plus_east;
 	t_animation				north_west;
-	//t_animation				animation;
 };
 
 struct						s_water
@@ -82,33 +80,30 @@ struct						s_water
 	t_animation				animation;
 };
 
-
-struct s_pawn_movement
+struct						s_pawn_movement
 {
-	t_point initial_position;
-	t_point current_position;
-	t_point target_position;
-	//char	dir_char[4];
-	char	*direction;
-	//t_point *path;
-	t_bool		is_returning;
-	t_bool 	is_active;
-	t_bool 	is_available;
-	int		steps_taken;
-	int		steps_need;
+	t_point					initial_position;
+	t_point					current_position;
+	t_point					target_position;
+	char					*direction;
+	t_bool					is_returning;
+	t_bool					is_active;
+	t_bool					is_available;
+	int						steps_taken;
+	int						steps_need;
 };
 
-struct s_direction_map
+struct						s_direction_map
 {
-	const char	*name;
-	t_point		delta;
+	const char				*name;
+	t_point					delta;
 };
 
-struct s_direction_evaluation
+struct						s_direction_evaluation
 {
-	size_t		max_steps;
-	t_point		best_position;
-	const char	*best_dir;
+	size_t					max_steps;
+	t_point					best_position;
+	const char				*best_dir;
 };
 
 struct						s_pawn
@@ -128,7 +123,6 @@ struct						s_anim_door
 
 struct						s_door
 {
-	//int				frames;
 	t_anim_door				closed;
 	t_anim_door				open;
 };
@@ -149,20 +143,12 @@ struct						s_anim_player
 	void					*frame_move;
 };
 
-// typedef struct s_point_visual
-// {
-// 	float x;
-//     float y;
-// } t_point_visual;
-
 struct						s_movement
 {
-	//t_point_visual	visual;
 	t_point					current_position;
 	t_point					target_position;
 	t_bool					moved;
 	char					direction;
-	//float			speed;
 };
 
 struct						s_player
@@ -171,19 +157,11 @@ struct						s_player
 	t_anim_player			down_anim;
 	t_anim_player			left_anim;
 	t_anim_player			right_anim;
-	//t_point			position;
 	t_movement				movement;
-	// t_point			target_position;
-	// float			speed;
-	//t_movement	movement
-	//t_bool			moved;
 	int						frames;
 	long long int			life;
 	long long int			storage;
 	long long int			step;
-	//char			direction;
-	// double			x_speed;
-	// double			y_speed;
 };
 
 struct						s_info
@@ -203,20 +181,20 @@ struct						s_info
 	long long int			nbr_portal_2;
 };
 
-struct s_img_size
+struct						s_img_size
 {
-	int		width;
-	int		height;
+	int						width;
+	int						height;
 };
 
-struct s_img
+struct						s_img
 {
-	char	*data;
-	int		bpp;
-	int		size_line;
-	int		endian;
-	int		width;
-	int		height;
+	char					*data;
+	int						bpp;
+	int						size_line;
+	int						endian;
+	int						width;
+	int						height;
 };
 
 struct						s_map
@@ -232,44 +210,35 @@ struct						s_map
 	char					**matrice;
 	char					**grid;
 	void					*ground;
-	//void			*grass;
-	//void			*borders;
 	long long int			len;
-	// long long int	nbr_key;
-	// long long int	nbr_exit;
-	// long long int	nbr_player;
-	// long long int	nbr_lava;
-	// long long int	nbr_love;
-	// long long int	nbr_wall;
-	// long long int	nbr_void;
 	long long int			border_width;
 };
 
-struct s_uv_params
+struct						s_uv_params
 {
-	int			hash;
-	float		x;
-	float		y;
-	float		*fade_x;
-	float		*fade_y;
+	int						hash;
+	float					x;
+	float					y;
+	float					*fade_x;
+	float					*fade_y;
 };
 
-struct s_perlin_vars
+struct						s_perlin_vars
 {
-	int			grid_position_x;
-	int			grid_position_y;
-	float		relative_position_x;
-	float		relative_position_y;
-	float		fade_x;
-	float		fade_y;
-	int			permutation_index_lower_left;
-	int			permutation_index_upper_left;
-	float		gradient_lower_left;
-	float		gradient_lower_right;
-	float		gradient_upper_left;
-	float		gradient_upper_right;
-	float		interpolation_x_lower;
-	float		interpolation_x_upper;
+	int						grid_position_x;
+	int						grid_position_y;
+	float					relative_position_x;
+	float					relative_position_y;
+	float					fade_x;
+	float					fade_y;
+	int						permutation_index_lower_left;
+	int						permutation_index_upper_left;
+	float					gradient_lower_left;
+	float					gradient_lower_right;
+	float					gradient_upper_left;
+	float					gradient_upper_right;
+	float					interpolation_x_lower;
+	float					interpolation_x_upper;
 };
 
 struct						s_window
@@ -285,7 +254,6 @@ struct						s_window
 
 struct						s_digits
 {
-	//void					*tab[10];
 	t_animation				zero;
 	t_animation				one;
 	t_animation				two;
@@ -298,10 +266,8 @@ struct						s_digits
 	t_animation				nine;
 };
 
-
 struct						s_alphabet
 {
-	//void					*tab[26];
 	t_animation				a;
 	t_animation				b;
 	t_animation				c;
@@ -330,31 +296,35 @@ struct						s_alphabet
 	t_animation				z;
 };
 
+struct						s_hud_position
+{
+	t_point					fps;
+	t_point					step;
+	t_point					direction;
+	t_point					keys;
+	t_point					storage;
+	t_point					pause;
+};
+
 struct						s_hud
 {
 	char					*str_step;
 	char					*str_storage;
 	char					*str_fps;
 	char					*str_key_remain;
-	//int				frame;
 	t_digits				digits;
 	t_alphabet				alphabet;
-	t_point					fps;
-	t_point					step;
-	t_point					direction;
-	t_point					keys;
-	t_point					storage;
+	t_hud_position			position;
 };
 
 struct						s_camera
 {
-	t_point current; // faire une struct camera
+	t_point					current;
 	t_point					target;
 	double					shake_intensity;
 	double					shake_speed;
 	double					lerp_speed;
 	double					angle;
-	//float			zoom_factor;
 };
 
 struct						s_sprite_node
@@ -363,12 +333,12 @@ struct						s_sprite_node
 	struct s_sprite_node	*next;
 };
 
-struct s_line_error_data
+struct						s_line_error_data
 {
-	int		curr_height;
-	int		height;
-	int		fd;
-	t_game	*game;
+	int						curr_height;
+	int						height;
+	int						fd;
+	t_game					*game;
 };
 
 struct						s_box
@@ -392,41 +362,40 @@ struct						s_anim_monster
 	void					*frame_move_1;
 };
 
-
-struct s_a_star_node
+struct						s_a_star_node
 {
-	t_point							pos;
-	int								cost_from_start; // Cost from start to this node
-	int								total_cost; // Total cost (g + h)
-	struct s_a_star_node			*parent;
+	t_point					pos;
+	int						cost_from_start;
+	int						total_cost;
+	struct s_a_star_node	*parent;
 };
-struct s_lists
+struct						s_lists
 {
-	t_a_star_node		**open;
-	t_a_star_node		**closed;
-	int 			open_count;
-	int				closed_count;
-};
-
-struct s_neighbor
-{
-	t_point		goal;
-	t_point		directions[FANTASTIC];
-	char		dir_char[FANTASTIC];
+	t_a_star_node			**open;
+	t_a_star_node			**closed;
+	int						open_count;
+	int						closed_count;
 };
 
-struct s_a_star
+struct						s_neighbor
+{
+	t_point					goal;
+	t_point					directions[FANTASTIC];
+	char					dir_char[FANTASTIC];
+};
+
+struct						s_a_star
 {
 	t_lists					lists;
-    t_neighbor				neighbor;
+	t_neighbor				neighbor;
 };
 
 struct						s_monster
 {
-	t_anim_monster				up_anim;
-	t_anim_monster				down_anim;
-	t_anim_monster				left_anim;
-	t_anim_monster				right_anim;
+	t_anim_monster			up_anim;
+	t_anim_monster			down_anim;
+	t_anim_monster			left_anim;
+	t_anim_monster			right_anim;
 	t_bool					moved;
 	t_a_star				a_star;
 	int						frames;
@@ -453,7 +422,6 @@ struct						s_husks
 {
 	t_animation				animation;
 };
-
 
 struct						s_fungus
 {
@@ -495,7 +463,6 @@ struct						s_snail
 	t_animation				animation;
 };
 
-
 struct						s_pillar
 {
 	t_animation				animation;
@@ -506,23 +473,23 @@ struct						s_hedge
 	t_animation				animation;
 };
 
-struct s_flood_fill_data
+struct						s_flood_fill_data
 {
-	t_bool exit_found;
-	int coins;
+	t_bool					exit_found;
+	int						coins;
 };
 
-struct 	s_mouse
+struct						s_mouse
 {
-	t_point 	mouse_position;
-	char 		*button_name;
-	int			mouse_button_key_code;
+	t_point					mouse_position;
+	char					*button_name;
+	int						mouse_button_key_code;
 };
 
-struct s_fill_char_state
+struct						s_fill_char_state
 {
-	const char		*selected_fill_chars;
-	int				selected_fill_chars_size;
+	const char				*selected_fill_chars;
+	int						selected_fill_chars_size;
 };
 
 //can put all in a different struct like
@@ -530,8 +497,8 @@ struct s_fill_char_state
 struct						s_game
 {
 	t_mouse					mouse;
-	t_game_state 			state;
-	t_bool					paused;//state replaced
+	t_game_state			state;
+	t_bool					paused;
 	t_bool					key_collected;
 	t_flood_fill_data		flood_fill;
 	t_player				player;
@@ -541,7 +508,6 @@ struct						s_game
 	t_key					key;
 	t_wall					wall;
 	t_pawn					pawn;
-	//t_border				border
 	t_water					water;
 	t_grass					grass;
 	t_tree					tree;
@@ -558,12 +524,11 @@ struct						s_game
 	t_snail					snail;
 	t_pillar				pillar;
 	t_hedge					hedge;
-	//t_border				border
 	t_door					door;
 	t_box					box;
 	t_portal				portal;
 	t_camera				camera;
-	t_sprite_node			*node;//garbage_collector_sprite
+	t_sprite_node			*node;
 	t_point					screen;
 	t_monster				monster;
 	t_fps					fps;
@@ -571,17 +536,9 @@ struct						s_game
 	t_hud					hud;
 	void					*mlx;
 	void					*win;
-	//void			*img;
-	//char			*img_data;
-	// char			*str_step;
-	// char			*str_storage;
-	// char			*str_fps;
-	// float 			distance_camera;
-	// float			zoom_factor;
-	// double			last_time;
-	long long int width;
-	long long int height;
-	long long int empty_line; //mettre dans map information
+	long long int			width;
+	long long int			height;
+	long long int			empty_line;
 };
 
 #endif // !FT_SO_LONG_STRUCTS_BONUS_H

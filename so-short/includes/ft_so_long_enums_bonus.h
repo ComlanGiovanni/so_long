@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:20 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 20:34:19 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:43:52 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ enum	e_key_code
 	LINUX_LEFT_PAV_NUM_KEY = 65430,
 	LINUX_RIGHT_PAV_NUM_KEY = 65432
 };
-
 
 enum	e_mouse_key_code
 {

@@ -6,12 +6,12 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 20:22:30 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 20:24:06 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:44:01 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SO_LONG_MACRO_DIRECTION_BONUS_H
-# define FT_SO_LONG_MACRO_DIRECTION_BONUS_H
+#ifndef FT_SO_LONG_MACROS_DIRECTION_BONUS_H
+# define FT_SO_LONG_MACROS_DIRECTION_BONUS_H
 
 # define UP_DIRECTION			"Up"
 # define DOW_DIRECTION			"Down"

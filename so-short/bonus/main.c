@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 03:12:49 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/14 14:16:25 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:09:59 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ int	main(int argc, char *argv[], char **envp)
 }
 /*
 
-make re bonus && valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --show-reachable=yes --track-origins=yes ./so_long_bonus maps/Level\ Design\ Bonus/level_0.ber 2>&1 | tee valgrind.log
+make re bonus && valgrind --leak-check=full
+--show-leak-kinds=all --track-fds=yes --show-reachable=yes
+--track-origins=yes ./so_long_bonus maps/Level\ Design\ Bonus/level_0.ber 2>&1
+| tee valgrind.log
 
 https://audiotrimmer.com/
 https://encycolorpedia.fr/619ad2

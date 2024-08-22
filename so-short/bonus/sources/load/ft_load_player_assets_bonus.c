@@ -6,12 +6,13 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:11:28 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/21 00:10:55 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:22:10 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long_bonus.h"
 
+//macro file ?
 void	ft_load_player_up_sprites(t_game *game)
 {
 	const char	*paths[] = {
@@ -23,9 +24,10 @@ void	ft_load_player_up_sprites(t_game *game)
 		game, paths, paths);
 	ft_load_sprite_frame(&(game->player.up_anim.frame_move), \
 		game, PATH_ASSET"player/up/player_up_frame_move.xpm", \
-		PATH_ASSET"player/up/player_up_frame_move.xpm");//macro file ?
+		PATH_ASSET"player/up/player_up_frame_move.xpm");
 }
 
+//macro file ?
 void	ft_load_player_down_sprites(t_game *game)
 {
 	const char	*paths[] = {
@@ -37,9 +39,10 @@ void	ft_load_player_down_sprites(t_game *game)
 		game, paths, paths);
 	ft_load_sprite_frame(&(game->player.down_anim.frame_move), \
 		game, PATH_ASSET"player/down/player_down_frame_move.xpm", \
-		PATH_ASSET"player/down/player_down_frame_move.xpm");//macro file ?
+		PATH_ASSET"player/down/player_down_frame_move.xpm");
 }
 
+//macro file ?
 void	ft_load_player_left_sprites(t_game *game)
 {
 	const char	*paths[] = {
@@ -51,9 +54,10 @@ void	ft_load_player_left_sprites(t_game *game)
 		game, paths, paths);
 	ft_load_sprite_frame(&(game->player.left_anim.frame_move), \
 		game, PATH_ASSET"player/left/player_left_frame_move.xpm", \
-		PATH_ASSET"player/left/player_left_frame_move.xpm");//macro file ?
+		PATH_ASSET"player/left/player_left_frame_move.xpm");
 }
 
+//macro file ?
 void	ft_load_player_right_sprites(t_game *game)
 {
 	const char	*paths[] = {
@@ -65,7 +69,7 @@ void	ft_load_player_right_sprites(t_game *game)
 		paths, paths);
 	ft_load_sprite_frame(&(game->player.right_anim.frame_move), \
 		game, PATH_ASSET"player/right/player_right_frame_move.xpm", \
-		PATH_ASSET"player/right/player_right_frame_move.xpm");//macro file ?
+		PATH_ASSET"player/right/player_right_frame_move.xpm");
 }
 
 /**

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:29:36 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/21 22:31:42 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:19:11 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_init_struct_img(void *img_ptr, t_img *img, t_img_size img_size)
 	img->height = img_size.height;
 }
 
-int	ft_get_pixel_color(t_img *img, int x, int y)//t_point
+int	ft_get_pixel_color(t_img *img, int x, int y)
 {
 	int		bpp;
 	char	*pixel;
@@ -44,7 +44,7 @@ static void	ft_display_direction_string(t_game *game)
 	t_point	direction_pos;
 
 	direction_pos.x = 0x5;
-	direction_pos.y = game->window.height - 50;//t_point in game hud struct
+	direction_pos.y = game->window.height - 50;
 	direction = NULL;
 	if (game->player.movement.direction == 'u')
 		direction = UP_DIRECTION;
@@ -83,15 +83,18 @@ void	ft_print_info_on_window(t_game *game)
 	game->hud.str_key_remain = ft_itoa(game->map.info.nbr_key
 			- game->player.storage);
 	ft_display_life_on_windows(game);
-	ft_display_string_sprites(game, STEP_INDICATOR, game->hud.step);
-	ft_display_digits_sprites(game, game->hud.str_step,
-			(t_point){game->hud.step.x + 130, game->hud.step.y});//t_point in game hud struct
-	ft_display_string_sprites(game, FPS_INDICATOR, game->hud.fps);
-	ft_display_digits_sprites(game, game->hud.str_fps, (t_point){game->hud.fps.x
-			+ 100, game->hud.fps.y});//t_point in game hud struct
-	ft_display_string_sprites(game, KEYS_INDICATOR, game->hud.keys);
-	ft_display_digits_sprites(game, game->hud.str_key_remain,
-			(t_point){game->hud.keys.x + 130, game->hud.keys.y});//t_point in game hud struct
+	ft_display_string_sprites(game, STEP_INDICATOR, game->hud.position.step);
+	ft_display_digits_sprites(game, game->hud.str_step, \
+		(t_point){game->hud.position.step.x + 130,
+		game->hud.position.step.y});
+	ft_display_string_sprites(game, FPS_INDICATOR, game->hud.position.fps);
+	ft_display_digits_sprites(game, game->hud.str_fps, \
+		(t_point){game->hud.position.fps.x + 100, \
+		game->hud.position.fps.y});
+	ft_display_string_sprites(game, KEYS_INDICATOR, game->hud.position.keys);
+	ft_display_digits_sprites(game, game->hud.str_key_remain, \
+		(t_point){game->hud.position.keys.x + 130, \
+		game->hud.position.keys.y});
 	ft_display_direction_string(game);
 	ft_free_step_and_storage(game);
 }
@@ -109,6 +112,8 @@ void	ft_print_info_on_window(t_game *game)
  *
  * 	//t_point for less line put in struct
  * //regarde pour la tranparance lalpha
+ * 	// game->hud.position.life.x = 0x5; for x y
+	// game->hud.position.life.y = 0x5;
  * @param game
  */
 void	ft_display_life_on_windows(t_game *game)
@@ -116,25 +121,25 @@ void	ft_display_life_on_windows(t_game *game)
 	int	idx;
 	int	icons_per_row;
 	int	icon_spacing;
-	int x; //t_point in struct
-	int y; //t_point in struct
+	int	x;
+	int	y;
+
 	idx = 0x0;
 	x = 0x5;
 	y = 0x5;
 	icons_per_row = 0x3;
 	icon_spacing = 0x5;
-
 	while (idx < game->player.life && idx < 500)
 	{
-		ft_display_transparent_image(game, game->love.icon, (t_point){x, y},
-				(t_img_size){32, 32});
+		ft_display_transparent_image(game, game->love.icon, \
+			(t_point){x, y}, (t_img_size){ICON_SIZE, ICON_SIZE});
 		idx++;
 		if ((idx % icons_per_row) == 0x0)
 		{
 			x = 0x5;
-			y += 32 + icon_spacing;
+			y += ICON_SIZE + icon_spacing;
 		}
 		else
-			x += 32 + icon_spacing;
+			x += ICON_SIZE + icon_spacing;
 	}
 }

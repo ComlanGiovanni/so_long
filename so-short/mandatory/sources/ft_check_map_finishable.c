@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:30:10 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/14 15:51:13 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:11:40 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_flood_fill(char **tab, t_game *game, t_point start)
 	if (tab[start.y][start.x] == COIN_CHAR)
 	{
 		tab[start.y][start.x] = VOID_CHAR;
-		 game->flood_fill.coins++;
+		game->flood_fill.coins++;
 	}
 	if (tab[start.y][start.x] == EXIT_CHAR)
 		return ;

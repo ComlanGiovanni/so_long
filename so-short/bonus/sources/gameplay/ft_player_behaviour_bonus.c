@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:21:59 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 14:42:39 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/25 00:29:52 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ void	ft_move_box(t_game *game, t_point new_pos, int dir_y, int dir_x)
 	char	next_tile;
 
 	next_tile = game->map.grid[new_pos.y + dir_y][new_pos.x + dir_x];
+	if (next_tile == LAVA_CHAR)
+	{
+		game->map.grid[new_pos.y][new_pos.x] = VOID_CHAR;
+		game->map.grid[new_pos.y + dir_y][new_pos.x + dir_x] = VOID_CHAR;
+		system("aplay sounds/special-effects/box_destroyed.wav \
+			> /dev/null 2>&1 &");;
+	}
 	if (next_tile == VOID_CHAR && (next_tile != LOVE_CHAR
 			&& next_tile != EXIT_CHAR && next_tile != KEY_CHAR))
 	{

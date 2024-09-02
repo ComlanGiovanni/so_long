@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 20:05:20 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 21:56:18 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/25 14:47:37 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_camera_shake(t_game *game)
 {
 	const double	shake_intensity = 20.0;
 	const double	shake_speed = 1.0;
-	const double	shake_duration = 4.84;
+	const double	shake_duration = 2.84;
 	t_point			shake_offset;
 
 	shake_offset.x = ft_sin(game->fps.elapsed * shake_speed) * shake_intensity;
@@ -28,7 +28,7 @@ void	ft_camera_shake(t_game *game)
 
 void	ft_update_camera(t_game *game)
 {
-	game->camera.lerp_speed = 0.02;
+	//game->camera.lerp_speed = 0.02;//??? at everyupdate
 	game->camera.target.x = ((game->player.movement.current_position.x \
 			* IMG_SIZE) - ((game->width * IMG_SIZE) / 0x4) + (IMG_SIZE / 0x2));
 	game->camera.target.y = ((game->player.movement.current_position.y \

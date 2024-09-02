@@ -6,15 +6,138 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:10:08 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/21 15:22:18 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/24 19:28:45 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long_bonus.h"
 
+void	ft_load_buttons_sprites(t_game *game)
+{
+	//int width, height;
+	ft_load_sprite_frame(&(game->menu.start_button.img_normal), game, \
+		PATH_ASSET"menu/play/play_the_game.xpm",
+		PATH_ASSET"menu/play/play_the_game.xpm");
+	ft_load_sprite_frame(&(game->menu.start_button.img_hover), game, \
+		PATH_ASSET"menu/play/play_the_game_hover.xpm",
+		PATH_ASSET"menu/play/play_the_game_hover.xpm");
+	ft_load_sprite_frame(&(game->menu.start_button.img_clicked), game, \
+		PATH_ASSET"menu/play/play_the_game_clicked.xpm",
+		PATH_ASSET"menu/play/play_the_game_clicked.xpm");
+
+
+	ft_load_sprite_frame(&(game->menu.levels_button.img_normal), game, \
+		PATH_ASSET"menu/levels/play_levels.xpm",
+		PATH_ASSET"menu/levels/play_levels.xpm");
+	ft_load_sprite_frame(&(game->menu.levels_button.img_hover), game, \
+		PATH_ASSET"menu/levels/play_levels_hover.xpm",
+		PATH_ASSET"menu/levels/play_levels_hover.xpm");
+	// ft_load_sprite_frame(&(game->menu.levels_button.img_clicked), game,
+	// 	PATH_ASSET"menu/levels/play_levels_clicked.xpm",
+	// 	PATH_ASSET"menu/levels/play_levels_clicked.xpm");
+
+	ft_load_sprite_frame(&(game->menu.quit_button.img_normal), game, \
+		PATH_ASSET"menu/exit/exit_the_game.xpm",
+		PATH_ASSET"menu/exit/exit_the_game.xpm");
+	ft_load_sprite_frame(&(game->menu.quit_button.img_hover), game, \
+		PATH_ASSET"menu/exit/exit_the_game_hover.xpm",
+		PATH_ASSET"menu/exit/exit_the_game_hover.xpm");
+	ft_load_sprite_frame(&(game->menu.quit_button.img_clicked), game, \
+		PATH_ASSET"menu/exit/exit_the_game_clicked.xpm",
+		PATH_ASSET"menu/exit/exit_the_game_clicked.xpm");
+
+
+	ft_load_sprite_frame(&(game->menu.resume_button.img_normal), game, \
+		PATH_ASSET"menu/resume/resume.xpm",
+		PATH_ASSET"menu/resume/resume.xpm");
+	ft_load_sprite_frame(&(game->menu.resume_button.img_hover), game, \
+		PATH_ASSET"menu/resume/resume_hover.xpm",
+		PATH_ASSET"menu/resume/resume_hover.xpm");
+	ft_load_sprite_frame(&(game->menu.resume_button.img_clicked), game, \
+		PATH_ASSET"menu/resume/resume_clicked.xpm",
+		PATH_ASSET"menu/resume/resume_clicked.xpm");
+
+
+	ft_load_sprite_frame(&(game->menu.restart_button.img_normal), game, \
+		PATH_ASSET"menu/restart/restart.xpm",
+		PATH_ASSET"menu/restart/restart.xpm");
+	ft_load_sprite_frame(&(game->menu.restart_button.img_hover), game, \
+		PATH_ASSET"menu/restart/restart_hover.xpm",
+		PATH_ASSET"menu/restart/restart_hover.xpm");
+	ft_load_sprite_frame(&(game->menu.restart_button.img_clicked), game, \
+		PATH_ASSET"menu/restart/restart_clicked.xpm",
+		PATH_ASSET"menu/restart/restart_clicked.xpm");
+
+	ft_load_sprite_frame(&(game->menu.main_menu_button.img_normal), game, \
+		PATH_ASSET"menu/main/return_to_main_menu.xpm",
+		PATH_ASSET"menu/main/return_to_main_menu.xpm");
+	ft_load_sprite_frame(&(game->menu.main_menu_button.img_hover), game, \
+		PATH_ASSET"menu/main/return_to_main_menu_hover.xpm",
+		PATH_ASSET"menu/main/return_to_main_menu_hover.xpm");
+	ft_load_sprite_frame(&(game->menu.main_menu_button.img_clicked), game, \
+		PATH_ASSET"menu/main/return_to_main_menu_clicked.xpm",
+		PATH_ASSET"menu/main/return_to_main_menu_clicked.xpm");
+
+//return to main menu
+
+	game->menu.selected_button = 0;
+	// Start Button
+	//game->menu.start_button.img_normal = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/play/play_the_game.xpm", &width, &height);
+	//game->menu.start_button.img_hover = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/play/play_the_game_hover.xpm", &width, &height);
+	//game->menu.start_button.img_clicked = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/play/play_the_game_clicked.xpm", &width, &height);
+	game->menu.start_button.position.x = 300;//put that shit in init
+	game->menu.start_button.position.y = 50;//put that shit in init
+	game->menu.start_button.width = 238; //custom load ? that take the address of width
+	game->menu.start_button.height = 20; //custom load ? that take the address of width
+	game->menu.start_button.is_hovered = 0;
+	// Levels Button
+	//game->menu.levels_button.img_normal = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/levels/play_levels.xpm", &width, &height);
+	//game->menu.levels_button.img_hover = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/levels/play_levels_hover.xpm", &width, &height);
+	//game->menu.levels_button.img_clicked = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/levels/play_levels_clicked.xpm", &width, &height);
+	game->menu.levels_button.position.x = 300;//put that shit in init
+	game->menu.levels_button.position.y = 100;//put that shit in init
+	game->menu.levels_button.width = 238; //custom load ? that take the address of width
+	game->menu.levels_button.height = 20; //custom load ? that take the address of width
+	game->menu.levels_button.is_hovered = 0;
+	// Quit Button
+	//game->menu.quit_button.img_normal = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/exit/exit_the_game.xpm", &width, &height);
+	//game->menu.quit_button.img_hover = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/exit/exit_the_game_hover.xpm", &width, &height);
+	//game->menu.quit_button.img_clicked = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/exit/exit_the_game_clicked.xpm", &width, &height);
+	game->menu.quit_button.position.x = 300;//put that shit in init
+	game->menu.quit_button.position.y = 500;//put that shit in init
+	game->menu.quit_button.width = 238; //custom load ? that take the address of width
+	game->menu.quit_button.height = 20; //custom load ? that take the address of width
+	game->menu.quit_button.is_hovered = 0;
+//start 0
+//level 1
+//resume;2
+//restart 3
+//mainmenu 4
+//exit 5
+	game->menu.resume_button.position.x = 300;//put that shit in init
+	game->menu.resume_button.position.y = 200;//put that shit in init
+	game->menu.resume_button.width = 238; //custom load ? that take the address of width
+	game->menu.resume_button.height = 20; //custom load ? that take the address of width
+	game->menu.resume_button.is_hovered = 0;
+
+	game->menu.restart_button.position.x = 300;//put that shit in init
+	game->menu.restart_button.position.y = 300;//put that shit in init
+	game->menu.restart_button.width = 238; //custom load ? that take the address of width
+	game->menu.restart_button.height = 20; //custom load ? that take the address of width
+	game->menu.restart_button.is_hovered = 0;
+
+	game->menu.main_menu_button.position.x = 300;//put that shit in init
+	game->menu.main_menu_button.position.y = 400;//put that shit in init
+	game->menu.main_menu_button.width = 238; //custom load ? that take the address of width
+	game->menu.main_menu_button.height = 20; //custom load ? that take the address of width
+	game->menu.main_menu_button.is_hovered = 0;
+	//need to free by adding in node mistake was made at the start of the projet
+}
+
 void	ft_load_sprites(t_game *game)
 {
 	game->node = NULL;
+	ft_load_buttons_sprites(game);
 	ft_load_enemies_sprites(game);
 	ft_load_ground_sprites(game);
 	ft_load_borders_sprite(game);

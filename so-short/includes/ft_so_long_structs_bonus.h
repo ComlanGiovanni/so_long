@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:28:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/22 16:18:48 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/25 00:44:59 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,7 @@ struct						s_map
 	char					*map_str;
 	char					**matrice;
 	char					**grid;
+	char					**original;
 	void					*ground;
 	long long int			len;
 	long long int			border_width;
@@ -330,7 +331,7 @@ struct						s_camera
 	double					shake_intensity;
 	double					shake_speed;
 	double					lerp_speed;
-	double					angle;
+	//double					angle;
 };
 
 struct						s_sprite_node
@@ -498,10 +499,35 @@ struct						s_fill_char_state
 	int						selected_fill_chars_size;
 };
 
+typedef struct s_button
+{
+	void		*img_normal;
+	void		*img_hover;
+	void		*img_clicked;
+	t_point		position;
+	int			width;
+	int			height;
+	int			is_hovered;
+}			t_button;
+
+
+typedef	struct s_menu
+{
+	t_button	start_button;
+	t_button	resume_button;
+	t_button	restart_button;
+	t_button	levels_button;
+	t_button	main_menu_button;
+	t_button	quit_button;
+	int			selected_button;
+	int last_input_type;
+}t_menu;
+
 //can put all in a different struct like
 //t_border border
 struct						s_game
 {
+	t_menu					menu;
 	t_mouse					mouse;
 	t_game_state			state;
 	t_bool					paused;

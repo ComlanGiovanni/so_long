@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 20:17:50 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/15 01:35:39 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/28 13:28:06 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	ft_exit_game(t_game *game)
 	system("pkill aplay > /dev/null 2>&1");
 	ft_ascii_exit();
 	ft_free_all(game);
+	//return (0x0);
 	exit(EXIT_SUCCESS);
 }
 
@@ -65,13 +66,13 @@ int	ft_exit_game(t_game *game)
  * @param game
  * @return int
  */
-int	ft_win_game(t_game *game)
+void	ft_win_game(t_game *game)
 {
 	game->player.step++;
 	system("pkill aplay > /dev/null 2>&1");
 	ft_ascii_win(game);
-	ft_free_all(game);
-	exit(EXIT_SUCCESS);
+	//ft_free_all(game);
+	//exit(EXIT_SUCCESS);
 }
 
 /**
@@ -95,12 +96,12 @@ int	ft_win_game(t_game *game)
  * @param game
  * @return int
  */
-int	ft_lose_game(t_game *game)
+void	ft_lose_game(t_game *game)
 {
 	system("pkill aplay > /dev/null 2>&1");
 	ft_ascii_loose(game);
-	ft_free_all(game);
-	exit(EXIT_FAILURE);
+	//ft_free_all(game);
+	//exit(EXIT_FAILURE);
 }
 
 /**
@@ -125,6 +126,8 @@ void	ft_free_all(t_game *game)
 		free(game->map.map_str);
 	if (game->map.grid)
 		ft_clean_grid_map(game->map.grid, game->height);
+	if (game->map.original)
+		ft_clean_grid_map(game->map.original, game->height);
 	ft_free_mlx(game);
 }
 

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:20 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/22 14:43:52 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 20:58:52 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ enum	e_key_code
 
 enum	e_mouse_key_code
 {
-	LINUX_MOUSE_MIDDLE_CLICK_KEY = 1,
-	LINUX_MOUSE_RIGHT_CLICK_KEY = 2,
-	LINUX_MOUSE_LEFT_CLICK_KEY = 3,
+	LINUX_MOUSE_MIDDLE_CLICK_KEY = 2,
+	LINUX_MOUSE_RIGHT_CLICK_KEY = 3,
+	LINUX_MOUSE_LEFT_CLICK_KEY = 1,
 	LINUX_MOUSE_SCROLL_UP_KEY = 4,
 	LINUX_MOUSE_SCROLL_DOWN_KEY = 5
 };

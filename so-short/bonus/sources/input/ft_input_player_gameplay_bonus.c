@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:53:39 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 20:14:33 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/25 00:46:17 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ t_bool	ft_play_can_move_to_tile(t_game *game, char next_tile)
 	if (next_tile == LOVE_CHAR && game->player.life >= PLAYER_MAX_LIFE)
 	{
 		ft_baba_forbidden(game);
-		ft_camera_shake(game);
 		return (FALSE);
 	}
 	return (next_tile != WALL_CHAR && next_tile != BOX_CHAR

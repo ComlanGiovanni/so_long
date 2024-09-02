@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 03:11:25 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 19:46:19 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/26 23:36:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int	ft_is_monster_obstacle(char tile)
 {
 	return (tile == WALL_CHAR || tile == EXIT_CHAR || tile == KEY_CHAR \
 		|| tile == MONSTER_CHAR || tile == LOVE_CHAR || tile == PORTAL_1_CHAR \
-		|| tile == PORTAL_2_CHAR || tile == LAVA_CHAR);
+		|| tile == PORTAL_2_CHAR || tile == LAVA_CHAR || tile == PAWN_CHAR);
 }

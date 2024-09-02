@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 01:22:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 21:08:13 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:24:19 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,5 @@ void	ft_create_window(t_game *game)
 		ft_print_error(MLX_WINDOW_ERROR, game);
 	game->key_collected = 0;
 	ft_init_mouse(game);
+	game->state = STATE_MENU;
 }

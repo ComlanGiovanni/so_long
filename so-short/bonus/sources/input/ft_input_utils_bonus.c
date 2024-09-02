@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 03:11:17 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 20:14:54 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/28 13:23:09 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void	ft_handle_tile_action(t_game *game, char next_tile)
 		ft_player_get_hit(game);
 	else if (next_tile == EXIT_CHAR \
 		&& game->map.info.nbr_key == game->player.storage)
+	{
+		ft_win_game(game);
 		game->state = STATE_WIN;
+	}
 }
 
 void	ft_input_up(t_game *game)

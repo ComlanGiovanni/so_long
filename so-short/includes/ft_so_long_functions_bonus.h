@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/22 16:25:45 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/28 12:50:59 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -315,8 +315,8 @@ void			ft_free_a_star_lists_nodes(t_a_star_node **open_list, \
 //============ [ ft_free_bonus.c ]
 
 int				ft_exit_game(t_game *game);
-int				ft_win_game(t_game *game);
-int				ft_lose_game(t_game *game);
+void				ft_win_game(t_game *game);
+void				ft_lose_game(t_game *game);
 void			ft_free_all(t_game *game);
 void			ft_free_mlx(t_game *game);
 

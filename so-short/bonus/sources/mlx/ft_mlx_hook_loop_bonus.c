@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:09:22 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/19 21:05:25 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/08/24 19:34:33 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,29 @@
 
 int	ft_mouse_manager(int mouse_button_key_code, int x, int y, t_game *game)
 {
+	//ft_printf("cou%dcou\n", mouse_button_key_code);
+	// if (mouse_button_key_code == LINUX_MOUSE_LEFT_CLICK_KEY)
+	// {
+	// 	game->mouse.button_name = MOUSE_LEFT_CLICK;
+	// 	if (game->state == STATE_MENU)
+	// 	{
+	// 		if (game->menu.start_button.is_hovered)
+	// 		{
+	// 			game->state = STATE_PLAYING;
+	// 			ft_play_random_theme();
+	// 		}
+	// 		else if (game->menu.levels_button.is_hovered)
+	// 		{
+	// 			ft_printf("Levels button clicked\n");
+	// 		}
+	// 		else if (game->menu.quit_button.is_hovered)
+	// 			ft_exit_game(game);
+	// 	}
+	// }
 	if (mouse_button_key_code == LINUX_MOUSE_MIDDLE_CLICK_KEY)
 		game->mouse.button_name = MOUSE_MIDDLE_CLICK;
 	else if (mouse_button_key_code == LINUX_MOUSE_RIGHT_CLICK_KEY)
-	{
 		game->mouse.button_name = MOUSE_RIGHT_CLICK;
-		ft_exit_game(game);
-	}
 	else if (mouse_button_key_code == LINUX_MOUSE_LEFT_CLICK_KEY)
 		game->mouse.button_name = MOUSE_LEFT_CLICK;
 	else if (mouse_button_key_code == LINUX_MOUSE_SCROLL_UP_KEY)

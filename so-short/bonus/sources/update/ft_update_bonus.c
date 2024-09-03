@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:02:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/09/03 16:53:55 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 21:13:18 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void ft_handle_button_click(t_game *game, int button_index)
 {
     if (game->state == STATE_MENU)
     {
-		system("pkill aplay > /dev/null 2>&1");
+		system("pkill paplay > /dev/null 2>&1");
         if (button_index == 0)
         {
 			//ft_start_game(game);
@@ -244,10 +244,10 @@ void	ft_update_fps(t_game *game)
 	if (game->map.info.nbr_pawn && game->fps.elapsed_time >= 1.0)
 	{
 		if (game->fps.last_time.tv_sec % 0x2)
-			system("aplay sounds/special-effects/clock_tic.wav \
+			system("paplay sounds/special-effects/clock_tic.wav \
 			> /dev/null 2>&1 &");
 		else
-			system("aplay sounds/special-effects/clock_tac.wav \
+			system("paplay sounds/special-effects/clock_tac.wav \
 			> /dev/null 2>&1 &");
 		ft_move_pawn(game);
 		if (game->map.info.nbr_monster)

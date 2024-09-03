@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:23:29 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/25 00:45:34 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 21:13:18 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 void	ft_play_movement_sound(t_game *game)
 {
 	game->player.step++;
-	system("aplay sounds/special-effects/baba_move.wav \
+	system("paplay sounds/special-effects/baba_move.wav \
 		> /dev/null 2>&1 &");
 }
 
 void	ft_player_take_coin(t_game *game)
 {
 	game->player.storage++;
-	system("aplay sounds/special-effects/baba_take_key.wav \
+	system("paplay sounds/special-effects/baba_take_key.wav \
 		> /dev/null 2>&1 &");
 }
 
 void	ft_player_take_life(t_game *game)
 {
 	game->player.life++;
-	system("aplay sounds/special-effects/baba_take_life.wav \
+	system("paplay sounds/special-effects/baba_take_life.wav \
 		> /dev/null 2>&1 &");
 }
 
@@ -38,7 +38,7 @@ void	ft_player_take_life(t_game *game)
 void	ft_player_get_hit(t_game *game)
 {
 	game->player.life--;
-	system("aplay sounds/special-effects/baba_take_damage.wav \
+	system("paplay sounds/special-effects/baba_take_damage.wav \
 		> /dev/null 2>&1 &");
 	ft_camera_shake(game);
 }

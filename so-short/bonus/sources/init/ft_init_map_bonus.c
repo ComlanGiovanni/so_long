@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:59:15 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/24 21:55:38 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 21:13:18 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,16 +107,16 @@ void	ft_play_random_theme(void)
 	srand((unsigned int)time(NULL));
 	random = rand() % 0x4;
 	if (random == 0x0)
-		system("aplay sounds/theme/baba_is_you_on_the_island.wav \
+		system("paplay sounds/theme/baba_is_you_on_the_island.wav \
 			> /dev/null 2>&1 &");
 	if (random == 1)
-		system("aplay sounds/theme/baba_is_you_theme.wav \
+		system("paplay sounds/theme/baba_is_you_theme.wav \
 			> /dev/null 2>&1 &");
 	if (random == 2)
-		system("aplay sounds/theme/baba_is_you_water_is_sink_the_lake.wav \
+		system("paplay sounds/theme/baba_is_you_water_is_sink_the_lake.wav \
 			> /dev/null 2>&1 &");
 	if (random == 3)
-		system("aplay \
+		system("paplay \
 			sounds/theme/baba_is_you_crystal_is_still_crystal_cave.wav \
 			> /dev/null 2>&1 &");
 }

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:32:20 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/22 14:40:50 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 21:13:18 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_check_coin_collected(t_game *game)
 		&& !game->key_collected)
 	{
 		game->key_collected = 1;
-		system("aplay sounds/theme/all_key_collected.wav \
+		system("paplay sounds/theme/all_key_collected.wav \
 			> /dev/null 2>&1 &");
 	}
 }

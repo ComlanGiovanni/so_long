@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:21:59 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/25 00:29:52 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 21:13:18 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_move_box(t_game *game, t_point new_pos, int dir_y, int dir_x)
 	{
 		game->map.grid[new_pos.y][new_pos.x] = VOID_CHAR;
 		game->map.grid[new_pos.y + dir_y][new_pos.x + dir_x] = VOID_CHAR;
-		system("aplay sounds/special-effects/box_destroyed.wav \
+		system("paplay sounds/special-effects/box_destroyed.wav \
 			> /dev/null 2>&1 &");;
 	}
 	if (next_tile == VOID_CHAR && (next_tile != LOVE_CHAR
@@ -57,7 +57,7 @@ void	ft_move_box(t_game *game, t_point new_pos, int dir_y, int dir_x)
 	{
 		game->map.grid[new_pos.y + dir_y][new_pos.x + dir_x] = BOX_CHAR;
 		game->map.grid[new_pos.y][new_pos.x] = VOID_CHAR;
-		system("aplay sounds/special-effects/box_move.wav \
+		system("paplay sounds/special-effects/box_move.wav \
 			> /dev/null 2>&1 &");
 	}
 }
@@ -75,7 +75,7 @@ void	ft_teleport_player(t_game *game, int y, int x)
 	if (destination.y != -1 && destination.x != -1)
 	{
 		game->map.grid[y][x] = VOID_CHAR;
-		system("aplay sounds/special-effects/teleportation.wav \
+		system("paplay sounds/special-effects/teleportation.wav \
 			> /dev/null 2>&1 &");
 		game->map.grid[destination.y][destination.x] = PLAYER_CHAR;
 		game->player.movement.current_position.y = destination.y;

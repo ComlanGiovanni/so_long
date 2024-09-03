@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 03:11:11 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/09/03 13:20:37 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 21:13:18 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void ft_restart_game(t_game *game)
 {
 	//is it simple to free all and redo ? fo
 	//for simplicity ? but that look very dumb
-	system("pkill aplay > /dev/null 2>&1");
+	system("pkill paplay > /dev/null 2>&1");
 	ft_printf("\nRestart game %s\n", game->map.map_name);
 	ft_free_pawns_array(game);
 	ft_reset_grid(game);
@@ -76,7 +76,7 @@ void ft_resume_game(t_game *game)
 
 void ft_return_to_main_menu(t_game *game)
 {
-	system("pkill aplay > /dev/null 2>&1");
+	system("pkill paplay > /dev/null 2>&1");
     game->state = STATE_MENU;
     // Implémentez ici la logique pour réinitialiser le jeu pour le menu principal
     // Par exemple : libérer les ressources du niveau actuel, réinitialiser les scores, etc.
@@ -349,6 +349,6 @@ void	ft_toggle_pause(t_game *game)
 	else
 	{
 		game->state = STATE_PAUSED;
-		//system("pkill aplay > /dev/null 2>&1");
+		//system("pkill paplay > /dev/null 2>&1");
 	}
 }

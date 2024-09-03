@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 20:17:50 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/28 13:28:06 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 21:13:18 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
  */
 int	ft_exit_game(t_game *game)
 {
-	system("pkill aplay > /dev/null 2>&1");
+	system("pkill paplay > /dev/null 2>&1");
 	ft_ascii_exit();
 	ft_free_all(game);
 	//return (0x0);
@@ -69,7 +69,7 @@ int	ft_exit_game(t_game *game)
 void	ft_win_game(t_game *game)
 {
 	game->player.step++;
-	system("pkill aplay > /dev/null 2>&1");
+	system("pkill paplay > /dev/null 2>&1");
 	ft_ascii_win(game);
 	//ft_free_all(game);
 	//exit(EXIT_SUCCESS);
@@ -98,7 +98,7 @@ void	ft_win_game(t_game *game)
  */
 void	ft_lose_game(t_game *game)
 {
-	system("pkill aplay > /dev/null 2>&1");
+	system("pkill paplay > /dev/null 2>&1");
 	ft_ascii_loose(game);
 	//ft_free_all(game);
 	//exit(EXIT_FAILURE);

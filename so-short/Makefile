@@ -6,7 +6,7 @@
 #    By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/20 03:25:21 by gicomlan          #+#    #+#              #
-#    Updated: 2024/08/22 18:09:51 by gicomlan         ###   ########.fr        #
+#    Updated: 2024/09/03 22:40:21 by gicomlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,7 @@ vpath %.h $(INCLUDES_DIR)
 CC						:= cc
 CFLAGS 					+= -Werror
 CFLAGS 					+= -Wextra
-CFLAGS 					+= -Wall
+CFLAGS 					+= -Wall -g3
 #CFLAGS 				+= -fPIE
 #CFLAGS 					+= -MMD
 #CFLAGS 					+= -g

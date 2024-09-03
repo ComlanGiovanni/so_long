@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:10:08 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/09/03 17:24:51 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 22:57:54 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ void	ft_load_buttons_sprites(t_game *game)
 	ft_load_play_levels_buttons_sprites(game);
 	ft_load_exit_buttons_sprites(game);
 	ft_load_restart_buttons_sprites(game);
+	ft_load_resume_buttons_sprites(game);
 	ft_load_return_main_menu_buttons_sprites(game);
 
 
@@ -158,7 +159,7 @@ void	ft_load_buttons_sprites(t_game *game)
 	//game->menu.start_button.img_normal = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/play/play_the_game.xpm", &width, &height);
 	//game->menu.start_button.img_hover = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/play/play_the_game_hover.xpm", &width, &height);
 	//game->menu.start_button.img_clicked = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/play/play_the_game_clicked.xpm", &width, &height);
-	game->menu.start_button.position.x = 0x0;//put that shit in init
+	game->menu.start_button.position.x = 0;//put that shit in init
 	game->menu.start_button.position.y = 400;//put that shit in init
 	game->menu.start_button.width = 238; //custom load ? that take the address of width
 	game->menu.start_button.height = 20; //custom load ? that take the address of width

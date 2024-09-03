@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 20:05:20 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/25 14:47:37 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:15:50 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	ft_camera_shake(t_game *game)
 
 void	ft_update_camera(t_game *game)
 {
-	//game->camera.lerp_speed = 0.02;//??? at everyupdate
 	game->camera.target.x = ((game->player.movement.current_position.x \
 			* IMG_SIZE) - ((game->width * IMG_SIZE) / 0x4) + (IMG_SIZE / 0x2));
 	game->camera.target.y = ((game->player.movement.current_position.y \

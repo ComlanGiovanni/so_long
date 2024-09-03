@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:28:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/25 00:44:59 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 16:04:01 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -519,8 +519,11 @@ typedef	struct s_menu
 	t_button	levels_button;
 	t_button	main_menu_button;
 	t_button	quit_button;
+	void		*game_welcome;
+	void		*game_win;
+	void		*game_over;
 	int			selected_button;
-	int last_input_type;
+	//int			last_input_type;
 }t_menu;
 
 //can put all in a different struct like

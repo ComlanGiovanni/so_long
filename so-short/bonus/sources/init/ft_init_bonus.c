@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 01:20:05 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/25 00:45:11 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:16:28 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void	ft_init_camera(t_game *game)
 	game->camera.target.y = game->player.movement.current_position.y;
 	game->camera.shake_intensity = 0.0;
 	game->camera.shake_speed = 0.0;
-	//game->camera.lerp_speed = 0.0;
-	game->camera.lerp_speed = 0.02;
+	game->camera.lerp_speed = 0.01;
 }
 
 //make position offset ?

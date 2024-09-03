@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 01:18:15 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/23 11:06:34 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 16:48:58 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ void	ft_init_game(t_game *game, char *map_name)
 		ft_setup_map(game);
 		ft_print_map_info(game);
 		ft_dir_player_by_pos_exit_after_launch(game);
+		ft_map_fit_screen(game);
 		ft_create_window(game);
 		ft_init_hud_sprites_position(game);
 		ft_display_sprites_addr(game);
-		//ft_play_random_theme();
+		//game->menu.start_button.position.x = ((game->window.width / 2) - 131);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 01:22:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/22 18:24:19 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:20:56 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ void	ft_init_mouse(t_game *game)
 void	ft_create_window(t_game *game)
 {
 	ft_printf(SCREEN_SIZE_PRINT"[%d x %d]\n", \
-		game->screen.x, game->screen.y);
-	game->window.width = ((game->width * IMG_SIZE) / 2);
-	game->window.height = ((game->height * IMG_SIZE) / 2);
+		game->screen.y, game->screen.x);
+	game->window.width = ((game->width * IMG_SIZE) / 0x2);
+	game->window.height = ((game->height * IMG_SIZE) / 0x2);
 	ft_printf(WINDOW_SIZE_PRINT"[%d x %d]\n", \
 	game->window.height, game->window.width);
 	game->win = mlx_new_window(game->mlx, game->window.width,
 			game->window.height, GAME_TITLE);
 	if (game->win == NULL)
 		ft_print_error(MLX_WINDOW_ERROR, game);
-	game->key_collected = 0;
+	game->key_collected = 0x0;
 	ft_init_mouse(game);
 	game->state = STATE_MENU;
 }

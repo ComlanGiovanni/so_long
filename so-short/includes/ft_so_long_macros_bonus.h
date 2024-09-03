@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:25:57 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/21 14:04:16 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:35:43 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 # include "ft_so_long_macros_direction_bonus.h"
 
 # define BER_EXTENSION			".ber"
-# define FANTASTIC		 		0x4//0x
-# define COMPASS		 		0x8//0x
-# define PLAYER_MAX_LIFE	 	6
+# define FANTASTIC		 		0x4
+# define COMPASS		 		0x8
+# define PLAYER_MAX_LIFE	 	0x6
 # define DIGIT_COUNT		 	10
 # define ALPHABET_COUNT		 	26
 # define IMG_SIZE 				64
 # define ICON_SIZE 				32
-# define BORDERS_WIDTH 			10//put 20 to test
+# define BORDERS_WIDTH 			10
 # define PERMUTATION_SIZE 		256
 # define BIT_MASK_POSSIBILITY	0x10
 # define DISPLAY				"DISPLAY"

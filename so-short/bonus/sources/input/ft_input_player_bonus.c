@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 03:11:11 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/28 14:46:50 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/03 13:20:37 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void ft_restart_game(t_game *game)
 	//is it simple to free all and redo ? fo
 	//for simplicity ? but that look very dumb
 	system("pkill aplay > /dev/null 2>&1");
-	ft_printf("Restart game %s\n", game->map.map_name);
+	ft_printf("\nRestart game %s\n", game->map.map_name);
 	ft_free_pawns_array(game);
 	ft_reset_grid(game);
 	ft_init_fps(game);

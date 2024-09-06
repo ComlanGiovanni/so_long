@@ -6,96 +6,11 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 17:32:24 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/22 14:42:27 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/06 18:38:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long_bonus.h"
-
-const char	*get_fill_marsh_chars(void)
-{
-	static const char	fill_chars[] = {WATER_CHAR, GRASS_CHAR, FLOWER_CHAR,
-		TREE_CHAR, TREES_CHAR, REED_CHAR, ALGAE_CHAR, FUNGI_CHAR,
-		FUNGUS_CHAR, HUSKS_CHAR};
-
-	return (fill_chars);
-}
-
-const char	*get_fill_fen_chars(void)
-{
-	static const char	fill_chars[] = {WATER_CHAR, GRASS_CHAR,
-		FLOWER_CHAR, TREE_CHAR};
-
-	return (fill_chars);
-}
-
-const char	*get_fill_favorite_theme_chars(void)
-{
-	static const char	fill_chars[] = {WATER_CHAR, VOID_CHAR, GRASS_CHAR,
-		HEDGE_CHAR, BOG_CHAR, VOID_CHAR, VOID_CHAR};
-
-	return (fill_chars);
-}
-
-const char	*get_fill_beach_chars(void)
-{
-	static const char	fill_chars[] = {WATER_CHAR, GRASS_CHAR, \
-		CRAB_CHAR, SNAIL_CHAR};
-
-	return (fill_chars);
-}
-
-const char	*get_fill_water_chars(void)
-{
-	static const char	fill_chars[] = {WATER_CHAR};
-
-	return (fill_chars);
-}
-
-const char	*get_fill_grass_chars(void)
-{
-	static const char	fill_chars[] = {GRASS_CHAR};
-
-	return (fill_chars);
-}
-
-const char	*get_fill_swamp_chars(void)
-{
-	static const char	fill_chars[] = {TREE_CHAR, FOLIAGE_CHAR, PILLAR_CHAR, \
-		TREES_CHAR, FUNGUS_CHAR, FUNGI_CHAR};
-
-	return (fill_chars);
-}
-
-const char	*get_fill_versaille_chars(void)
-{
-	static const char	fill_chars[] = {FLOWER_CHAR, HEDGE_CHAR, \
-		BOG_CHAR, FLOWER_CHAR};
-
-	return (fill_chars);
-}
-
-const char	*get_fill_hedge_chars(void)
-{
-	static const char	fill_chars[] = {HEDGE_CHAR};
-
-	return (fill_chars);
-}
-
-const char	*get_fill_flower_chars(void)
-{
-	static const char	fill_chars[] = {FLOWER_CHAR};
-
-	return (fill_chars);
-}
-
-const char	*get_fill_forest_chars(void)
-{
-	static const char	fill_chars[] = {WATER_CHAR, GRASS_CHAR, \
-		TREE_CHAR, FOLIAGE_CHAR};
-
-	return (fill_chars);
-}
 
 void	ft_initialize_fill_chars(t_fill_char_state *state)
 {
@@ -119,13 +34,10 @@ void	ft_initialize_fill_chars(t_fill_char_state *state)
 
 char	ft_determine_fill_char(float noise_value, t_fill_char_state	state)
 {
-	//t_fill_char_state	state;
 	const char			*selected_fill_chars;
 	int					index;
 	float				range_size;
-	//pu the stae before filling and calling perlin
-	// noise to see if theme is good
-	//initialize_fill_chars(&state);
+
 	selected_fill_chars = state.selected_fill_chars;
 	range_size = 2.0 / state.selected_fill_chars_size;
 	if (noise_value < -1.0)

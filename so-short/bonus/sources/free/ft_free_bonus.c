@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 20:17:50 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/09/03 22:34:20 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/06 18:29:10 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
  *
  * 			//system("pkill vlc");
  * 			mlx_destroy_window(game->mlx, game->win);
+ * return (0x0);
  *
  * @param game
  * @return int
@@ -38,7 +39,6 @@ int	ft_exit_game(t_game *game)
 	system("pkill paplay > /dev/null 2>&1");
 	ft_ascii_exit();
 	ft_free_all(game);
-	//return (0x0);
 	exit(EXIT_SUCCESS);
 }
 
@@ -71,8 +71,6 @@ void	ft_win_game(t_game *game)
 	game->player.step++;
 	system("pkill paplay > /dev/null 2>&1");
 	ft_ascii_win(game);
-	//ft_free_all(game);
-	//exit(EXIT_SUCCESS);
 }
 
 /**
@@ -100,8 +98,6 @@ void	ft_lose_game(t_game *game)
 {
 	system("pkill paplay > /dev/null 2>&1");
 	ft_ascii_loose(game);
-	//ft_free_all(game);
-	//exit(EXIT_FAILURE);
 }
 
 /**

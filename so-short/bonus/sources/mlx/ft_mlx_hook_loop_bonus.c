@@ -6,14 +6,12 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:09:22 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/24 19:34:33 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/06 16:18:49 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long_bonus.h"
 
-int	ft_mouse_manager(int mouse_button_key_code, int x, int y, t_game *game)
-{
 	//ft_printf("cou%dcou\n", mouse_button_key_code);
 	// if (mouse_button_key_code == LINUX_MOUSE_LEFT_CLICK_KEY)
 	// {
@@ -33,6 +31,8 @@ int	ft_mouse_manager(int mouse_button_key_code, int x, int y, t_game *game)
 	// 			ft_exit_game(game);
 	// 	}
 	// }
+int	ft_mouse_manager(int mouse_button_key_code, int x, int y, t_game *game)
+{
 	if (mouse_button_key_code == LINUX_MOUSE_MIDDLE_CLICK_KEY)
 		game->mouse.button_name = MOUSE_MIDDLE_CLICK;
 	else if (mouse_button_key_code == LINUX_MOUSE_RIGHT_CLICK_KEY)

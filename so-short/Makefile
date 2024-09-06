@@ -6,7 +6,7 @@
 #    By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/20 03:25:21 by gicomlan          #+#    #+#              #
-#    Updated: 2024/09/03 22:40:21 by gicomlan         ###   ########.fr        #
+#    Updated: 2024/09/06 18:07:08 by gicomlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ BONUS_SUBDIRS			+= update
 BONUS_SUBDIRS			+= perlin-noise
 BONUS_SUBDIRS			+= math
 BONUS_SUBDIRS			+= menu
+BONUS_SUBDIRS			+= levels
 # -------------------------------------------------------------------------- []
 # 							   (Calculation of the total number of source files)
 #TOTAL_SRCS_FILES 	:= $(words $(BONUS_SRCS_FILES))----------------------------

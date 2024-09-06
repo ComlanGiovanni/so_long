@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:25:57 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/09/03 15:35:43 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/06 16:42:04 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@
 # define NEW_GRID_MSG			"\nNew grid with border for camera\n\n"
 # define A_STAR_LIST_FAIL		"Memory allocation failed for A* lists\n"
 # define NODE_INIT_FAIL			"Init start node for path finding failed\n"
+# define COPY_MAP_FAIL			"Original game did not copy\n"
 # define HOW_IS_POSSIBLE		"Too much pawn found ! Magic is happening\n"
 # define MAP_TOO_BIG			"Reduce map size, map too big for the screen\n"
 # define BAD_CHAR_MAP_ERROR		"Should contain char : '1' 'P' 'C' 'E' '0' 'L' \

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:28:13 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/09/03 16:04:01 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/06 18:44:13 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,17 +127,23 @@ struct						s_door
 	t_anim_door				open;
 };
 
-typedef struct s_love_icon
+struct						s_love_icon
 {
-	t_animation			animation;
-}t_love_icon;
+	t_animation				animation;
+};
 
+//void					*icon;
 struct						s_love
 {
 	t_animation				animation;
 	void					*nope;
 	t_love_icon				icon;
-	//void					*icon;
+};
+
+struct s_menu_state
+{
+	int						num_buttons;
+	void					(*button_actions[0x4])(t_game *);
 };
 
 struct						s_anim_player
@@ -331,7 +337,6 @@ struct						s_camera
 	double					shake_intensity;
 	double					shake_speed;
 	double					lerp_speed;
-	//double					angle;
 };
 
 struct						s_sprite_node
@@ -382,6 +387,12 @@ struct						s_lists
 	t_a_star_node			**closed;
 	int						open_count;
 	int						closed_count;
+};
+
+struct				s_button_info
+{
+	t_button				*button;
+	void					(*action)(t_game *);
 };
 
 struct						s_neighbor
@@ -499,7 +510,7 @@ struct						s_fill_char_state
 	int						selected_fill_chars_size;
 };
 
-typedef struct s_button
+struct						s_button
 {
 	void		*img_normal;
 	void		*img_hover;
@@ -508,10 +519,10 @@ typedef struct s_button
 	int			width;
 	int			height;
 	int			is_hovered;
-}			t_button;
+};
 
-
-typedef	struct s_menu
+//int			last_input_type;
+struct						s_menu
 {
 	t_button	start_button;
 	t_button	resume_button;
@@ -523,8 +534,7 @@ typedef	struct s_menu
 	void		*game_win;
 	void		*game_over;
 	int			selected_button;
-	//int			last_input_type;
-}t_menu;
+};
 
 //can put all in a different struct like
 //t_border border

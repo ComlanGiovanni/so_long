@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/09/04 16:01:43 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/06 18:50:59 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ void			ft_monster_animation(t_monster *monster);
 //============ [ file.c ]
 
 void			ft_generic_animation(t_animation *animation, int *frame);
-
+void			ft_life_management(t_game *game);
 //============ [ ft_animation_wall_bonus.c ]
 
 void			ft_wall_animation(t_game *game);
@@ -176,7 +176,7 @@ void			ft_pawn_animation(t_animation *animation);
 void			ft_lava_animation(t_animation *animation);
 void			ft_key_animation(t_animation *animation);
 void			ft_love_animation(t_animation *animation);
-void		ft_love_icon_animation(t_animation *animation);
+void			ft_love_icon_animation(t_animation *animation);
 
 //============ [ ft_camera_bonus.c  ]
 
@@ -315,8 +315,8 @@ void			ft_free_a_star_lists_nodes(t_a_star_node **open_list, \
 //============ [ ft_free_bonus.c ]
 
 int				ft_exit_game(t_game *game);
-void				ft_win_game(t_game *game);
-void				ft_lose_game(t_game *game);
+void			ft_win_game(t_game *game);
+void			ft_lose_game(t_game *game);
 void			ft_free_all(t_game *game);
 void			ft_free_mlx(t_game *game);
 
@@ -386,7 +386,6 @@ void			ft_move_monster_down(t_game *game, int row, int col);
 void			ft_move_monster_left(t_game *game, int row, int col);
 void			ft_move_monster_right(t_game *game, int row, int col);
 
-//============ [ file.c ]
 //============ [ ft_pawn_patrolling_utils_bonus.c ]
 
 int				ft_is_pawn_position_valid(t_game *game, t_point pos, \
@@ -486,10 +485,6 @@ void			ft_init_a_star_data(t_game *game, t_point *start, \
 void			ft_init_wall_bit_masking_frames(t_game *game);
 void			ft_init_wall_bit_masking(t_game *game, void **wall_sprites);
 
-//============ [ file.c ]
-
-void			ft_init_camera(t_game *game);
-
 //============ [ ft_init_bonus.c ]
 
 void			ft_init_camera(t_game *game);
@@ -497,6 +492,17 @@ void			ft_init_hud_sprites_position(t_game *game);
 void			ft_init_fps(t_game *game);
 void			ft_init_map_info(t_game *game, char *line);
 void			ft_init_game_info(t_game *game);
+
+//============ [ ft_init_button_menu_state_bonus.c ]
+
+void			ft_init_buttons_is_hovered(t_game *game);
+void			ft_init_buttons_size(t_game *game);
+void			ft_init_buttons_menu_state(t_button_info *button_states, \
+					t_game *game);
+void			ft_init_buttons_pause_state(t_button_info *button_states, \
+					t_game *game);
+void			ft_init_buttons_win_lose_state(t_button_info *button_states, \
+					t_game *game);
 
 //============ [ ft_init_frames_bonus.c ]
 
@@ -522,6 +528,7 @@ void			ft_init_odd_letter_images(t_game *game, void **letter_images);
 //============ [ ft_init_map_bonus.c ]
 
 void			ft_setup_map(t_game *game);
+char			**ft_copy_grid(char **src, int height, int width);
 void			ft_play_random_theme(void);
 
 //============ [ ft_init_map_info_bonus.c ]
@@ -554,6 +561,11 @@ void			ft_init_map_info(t_game *game, char *line);
 void			ft_init_monster_info(t_game *game);
 void			ft_check_map_argument(t_game *game, char *map_name);
 
+//============ [ ft_input_play_konami_bonus.c ]
+
+void			ft_trigger_konami_effect(t_game *game);
+void			ft_check_konami_code(t_game *game, int key_code);
+
 //============ [ ft_input_player_bonus.c ]
 
 int				ft_input_manager(int key_code, t_game *game);
@@ -578,6 +590,10 @@ void			ft_handle_box_movement(t_game *game, t_point next_position, \
 					char *next_tile);
 void			ft_deactivate_pawn_at_position(t_game *game, \
 					t_point next_position);
+
+//============ [ ft_levels_bonus.c ]
+
+void			ft_reset_grid(t_game *game);
 
 //============ [ ft_input_utils_bonus.c ]
 
@@ -682,6 +698,19 @@ void			ft_load_algae_sprites(t_game *game);
 void			ft_load_water_sprites(t_game *game);
 void			ft_load_crab_sprites(t_game *game);
 
+//============ [ ft_load_buttons_assets_bonus.c ]
+
+void			ft_load_state_title(t_game *game);
+void			ft_load_play_buttons_sprites(t_game *game);
+void			ft_load_play_levels_buttons_sprites(t_game *game);
+void			ft_load_exit_buttons_sprites(t_game *game);
+void			ft_load_resume_buttons_sprites(t_game *game);
+
+//============ [ ft_load_buttons_assets_one_bonus.c ]
+
+void			ft_load_restart_buttons_sprites(t_game *game);
+void			ft_load_return_main_menu_buttons_sprites(t_game *game);
+
 //============ [ file.c ]
 
 void			ft_load_digits_sprites(t_game *game);
@@ -771,7 +800,7 @@ void			ft_load_ground_sprites(t_game *game);
 void			ft_load_grass_sprites(t_game *game);
 void			ft_load_pawn_sprites(t_game *game);
 
-//============ [ file.c ]
+//============ [ ft_math_utils_zero_bonus.c ]
 
 float			ft_linear_interpolation(float interpolation_factor, \
 					float start, float end);
@@ -779,6 +808,38 @@ double			ft_sin(double x);
 double			ft_fmod(double x, double y);
 int				ft_absolute_value(int value);
 int				ft_manhattan_heuristic_distance(t_point a, t_point b);
+
+//============ [ ft_menu_system_action.c ]
+
+void			ft_restart_game(t_game *game);
+void			ft_start_game(t_game *game);
+void			ft_play_levels(t_game *game);
+void			ft_resume_game(t_game *game);
+void			ft_return_to_main_menu(t_game *game);
+
+//============ [ file.c ]
+
+void			ft_get_menu_state(t_game *game, t_menu_state *current_state);
+void			ft_update_selected_button(t_game *game, int key_code, \
+					int number_of_buttons);
+void			ft_menu_input_manager(t_game *game, int key_code);
+
+//============ [ ft_menu_system_draw_button_bonus.c ]
+
+void			ft_draw_button(t_game *game, t_button *button);
+void			ft_draw_main_menu(t_game *game);
+void			ft_draw_pause_menu(t_game *game);
+void			ft_draw_win_menu(t_game *game);
+void			ft_draw_game_over_menu(t_game *game);
+
+//============ [ file.c ]
+
+void			ft_check_mouse_hover(t_game *game);
+int				ft_is_mouse_over_button(t_button *button, int x, int y);
+void			ft_get_button_states(t_game *game, \
+					t_button_info *button_states, int *number_of_button);
+void			ft_handle_button_click(t_game *game, int button_index, \
+					t_button_info *button_states);
 
 //============ [ file.c ]
 
@@ -835,6 +896,26 @@ float			ft_fade(float relative_position_fade_factor);
 int				ft_floor(float value);
 float			ft_gradient(int hash, float x, float y);
 
+//============ [ ft_perlin_noise_theme_bonus.c ]
+
+const char		*get_fill_marsh_chars(void);
+const char		*get_fill_fen_chars(void);
+const char		*get_fill_favorite_theme_chars(void);
+const char		*get_fill_beach_chars(void);
+const char		*get_fill_water_chars(void);
+
+//============ [ ft_perlin_noise_theme_one_bonus.c ]
+
+const char		*get_fill_grass_chars(void);
+const char		*get_fill_swamp_chars(void);
+const char		*get_fill_versaille_chars(void);
+const char		*get_fill_hedge_chars(void);
+const char		*get_fill_flower_chars(void);
+
+//============ [ ft_perlin_noise_theme_two_bonus.c ]
+
+const char		*get_fill_forest_chars(void);
+
 //============ [ file.c ]
 
 void			ft_print_error(char *error_msg, t_game *game);
@@ -866,6 +947,14 @@ void			ft_ascii_loose(t_game *game);
 
 int				ft_update(t_game *game);
 void			ft_update_fps(t_game *game);
+
+//============ [ ft_update_loop_fonction_bonus.c ]
+
+void			ft_update_playing_state(t_game *game);
+void			ft_update_win_lose_state(t_game *game);
+void			ft_update_menu_state(t_game *game);
+void			ft_update_pause_state(t_game *game);
+void			ft_update_game_elements(t_game *game);
 
 //============ [ ft_update_utils_bonus.c ]
 

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 12:12:44 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/24 20:25:43 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/06 18:44:45 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,13 @@ typedef struct s_animation				t_animation;
 typedef struct s_a_star_node			t_a_star_node;
 typedef struct s_sprite_node			t_sprite_node;
 typedef struct s_perlin_vars			t_perlin_vars;
+typedef struct s_love_icon				t_love_icon;
+typedef struct s_button					t_button;
+typedef struct s_menu					t_menu;
+typedef struct s_button_info			t_button_info;
 typedef struct s_anim_player			t_anim_player;
 typedef struct s_hud_position			t_hud_position;
+typedef struct s_menu_state				t_menu_state;
 typedef struct s_anim_monster			t_anim_monster;
 typedef struct s_direction_map			t_direction_map;
 typedef struct s_pawn_movement			t_pawn_movement;

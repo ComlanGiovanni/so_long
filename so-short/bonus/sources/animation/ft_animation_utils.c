@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:56:07 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/20 19:57:42 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/06 18:26:43 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,12 @@ void	ft_generic_animation(t_animation *animation, int *frame)
 	else
 		*frame = 0x0;
 	(*frame)++;
+}
+
+void	ft_life_management(t_game *game)
+{
+	if (game->player.life == PLAYER_MAX_LIFE)
+		game->love.animation.current = game->love.nope;
+	else
+		ft_love_animation(&game->love.animation);
 }

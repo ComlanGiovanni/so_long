@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:20 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/22 20:58:52 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/06 19:04:27 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ enum e_game_state
 enum	e_key_code
 {
 	LINUX_CLOSE_ICON = 17,
+	LINUX_ENTER_KEY = 65293,
 	LINUX_ESC_KEY = 65307,
 	LINUX_KEY_PRESS = 2,
 	LINUX_KEY_RELEASE = 3,
 	LINUX_W_KEY = 119,
 	LINUX_A_KEY = 97,
+	LINUX_B_KEY = 98,
 	LINUX_S_KEY = 115,
 	LINUX_D_KEY = 100,
 	LINUX_UP_ARROW_KEY = 65362,

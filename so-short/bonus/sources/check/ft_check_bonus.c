@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:30:10 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/09/03 15:20:06 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/06 18:28:19 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	ft_map_fit_screen(t_game *game)
 	game->screen.x = 0x0;
 	game->screen.y = 0x0;
 	mlx_get_screen_size(game->mlx, &game->screen.x, &game->screen.y);
-	if ( game->map.size.x > 59 || game->map.size.y > 32)
-			ft_print_error(MAP_TOO_BIG, game);
+	if (game->map.size.x > 59 || game->map.size.y > 32)
+		ft_print_error(MAP_TOO_BIG, game);
 }
 
 /**

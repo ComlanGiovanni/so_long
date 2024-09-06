@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 03:21:59 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/09/03 22:34:20 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/06 18:29:58 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_move_box(t_game *game, t_point new_pos, int dir_y, int dir_x)
 		game->map.grid[new_pos.y][new_pos.x] = VOID_CHAR;
 		game->map.grid[new_pos.y + dir_y][new_pos.x + dir_x] = VOID_CHAR;
 		system("paplay sounds/special-effects/box_destroyed.wav \
-			> /dev/null 2>&1 &");;
+			> /dev/null 2>&1 &");
 	}
 	if (next_tile == VOID_CHAR && (next_tile != LOVE_CHAR
 			&& next_tile != EXIT_CHAR && next_tile != KEY_CHAR))

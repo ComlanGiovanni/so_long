@@ -6,7 +6,7 @@
 #    By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/20 03:31:05 by gicomlan          #+#    #+#              #
-#    Updated: 2024/08/07 00:23:15 by gicomlan         ###   ########.fr        #
+#    Updated: 2024/09/06 16:47:00 by gicomlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ SRC = 	ft_strlen.c \
 		ft_memset.c \
 		ft_bzero.c \
 		ft_calloc.c \
+		ft_memcpy.c \
+		ft_strlcpy.c \
 		../get_next_line/get_next_line.c \
 		../get_next_line/get_next_line_utils.c \
 		../ft_printf/ft_printf.c \

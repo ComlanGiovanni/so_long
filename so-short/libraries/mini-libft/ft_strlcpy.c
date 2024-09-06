@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_levels_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/26 23:46:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/09/06 18:25:30 by gicomlan         ###   ########.fr       */
+/*   Created: 2024/09/06 16:45:04 by gicomlan          #+#    #+#             */
+/*   Updated: 2024/09/06 16:46:28 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_so_long_bonus.h"
+#include "libft.h"
 
-//t_point
-void	ft_reset_grid(t_game *game)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int	x;
-	int	y;
+	size_t	src_len;
 
-	x = 0x0;
-	y = 0x0;
-	while (y < game->map.size.y)
+	src_len = ft_strlen((char *)src);
+	if ((src_len + 0x1) < size)
+		ft_memcpy(dst, src, (src_len + 0x1));
+	else if (size != 0x0)
 	{
-		x = 0x0;
-		while (x < game->map.size.x)
-		{
-			game->map.grid[y][x] = game->map.original[y][x];
-			x++;
-		}
-		y++;
+		ft_memcpy(dst, src, (size - 0x1));
+		dst[size - 0x1] = 0x0;
 	}
+	return (src_len);
 }

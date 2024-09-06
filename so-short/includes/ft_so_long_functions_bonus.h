@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 04:24:23 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/28 12:50:59 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:01:43 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -547,6 +547,7 @@ void			ft_initialize_pawn(t_game *game, \
 
 //============ [ file.c ]
 
+void			ft_init_menu_buttons_position(t_game *game);
 void			ft_init_game(t_game *game, char *map_name);
 void			ft_init_player_info(t_game *game);
 void			ft_init_map_info(t_game *game, char *line);

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 02:10:08 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/09/03 22:57:54 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:50:49 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,40 +106,31 @@ void	ft_load_return_main_menu_buttons_sprites(t_game *game)
 		PATH_ASSET"menu/main/return_to_main_menu_clicked.xpm");
 }
 
-// void	ft_init_menu_buttons_position(t_game *game)
-// {
-// 	game->menu.selected_button = 0x0;
-// 	game->menu.start_button.position.x = 0x0;
-// 	game->menu.start_button.position.y = 400;
-// 	game->menu.start_button.width = 238;
-// 	game->menu.start_button.height = 20;
-// 	game->menu.start_button.is_hovered = 0;
-// 	game->menu.levels_button.position.x = 300;
-// 	game->menu.levels_button.position.y = 500;
-// 	game->menu.levels_button.width = 238;
-// 	game->menu.levels_button.height = 20;
-// 	game->menu.levels_button.is_hovered = 0;
-// 	game->menu.quit_button.position.x = 300;
-// 	game->menu.quit_button.position.y = 600;
-// 	game->menu.quit_button.width = 238;
-// 	game->menu.quit_button.height = 20;
-// 	game->menu.quit_button.is_hovered = 0;
-// 	game->menu.resume_button.position.x = 300;
-// 	game->menu.resume_button.position.y = 450;
-// 	game->menu.resume_button.width = 238;
-// 	game->menu.resume_button.height = 20;
-// 	game->menu.resume_button.is_hovered = 0;
-// 	game->menu.restart_button.position.x = 300;
-// 	game->menu.restart_button.position.y = 500;
-// 	game->menu.restart_button.width = 238;
-// 	game->menu.restart_button.height = 20;
-// 	game->menu.restart_button.is_hovered = 0;
-// 	game->menu.main_menu_button.position.x = 300;
-// 	game->menu.main_menu_button.position.y = 550;
-// 	game->menu.main_menu_button.width = 238;
-// 	game->menu.main_menu_button.height = 20;
-// 	game->menu.main_menu_button.is_hovered = 0;
-// }
+void	ft_init_buttons_is_hovered(t_game *game)
+{
+	game->menu.start_button.is_hovered = 0;
+	game->menu.levels_button.is_hovered = 0;
+	game->menu.quit_button.is_hovered = 0;
+	game->menu.resume_button.is_hovered = 0;
+	game->menu.main_menu_button.is_hovered = 0;
+	game->menu.restart_button.is_hovered = 0;
+}
+
+void	ft_init_button_size(t_game *game)
+{
+	game->menu.start_button.width = 238;
+	game->menu.start_button.height = 20;
+	game->menu.quit_button.width = 238;
+	game->menu.quit_button.height = 20;
+	game->menu.restart_button.width = 238;
+	game->menu.restart_button.height = 20;
+	game->menu.main_menu_button.width = 238;
+	game->menu.main_menu_button.height = 20;
+	game->menu.resume_button.width = 238;
+	game->menu.resume_button.height = 20;
+	game->menu.levels_button.width = 238;
+	game->menu.levels_button.height = 20;
+}
 
 void	ft_load_buttons_sprites(t_game *game)
 {
@@ -149,63 +140,9 @@ void	ft_load_buttons_sprites(t_game *game)
 	ft_load_restart_buttons_sprites(game);
 	ft_load_resume_buttons_sprites(game);
 	ft_load_return_main_menu_buttons_sprites(game);
-
-
-
-//return to main menu
-
-	game->menu.selected_button = 0;
-	// Start Button
-	//game->menu.start_button.img_normal = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/play/play_the_game.xpm", &width, &height);
-	//game->menu.start_button.img_hover = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/play/play_the_game_hover.xpm", &width, &height);
-	//game->menu.start_button.img_clicked = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/play/play_the_game_clicked.xpm", &width, &height);
-	game->menu.start_button.position.x = 0;//put that shit in init
-	game->menu.start_button.position.y = 400;//put that shit in init
-	game->menu.start_button.width = 238; //custom load ? that take the address of width
-	game->menu.start_button.height = 20; //custom load ? that take the address of width
-	game->menu.start_button.is_hovered = 0;
-	// Levels Button
-	//game->menu.levels_button.img_normal = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/levels/play_levels.xpm", &width, &height);
-	//game->menu.levels_button.img_hover = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/levels/play_levels_hover.xpm", &width, &height);
-	//game->menu.levels_button.img_clicked = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/levels/play_levels_clicked.xpm", &width, &height);
-	game->menu.levels_button.position.x = 300;//put that shit in init
-	game->menu.levels_button.position.y = 500;//put that shit in init
-	game->menu.levels_button.width = 238; //custom load ? that take the address of width
-	game->menu.levels_button.height = 20; //custom load ? that take the address of width
-	game->menu.levels_button.is_hovered = 0;
-	// Quit Button
-	//game->menu.quit_button.img_normal = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/exit/exit_the_game.xpm", &width, &height);
-	//game->menu.quit_button.img_hover = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/exit/exit_the_game_hover.xpm", &width, &height);
-	//game->menu.quit_button.img_clicked = mlx_xpm_file_to_image(game->mlx, PATH_ASSET"menu/exit/exit_the_game_clicked.xpm", &width, &height);
-	game->menu.quit_button.position.x = 300;//put that shit in init
-	game->menu.quit_button.position.y = 600;//put that shit in init
-	game->menu.quit_button.width = 238; //custom load ? that take the address of width
-	game->menu.quit_button.height = 20; //custom load ? that take the address of width
-	game->menu.quit_button.is_hovered = 0;
-//start 0
-//level 1
-//resume;2
-//restart 3
-//mainmenu 4
-//exit 5
-	game->menu.resume_button.position.x = 300;//put that shit in init
-	game->menu.resume_button.position.y = 450;//put that shit in init
-	game->menu.resume_button.width = 238; //custom load ? that take the address of width
-	game->menu.resume_button.height = 20; //custom load ? that take the address of width
-	game->menu.resume_button.is_hovered = 0;
-
-	game->menu.restart_button.position.x = 300;//put that shit in init
-	game->menu.restart_button.position.y = 500;//put that shit in init
-	game->menu.restart_button.width = 238; //custom load ? that take the address of width
-	game->menu.restart_button.height = 20; //custom load ? that take the address of width
-	game->menu.restart_button.is_hovered = 0;
-
-	game->menu.main_menu_button.position.x = 300;//put that shit in init
-	game->menu.main_menu_button.position.y = 550;//put that shit in init
-	game->menu.main_menu_button.width = 238; //custom load ? that take the address of width
-	game->menu.main_menu_button.height = 20; //custom load ? that take the address of width
-	game->menu.main_menu_button.is_hovered = 0;
-	//need to free by adding in node mistake was made at the start of the projet
+	ft_init_buttons_is_hovered(game);
+	ft_init_button_size(game);
+	//ft_init_menu_buttons_position(game);
 }
 
 void	ft_load_sprites(t_game *game)

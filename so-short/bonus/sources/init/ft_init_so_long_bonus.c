@@ -6,11 +6,28 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 01:18:15 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/09/03 16:48:58 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:13:11 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long_bonus.h"
+
+void	ft_init_menu_buttons_position(t_game *game)
+{
+	game->menu.selected_button = 0x0;
+	game->menu.start_button.position.x = ((game->window.width / 2) - 131);
+	game->menu.start_button.position.y = 400;
+	game->menu.levels_button.position.x = ((game->window.width / 2) - 131);
+	game->menu.levels_button.position.y = 500;
+	game->menu.quit_button.position.x = 0x0;
+	game->menu.quit_button.position.y = 600;
+	game->menu.resume_button.position.x = ((game->window.width / 2) - 142);
+	game->menu.resume_button.position.y = 450;
+	game->menu.restart_button.position.x = ((game->window.width / 2) - 142);
+	game->menu.restart_button.position.y = 500;
+	game->menu.main_menu_button.position.x = ((game->window.width / 2) - 142);
+	game->menu.main_menu_button.position.y = 550;
+}
 
 void	ft_init_game(t_game *game, char *map_name)
 {
@@ -34,7 +51,7 @@ void	ft_init_game(t_game *game, char *map_name)
 		ft_create_window(game);
 		ft_init_hud_sprites_position(game);
 		ft_display_sprites_addr(game);
-		//game->menu.start_button.position.x = ((game->window.width / 2) - 131);
+		ft_init_menu_buttons_position(game);
 	}
 }
 

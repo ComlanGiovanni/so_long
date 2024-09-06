@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Dimensions de la carte
-width=10
-height=10
+width=39
+height=12
 
 # Crée un fichier vide map.ber
 map_file="maze.ber"

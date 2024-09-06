@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 17:39:28 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/09/06 19:11:20 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/07 00:08:15 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_update_pause_state(t_game *game)
 
 void	ft_update_game_elements(t_game *game)
 {
-	if (game->map.info.nbr_pawn && game->fps.elapsed_time >= 1.0)
+	if ((game->map.info.nbr_pawn || game->map.info.nbr_monster) && game->fps.elapsed_time >= 1.0)
 	{
 		if (game->fps.last_time.tv_sec % 0x2)
 			system("paplay sounds/special-effects/clock_tic.wav > \

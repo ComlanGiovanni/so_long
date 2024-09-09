@@ -6,7 +6,7 @@
 #    By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/20 03:25:21 by gicomlan          #+#    #+#              #
-#    Updated: 2024/09/06 18:07:08 by gicomlan         ###   ########.fr        #
+#    Updated: 2024/09/09 17:51:15 by gicomlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,8 +78,147 @@ MANDATORY_SRCS_FILES	= mandatory/main.c \
 						mandatory/sources/ft_tools_linux.c \
 						mandatory/sources/ft_utils_map_finishable.c
 
-BONUS_SRCS_FILES		+= $(BONUS_DIR)main.c
-BONUS_SRCS_FILES		+= $(foreach dir,$(BONUS_SUBDIRS),$(shell find $(BONUS_PATH)$(dir) -name '*.c'))
+#BONUS_SRCS_FILES		+= $(BONUS_DIR)main.c
+#BONUS_SRCS_FILES		+= $(foreach dir,$(BONUS_SUBDIRS),$(shell find $(BONUS_PATH)$(dir) -name '*.c'))
+BONUS_SRCS_FILES	+= $(BONUS_DIR)main.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_alphabet_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_border_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_border_one_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_border_three_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_border_two_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_digits_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_door_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_even_alphabet_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_even_alphabet_one_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_even_alphabet_two_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_even_digits_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_gameplay_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_odd_alphabet_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_odd_alphabet_one_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_odd_alphabet_two_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_odd_digits_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_player_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_utils.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_wall_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_wall_utils_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_wall_utils_one_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_wall_utils_tree_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_wall_utils_two_bonus.c \
+                    $(BONUS_DIR)sources/animation/ft_animation_world_bonus.c \
+                    $(BONUS_DIR)sources/camera/ft_camera_bonus.c \
+                    $(BONUS_DIR)sources/check/ft_check_bonus.c \
+                    $(BONUS_DIR)sources/check/ft_check_utils_bonus.c \
+                    $(BONUS_DIR)sources/debug/ft_debug_utils_one.c \
+                    $(BONUS_DIR)sources/display/ft_display_assets_bonus.c \
+                    $(BONUS_DIR)sources/display/ft_display_assets_borders_bonus.c \
+                    $(BONUS_DIR)sources/display/ft_display_assets_borders_one_bonus.c \
+                    $(BONUS_DIR)sources/display/ft_display_assets_borders_tree_bonus.c \
+                    $(BONUS_DIR)sources/display/ft_display_assets_borders_two_bonus.c \
+                    $(BONUS_DIR)sources/display/ft_display_assets_enemies_bonus.c \
+                    $(BONUS_DIR)sources/display/ft_display_assets_gameplay_bonus.c \
+                    $(BONUS_DIR)sources/display/ft_display_assets_gameplay_one_bonus.c \
+                    $(BONUS_DIR)sources/display/ft_display_assets_one_bonus.c \
+                    $(BONUS_DIR)sources/display/ft_display_assets_player_bonus.c \
+                    $(BONUS_DIR)sources/display/ft_display_assets_utils_bonus.c \
+                    $(BONUS_DIR)sources/display/ft_display_assets_utils_one_bonus.c \
+                    $(BONUS_DIR)sources/display/ft_display_assets_wall_bit_mask_bonus.c \
+                    $(BONUS_DIR)sources/display/ft_display_keke_assets_bonus.c \
+                    $(BONUS_DIR)sources/free/ft_free_a_star_utils_bonus.c \
+                    $(BONUS_DIR)sources/free/ft_free_bonus.c \
+                    $(BONUS_DIR)sources/free/ft_free_parsing_bonus.c \
+                    $(BONUS_DIR)sources/free/ft_free_utils_bonus.c \
+                    $(BONUS_DIR)sources/gameplay/ft_monster_a_star_bonus.c \
+                    $(BONUS_DIR)sources/gameplay/ft_monster_a_star_one_utils_bonus.c \
+                    $(BONUS_DIR)sources/gameplay/ft_monster_a_star_utils_bonus.c \
+                    $(BONUS_DIR)sources/gameplay/ft_monster_behaviour_bonus.c \
+                    $(BONUS_DIR)sources/gameplay/ft_monster_behaviour_utils_bonus.c \
+                    $(BONUS_DIR)sources/gameplay/ft_monster_event_bonus.c \
+                    $(BONUS_DIR)sources/gameplay/ft_monster_movement.c \
+                    $(BONUS_DIR)sources/gameplay/ft_pawn_patrolling.c \
+                    $(BONUS_DIR)sources/gameplay/ft_pawn_patrolling_utils_bonus.c \
+                    $(BONUS_DIR)sources/gameplay/ft_pawn_patrolling_utils_one_bonus.c \
+                    $(BONUS_DIR)sources/gameplay/ft_pawn_patrolling_utils_tree_bonus.c \
+                    $(BONUS_DIR)sources/gameplay/ft_pawn_patrolling_utils_two_bonus.c \
+                    $(BONUS_DIR)sources/gameplay/ft_player_behaviour_bonus.c \
+                    $(BONUS_DIR)sources/gameplay/ft_player_event_bonus.c \
+                    $(BONUS_DIR)sources/hud/ft_hud_bonus.c \
+                    $(BONUS_DIR)sources/hud/ft_hud_utils_bonus.c \
+                    $(BONUS_DIR)sources/init/ft_init_a_star_bonus.c \
+                    $(BONUS_DIR)sources/init/ft_init_bit_masking_frames.c \
+                    $(BONUS_DIR)sources/init/ft_init_bonus.c \
+                    $(BONUS_DIR)sources/init/ft_init_buttons_menu_state_bonus.c \
+                    $(BONUS_DIR)sources/init/ft_init_frames_bonus.c \
+                    $(BONUS_DIR)sources/init/ft_init_frames_one_bonus.c \
+                    $(BONUS_DIR)sources/init/ft_init_hud_bonus.c \
+                    $(BONUS_DIR)sources/init/ft_init_map_bonus.c \
+                    $(BONUS_DIR)sources/init/ft_init_map_info_bonus.c \
+                    $(BONUS_DIR)sources/init/ft_init_mlx_bonus.c \
+                    $(BONUS_DIR)sources/init/ft_init_pawn_bonus.c \
+                    $(BONUS_DIR)sources/init/ft_init_so_long_bonus.c \
+                    $(BONUS_DIR)sources/input/ft_input_player_bonus.c \
+                    $(BONUS_DIR)sources/input/ft_input_player_gameplay_bonus.c \
+                    $(BONUS_DIR)sources/input/ft_input_player_utils_bonus.c \
+                    $(BONUS_DIR)sources/input/ft_input_play_konami_bonus.c \
+                    $(BONUS_DIR)sources/input/ft_input_utils_bonus.c \
+                    $(BONUS_DIR)sources/levels/ft_levels_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_alphabet_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_alphabet_even_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_alphabet_even_one_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_alphabet_even_two_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_alphabet_odd_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_alphabet_odd_one_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_alphabet_odd_two_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_assets_utils_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_border_four_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_border_one_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_border_tree_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_border_two_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_buttons_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_buttons_assets_one_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_digits_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_door_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_even_digits_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_gameplay_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_gameplay_portal_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_monster_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_odd_digts_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_player_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_wall_direction_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_wall_no_plus_all_direction_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_wall_north_direction_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_wall_north_tree_direction_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_wall_south_direction_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_wall_west_direction_assets_bonus.c \
+                    $(BONUS_DIR)sources/load/ft_load_world_assets_bonus.c \
+                    $(BONUS_DIR)sources/math/ft_math_utils_one_bonus.c \
+                    $(BONUS_DIR)sources/math/ft_math_utils_zero_bonus.c \
+                    $(BONUS_DIR)sources/menu/ft_menu_system_action_bonus.c \
+                    $(BONUS_DIR)sources/menu/ft_menu_system_bonus.c \
+                    $(BONUS_DIR)sources/menu/ft_menu_system_draw_button_bonus.c \
+                    $(BONUS_DIR)sources/menu/ft_menu_system_mouse_bonus.c \
+                    $(BONUS_DIR)sources/mlx/ft_mlx_hook_loop_bonus.c \
+                    $(BONUS_DIR)sources/parsing/ft_parsing_bonus.c \
+                    $(BONUS_DIR)sources/parsing/ft_parsing_border_map_bonus.c \
+                    $(BONUS_DIR)sources/parsing/ft_parsing_utils_bonus.c \
+                    $(BONUS_DIR)sources/path-founding/ft_path_founding_bonus.c \
+                    $(BONUS_DIR)sources/path-founding/ft_path_founding_utils_bonus.c \
+                    $(BONUS_DIR)sources/perlin-noise/ft_perlin_noise_bonus.c \
+                    $(BONUS_DIR)sources/perlin-noise/ft_perlin_noise_borders_fill_bonus.c \
+                    $(BONUS_DIR)sources/perlin-noise/ft_perlin_noise_theme_bonus.c \
+                    $(BONUS_DIR)sources/perlin-noise/ft_perlin_noise_theme_one_bonus.c \
+                    $(BONUS_DIR)sources/perlin-noise/ft_perlin_noise_theme_two_bonus.c \
+                    $(BONUS_DIR)sources/perlin-noise/ft_perlin_noise_utils_bonus.c \
+                    $(BONUS_DIR)sources/perlin-noise/ft_perlin_noise_utils_math__bonus.c \
+                    $(BONUS_DIR)sources/printing/ft_print_bonus.c \
+                    $(BONUS_DIR)sources/printing/ft_print_console_bonus.c \
+                    $(BONUS_DIR)sources/printing/ft_print_console_one_bonus.c \
+                    $(BONUS_DIR)sources/printing/ft_print_game_state_bonus.c \
+                    $(BONUS_DIR)sources/update/ft_update_bonus.c \
+                    $(BONUS_DIR)sources/update/ft_update_loop_fonction_bonus.c \
+                    $(BONUS_DIR)sources/update/ft_update_utils_bonus.c
+
 # ---------------------------------------------------------------- [ OBJECTS ]
 #OBJS_MANDATORY			= $(patsubst $(MANDATORY_DIR)%.c,$(MANDATORY_OBJS_DIR)%.o,$(MANDATORY_SRCS_FILES))
 OBJS_MANDATORY			= $(MANDATORY_SRCS_FILES:mandatory/%.c=objects/mandatory/%.o)

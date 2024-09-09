@@ -3,27 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 01:52:44 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/07/31 00:20:25 by gcomlan          ###   ########.fr       */
+/*   Updated: 2024/09/09 17:07:59 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc_linux/so_long_bonus_linux.h"
 
 /**
- * @brief 
- * 
+ * @brief
+ *
  * 	Free of last minutes, need to read the project again for better free fct
  * 	we need to free all the image load in sprites before so we check and free
  * 	then the map in str (alway check if exist)
  * 	then we destroy the game (mlx, win)
  * 	then the display (mlx)
  * 	and at the end we need to free the mlx and the game we malloc in the main
- * 
- * 
- * @param game 
+ *
+ *
+ * @param game
  */
 void	ft_free_all(t_game *game)
 {
@@ -38,8 +38,7 @@ void	ft_free_all(t_game *game)
 		mlx_destroy_display(game->mlx);
 	if (game->mlx)
 		free(game->mlx);
-	if (game)
-		free(game);
+	free(game);
 }
 
 void	ft_free_player(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 20:17:50 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/09/06 18:29:10 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:09:46 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,16 +115,20 @@ void	ft_lose_game(t_game *game)
  */
 void	ft_free_all(t_game *game)
 {
-	mlx_loop_end(game->mlx);
-	ft_free_pawns_array(game);
-	ft_free_sprites_list(&game->node, game->mlx);
-	if (game->map.map_str)
-		free(game->map.map_str);
-	if (game->map.grid)
-		ft_clean_grid_map(game->map.grid, game->height);
-	if (game->map.original)
-		ft_clean_grid_map(game->map.original, game->height);
-	ft_free_mlx(game);
+	if (game)
+	{
+		if (game->mlx)
+			mlx_loop_end(game->mlx);
+		ft_free_pawns_array(game);
+		ft_free_sprites_list(&game->node, game->mlx);
+		if (game->map.map_str)
+			free(game->map.map_str);
+		if (game->map.grid)
+			ft_clean_grid_map(game->map.grid, game->height);
+		if (game->map.original)
+			ft_clean_grid_map(game->map.original, game->height);
+		ft_free_mlx(game);
+	}
 }
 
 void	ft_free_mlx(t_game *game)

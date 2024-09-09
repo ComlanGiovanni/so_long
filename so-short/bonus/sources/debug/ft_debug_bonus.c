@@ -6,8 +6,9 @@
 /*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 23:34:16 by gicomlan          #+#    #+#             */
-/*   Updated: 2024/08/02 13:14:00 by gicomlan         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:28:39 by gicomlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long_bonus.h"
+egrhthrth
